@@ -14,7 +14,7 @@ public class MainMenuController : MonoBehaviour
     public Action OnOptionButtonPressed;
     public Action OnEnyclopediaButtonPressed;
 
-    private void Start()
+    private void Awake()
     {
         startButton.onClick.AddListener(StartButtonPressed);
         optionButton.onClick.AddListener(OptionButtonPressed);
