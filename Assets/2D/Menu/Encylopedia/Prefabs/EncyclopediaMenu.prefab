@@ -714,8 +714,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2296467362658314648}
   m_HandleRect: {fileID: 8377198513576708133}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2356684643225533}
   m_HandleRect: {fileID: 4959155758464491190}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1912,11 +1912,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellsPanelButton: {fileID: 6247610318514763175}
   pathogenPanelButton: {fileID: 4438263729610298072}
+  gridPrefab: {fileID: 7898455064023922582, guid: c81804e20bdb4d44798d3c710e5d2ab7, type: 3}
   viewContent: {fileID: 8709800957945955078}
   unitNameText: {fileID: 7362101273242317642}
   unitImage: {fileID: 4418844112289113055}
   unitDescriptionText: {fileID: 1563109728340908561}
   returnButton: {fileID: 218256286432730512}
+  placeholderDataTest:
+  - {fileID: 11400000, guid: b7f8608d0d264184c94442f7f612632e, type: 2}
+  - {fileID: 11400000, guid: e84d31d55916d994ebee4dd64aa9f247, type: 2}
+  - {fileID: 11400000, guid: e5b02841fb2f2a546a095be8775cbf3b, type: 2}
+  - {fileID: 11400000, guid: dcc401b9a0461bb42bd1b41bb76e9fc4, type: 2}
+  - {fileID: 11400000, guid: 82bc43a241cf1f44eb5923c4e9f5e3c8, type: 2}
 --- !u!1 &4885333298166531049
 GameObject:
   m_ObjectHideFlags: 0
