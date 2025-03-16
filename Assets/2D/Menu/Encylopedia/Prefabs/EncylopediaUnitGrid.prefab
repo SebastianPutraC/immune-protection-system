@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 7206763888041925807}
   - component: {fileID: 7898455064023922582}
   m_Layer: 5
-  m_Name: EncylopediaUnit
+  m_Name: EncylopediaUnitGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

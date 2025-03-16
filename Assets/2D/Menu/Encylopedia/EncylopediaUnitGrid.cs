@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using System;
 
-public class EncylopediaUnit : MonoBehaviour, IPointerUpHandler
+public class EncylopediaUnitGrid : MonoBehaviour, IPointerUpHandler
 {
     [SerializeField] private Image unitImage;
     [SerializeField] private TextMeshProUGUI unitNameText;
