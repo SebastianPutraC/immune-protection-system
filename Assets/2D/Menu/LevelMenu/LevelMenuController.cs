@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelMenuController : MonoBehaviour
 {
@@ -7,9 +9,18 @@ public class LevelMenuController : MonoBehaviour
 
     [SerializeField] private List<LevelInfo> levelInfos;
     [SerializeField] private LevelButton buttonPrefab;
-    private List<LevelButton> activeLevelButtons;
+    private List<LevelButton> activeLevelButtons = new List<LevelButton>();
 
-    private void InitializeLevelMenu(bool[] unlockedLevel)
+    [SerializeField] private Button returnButton;
+
+    public Action ReturnButtonPressed;
+
+    private void Awake()
+    {
+        returnButton.onClick.AddListener(OnReturnButtonPressed);
+    }
+
+    public void InitializeLevelMenu(bool[] unlockedLevel)
     {
         for (int i = 0; i < unlockedLevel.Length; i++)
         {
@@ -44,12 +55,17 @@ public class LevelMenuController : MonoBehaviour
         Debug.Log("Playing Level : " + levelInfo.levelName);
     }
 
+    private void OnReturnButtonPressed()
+    {
+        ReturnButtonPressed?.Invoke();
+    }
     private void OnDisable()
     {
         ClearLevelButton();
     }
     private void OnDestroy()
     {
+        returnButton.onClick.RemoveListener(OnReturnButtonPressed);
         ClearLevelButton();
     }
 }
