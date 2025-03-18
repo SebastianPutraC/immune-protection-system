@@ -1,0 +1,13 @@
+public enum UnitId
+{
+    NONE = 0,
+    MACROPHAGE = 101,
+    NEUTROPHIL = 102,
+    EOSINOPHIL = 103,
+    PLASMACELL = 104,
+
+
+    INFLUENZAVIRUS = 201,
+    SALMONELLA = 202,
+    PLATYHELMINTHES = 203
+}

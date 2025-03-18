@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuController : MonoBehaviour
@@ -5,6 +6,10 @@ public class MenuController : MonoBehaviour
     [SerializeField] private MainMenuController mainMenu;
     [SerializeField] private OptionMenuController optionMenu;
     [SerializeField] private EncyclopediaMenuController encyclopediaMenu;
+
+
+    //PLACEHOLDER
+    [SerializeField] private List<EncylopediaUnit> placeholderDataTest = new List<EncylopediaUnit>();
 
     private void Awake()
     {
@@ -46,6 +51,7 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         encyclopediaMenu.gameObject.SetActive(true);
+        encyclopediaMenu.InitializeUnits(placeholderDataTest);
     }
     private void OnDestroy()
     {
