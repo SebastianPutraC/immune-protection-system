@@ -22,6 +22,16 @@ public class LevelButton : MonoBehaviour
         this.levelInfo = info;
         levelText.text = levelInfo.name;
     }
+
+    public void LockedLevel()
+    {
+        this.levelButton.interactable = false;
+    }
+    public void UnlockedLevel()
+    {
+        this.levelButton.interactable = true;
+    }
+
     private void OnClick()
     {
         buttonClicked?.Invoke(this.levelInfo);
