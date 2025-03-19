@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: Influenzavirus
   UnitHp: 80
-  UnitAtk: 20
   UnitCost: 75
+  UnitSpeed: 4
+  attackType: 1
+  UnitAtk: 20
+  UnitAtkSpeed: 1
+  UnitXRange: 0.9
+  UnitYRange: 0.2
+  UnitRangedAtk: 0
+  unitRangedAtkSpeed: 0
+  unitRangedXRange: 0
+  unitRangedYRange: 0
+  rangedProjectile: {fileID: 0}
   UnitDesc: Influenza is perhaps the most familiar respiratory infection in the world.
     The symptoms of the flu are similar to those of the common cold, but can cause
     fever, headache, fatigue,  sore throat, and dry cough.
-  UnitSprite: {fileID: 0}
+  UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
