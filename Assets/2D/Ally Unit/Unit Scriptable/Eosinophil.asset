@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3e95ddea1bf9e438460d43bcea271e, type: 3}
+  m_Name: Eosinophil
+  m_EditorClassIdentifier: 
+  UnitName: Eosinophil
+  UnitHp: 40
+  UnitCost: 150
+  UnitSpeed: 4
+  attackType: 8
+  UnitAtk: 10
+  UnitAtkSpeed: 0.2
+  UnitXRange: 5
+  UnitYRange: 5.5
+  UnitRangedAtk: 0
+  unitRangedAtkSpeed: 0
+  unitRangedXRange: 0
+  unitRangedYRange: 0
+  rangedProjectile: {fileID: 0}
+  unitArtilleryOffset: 0
+  unitArtilleryRadius: 0
+  UnitDesc: 
+  UnitSprite: {fileID: 21300000, guid: 49e48521da289dc4da49d0417746dcff, type: 3}
+  abilityType: 0100000002000000

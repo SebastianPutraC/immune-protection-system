@@ -14,7 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: Macrophage
   UnitHp: 100
-  UnitAtk: 35
   UnitCost: 100
+  UnitSpeed: 5
+  attackType: 1
+  UnitAtk: 35
+  UnitAtkSpeed: 1
+  UnitXRange: 0.9
+  UnitYRange: 0.2
+  UnitRangedAtk: 0
+  unitRangedAtkSpeed: 0
+  unitRangedXRange: 0
+  unitRangedYRange: 0
+  rangedProjectile: {fileID: 0}
+  unitArtilleryOffset: 0
+  unitArtilleryRadius: 0
   UnitDesc: This unit is able to release Cytokines to increase Resource Points when
     attacked. This Unit also able to defeat pathogens by Phagocytosis.
+  UnitSprite: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
+  abilityType: 01000000
