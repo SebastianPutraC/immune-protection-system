@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a139550b3f31e114981a4e86e527364d, type: 3}
   m_Name: Level One
   m_EditorClassIdentifier: 
+  levelId: 0
   levelName: Level One
   allyUnits: 6500000066000000
   enemyUnits: c9000000
   defaultStatingResource: 300
   defaultIncome: 100
+  levelIdUnlock: 2
