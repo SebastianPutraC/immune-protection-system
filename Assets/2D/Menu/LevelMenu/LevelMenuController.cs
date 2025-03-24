@@ -14,6 +14,7 @@ public class LevelMenuController : MonoBehaviour
     [SerializeField] private Button returnButton;
 
     public Action ReturnButtonPressed;
+    public Action<LevelInfo> LevelSelected;
 
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class LevelMenuController : MonoBehaviour
 
     private void PlayLevel(LevelInfo levelInfo)
     {
-        Debug.Log("Playing Level : " + levelInfo.levelName);
+        LevelSelected?.Invoke(levelInfo);
     }
 
     private void OnReturnButtonPressed()

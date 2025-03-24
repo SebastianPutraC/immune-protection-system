@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UnitData", menuName = "Scriptable Objects/UnitData")]
 public class UnitData : ScriptableObject
 {
+    public UnitId unitId;
+
     public string UnitName;
     public int UnitHp;
     public int UnitCost;

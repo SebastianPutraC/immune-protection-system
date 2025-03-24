@@ -1422,13 +1422,21 @@ MonoBehaviour:
   battlePanelController: {fileID: 98418210}
   unitStatsController: {fileID: 6235401199390081394}
   unitSelectionController: {fileID: 1063371168}
+  UnitReferences:
+  - {fileID: 11400000, guid: 9434ad48328fdad4eb11cda80727c7db, type: 2}
+  - {fileID: 11400000, guid: 59383435e58f6bd4e9bce2fab492a8b4, type: 2}
+  - {fileID: 11400000, guid: 81b655119d71b18439bf0d2f51caf45d, type: 2}
+  - {fileID: 11400000, guid: 34ff86392bd90ff4091a698f3e495af3, type: 2}
+  - {fileID: 11400000, guid: 73163b3a4c0491e4f8752d8f939ed34c, type: 2}
+  - {fileID: 11400000, guid: 974783aeb37f50247ba7cebb134a8fb9, type: 2}
+  - {fileID: 11400000, guid: 4a69d336b0bd83549ba76839ac421a65, type: 2}
   allAllyUnits: []
   selectedUnit: {fileID: 0}
   allyBaseController: {fileID: 621276588}
   enemyBaseController: {fileID: 2079127053}
   StopAllButton: {fileID: 1791481104}
   AdvanceAllButton: {fileID: 1205373974}
-  testUnit: {fileID: 11400000, guid: 73163b3a4c0491e4f8752d8f939ed34c, type: 2}
+  testUnits: []
 --- !u!114 &1063371168
 MonoBehaviour:
   m_ObjectHideFlags: 0

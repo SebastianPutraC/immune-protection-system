@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -21,10 +22,19 @@ public class MenuController : MonoBehaviour
         optionMenu.OnReturnButtonPressed += OpenMainMenu;
         encyclopediaMenu.OnReturnButtonPressed += OpenMainMenu;
         levelMenu.ReturnButtonPressed += OpenMainMenu;
+        levelMenu.LevelSelected += StartLevel;
     }
 
     private void Start()
     {
+        int unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
+        bool isWon = LevelDataSingleton.Instance.isWon;
+        Debug.Log("----- Unlocked Level : " + unlockedLevel + " IsWon : " + isWon);
+        if (unlockedLevel != -1 && isWon)
+        {
+            levelUnlocked[unlockedLevel - 1] = true;
+        }
+
         OpenMainMenu();
     }
 
@@ -34,6 +44,12 @@ public class MenuController : MonoBehaviour
         levelMenu.gameObject.SetActive(false);
         optionMenu.gameObject.SetActive(false);
         encyclopediaMenu.gameObject.SetActive(false);
+    }
+
+    private void StartLevel(LevelInfo levelSelected)
+    {
+        LevelDataSingleton.Instance.SetCurrentLevelInfo(levelSelected);
+        SceneManager.LoadScene(1);
     }
 
     // Might just combine to one function
@@ -67,5 +83,6 @@ public class MenuController : MonoBehaviour
         optionMenu.OnReturnButtonPressed -= OpenMainMenu;
         encyclopediaMenu.OnReturnButtonPressed -= OpenMainMenu;
         levelMenu.ReturnButtonPressed -= OpenMainMenu;
+        levelMenu.LevelSelected -= StartLevel;
     }
 }
