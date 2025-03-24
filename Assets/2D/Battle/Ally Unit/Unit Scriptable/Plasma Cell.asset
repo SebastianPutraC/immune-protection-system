@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3e95ddea1bf9e438460d43bcea271e, type: 3}
   m_Name: Plasma Cell
   m_EditorClassIdentifier: 
+  unitId: 104
   UnitName: Plasma Cell
   UnitHp: 80
   UnitCost: 300
