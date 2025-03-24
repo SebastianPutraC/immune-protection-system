@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
@@ -17,6 +18,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private UnitStatsController unitStatsController;
     [SerializeField] private UnitSelectionController unitSelectionController;
 
+    public List<UnitData> UnitReferences = new List<UnitData>();
     public List<AllyUnitController> allAllyUnits = new List<AllyUnitController>(); // Public for visual
     public AllyUnitController selectedUnit; //Public for visual
 
@@ -46,6 +48,15 @@ public class BattleController : MonoBehaviour
 
         StopAllButton.onClick.AddListener(StopAllUnit);
         AdvanceAllButton.onClick.AddListener(AdvanceAllUnit);
+    }
+    private void Start()
+    {
+        //Get Level Info
+        LevelInfo levelInfo = LevelDataSingleton.Instance.GetCurrentLevelInfo();
+        if (levelInfo != null)
+        {
+            SetUpLevel(levelInfo);
+        }
 
         UpdateAllyBaseUI(allyBaseController.unitHp);
         UpdateEnemyBaseUI(enemyBaseController.unitHp);
@@ -71,6 +82,27 @@ public class BattleController : MonoBehaviour
             unitStatsController.UpdateUnitStats(selectedUnit);
         }
     }
+
+    private void SetUpLevel(LevelInfo levelInfo)
+    {
+        List<AllyUnit> alliesData = new List<AllyUnit>();
+        for (int i = 0; i < levelInfo.allyUnits.Count; i++)
+        {
+            AllyUnit allyUnit = (AllyUnit)UnitReferences.Find(unit => unit.unitId == levelInfo.allyUnits[i]);
+            alliesData.Add(allyUnit);
+        }
+        unitPanelController.InitializeUnitCards(alliesData);
+
+
+        List<EnemyUnit> enemiesData = new List<EnemyUnit>();
+        for (int i = 0; i < levelInfo.enemyUnits.Count; i++)
+        {
+            EnemyUnit enemyUnit = (EnemyUnit)UnitReferences.Find(unit => unit.unitId == levelInfo.enemyUnits[i]);
+            enemiesData.Add(enemyUnit);
+        }
+        testUnits = enemiesData;
+    }
+
 
     private IEnumerator PassiveIncome()
     {
@@ -160,13 +192,15 @@ public class BattleController : MonoBehaviour
     }
 
 
-    private void GameLost() // Stop the game somehow
+    private void GameLost()
     {
-        Debug.Log("YOU LOST");
+        LevelDataSingleton.Instance.isWon = false;
+        SceneManager.LoadScene(0);
     }
-    private void GameWon() // Stop the game somehow
+    private void GameWon()
     {
-        Debug.Log("YOU WON");
+        LevelDataSingleton.Instance.isWon = true;
+        SceneManager.LoadScene(0);
     }
 
 
@@ -213,14 +247,17 @@ public class BattleController : MonoBehaviour
 
 
     private bool isSpawned;
-    [SerializeField] private EnemyUnit testUnit;
+    [SerializeField] private List<EnemyUnit> testUnits;
     private IEnumerator RandomSpawn() // Basic ahh ai spawner
     {
         isSpawned = true;
         yield return new WaitForSeconds(3f);
 
         int randomRow = Random.Range(0, 3);
-        DeployEnemyUnit(testUnit, rowsController[randomRow]);
+        int randomUnit = Random.Range(0, testUnits.Count);
+        EnemyUnit spawnEnemy = testUnits[randomUnit];
+
+        DeployEnemyUnit(spawnEnemy, rowsController[randomRow]);
         isSpawned = false;
     }
 }
