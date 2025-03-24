@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitPanelController : MonoBehaviour
 {
-    [SerializeField] private List<AllyUnit> unitReference; // Will be stored somewhere
+    [SerializeField] private List<AllyUnit> unitReference; // Placeholders
     [SerializeField] private List<UnitCardController> unitCards;
 
     [SerializeField] private UnitCardController unitCardPrefab;
@@ -14,15 +14,15 @@ public class UnitPanelController : MonoBehaviour
 
     private void Awake()
     {
-        InitializeUnitCards();
+        //InitializeUnitCards(unitReference); //Default
     }
 
-    private void InitializeUnitCards()
+    public void InitializeUnitCards(List<AllyUnit> allyUnit)
     {
-        for (int i = 0; i < unitReference.Count; i++)
+        for (int i = 0; i < allyUnit.Count; i++)
         {
             UnitCardController newUnitCard = Instantiate(unitCardPrefab, unitCardContent);
-            newUnitCard.InitializeData(unitReference[i]);
+            newUnitCard.InitializeData(allyUnit[i]);
             newUnitCard.cardClicked += ReadySelectedCard;
             unitCards.Add(newUnitCard);
         }
