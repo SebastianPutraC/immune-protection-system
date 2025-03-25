@@ -29,7 +29,6 @@ public class MenuController : MonoBehaviour
     {
         int unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
         bool isWon = LevelDataSingleton.Instance.isWon;
-        Debug.Log("----- Unlocked Level : " + unlockedLevel + " IsWon : " + isWon);
         if (unlockedLevel != -1 && isWon)
         {
             levelUnlocked[unlockedLevel - 1] = true;

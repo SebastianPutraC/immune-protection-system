@@ -133,7 +133,6 @@ public class Projectile : MonoBehaviour
 
         for (int i = 0; i < enemyOnAOE.Count; i++)
         {
-            Debug.Log(enemyOnAOE[i]);
             if (enemyOnAOE[i].CompareTag("EnemyUnit"))
             {
                 enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(damage);
