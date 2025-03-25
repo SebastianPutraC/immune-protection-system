@@ -7,39 +7,54 @@ public class Projectile : MonoBehaviour
     private float speed;
     private int damage;
     private Sprite sprite; // Will be used later
+    private ProjectileType projectileType;
+
     private UnitController target;
+    private Vector2 lastTargetPosition;
 
     private bool isInitialized = false;
 
-    [SerializeField] private UnitSide unitSide;
+    [SerializeField] private UnitSide unitSide; // Set it on unit script
     [SerializeField] private Rigidbody2D projectileRb;
 
-    public void InitializeProjectile(float speed, int damage, UnitController target)
+    public void InitializeBulletProjectile(float speed, int damage, UnitController target)
     {
         this.speed = speed;
         this.damage = damage;
         this.target = target;
+        lastTargetPosition = target.transform.position;
 
         isInitialized = true;
+        projectileType = ProjectileType.BULLET;
     }
 
     private void Update()
     {
-        if (isInitialized && target == null)
+        /*if (isInitialized && target == null)
         {
             Destroy(gameObject);
-        }
-
-        if (isInitialized && target != null)
+        }*/
+        if (isInitialized)
         {
+            if (target != null)
+            {
+                lastTargetPosition = target.transform.position;
+            }
             Move();
         }
-        else if (isArtilleryInitialized)
+
+        if (projectileType == ProjectileType.BULLET)
         {
-            MoveArtilerry();
-            if (transform.position == (Vector3)artilleryTargetPosition && !reachedTarget)
+            if (transform.position == (Vector3)lastTargetPosition)
             {
-                reachedTarget = true;
+                Destroy(this.gameObject);
+            }
+        }
+        else if (projectileType == ProjectileType.ARITLLERY)
+        {
+            if (transform.position == (Vector3)lastTargetPosition && !artilerryExploded)
+            {
+                artilerryExploded = true; // This is for particle
                 AttackArtilerry();
             }
         }
@@ -47,7 +62,7 @@ public class Projectile : MonoBehaviour
 
     protected void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, lastTargetPosition, speed * Time.deltaTime);
     }
 
     protected void Attack(UnitController unitHit)
@@ -62,7 +77,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isArtilleryInitialized)
+        if (projectileType == ProjectileType.BULLET)
         {
             if (unitSide == UnitSide.ENEMY)
             {
@@ -84,25 +99,21 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    // Artilerry
+    private float radius;
+    private bool artilerryExploded = false;
 
-    //Artilerry Stuff
-    private Vector2 artilleryTargetPosition;
-    private float Radius;
-    private bool isArtilleryInitialized = false;
-    private bool reachedTarget = false;
-
-    public void InitializeArtilleryProjectile(float speed, int damage, Vector2 target, float radius)
+    public void InitializeArtilleryProjectile(float speed, int damage, UnitController target, float radius)
     {
         this.speed = speed;
         this.damage = damage;
-        this.artilleryTargetPosition = target;
-        this.Radius = radius;
+        this.target = target;
+        this.radius = radius;
 
-        isArtilleryInitialized = true;
-    }
-    protected void MoveArtilerry()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, artilleryTargetPosition, speed * Time.deltaTime);
+        lastTargetPosition = target.transform.position;
+
+        isInitialized = true;
+        projectileType = ProjectileType.ARITLLERY;
     }
     protected void AttackArtilerry()
     {
@@ -118,7 +129,7 @@ public class Projectile : MonoBehaviour
             enemy = LayerMask.GetMask("Ally");
         }
 
-        List<Collider2D> enemyOnAOE = Physics2D.OverlapCircleAll(this.transform.position, Radius, enemy).ToList();
+        List<Collider2D> enemyOnAOE = Physics2D.OverlapCircleAll(this.transform.position, radius, enemy).ToList();
 
         for (int i = 0; i < enemyOnAOE.Count; i++)
         {

@@ -286,7 +286,7 @@ public class DeployedUnitController : UnitController
         if (targetEnemyUnitRanged != null)
         {
             Projectile spawnProjectile = Instantiate(UnitSO.rangedProjectile, projectileSpawn);
-            spawnProjectile.InitializeProjectile(10, UnitSO.UnitRangedAtk, targetEnemyUnitRanged); // 10 is placeholder
+            spawnProjectile.InitializeBulletProjectile(10, UnitSO.UnitRangedAtk, targetEnemyUnitRanged); // 10 is placeholder
         }
     }
     protected virtual void AttackAOE()
@@ -298,13 +298,8 @@ public class DeployedUnitController : UnitController
         if (targetEnemyUnitRanged != null)
         {
             Projectile spawnProjectile = Instantiate(UnitSO.rangedProjectile, projectileSpawn);
-
-            float targetX = targetEnemyUnitRanged.transform.position.x;
-            float predictedPositionX = targetX - 5; //5 Is Placeholder
-            Vector2 predictedPosition = new Vector2(predictedPositionX, targetEnemyUnitRanged.transform.position.y);
-
             spawnProjectile.InitializeArtilleryProjectile(10, UnitSO.UnitRangedAtk, 
-                predictedPosition, UnitSO.unitArtilleryRadius); // 10 is placeholder
+                targetEnemyUnitRanged, UnitSO.unitArtilleryRadius); // 10 is placeholder
         }
     }
     #endregion
