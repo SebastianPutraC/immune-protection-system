@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeployedUnitController : UnitController
 {
@@ -21,6 +22,7 @@ public class DeployedUnitController : UnitController
     [SerializeField] protected Rigidbody2D unitRb;
     [SerializeField] protected DetectionTrigger enemyDetect;
     [SerializeField] protected DetectionTrigger enemyRangedDetect;
+    [SerializeField] protected Slider healthBar;
 
     [SerializeField] protected Transform projectileSpawn;
     [SerializeField] protected ParticleSystem AoeEffect;
@@ -50,6 +52,7 @@ public class DeployedUnitController : UnitController
         meleeCooldown = UnitSO.UnitAtkSpeed;
         rangedCooldown = UnitSO.unitRangedAtkSpeed;
         unitSprite.size = new Vector2(1, 1); // May change on custom transform size
+        UpdateHealthBar(unitHp, UnitSO.UnitHp);
 
         //Might make its own function
         if (attackType.HasFlag(AttackType.MELEE))
@@ -305,6 +308,17 @@ public class DeployedUnitController : UnitController
         }
     }
     #endregion
+
+
+    protected void UpdateHealthBar(float currentValue, float maxValue)
+    {
+        healthBar.value = currentValue / maxValue;
+    }
+    public override void DealDamage(int damage)
+    {
+        base.DealDamage(damage);
+        UpdateHealthBar(unitHp, UnitSO.UnitHp);
+    }
 
     protected void OnDestroy()
     {
