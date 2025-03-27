@@ -304,6 +304,13 @@ public class DeployedUnitController : UnitController
     }
     #endregion
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("UnitLimit"))
+        {
+            DealDamage(9999);
+        }
+    }
 
     protected void UpdateHealthBar(float currentValue, float maxValue)
     {
