@@ -11,6 +11,7 @@ public class EncylopediaUnitGrid : MonoBehaviour
     [SerializeField] private Button unitButton;
     [SerializeField] private TextMeshProUGUI unitNameText;
     [SerializeField] private Image unitImage;
+    [SerializeField] private Sprite lockedImage;
 
     [SerializeField] private GameObject selectedIndicator;
 
@@ -21,11 +22,22 @@ public class EncylopediaUnitGrid : MonoBehaviour
         unitButton.onClick.AddListener(OnClick);
     }
 
-    public void InitializeData(EncylopediaUnit unitData)
+    public void InitializeData(EncylopediaUnit unitData, bool unlocked)
     {
         this.unitSo = unitData;
-        unitNameText.text = unitSo.unitName;
-        unitImage.sprite = unitSo.unitSprite;
+
+        if (unlocked)
+        {
+            unitNameText.text = unitSo.unitName;
+            unitImage.sprite = unitSo.unitSprite;
+            unitButton.interactable = true;
+        }
+        else
+        {
+            unitNameText.text = "You haven't unlocked this unit yet";
+            unitImage.sprite = lockedImage;
+            unitButton.interactable = false;
+        }
 
         DeselectGrid();
     }
