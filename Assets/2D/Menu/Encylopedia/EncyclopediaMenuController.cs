@@ -11,7 +11,11 @@ public class EncyclopediaMenuController : MonoBehaviour
     [SerializeField] private Button pathogenPanelButton;
 
     [SerializeField] private EncylopediaUnitGrid gridPrefab;
-    [SerializeField] private Transform viewContent;
+
+    [SerializeField] private GameObject cellsScrollViewObject;
+    [SerializeField] private GameObject pathogenScrollViewObject;
+    [SerializeField] private Transform cellsContent;
+    [SerializeField] private Transform pathogenContent;
 
     [SerializeField] private TextMeshProUGUI unitNameText;
     [SerializeField] private Image unitImage;
@@ -19,8 +23,9 @@ public class EncyclopediaMenuController : MonoBehaviour
 
     [SerializeField] private Button returnButton;
 
+    [SerializeField] private List<EncylopediaUnit> encylopediaReference = new List<EncylopediaUnit>();
+
     private List<EncylopediaUnitGrid> unitGrids = new List<EncylopediaUnitGrid>();
-    private List<EncylopediaUnit> unlockedUnits = new List<EncylopediaUnit>();
     private EncylopediaUnitGrid selectedGrid;
 
     public Action OnReturnButtonPressed;
@@ -32,23 +37,52 @@ public class EncyclopediaMenuController : MonoBehaviour
         pathogenPanelButton.onClick.AddListener(delegate { SetupViewUnits(UnitType.PATHOGEN); });
     }
 
-    public void InitializeUnits(List<EncylopediaUnit> units)
+    public void InitializeUnits(List<EncyclopediaData> units)
     {
-        unlockedUnits = units;
+        for (int i = 0; i < units.Count; i++)
+        {
+            EncylopediaUnit newUnit = encylopediaReference.Where(x => x.unitId.Equals((UnitId)units[i].UnitId)).FirstOrDefault();
+            EncylopediaUnitGrid newUnitGrid;
+
+            if (newUnit.unitType == UnitType.CELLS)
+            {
+                newUnitGrid = Instantiate(gridPrefab, cellsContent);
+            }
+            else if (newUnit.unitType == UnitType.PATHOGEN)
+            {
+                newUnitGrid = Instantiate(gridPrefab, pathogenContent);
+            }
+            else return;
+
+            if (units[i].Unlocked)
+            {
+                newUnitGrid.InitializeData(newUnit, true);    
+            }
+            else
+            {
+                newUnitGrid.InitializeData(newUnit, false);
+            }
+
+            newUnitGrid.UnitClicked += OnUnitClicked;
+            unitGrids.Add(newUnitGrid);
+        }
+
         SetupViewUnits(UnitType.CELLS);
     }
 
-    private void SetupViewUnits(UnitType unitType) //Might change this to better way besides Initializing and Destroying gameoObject
+    private void SetupViewUnits(UnitType unitType)
     {
-        ClearViewUnits();
+        ClearDescriptionPanel();
 
-        List<EncylopediaUnit> panelUnits = unlockedUnits.Where(unit => unit.unitType == unitType).ToList();
-        for (int i = 0; i < panelUnits.Count; i++)
+        if (unitType == UnitType.CELLS)
         {
-            EncylopediaUnitGrid newUnitGrid = Instantiate(gridPrefab, viewContent);
-            newUnitGrid.InitializeData(panelUnits[i]);
-            newUnitGrid.UnitClicked += OnUnitClicked;
-            unitGrids.Add(newUnitGrid);
+            cellsScrollViewObject.gameObject.SetActive(true);
+            pathogenScrollViewObject.gameObject.SetActive(false);
+        }
+        else if (unitType == UnitType.PATHOGEN)
+        {
+            cellsScrollViewObject.gameObject.SetActive(false);
+            pathogenScrollViewObject.gameObject.SetActive(true);
         }
     }
     private void ClearViewUnits()
@@ -69,25 +103,35 @@ public class EncyclopediaMenuController : MonoBehaviour
         }
 
         selectedGrid = unitGrid;
-        SetupDescription(selectedGrid.unitSo);
+        SetupDescriptionPanel(selectedGrid.unitSo);
         selectedGrid.SelectGrid();
     }
-    private void SetupDescription(EncylopediaUnit unitData)
+    private void SetupDescriptionPanel(EncylopediaUnit unitData)
     {
-        unitNameText.text = "";
-        unitDescriptionText.text = "";
+        ClearDescriptionPanel();
 
         unitNameText.text = unitData.unitName;
         unitImage.sprite = unitData.unitSprite;
         unitDescriptionText.text = unitData.unitDescription;
+    }
+    private void ClearDescriptionPanel()
+    {
+        unitNameText.text = "";
+        unitDescriptionText.text = "";
+        unitImage.sprite = null;
     }
 
     private void ReturnButtonPressed()
     {
         OnReturnButtonPressed?.Invoke();
     }
+    private void OnDisable()
+    {
+        ClearViewUnits();
+    }
     private void OnDestroy()
     {
+        ClearViewUnits();
         returnButton.onClick.RemoveListener(ReturnButtonPressed);
         cellsPanelButton.onClick.RemoveListener(delegate { SetupViewUnits(UnitType.CELLS); });
         pathogenPanelButton.onClick.RemoveListener(delegate { SetupViewUnits(UnitType.PATHOGEN); });
