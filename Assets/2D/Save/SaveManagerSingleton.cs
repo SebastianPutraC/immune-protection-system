@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SaveManagerSingleton : MonoBehaviour
@@ -13,6 +14,8 @@ public class SaveManagerSingleton : MonoBehaviour
     private Dictionary<string, SaveData> allSaveData = new Dictionary<string, SaveData>();
 
     private SaveFileHandler saveFileHandler;
+
+    private readonly int LevelsToUnlock = 5;
 
     private void Awake()
     {
@@ -29,7 +32,7 @@ public class SaveManagerSingleton : MonoBehaviour
 
     public void NewProfileData(string profileId)
     {
-        selectedSaveData = new SaveData();
+        selectedSaveData = new SaveData(LevelsToUnlock, GetAllEncylopediaIds());
         saveFileHandler.SaveData(selectedSaveData, profileId);
         PickProfileData(profileId);
     }
@@ -57,9 +60,19 @@ public class SaveManagerSingleton : MonoBehaviour
     {
         return selectedSaveData;
     }
+    public void SetProfileData(SaveData saveData)
+    {
+        selectedSaveData = saveData;
+    }
     public Dictionary<string, SaveData> GetAllSaveData()
     {
         return allSaveData;
+    }
+    private List<int> GetAllEncylopediaIds()
+    {
+        List<int> ids = ((UnitId[])UnitId.GetValues(typeof(UnitId))).Select(c => (int)c).ToList();
+        ids.Remove(0);
+        return ids;
     }
 
     public void SaveProfileData()

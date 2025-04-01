@@ -1,23 +1,26 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 [System.Serializable]
 public class SaveData
 {
-    public List<bool> enyclopediaUnlock = new List<bool>();
+    public List<EncyclopediaData> enyclopediaUnlock = new List<EncyclopediaData>();
     public List<bool> levelUnlock = new List<bool>();
 
-    private readonly int LevelsToUnlock = 5;
-
-    public SaveData()
+    public SaveData(int LevelsToUnlock, List<int> encylopediaIds)
     {
-        enyclopediaUnlock = new List<bool>();
+        enyclopediaUnlock = new List<EncyclopediaData>();
         levelUnlock = new List<bool>();
 
         levelUnlock.Add(true); // First Level
         for (int i = 1; i < LevelsToUnlock; i++)
         {
             levelUnlock.Add(false);
+        }
+
+        for (int i = 0; i < encylopediaIds.Count; i++)
+        {
+            EncyclopediaData newData = new EncyclopediaData(encylopediaIds[i], false);
+            enyclopediaUnlock.Add(newData);
         }
     }
 }
