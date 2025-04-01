@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelDataSingleton : MonoBehaviour
@@ -45,5 +47,10 @@ public class LevelDataSingleton : MonoBehaviour
         }
 
         return -1;
+    }
+    public List<UnitId> GetAllUnits()
+    {
+        List<UnitId> allUnits = currentLevelInfo.allyUnits.Concat(currentLevelInfo.enemyUnits).ToList();
+        return allUnits;
     }
 }
