@@ -704,7 +704,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3336511070136975472, guid: f5a8e4e2e3368fb4dbbffa5f7d990064, type: 3}
       propertyPath: profileId
-      value: One
+      value: Profile 1
       objectReference: {fileID: 0}
     - target: {fileID: 4438020243176172044, guid: f5a8e4e2e3368fb4dbbffa5f7d990064, type: 3}
       propertyPath: m_Pivot.x
@@ -821,7 +821,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3336511070136975472, guid: f5a8e4e2e3368fb4dbbffa5f7d990064, type: 3}
       propertyPath: profileId
-      value: Three
+      value: Profile 3
       objectReference: {fileID: 0}
     - target: {fileID: 4438020243176172044, guid: f5a8e4e2e3368fb4dbbffa5f7d990064, type: 3}
       propertyPath: m_Pivot.x
@@ -942,7 +942,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3336511070136975472, guid: f5a8e4e2e3368fb4dbbffa5f7d990064, type: 3}
       propertyPath: profileId
-      value: Two
+      value: Profile 2
       objectReference: {fileID: 0}
     - target: {fileID: 4438020243176172044, guid: f5a8e4e2e3368fb4dbbffa5f7d990064, type: 3}
       propertyPath: m_Pivot.x
