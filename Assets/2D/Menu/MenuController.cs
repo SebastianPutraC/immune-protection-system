@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +11,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] private OptionMenuController optionMenu;
     [SerializeField] private EncyclopediaMenuController encyclopediaMenu;
 
-    [SerializeField] private List<bool> levelUnlocked = new List<bool>();
-
-    //PLACEHOLDER
-    [SerializeField] private List<EncylopediaUnit> placeholderDataTest = new List<EncylopediaUnit>();
 
     private void Awake()
     {
@@ -38,16 +35,21 @@ public class MenuController : MonoBehaviour
         }
         else // To Main Menu
         {
-            SetProfileData(); // From Save
-
             int unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
+            List<UnitId> unlockedUnit = LevelDataSingleton.Instance.GetAllUnits();
             bool isWon = LevelDataSingleton.Instance.isWon;
+
+            SaveData selectedSaveData = SaveManagerSingleton.Instance.GetSelectedSaveData();
             if (unlockedLevel != -1 && isWon) //If Match Won
             {
-                levelUnlocked[unlockedLevel - 1] = true;
+                selectedSaveData.levelUnlock[unlockedLevel - 1] = true;
+                for (int i = 0; i < unlockedUnit.Count; i++)
+                {
+                    int unitId = (int)unlockedUnit[i];
+                    selectedSaveData.enyclopediaUnlock.Where(x => x.UnitId.Equals(unitId)).FirstOrDefault().Unlocked = true;
+                }
 
-                //Might Seperate this
-                SaveManagerSingleton.Instance.GetSelectedSaveData().levelUnlock = levelUnlocked;
+                SaveManagerSingleton.Instance.SetProfileData(selectedSaveData);
                 SaveManagerSingleton.Instance.SaveProfileData();
             }
 
@@ -66,16 +68,7 @@ public class MenuController : MonoBehaviour
 
     private void OnProfileSelected()
     {
-        SetProfileData();
         OpenMainMenu();
-    }
-    private void SetProfileData()
-    {
-        SaveData saveData = SaveManagerSingleton.Instance.GetSelectedSaveData();
-        if (saveData != null)
-        {
-            levelUnlocked = saveData.levelUnlock;
-        }
     }
     private void StartLevel(LevelInfo levelSelected)
     {
@@ -95,7 +88,7 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         levelMenu.gameObject.SetActive(true);
-        levelMenu.InitializeLevelMenu(levelUnlocked);
+        levelMenu.InitializeLevelMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().levelUnlock);
     }
     private void OpenMainMenu() 
     {
@@ -112,7 +105,7 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         encyclopediaMenu.gameObject.SetActive(true);
-        encyclopediaMenu.InitializeUnits(placeholderDataTest);
+        encyclopediaMenu.InitializeUnits(SaveManagerSingleton.Instance.GetSelectedSaveData().enyclopediaUnlock);
     }
     #endregion
 
