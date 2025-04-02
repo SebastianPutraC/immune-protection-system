@@ -21,9 +21,9 @@ public class LevelMenuController : MonoBehaviour
         returnButton.onClick.AddListener(OnReturnButtonPressed);
     }
 
-    public void InitializeLevelMenu(bool[] unlockedLevel)
+    public void InitializeLevelMenu(List<bool> unlockedLevel)
     {
-        for (int i = 0; i < unlockedLevel.Length; i++)
+        for (int i = 0; i < unlockedLevel.Count; i++)
         {
             LevelButton newButton = Instantiate(buttonPrefab, levelContent);
             newButton.InitializeButton(levelInfos[i]);

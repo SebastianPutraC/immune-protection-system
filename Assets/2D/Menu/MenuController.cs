@@ -1,24 +1,25 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] private ProfileMenuController profileMenu;
     [SerializeField] private LevelMenuController levelMenu;
     [SerializeField] private MainMenuController mainMenu;
     [SerializeField] private OptionMenuController optionMenu;
     [SerializeField] private EncyclopediaMenuController encyclopediaMenu;
 
-    [SerializeField] private bool[] levelUnlocked = new bool[5];
-
-    //PLACEHOLDER
-    [SerializeField] private List<EncylopediaUnit> placeholderDataTest = new List<EncylopediaUnit>();
 
     private void Awake()
     {
+        profileMenu.ReturnButtonPressed += OpenMainMenu;
+        profileMenu.ProfileSelected += OnProfileSelected;
         mainMenu.OnStartButtonPressed += OpenLevelMenu;
         mainMenu.OnOptionButtonPressed += OpenOptionMenu;
         mainMenu.OnEnyclopediaButtonPressed += OpenEncyclopediaMenu;
+        mainMenu.OnChangeProfileButtonPressed += OpenProfileMenu;
         optionMenu.OnReturnButtonPressed += OpenMainMenu;
         encyclopediaMenu.OnReturnButtonPressed += OpenMainMenu;
         levelMenu.ReturnButtonPressed += OpenMainMenu;
@@ -27,14 +28,34 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        int unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
-        bool isWon = LevelDataSingleton.Instance.isWon;
-        if (unlockedLevel != -1 && isWon)
+        if (SaveManagerSingleton.Instance.GetSelectedSaveData() == null) // Force to Profile Menu
         {
-            levelUnlocked[unlockedLevel - 1] = true;
+            OpenProfileMenu();
+            return;
         }
+        else // To Main Menu
+        {
+            int unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
+            List<UnitId> unlockedUnit = LevelDataSingleton.Instance.GetAllUnits();
+            bool isWon = LevelDataSingleton.Instance.isWon;
 
-        OpenMainMenu();
+            SaveData selectedSaveData = SaveManagerSingleton.Instance.GetSelectedSaveData();
+            if (unlockedLevel != -1 && isWon) //If Match Won
+            {
+                selectedSaveData.levelUnlock[unlockedLevel - 1] = true;
+                for (int i = 0; i < unlockedUnit.Count; i++)
+                {
+                    int unitId = (int)unlockedUnit[i];
+                    selectedSaveData.enyclopediaUnlock.Where(x => x.UnitId.Equals(unitId)).FirstOrDefault().Unlocked = true;
+                }
+
+                SaveManagerSingleton.Instance.SetProfileData(selectedSaveData);
+                SaveManagerSingleton.Instance.SaveProfileData();
+            }
+
+            OpenMainMenu();
+        }
+        
     }
 
     private void HideAllMenu()
@@ -45,23 +66,35 @@ public class MenuController : MonoBehaviour
         encyclopediaMenu.gameObject.SetActive(false);
     }
 
+    private void OnProfileSelected()
+    {
+        OpenMainMenu();
+    }
     private void StartLevel(LevelInfo levelSelected)
     {
         LevelDataSingleton.Instance.SetCurrentLevelInfo(levelSelected);
         SceneManager.LoadScene(1);
     }
 
+    #region Menu
     // Might just combine to one function
+    private void OpenProfileMenu()
+    {
+        HideAllMenu();
+        profileMenu.gameObject.SetActive(true);
+        profileMenu.InitializeProfile();
+    }
     private void OpenLevelMenu()
     {
         HideAllMenu();
         levelMenu.gameObject.SetActive(true);
-        levelMenu.InitializeLevelMenu(levelUnlocked);
+        levelMenu.InitializeLevelMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().levelUnlock);
     }
     private void OpenMainMenu() 
     {
         HideAllMenu();
         mainMenu.gameObject.SetActive(true);
+        mainMenu.InitializeMenu(SaveManagerSingleton.Instance.GetProfileId());
     }
     private void OpenOptionMenu()
     {
@@ -72,13 +105,18 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         encyclopediaMenu.gameObject.SetActive(true);
-        encyclopediaMenu.InitializeUnits(placeholderDataTest);
+        encyclopediaMenu.InitializeUnits(SaveManagerSingleton.Instance.GetSelectedSaveData().enyclopediaUnlock);
     }
+    #endregion
+
     private void OnDestroy()
     {
+        profileMenu.ReturnButtonPressed -= OpenMainMenu;
+        profileMenu.ProfileSelected -= OnProfileSelected;
         mainMenu.OnStartButtonPressed -= OpenLevelMenu;
         mainMenu.OnOptionButtonPressed -= OpenOptionMenu;
         mainMenu.OnEnyclopediaButtonPressed -= OpenEncyclopediaMenu;
+        mainMenu.OnChangeProfileButtonPressed -= OpenProfileMenu;
         optionMenu.OnReturnButtonPressed -= OpenMainMenu;
         encyclopediaMenu.OnReturnButtonPressed -= OpenMainMenu;
         levelMenu.ReturnButtonPressed -= OpenMainMenu;

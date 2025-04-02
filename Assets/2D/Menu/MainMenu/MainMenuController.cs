@@ -9,10 +9,14 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button optionButton;
     [SerializeField] private Button encylopediaButton;
     [SerializeField] private Button exitButton;
+    [SerializeField] private Button changeProfileButton;
+
+    [SerializeField] private TextMeshProUGUI profileText;
 
     public Action OnStartButtonPressed;
     public Action OnOptionButtonPressed;
     public Action OnEnyclopediaButtonPressed;
+    public Action OnChangeProfileButtonPressed;
 
     private void Awake()
     {
@@ -20,6 +24,12 @@ public class MainMenuController : MonoBehaviour
         optionButton.onClick.AddListener(OptionButtonPressed);
         encylopediaButton.onClick.AddListener(EncylopediaButtonPressed);
         exitButton.onClick.AddListener(ExitButtonPressed);
+        changeProfileButton.onClick.AddListener(ChangeProfileButtonPressed);
+    }
+
+    public void InitializeMenu(string profileId)
+    {
+        profileText.text = "WELCOME\n" + profileId; 
     }
 
     private void StartButtonPressed()
@@ -33,6 +43,10 @@ public class MainMenuController : MonoBehaviour
     private void EncylopediaButtonPressed()
     {
         OnEnyclopediaButtonPressed?.Invoke();
+    }
+    private void ChangeProfileButtonPressed()
+    {
+        OnChangeProfileButtonPressed?.Invoke();
     }
     private void ExitButtonPressed()
     {
