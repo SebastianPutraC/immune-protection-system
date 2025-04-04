@@ -7,17 +7,17 @@ public class UnitData : ScriptableObject
     public UnitId unitId;
 
     public string UnitName;
-    public int UnitHp;
+    public float UnitHp;
     public int UnitCost;
     public float UnitSpeed;
     public AttackType attackType;
 
-    public int UnitAtk;
+    public float UnitAtk;
     public float UnitAtkSpeed;
     public float UnitXRange;
     public float UnitYRange;
 
-    public int UnitRangedAtk;
+    public float UnitRangedAtk;
     public float unitRangedAtkSpeed;
     public float unitRangedXRange;
     public float unitRangedYRange;

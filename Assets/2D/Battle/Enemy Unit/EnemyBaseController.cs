@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class EnemyBaseController : UnitController
 {
-    public Action<int> enemyBaseAttacked;
+    public Action<float> enemyBaseAttacked;
     public Action enemyBaseDestroyed;
 
-    public void InitializeBase(int baseHp)
+    public void InitializeBase(float baseHp)
     {
         unitHp = baseHp;
     }
 
-    public override void DealDamage(int damage)
+    public override void DealDamage(float damage)
     {
         unitHp -= damage;
         enemyBaseAttacked?.Invoke(unitHp);

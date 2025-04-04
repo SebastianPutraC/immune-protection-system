@@ -29,7 +29,7 @@ public class AllyUnitController : DeployedUnitController
             {
                 if (enemyOnAOE[i].CompareTag("EnemyUnit"))
                 {
-                    enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(unitAtk);
+                    enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(unitAtk.ReturnFinalValue());
                 }
             }
         }

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class DeployedUnitController : UnitController
 {
     public UnitData UnitSO;
-    protected int unitAtk;
-    protected int unitRangedAtk;
+    [SerializeField]protected UnitStat unitAtk;
+    [SerializeField]protected UnitStat unitRangedAtk;
     protected AttackType attackType;
 
     public bool isMoveOrder = true; // public for now
@@ -41,12 +41,12 @@ public class DeployedUnitController : UnitController
         enemyRangedDetect.enemyOutRange += EnemyGoneRanged;
     }
 
-    public virtual void InitializeUnit(UnitData unitSO)
+    public virtual void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers)
     {
         UnitSO = unitSO;
-        unitHp = UnitSO.UnitHp;
-        unitAtk = UnitSO.UnitAtk;
-        unitRangedAtk = UnitSO.UnitRangedAtk;
+        unitHp = AdjustMaxHP(GetModifiersForType(StatType.HP, modifiers), UnitSO.UnitHp);
+        unitAtk = new UnitStat(UnitSO.UnitAtk, StatType.ATK, GetModifiersForType(StatType.ATK, modifiers));
+        unitRangedAtk = new UnitStat(UnitSO.UnitRangedAtk, StatType.RANGEDATK, GetModifiersForType(StatType.RANGEDATK, modifiers));
         attackType = UnitSO.attackType;
         unitSprite.sprite = UnitSO.UnitSprite;
         meleeCooldown = UnitSO.UnitAtkSpeed;
@@ -75,7 +75,19 @@ public class DeployedUnitController : UnitController
             enemyRangedDetect.InitializeRange(UnitSO.unitRangedXRange, UnitSO.unitRangedYRange, AttackType.ARTILERRY);
             enemyRangedDetect.gameObject.SetActive(true);
         }    
-
+    }
+    public List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
+    {
+        return allModifiers.Where(mod => mod.StatToMod == statType).ToList();
+    }
+    public float AdjustMaxHP(List<StatModifier> hpModifier, float baseHp) // Only At Start
+    {
+        UnitStat maxHp = new UnitStat(baseHp, StatType.HP);
+        for (int i = 0; i < hpModifier.Count; i++)
+        {
+            maxHp.AddModifier(hpModifier[i]);
+        }
+        return maxHp.ReturnFinalValue();
     }
 
     protected void Update()
@@ -278,7 +290,7 @@ public class DeployedUnitController : UnitController
     {
         if (targetEnemyUnitMelee != null)
         {
-            targetEnemyUnitMelee.DealDamage(unitAtk);
+            targetEnemyUnitMelee.DealDamage(unitAtk.ReturnFinalValue());
         }
     }
     protected void AttackRanged()
@@ -316,7 +328,7 @@ public class DeployedUnitController : UnitController
     {
         healthBar.value = currentValue / maxValue;
     }
-    public override void DealDamage(int damage)
+    public override void DealDamage(float damage)
     {
         base.DealDamage(damage);
         UpdateHealthBar(unitHp, UnitSO.UnitHp);
