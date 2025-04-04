@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class EnemyUnitController : DeployedUnitController
 {
-    public override void InitializeUnit(UnitData unitSO)
+    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers)
     {
-        base.InitializeUnit(unitSO);
+        base.InitializeUnit(unitSO, modifiers);
         this.transform.localEulerAngles = new Vector3(0, 180, 0); // rotate for enemy
     }
 
@@ -27,7 +27,7 @@ public class EnemyUnitController : DeployedUnitController
             {
                 if (enemyOnAOE[i].CompareTag("AllyUnit"))
                 {
-                    enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(unitAtk);
+                    enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(unitAtk.ReturnFinalValue());
                 }
             }
         }

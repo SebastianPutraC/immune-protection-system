@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class AllyBaseController : UnitController
 {
-    public Action<int> allyBaseAttacked;
+    public Action<float> allyBaseAttacked;
     public Action allyBaseDestroyed;
 
-    public void InitializeBase(int baseHp)
+    public void InitializeBase(float baseHp)
     {
         unitHp = baseHp;
     }
 
-    public override void DealDamage(int damage)
+    public override void DealDamage(float damage)
     {
         unitHp -= damage;
         allyBaseAttacked?.Invoke(unitHp);

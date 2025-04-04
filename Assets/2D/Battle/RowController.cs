@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,16 +19,16 @@ public class RowController : MonoBehaviour, IPointerClickHandler
         RowClicked?.Invoke(this);
     }
 
-    public void SpawnAlly(AllyUnit allyUnit)
+    public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers)
     {
         AllyUnitController newAlly = Instantiate(allyPrefab, allySpawn);
-        newAlly.InitializeUnit(allyUnit);
+        newAlly.InitializeUnit(allyUnit, modifiers);
         AllySpawned?.Invoke(newAlly);
     }
 
-    public void SpawnEnemy(EnemyUnit enemyUnit)
+    public void SpawnEnemy(EnemyUnit enemyUnit, List<StatModifier> modifiers)
     {
         EnemyUnitController newEnemy = Instantiate(enemyPrefab, enemySpawn);
-        newEnemy.InitializeUnit(enemyUnit);
+        newEnemy.InitializeUnit(enemyUnit, modifiers);
     }
 }

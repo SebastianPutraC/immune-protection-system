@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
-    public int unitHp; // For Now
+    public float unitHp; // For Now
 
     public Action<UnitController> ThisUnitKilled;
 
-    public virtual void DealDamage(int damage)
+    public virtual void DealDamage(float damage)
     {
         unitHp -= damage;
 

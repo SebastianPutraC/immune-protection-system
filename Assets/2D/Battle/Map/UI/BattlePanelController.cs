@@ -7,17 +7,17 @@ public class BattlePanelController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyBaseHpText;
     [SerializeField] private TextMeshProUGUI resourcePointText;
 
-    public void UpdateAllyBaseUI(int baseHp)
+    public void UpdateAllyBaseUI(float baseHp)
     {
         allyBaseHpText.text = "HP : " + baseHp;
     }
 
-    public void UpdateEnemyBaseUI(int baseHp)
+    public void UpdateEnemyBaseUI(float baseHp)
     {
         enemyBaseHpText.text = "Enemy HP : " + baseHp;
     }
 
-    public void UpdateResourcePointUI(int rp)
+    public void UpdateResourcePointUI(float rp)
     {
         resourcePointText.text = "Resource Points : " + rp;
     }

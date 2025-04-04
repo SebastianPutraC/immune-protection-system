@@ -28,6 +28,9 @@ public class BattleController : MonoBehaviour
     [SerializeField] private Button StopAllButton;
     [SerializeField] private Button AdvanceAllButton;
 
+    private List<StatModifier> allyGlobalModifiers = new List<StatModifier>();
+    private List<StatModifier> enemyGlobalModifiers = new List<StatModifier>();
+
     private void Awake()
     {
         for (int i = 0; i < rowsController.Count; i++)
@@ -53,6 +56,8 @@ public class BattleController : MonoBehaviour
     {
         //Get Level Info
         LevelInfo levelInfo = LevelDataSingleton.Instance.GetCurrentLevelInfo();
+        allyGlobalModifiers = LevelDataSingleton.Instance.GetModifiersData(UnitSide.ALLY);
+        enemyGlobalModifiers = LevelDataSingleton.Instance.GetModifiersData(UnitSide.ENEMY);
         if (levelInfo != null)
         {
             SetUpLevel(levelInfo);
@@ -135,7 +140,7 @@ public class BattleController : MonoBehaviour
 
         resourcePoints -= allyData.UnitCost;
         UpdateResourcePointUI();
-        spawnRow.SpawnAlly(allyData);
+        spawnRow.SpawnAlly(allyData, allyGlobalModifiers);
     }
     private void OnAllySpawned(AllyUnitController allyUnit)
     {
@@ -154,7 +159,7 @@ public class BattleController : MonoBehaviour
     
     private void DeployEnemyUnit(EnemyUnit enemyData, RowController spawnRow)
     {
-        spawnRow.SpawnEnemy(enemyData);
+        spawnRow.SpawnEnemy(enemyData, enemyGlobalModifiers);
     }
 
 
@@ -206,12 +211,12 @@ public class BattleController : MonoBehaviour
 
     // To be easily subscribed to event and called to UI
     // If too complex, combine to one reset UI
-    private void UpdateAllyBaseUI(int allyBaseHp)
+    private void UpdateAllyBaseUI(float allyBaseHp)
     {
         battlePanelController.UpdateAllyBaseUI(allyBaseHp);
     }
 
-    private void UpdateEnemyBaseUI(int enemyBaseHp)
+    private void UpdateEnemyBaseUI(float enemyBaseHp)
     {
         battlePanelController.UpdateEnemyBaseUI(enemyBaseHp);
     }

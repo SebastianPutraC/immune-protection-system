@@ -11,4 +11,6 @@ public class LevelInfo : ScriptableObject
     public int defaultStatingResource;
     public int defaultIncome;
     public int levelIdUnlock;
+
+    public List<DecisionInfoSO> DecisionInfos;
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private float speed;
-    private int damage;
+    private float damage;
     private Sprite sprite; // Will be used later
     private ProjectileType projectileType;
 
@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private UnitSide unitSide; // Set it on unit script
     [SerializeField] private Rigidbody2D projectileRb;
 
-    public void InitializeBulletProjectile(float speed, int damage, UnitController target)
+    public void InitializeBulletProjectile(float speed, float damage, UnitController target)
     {
         this.speed = speed;
         this.damage = damage;
@@ -103,7 +103,7 @@ public class Projectile : MonoBehaviour
     private float radius;
     private bool artilerryExploded = false;
 
-    public void InitializeArtilleryProjectile(float speed, int damage, UnitController target, float radius)
+    public void InitializeArtilleryProjectile(float speed, float damage, UnitController target, float radius)
     {
         this.speed = speed;
         this.damage = damage;
