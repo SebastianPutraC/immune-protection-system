@@ -76,7 +76,7 @@ public class DeployedUnitController : UnitController
             enemyRangedDetect.gameObject.SetActive(true);
         }    
     }
-    public List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
+    private List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
     {
         return allModifiers.Where(mod => mod.StatToMod == statType).ToList();
     }

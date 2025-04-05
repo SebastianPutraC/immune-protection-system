@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class UnitPanelController : MonoBehaviour
 {
-    [SerializeField] private List<AllyUnit> unitReference; // Placeholders
+    [SerializeField] private List<AllyUnit> unitReference; // Placeholders, Not Used
     [SerializeField] private List<UnitCardController> unitCards;
+    private List<UnitCardController> adaptiveUnitCards = new List<UnitCardController>();
 
     [SerializeField] private UnitCardController unitCardPrefab;
     [SerializeField] private Transform unitCardContent;
@@ -24,6 +25,13 @@ public class UnitPanelController : MonoBehaviour
             UnitCardController newUnitCard = Instantiate(unitCardPrefab, unitCardContent);
             newUnitCard.InitializeData(allyUnit[i]);
             newUnitCard.cardClicked += ReadySelectedCard;
+
+            if (allyUnit[i].ImmuneCellType == ImmuneType.ADAPTIVE)
+            {
+                newUnitCard.LockCard();
+                adaptiveUnitCards.Add(newUnitCard);
+            }
+
             unitCards.Add(newUnitCard);
         }
     }
@@ -44,18 +52,30 @@ public class UnitPanelController : MonoBehaviour
         selectedCard.DeselectCard();
         selectedCard = null;
     }
-
     private void ReadySelectedCard(UnitCardController unitCard)
     {
-        selectedCard = unitCard;
-    }
+        if (selectedCard != null)
+        {
+            selectedCard.DeselectCard();
+        }
 
+        selectedCard = unitCard;
+        selectedCard.SelectCard();
+    }
     public AllyUnit DeployCard()
     {
         if (selectedCard == null)
             return null;
 
         return selectedCard.unitData;
+    }
+
+    public void UnlockAdaptiveCard()
+    {
+        for (int i = 0; i < adaptiveUnitCards.Count; i++)
+        {
+            adaptiveUnitCards[i].UnlockCard();
+        }
     }
 
     private void OnDestroy()

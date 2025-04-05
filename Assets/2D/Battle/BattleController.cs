@@ -7,10 +7,15 @@ using UnityEngine.UI;
 public class BattleController : MonoBehaviour
 {
     public int resourcePoints = 300;
-    public int basicIncome;
-    public readonly int maxResourcePoints = 800;
+    public int basicIncome = 50;
+    public int maxResourcePoints = 800;
+    public int intelPoints = 0;
+    public int unlockIntelPoints = 1000;
+
+    public float RpIncomeTimer = 3f;
 
     private bool isGainIncome;
+    private bool adaptiveUnlocked;
 
     [SerializeField] private List<RowController> rowsController;
     [SerializeField] private UnitPanelController unitPanelController;
@@ -70,9 +75,14 @@ public class BattleController : MonoBehaviour
 
     private void Update()
     {
-        if (!isGainIncome)
+        if (RpIncomeTimer > 0)
         {
-            StartCoroutine(PassiveIncome());
+            RpIncomeTimer -= Time.deltaTime;
+        }
+        else
+        {
+            IncreaseResourcePoint(basicIncome);
+            RpIncomeTimer = 3f;
         }
 
         if (!isSpawned)
@@ -108,20 +118,34 @@ public class BattleController : MonoBehaviour
         testUnits = enemiesData;
     }
 
-
-    private IEnumerator PassiveIncome()
+    private void IncreaseResourcePoint(int income)
     {
-        isGainIncome = true;
-        yield return new WaitForSeconds(1f);
-
-        resourcePoints += basicIncome;
+        resourcePoints += income;
         if (resourcePoints > maxResourcePoints)
         {
             resourcePoints = maxResourcePoints;
         }
-        UpdateResourcePointUI();
 
-        isGainIncome = false;
+        UpdateResourcePointUI();
+    }
+    private void IncreaseIntelPoint(int intelPoints)
+    {
+        this.intelPoints += intelPoints;
+        if (intelPoints >= unlockIntelPoints)
+        {
+            intelPoints = unlockIntelPoints;
+            UnlockAdaptiveCells();
+        }
+
+        battlePanelController.UpdateIntelPointUI(intelPoints, unlockIntelPoints);
+    }
+    private void UnlockAdaptiveCells()
+    {
+        if (!adaptiveUnlocked)
+        {
+            unitPanelController.UnlockAdaptiveCard();
+            adaptiveUnlocked = true;
+        }
     }
 
     private void CheckAllyCardSelected(RowController spawnRow)
@@ -215,12 +239,10 @@ public class BattleController : MonoBehaviour
     {
         battlePanelController.UpdateAllyBaseUI(allyBaseHp);
     }
-
     private void UpdateEnemyBaseUI(float enemyBaseHp)
     {
         battlePanelController.UpdateEnemyBaseUI(enemyBaseHp);
     }
-
     private void UpdateResourcePointUI()
     {
         battlePanelController.UpdateResourcePointUI(resourcePoints);

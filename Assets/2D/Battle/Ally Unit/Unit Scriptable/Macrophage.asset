@@ -33,3 +33,4 @@ MonoBehaviour:
     attacked. This Unit also able to defeat pathogens by Phagocytosis.
   UnitSprite: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
   abilityType: 01000000
+  ImmuneCellType: 1

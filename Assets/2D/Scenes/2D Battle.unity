@@ -735,6 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourcePoints: 1000
   basicIncome: 100
+  intelPoints: 0
   rowsController:
   - {fileID: 722395308}
   - {fileID: 1377125640}
@@ -1447,7 +1448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7976429084531735115, guid: 70b33cc70c7fee642ba30fe33f5c2e62, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7976429084531735115, guid: 70b33cc70c7fee642ba30fe33f5c2e62, type: 3}
       propertyPath: m_LocalPosition.x
