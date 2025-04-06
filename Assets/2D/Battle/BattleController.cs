@@ -14,7 +14,6 @@ public class BattleController : MonoBehaviour
 
     public float RpIncomeTimer = 3f;
 
-    private bool isGainIncome;
     private bool adaptiveUnlocked;
 
     [SerializeField] private List<RowController> rowsController;
@@ -22,6 +21,8 @@ public class BattleController : MonoBehaviour
     [SerializeField] private BattlePanelController battlePanelController;
     [SerializeField] private UnitStatsController unitStatsController;
     [SerializeField] private UnitSelectionController unitSelectionController;
+    [SerializeField] private PausePanelController pausePanelController;
+    [SerializeField] private GameOverPanelController gameOverPanelController;
 
     public List<UnitData> UnitReferences = new List<UnitData>();
     public List<AllyUnitController> allAllyUnits = new List<AllyUnitController>(); // Public for visual
@@ -32,6 +33,7 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] private Button StopAllButton;
     [SerializeField] private Button AdvanceAllButton;
+    [SerializeField] private Button pauseButton;
 
     private List<StatModifier> allyGlobalModifiers = new List<StatModifier>();
     private List<StatModifier> enemyGlobalModifiers = new List<StatModifier>();
@@ -53,9 +55,13 @@ public class BattleController : MonoBehaviour
 
         unitSelectionController.UnitSelected += OnUnitSelected;
         unitStatsController.AbilityButtonSelected += OnAbilitySelected;
+        pausePanelController.ResumePressed += ResumeGame;
+        pausePanelController.QuitPressed += ReturnToMenu;
+        gameOverPanelController.QuitPressed += ReturnToMenu;
 
         StopAllButton.onClick.AddListener(StopAllUnit);
         AdvanceAllButton.onClick.AddListener(AdvanceAllUnit);
+        pauseButton.onClick.AddListener(PauseGame);
     }
     private void Start()
     {
@@ -71,6 +77,9 @@ public class BattleController : MonoBehaviour
         UpdateAllyBaseUI(allyBaseController.unitHp);
         UpdateEnemyBaseUI(enemyBaseController.unitHp);
         UpdateResourcePointUI();
+
+        ResumeGame();
+        gameOverPanelController.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -156,7 +165,6 @@ public class BattleController : MonoBehaviour
             unitPanelController.ResetSelectedCard();
         }
     }
-
     private void DeployAllyUnit(AllyUnit allyData, RowController spawnRow)
     {
         if (allyData.UnitCost > resourcePoints)
@@ -201,8 +209,6 @@ public class BattleController : MonoBehaviour
             allAllyUnits[i].isMoveOrder = true;
         }
     }
-
-
     private void OnUnitSelected(AllyUnitController allyUnitSelected)
     {
         if (selectedUnit != null)
@@ -220,18 +226,40 @@ public class BattleController : MonoBehaviour
         selectedUnit.ProcessAbility(ability);
     }
 
-
+    private void PauseGame()
+    {
+        pausePanelController.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+    private void ResumeGame()
+    {
+        pausePanelController.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
     private void GameLost()
     {
         LevelDataSingleton.Instance.isWon = false;
-        SceneManager.LoadScene(0);
+        gameOverPanelController.gameObject.SetActive(true);
+        gameOverPanelController.GameLost();
+        Time.timeScale = 0;
     }
     private void GameWon()
     {
         LevelDataSingleton.Instance.isWon = true;
+        gameOverPanelController.gameObject.SetActive(true);
+        gameOverPanelController.GameWon();
+        Time.timeScale = 0;
+    }
+    private void StartNextLevel(LevelInfo levelSelected)
+    {
+        LevelDataSingleton.Instance.SetCurrentLevelInfo(levelSelected);
+        SceneManager.LoadScene(1);
+    }
+    private void ReturnToMenu()
+    {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
-
 
     // To be easily subscribed to event and called to UI
     // If too complex, combine to one reset UI
@@ -262,9 +290,13 @@ public class BattleController : MonoBehaviour
 
         unitSelectionController.UnitSelected -= OnUnitSelected;
         unitStatsController.AbilityButtonSelected -= OnAbilitySelected;
+        pausePanelController.ResumePressed -= ResumeGame;
+        pausePanelController.QuitPressed -= ReturnToMenu;
+        gameOverPanelController.QuitPressed -= ReturnToMenu;
 
         StopAllButton.onClick.RemoveListener(StopAllUnit);
         AdvanceAllButton.onClick.RemoveListener(AdvanceAllUnit);
+        pauseButton.onClick.RemoveListener(PauseGame);
 
         for (int i = 0; i < allAllyUnits.Count; i++)
         {
