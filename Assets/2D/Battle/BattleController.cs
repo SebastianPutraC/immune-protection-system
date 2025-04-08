@@ -58,6 +58,7 @@ public class BattleController : MonoBehaviour
         pausePanelController.ResumePressed += ResumeGame;
         pausePanelController.QuitPressed += ReturnToMenu;
         gameOverPanelController.QuitPressed += ReturnToMenu;
+        gameOverPanelController.NextLevelPressed += StartNextLevel;
 
         StopAllButton.onClick.AddListener(StopAllUnit);
         AdvanceAllButton.onClick.AddListener(AdvanceAllUnit);
@@ -238,21 +239,29 @@ public class BattleController : MonoBehaviour
     }
     private void GameLost()
     {
-        LevelDataSingleton.Instance.isWon = false;
         gameOverPanelController.gameObject.SetActive(true);
         gameOverPanelController.GameLost();
         Time.timeScale = 0;
     }
     private void GameWon()
     {
-        LevelDataSingleton.Instance.isWon = true;
+        LevelId unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
+        SaveManagerSingleton.Instance.UpdateSelectedData(UnitId.NONE, unlockedLevel);
+
+        List<UnitId> unlockedUnits = LevelDataSingleton.Instance.GetAllUnits();
+        for (int i = 0; i < unlockedUnits.Count; i++)
+        {
+            SaveManagerSingleton.Instance.UpdateSelectedData(unlockedUnits[i], LevelId.NONE);
+        }
+
         gameOverPanelController.gameObject.SetActive(true);
         gameOverPanelController.GameWon();
         Time.timeScale = 0;
     }
-    private void StartNextLevel(LevelInfo levelSelected)
+    private void StartNextLevel()
     {
-        LevelDataSingleton.Instance.SetCurrentLevelInfo(levelSelected);
+        LevelId unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
+        LevelDataSingleton.Instance.SetCurrentLevelInfo(unlockedLevel);
         SceneManager.LoadScene(1);
     }
     private void ReturnToMenu()
@@ -293,6 +302,7 @@ public class BattleController : MonoBehaviour
         pausePanelController.ResumePressed -= ResumeGame;
         pausePanelController.QuitPressed -= ReturnToMenu;
         gameOverPanelController.QuitPressed -= ReturnToMenu;
+        gameOverPanelController.NextLevelPressed -= StartNextLevel;
 
         StopAllButton.onClick.RemoveListener(StopAllUnit);
         AdvanceAllButton.onClick.RemoveListener(AdvanceAllUnit);

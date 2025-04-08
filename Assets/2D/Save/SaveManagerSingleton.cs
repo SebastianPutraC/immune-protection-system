@@ -15,8 +15,6 @@ public class SaveManagerSingleton : MonoBehaviour
 
     private SaveFileHandler saveFileHandler;
 
-    private readonly int LevelsToUnlock = 5;
-
     private void Awake()
     {
         if (Instance != null)
@@ -32,7 +30,7 @@ public class SaveManagerSingleton : MonoBehaviour
 
     public void NewProfileData(string profileId)
     {
-        selectedSaveData = new SaveData(LevelsToUnlock, GetAllEncylopediaIds());
+        selectedSaveData = new SaveData(GetAllLevelIds(), GetAllEncylopediaIds());
         saveFileHandler.SaveData(selectedSaveData, profileId);
         PickProfileData(profileId);
     }
@@ -60,10 +58,21 @@ public class SaveManagerSingleton : MonoBehaviour
     {
         return selectedSaveData;
     }
-    public void SetProfileData(SaveData saveData)
+    public void UpdateSelectedData(UnitId unit = UnitId.NONE, LevelId level = LevelId.NONE)
     {
-        selectedSaveData = saveData;
+        if (unit != UnitId.NONE)
+        {
+            int unitId = (int)unit;
+            selectedSaveData.enyclopediaUnlock.Where(x => x.UnitId.Equals(unitId)).FirstOrDefault().Unlocked = true;
+        }
+
+        if (level != LevelId.NONE)
+        {
+            int levelId = (int)level;
+            selectedSaveData.levelUnlock.Where(x => x.LevelId.Equals(levelId)).FirstOrDefault().Unlocked = true;
+        }
     }
+
     public Dictionary<string, SaveData> GetAllSaveData()
     {
         return allSaveData;
@@ -71,6 +80,12 @@ public class SaveManagerSingleton : MonoBehaviour
     private List<int> GetAllEncylopediaIds()
     {
         List<int> ids = ((UnitId[])UnitId.GetValues(typeof(UnitId))).Select(c => (int)c).ToList();
+        ids.Remove(0);
+        return ids;
+    }
+    private List<int> GetAllLevelIds()
+    {
+        List<int> ids = ((LevelId[])LevelId.GetValues(typeof(LevelId))).Select(c => (int)c).ToList();
         ids.Remove(0);
         return ids;
     }

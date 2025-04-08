@@ -803,8 +803,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c307303b63633049a7050fc0b191a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelInfoReferences:
+  - {fileID: 11400000, guid: 915dab0d743f8a0468dcfc4fddf777f6, type: 2}
+  - {fileID: 11400000, guid: dbd881c3d735da143bbb2c607a994362, type: 2}
+  - {fileID: 11400000, guid: 04afea697ebc9464982c40b02d512cb5, type: 2}
+  - {fileID: 11400000, guid: 5c4a59e821edc9640a66bd522ffa2fdb, type: 2}
+  - {fileID: 11400000, guid: 718c088a791f77342bbbe46413249524, type: 2}
   currentLevelInfo: {fileID: 0}
-  isWon: 0
 --- !u!1001 &1516609827
 PrefabInstance:
   m_ObjectHideFlags: 0

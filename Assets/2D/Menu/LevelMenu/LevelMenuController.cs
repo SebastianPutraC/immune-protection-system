@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,34 +8,27 @@ public class LevelMenuController : MonoBehaviour
 {
     [SerializeField] private Transform levelContent;
 
-    [SerializeField] private List<LevelInfo> levelInfos;
     [SerializeField] private LevelButton buttonPrefab;
     private List<LevelButton> activeLevelButtons = new List<LevelButton>();
 
     [SerializeField] private Button returnButton;
 
     public Action ReturnButtonPressed;
-    public Action<LevelInfo> LevelSelected;
+    public Action<LevelId> LevelSelected;
 
     private void Awake()
     {
         returnButton.onClick.AddListener(OnReturnButtonPressed);
     }
 
-    public void InitializeLevelMenu(List<bool> unlockedLevel)
+    public void InitializeLevelMenu(List<LevelData> unlockedLevel, List<LevelInfo> levelReferences)
     {
         for (int i = 0; i < unlockedLevel.Count; i++)
         {
+            LevelInfo newLevel = levelReferences.Where(x => x.levelId.Equals((LevelId)unlockedLevel[i].LevelId)).FirstOrDefault();
             LevelButton newButton = Instantiate(buttonPrefab, levelContent);
-            newButton.InitializeButton(levelInfos[i]);
-            if (unlockedLevel[i] == true)
-            {
-                newButton.UnlockedLevel();
-            }
-            else
-            {
-                newButton.LockedLevel();
-            }
+
+            newButton.InitializeButton(newLevel, unlockedLevel[i].Unlocked);
 
             activeLevelButtons.Add(newButton);
             newButton.buttonClicked += PlayLevel;
@@ -51,9 +45,9 @@ public class LevelMenuController : MonoBehaviour
         activeLevelButtons.Clear();
     }
 
-    private void PlayLevel(LevelInfo levelInfo)
+    private void PlayLevel(LevelId LevelId)
     {
-        LevelSelected?.Invoke(levelInfo);
+        LevelSelected?.Invoke(LevelId);
     }
 
     private void OnReturnButtonPressed()

@@ -6,8 +6,8 @@ public class LevelDataSingleton : MonoBehaviour
 {
     public static LevelDataSingleton Instance { get; private set; }
 
+    [SerializeField] private List<LevelInfo> levelInfoReferences;
     [SerializeField] private LevelInfo currentLevelInfo;
-    public bool isWon = false; // Expand on this later, Probably making its own class
 
     [SerializeField] private List<BoostData> allyBoostData = new List<BoostData>();
     [SerializeField] private List<BoostData> enemyBoostData = new List<BoostData>();
@@ -24,9 +24,10 @@ public class LevelDataSingleton : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void SetCurrentLevelInfo(LevelInfo levelInfo)
+    public void SetCurrentLevelInfo(LevelId levelId)
     {
-        this.currentLevelInfo = levelInfo;
+        LevelInfo selectedLevelInfo = levelInfoReferences.Where(x => x.levelId == levelId).FirstOrDefault();
+        this.currentLevelInfo = selectedLevelInfo;
     }
     public LevelInfo GetCurrentLevelInfo()
     {
@@ -69,18 +70,27 @@ public class LevelDataSingleton : MonoBehaviour
         }
     }
 
-    public int GetUnlockedLevel()
+    public List<LevelInfo> GetAllLevelReferences()
+    {
+        return levelInfoReferences;
+    }
+    public LevelId GetUnlockedLevel()
     {
         if (currentLevelInfo != null)
         {
             return currentLevelInfo.levelIdUnlock;
         }
 
-        return -1;
+        return LevelId.NONE;
     }
     public List<UnitId> GetAllUnits()
     {
-        List<UnitId> allUnits = currentLevelInfo.allyUnits.Concat(currentLevelInfo.enemyUnits).ToList();
-        return allUnits;
+        if (currentLevelInfo != null)
+        {
+            List<UnitId> allUnits = currentLevelInfo.allyUnits.Concat(currentLevelInfo.enemyUnits).ToList();
+            return allUnits;
+        }
+
+        return null;
     }
 }

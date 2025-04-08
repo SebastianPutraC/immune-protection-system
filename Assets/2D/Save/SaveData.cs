@@ -3,24 +3,28 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SaveData
 {
-    public List<EncyclopediaData> enyclopediaUnlock = new List<EncyclopediaData>();
-    public List<bool> levelUnlock = new List<bool>();
+    public List<EncyclopediaData> enyclopediaUnlock;
+    public List<LevelData> levelUnlock;
 
-    public SaveData(int LevelsToUnlock, List<int> encylopediaIds)
+    public SaveData(List<int> levelIds, List<int> encylopediaIds)
     {
         enyclopediaUnlock = new List<EncyclopediaData>();
-        levelUnlock = new List<bool>();
+        levelUnlock = new List<LevelData>();
 
-        levelUnlock.Add(true); // First Level
-        for (int i = 1; i < LevelsToUnlock; i++)
+        for (int i = 0; i < levelIds.Count; i++)
         {
-            levelUnlock.Add(false);
+            LevelData newLevelData = new LevelData(levelIds[i], false);
+            if (i == 0)
+            {
+                newLevelData.Unlocked = true;
+            }
+            levelUnlock.Add(newLevelData);
         }
 
         for (int i = 0; i < encylopediaIds.Count; i++)
         {
-            EncyclopediaData newData = new EncyclopediaData(encylopediaIds[i], false);
-            enyclopediaUnlock.Add(newData);
+            EncyclopediaData newEncylopediaData = new EncyclopediaData(encylopediaIds[i], false);
+            enyclopediaUnlock.Add(newEncylopediaData);
         }
     }
 }

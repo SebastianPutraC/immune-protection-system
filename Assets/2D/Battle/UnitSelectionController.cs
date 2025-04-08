@@ -27,7 +27,6 @@ public class UnitSelectionController : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "AllyUnit")
             {
                 AllyUnitController unitSelect = hit.collider.GetComponent<AllyUnitController>();
-                Debug.Log(unitSelect.UnitSO.UnitName);
                 UnitSelected?.Invoke(unitSelect);
             }
         }

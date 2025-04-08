@@ -10,30 +10,38 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Button levelButton;
 
-    public Action<LevelInfo> buttonClicked;
+    public Action<LevelId> buttonClicked;
 
     private void Awake()
     {
         levelButton.onClick.AddListener(OnClick);
     }
 
-    public void InitializeButton(LevelInfo info)
+    public void InitializeButton(LevelInfo info, bool unlocked)
     {
         this.levelInfo = info;
         levelText.text = levelInfo.name;
+        if (unlocked)
+        {
+            UnlockLevel();
+        }
+        else
+        {
+            LockLevel();
+        }
     }
 
-    public void LockedLevel()
+    public void LockLevel()
     {
         this.levelButton.interactable = false;
     }
-    public void UnlockedLevel()
+    public void UnlockLevel()
     {
         this.levelButton.interactable = true;
     }
 
     private void OnClick()
     {
-        buttonClicked?.Invoke(this.levelInfo);
+        buttonClicked?.Invoke(this.levelInfo.levelId);
     }
 }
