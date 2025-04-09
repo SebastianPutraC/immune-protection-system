@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf411ae99a951e47a26c8b0c553fec2, type: 3}
-  m_Name: Neutrophil
+  m_Script: {fileID: 11500000, guid: a088ad8c2bdb8294bb2bc37ff1695b48, type: 3}
+  m_Name: Fagositosis
   m_EditorClassIdentifier: 
-  unitId: 102
-  unitType: 1
-  unitName: Neutrophil
-  unitSprite: {fileID: 21300000, guid: 0f85adf9445940641be54592b6bc26be, type: 3}
-  unitDescription: Neutrophil is Ranged
+  AbilityImage: {fileID: 0}
+  AbilityName: Fagositosis
+  AbilityDescription: Menelan dan membunuh patogen. Serangan jarak dekat (Melee).

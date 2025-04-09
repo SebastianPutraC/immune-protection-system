@@ -29,10 +29,6 @@ public class DecisionButton : MonoBehaviour
         DecisionSelected?.Invoke(boostData);
     }
 
-    private void OnDisable()
-    {
-        decisionButton.onClick.RemoveListener(ButtonClicked);
-    }
     private void OnDestroy()
     {
         decisionButton.onClick.RemoveListener(ButtonClicked);

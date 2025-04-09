@@ -45,6 +45,7 @@ public class MenuController : MonoBehaviour
         levelMenu.gameObject.SetActive(false);
         optionMenu.gameObject.SetActive(false);
         encyclopediaMenu.gameObject.SetActive(false);
+        profileMenu.gameObject.SetActive(false);
     }
 
     private void OnProfileSelected()

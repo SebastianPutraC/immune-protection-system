@@ -47,10 +47,6 @@ public class UnitStatsController : MonoBehaviour
                     buttonColor = netColor;
                     abilityString = "NET";
                     break;
-                case AbilityType.REPAIR:
-                    buttonColor = repairColor;
-                    abilityString = "REPAIR";
-                    break;
                 default:
                     buttonColor = Color.white;
                     abilityString = "PLACEHOLDER";

@@ -50,7 +50,7 @@ public class DeployedUnitController : UnitController
         attackType = UnitSO.attackType;
         unitSprite.sprite = UnitSO.UnitSprite;
         meleeCooldown = UnitSO.UnitAtkSpeed;
-        rangedCooldown = UnitSO.unitRangedAtkSpeed;
+        rangedCooldown = UnitSO.UnitRangedAtkSpeed;
         unitSprite.size = new Vector2(1, 1); // May change on custom transform size
         UpdateHealthBar(unitHp, UnitSO.UnitHp);
 
@@ -67,12 +67,12 @@ public class DeployedUnitController : UnitController
         }
         if (attackType.HasFlag(AttackType.RANGED))
         {
-            enemyRangedDetect.InitializeRange(UnitSO.unitRangedXRange, UnitSO.unitRangedYRange, AttackType.RANGED);
+            enemyRangedDetect.InitializeRange(UnitSO.UnitRangedXRange, UnitSO.UnitRangedYRange, AttackType.RANGED);
             enemyRangedDetect.gameObject.SetActive(true);
         }
         else if (attackType.HasFlag(AttackType.ARTILERRY))
         {
-            enemyRangedDetect.InitializeRange(UnitSO.unitRangedXRange, UnitSO.unitRangedYRange, AttackType.ARTILERRY);
+            enemyRangedDetect.InitializeRange(UnitSO.UnitRangedXRange, UnitSO.UnitRangedYRange, AttackType.ARTILERRY);
             enemyRangedDetect.gameObject.SetActive(true);
         }    
     }
@@ -128,7 +128,7 @@ public class DeployedUnitController : UnitController
                 {
                     AttackArtillery();
                 }
-                rangedCooldown = UnitSO.unitRangedAtkSpeed;
+                rangedCooldown = UnitSO.UnitRangedAtkSpeed;
             }
         }
         else
@@ -297,7 +297,7 @@ public class DeployedUnitController : UnitController
     {
         if (targetEnemyUnitRanged != null)
         {
-            Projectile spawnProjectile = Instantiate(UnitSO.rangedProjectile, projectileSpawn);
+            Projectile spawnProjectile = Instantiate(UnitSO.RangedProjectile, projectileSpawn);
             spawnProjectile.InitializeBulletProjectile(10, UnitSO.UnitRangedAtk, targetEnemyUnitRanged); // 10 is placeholder
         }
     }
@@ -309,9 +309,9 @@ public class DeployedUnitController : UnitController
     {
         if (targetEnemyUnitRanged != null)
         {
-            Projectile spawnProjectile = Instantiate(UnitSO.rangedProjectile, projectileSpawn);
+            Projectile spawnProjectile = Instantiate(UnitSO.RangedProjectile, projectileSpawn);
             spawnProjectile.InitializeArtilleryProjectile(10, UnitSO.UnitRangedAtk, 
-                targetEnemyUnitRanged, UnitSO.unitArtilleryRadius); // 10 is placeholder
+                targetEnemyUnitRanged, UnitSO.UnitArtilleryRadius); // 10 is placeholder
         }
     }
     #endregion

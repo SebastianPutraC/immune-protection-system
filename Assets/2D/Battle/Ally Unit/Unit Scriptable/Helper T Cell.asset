@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3e95ddea1bf9e438460d43bcea271e, type: 3}
+  m_Name: Helper T Cell
+  m_EditorClassIdentifier: 
+  unitId: 108
+  UnitName: Helper T Cell
+  unitType: 1
+  UnitHp: 0
+  UnitCost: 0
+  UnitSpeed: 0
+  attackType: 0
+  UnitAtk: 0
+  UnitAtkSpeed: 0
+  UnitXRange: 0
+  UnitYRange: 0
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  UnitRangedXRange: 0
+  UnitRangedYRange: 0
+  RangedProjectile: {fileID: 0}
+  UnitArtilleryOffset: 0
+  UnitArtilleryRadius: 0
+  UnitSimpleDesc: 
+  UnitFullDesc: 'Sel T Pembantu merupakan salah satu sel limfoid T. Sesuai dengan
+    namanya Sel T Pembantu membantu melawan patogen dengan menggunakan fungsinya
+    yaitu memberikan sinyal dengan bentuk protein sitokin dan kemokin untuk memanggil
+    sel imun lain. Fungsi lain merupakan aktivasi sel adaptif berupa sel B dan sel
+    T Pembunuh. Tidak hanya aktivasi, sel ini juga membantu efektivitas kerja dari
+    sel imun lain menggunakan sekresi mediator. Mediator ini dapat merangsang pembuatan
+    antibodi serta menaikkan fungsi fagositosis kepada makrofag dan neutrofil. Sel
+    ini walaupun tidak secara langsung membunuh patogen, dapat membantu sel lain
+    untuk menjalankan tugasnya. '
+  UnitSprite: {fileID: 0}
+  AbilityType: 01000000
+  UnitAbility:
+  - {fileID: 11400000, guid: 9f5b398528062d749948a9a5e7b8a290, type: 2}
+  ImmuneCellType: 2

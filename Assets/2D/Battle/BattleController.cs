@@ -220,7 +220,7 @@ public class BattleController : MonoBehaviour
         selectedUnit = allyUnitSelected;
         selectedUnit.UnitSelect();
 
-        unitStatsController.InitializeUnitStats(allyUnitSelected, allyUnitSelected.UnitSO.abilityType);
+        unitStatsController.InitializeUnitStats(allyUnitSelected, allyUnitSelected.UnitSO.AbilityType);
     }
     private void OnAbilitySelected(AbilityType ability)
     {

@@ -1978,10 +1978,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Panel
       objectReference: {fileID: 0}
-    - target: {fileID: 7859962370749262866, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

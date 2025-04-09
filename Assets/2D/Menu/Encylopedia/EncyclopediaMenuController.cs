@@ -17,13 +17,19 @@ public class EncyclopediaMenuController : MonoBehaviour
     [SerializeField] private Transform cellsContent;
     [SerializeField] private Transform pathogenContent;
 
+    [SerializeField] private AbilityMenuController abilityMenuController;
+    [SerializeField] private AboutMenuController aboutMenuController;
+    [SerializeField] private GameObject encyclopediaPanel;
+
     [SerializeField] private TextMeshProUGUI unitNameText;
     [SerializeField] private Image unitImage;
     [SerializeField] private TextMeshProUGUI unitDescriptionText;
 
     [SerializeField] private Button returnButton;
+    [SerializeField] private Button aboutButton;
+    [SerializeField] private Button abilityButton;
 
-    [SerializeField] private List<EncylopediaUnit> encylopediaReference = new List<EncylopediaUnit>();
+    [SerializeField] private List<UnitData> encylopediaReference = new List<UnitData>();
 
     private List<EncylopediaUnitGrid> unitGrids = new List<EncylopediaUnitGrid>();
     private EncylopediaUnitGrid selectedGrid;
@@ -35,13 +41,17 @@ public class EncyclopediaMenuController : MonoBehaviour
         returnButton.onClick.AddListener(ReturnButtonPressed);
         cellsPanelButton.onClick.AddListener(delegate { SetupViewUnits(UnitType.CELLS); });
         pathogenPanelButton.onClick.AddListener(delegate { SetupViewUnits(UnitType.PATHOGEN); });
+        aboutButton.onClick.AddListener(OpenAboutMenu);
+        abilityButton.onClick.AddListener(OpenAbilityMenu);
+        abilityMenuController.ReturnToEncyclopedia += ReturnToEncyclopedia;
+        aboutMenuController.ReturnToEncyclopedia += ReturnToEncyclopedia;
     }
 
     public void InitializeUnits(List<EncyclopediaData> units)
     {
         for (int i = 0; i < units.Count; i++)
         {
-            EncylopediaUnit newUnit = encylopediaReference.Where(x => x.unitId.Equals((UnitId)units[i].UnitId)).FirstOrDefault();
+            UnitData newUnit = encylopediaReference.Where(x => x.unitId.Equals((UnitId)units[i].UnitId)).FirstOrDefault();
             EncylopediaUnitGrid newUnitGrid;
 
             if (newUnit.unitType == UnitType.CELLS)
@@ -106,19 +116,51 @@ public class EncyclopediaMenuController : MonoBehaviour
         SetupDescriptionPanel(selectedGrid.unitSo);
         selectedGrid.SelectGrid();
     }
-    private void SetupDescriptionPanel(EncylopediaUnit unitData)
+    private void SetupDescriptionPanel(UnitData unitData)
     {
         ClearDescriptionPanel();
 
-        unitNameText.text = unitData.unitName;
-        unitImage.sprite = unitData.unitSprite;
-        unitDescriptionText.text = unitData.unitDescription;
+        unitImage.sprite = unitData.UnitSprite;
+        unitNameText.text = unitData.UnitName;
+        unitDescriptionText.text = unitData.UnitSimpleDesc;
+        abilityButton.interactable = true;
+        aboutButton.interactable = true;
     }
     private void ClearDescriptionPanel()
     {
+        unitImage.sprite = null;
         unitNameText.text = "";
         unitDescriptionText.text = "";
-        unitImage.sprite = null;
+        abilityButton.interactable = false;
+        aboutButton.interactable = false;
+    }
+
+    private void ReturnToEncyclopedia()
+    {
+        abilityMenuController.ResetButtons();
+        encyclopediaPanel.gameObject.SetActive(true);
+        abilityMenuController.gameObject.SetActive(false);
+        aboutMenuController.gameObject.SetActive(false);
+    }
+    private void OpenAbilityMenu()
+    {
+        if (selectedGrid == null)
+        {
+            return;
+        }
+        abilityMenuController.gameObject.SetActive(true);
+        abilityMenuController.InitializeMenu(selectedGrid.unitSo);
+        encyclopediaPanel.gameObject.SetActive(false);
+    }
+    private void OpenAboutMenu()
+    {
+        if (selectedGrid == null)
+        {
+            return;
+        }
+        aboutMenuController.gameObject.SetActive(true);
+        aboutMenuController.InitializeMenu(selectedGrid.unitSo);
+        encyclopediaPanel.gameObject.SetActive(false);
     }
 
     private void ReturnButtonPressed()
@@ -135,5 +177,9 @@ public class EncyclopediaMenuController : MonoBehaviour
         returnButton.onClick.RemoveListener(ReturnButtonPressed);
         cellsPanelButton.onClick.RemoveListener(delegate { SetupViewUnits(UnitType.CELLS); });
         pathogenPanelButton.onClick.RemoveListener(delegate { SetupViewUnits(UnitType.PATHOGEN); });
+        aboutButton.onClick.RemoveListener(OpenAboutMenu);
+        abilityButton.onClick.RemoveListener(OpenAbilityMenu);
+        abilityMenuController.ReturnToEncyclopedia -= ReturnToEncyclopedia;
+        aboutMenuController.ReturnToEncyclopedia -= ReturnToEncyclopedia;
     }
 }

@@ -6,7 +6,7 @@ using System;
 
 public class EncylopediaUnitGrid : MonoBehaviour
 {
-    public EncylopediaUnit unitSo;
+    public UnitData unitSo;
 
     [SerializeField] private Button unitButton;
     [SerializeField] private TextMeshProUGUI unitNameText;
@@ -22,14 +22,14 @@ public class EncylopediaUnitGrid : MonoBehaviour
         unitButton.onClick.AddListener(OnClick);
     }
 
-    public void InitializeData(EncylopediaUnit unitData, bool unlocked)
+    public void InitializeData(UnitData unitData, bool unlocked)
     {
         this.unitSo = unitData;
 
         if (unlocked)
         {
-            unitNameText.text = unitSo.unitName;
-            unitImage.sprite = unitSo.unitSprite;
+            unitNameText.text = unitSo.UnitName;
+            unitImage.sprite = unitSo.UnitSprite;
             unitButton.interactable = true;
         }
         else

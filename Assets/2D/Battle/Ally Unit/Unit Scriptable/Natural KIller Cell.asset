@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3e95ddea1bf9e438460d43bcea271e, type: 3}
+  m_Name: Natural KIller Cell
+  m_EditorClassIdentifier: 
+  unitId: 104
+  UnitName: Natural Killer Cell
+  unitType: 1
+  UnitHp: 0
+  UnitCost: 0
+  UnitSpeed: 0
+  attackType: 0
+  UnitAtk: 0
+  UnitAtkSpeed: 0
+  UnitXRange: 0
+  UnitYRange: 0
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  UnitRangedXRange: 0
+  UnitRangedYRange: 0
+  RangedProjectile: {fileID: 0}
+  UnitArtilleryOffset: 0
+  UnitArtilleryRadius: 0
+  UnitSimpleDesc: 
+  UnitFullDesc: Sel Pembunuh Alami merupakan sel limfosit yang berkeluarga dengan
+    sel T limfosit dan sel B. Perbedaannya, sel ini tidak membutuhkan aktivasi dari
+    sel lain tetapi berperan sebagai salah satu sel imun bawaan. Sel ini berperan
+    dalam menjaga tubuh dengan kemampuannya untuk membunuh sel tumor, kanker, atau
+    sel yang sudah terinfeksi oleh patogen. Deteksi oleh sel ini berupa merasakan
+    ekspresi molekul MHC yang berada dalam sel tubuh. Jika sel sudah terinfeksi oleh
+    patogen, maka ekspresi dari molekul MHC menurun. Inilah yang menentukan apakah
+    Sel Pembunuh Alami akan terpicu untuk membunuh sel tersebut. Untuk membunuh sel
+    target, sel ini memanfaatkan granula yang dimilikinya berupa protein granzim
+    yang menyebabkan apoptosis atau kematian sel terprogram.
+  UnitSprite: {fileID: 0}
+  AbilityType: 01000000
+  UnitAbility:
+  - {fileID: 11400000, guid: af1579f264e992e4899ed33fbc0f3f6c, type: 2}
+  ImmuneCellType: 2

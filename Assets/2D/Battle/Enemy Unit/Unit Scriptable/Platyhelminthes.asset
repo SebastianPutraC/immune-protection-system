@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 203
   UnitName: Platyhelminthes
+  unitType: 2
   UnitHp: 200
   UnitCost: 200
   UnitSpeed: 2
@@ -23,12 +24,14 @@ MonoBehaviour:
   UnitXRange: 0.9
   UnitYRange: 0.2
   UnitRangedAtk: 0
-  unitRangedAtkSpeed: 0
-  unitRangedXRange: 0
-  unitRangedYRange: 0
-  rangedProjectile: {fileID: 0}
-  unitArtilleryOffset: 0
-  unitArtilleryRadius: 0
-  UnitDesc: Worms
-  UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
-  abilityType: 
+  UnitRangedAtkSpeed: 0
+  UnitRangedXRange: 0
+  UnitRangedYRange: 0
+  RangedProjectile: {fileID: 0}
+  UnitArtilleryOffset: 0
+  UnitArtilleryRadius: 0
+  UnitSimpleDesc: 
+  UnitFullDesc: 
+  UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
+  AbilityType: 
+  UnitAbility: []

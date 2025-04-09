@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelId: 3
   levelName: Level Three
-  allyUnits: 65000000660000006700000068000000
+  allyUnits: 6500000066000000670000006a000000
   enemyUnits: c9000000ca000000
   defaultStatingResource: 0
   defaultIncome: 100
