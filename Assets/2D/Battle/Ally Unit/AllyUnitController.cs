@@ -20,14 +20,14 @@ public class AllyUnitController : DeployedUnitController
     protected override void AttackAOE() // CHANGE THIS
     {
         LayerMask enemy = LayerMask.GetMask("Enemy");
-        if (targetEnemyUnitRanged != null)
+        if (targetEnemyUnitMelee != null)
         {
             List<Collider2D> enemyOnAOE = Physics2D.OverlapCapsuleAll(this.transform.position, new Vector2(
-                UnitSO.UnitXRange, UnitSO.UnitYRange), CapsuleDirection2D.Horizontal, 0, enemy).ToList();
+                UnitSO.UnitXRange + 5, UnitSO.UnitYRange + 5), CapsuleDirection2D.Horizontal, 1, enemy).ToList();
 
             for (int i = 0; i < enemyOnAOE.Count; i++)
             {
-                if (enemyOnAOE[i].CompareTag("EnemyUnit"))
+                if (enemyOnAOE[i].CompareTag("EnemyUnit") || enemyOnAOE[i].CompareTag("EnemyBase"))
                 {
                     enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(unitAtk.ReturnFinalValue());
                 }
