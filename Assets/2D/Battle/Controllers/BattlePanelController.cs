@@ -8,6 +8,8 @@ public class BattlePanelController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI resourcePointText;
     [SerializeField] private TextMeshProUGUI intelPointText;
 
+    [SerializeField] private TutorialController tutorial;
+
     public void UpdateAllyBaseUI(float baseHp)
     {
         allyBaseHpText.text = "HP : " + baseHp;
