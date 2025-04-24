@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class AllyUnitController : DeployedUnitController
 {
-    [SerializeField] private GameObject selectedIndicator;
+    [SerializeField] protected GameObject selectedIndicator;
 
     public void UnitSelect()
     {
@@ -17,7 +17,7 @@ public class AllyUnitController : DeployedUnitController
         selectedIndicator.SetActive(false);
     }
 
-    protected override void AttackAOE() // CHANGE THIS
+    /*protected override void AttackAOE() // CHANGE THIS
     {
         LayerMask enemy = LayerMask.GetMask("Enemy");
         if (targetEnemyUnitMelee != null)
@@ -35,5 +35,5 @@ public class AllyUnitController : DeployedUnitController
         }
 
         base.AttackAOE();
-    }
+    }*/
 }

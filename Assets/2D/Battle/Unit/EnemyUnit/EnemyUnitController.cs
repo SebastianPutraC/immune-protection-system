@@ -15,7 +15,7 @@ public class EnemyUnitController : DeployedUnitController
     {
         unitRb.linearVelocityX = -UnitSO.UnitSpeed;
     }
-    protected override void AttackAOE() // CHANGE THIS
+   /* protected override void AttackAOE() // CHANGE THIS
     {
         LayerMask enemy = LayerMask.GetMask("Ally");
         if (targetEnemyUnitRanged != null)
@@ -33,5 +33,5 @@ public class EnemyUnitController : DeployedUnitController
         }
 
         base.AttackAOE();
-    }
+    }*/
 }

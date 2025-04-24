@@ -12,20 +12,20 @@ public class UnitData : ScriptableObject
     public float UnitHp;
     public int UnitCost;
     public float UnitSpeed;
-    public AttackType attackType;
+    //public AttackType attackType;
     public float UnitAtk;
     public float UnitAtkSpeed;
-    public float UnitXRange;
-    public float UnitYRange;
+    //public float UnitXRange;
+    //public float UnitYRange;
 
     public float UnitRangedAtk;
     public float UnitRangedAtkSpeed;
-    public float UnitRangedXRange;
-    public float UnitRangedYRange;
+    //public float UnitRangedXRange;
+    //public float UnitRangedYRange;
     public Projectile RangedProjectile;
 
-    public float UnitArtilleryOffset;
-    public float UnitArtilleryRadius;
+    //public float UnitArtilleryOffset;
+    //public float UnitArtilleryRadius;
 
     [TextArea(5, 10)]
     public string UnitSimpleDesc;

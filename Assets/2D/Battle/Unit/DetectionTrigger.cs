@@ -5,12 +5,12 @@ public class DetectionTrigger : MonoBehaviour
 {
     [SerializeField] private UnitSide unitSide;
     [SerializeField] private CapsuleCollider2D trigger;
-    private AttackType attackType;
+    //private AttackType attackType;
 
     public Action<UnitController> enemyDetected;
     public Action<UnitController> enemyOutRange;
 
-    public void InitializeRange(float xRange, float yRange, AttackType attackType)
+    /*public void InitializeRange(float xRange, float yRange, AttackType attackType)
     {
         this.attackType = attackType;
         trigger.size = new Vector2(xRange, yRange);
@@ -27,7 +27,7 @@ public class DetectionTrigger : MonoBehaviour
         {
             trigger.offset = Vector2.zero;
         }
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

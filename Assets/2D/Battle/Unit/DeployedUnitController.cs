@@ -8,15 +8,14 @@ public class DeployedUnitController : UnitController
     public UnitData UnitSO;
     [SerializeField]protected UnitStat unitAtk;
     [SerializeField]protected UnitStat unitRangedAtk;
-    protected AttackType attackType;
+    //protected AttackType attackType;
 
     public bool isMoveOrder = true; // public for now
     protected bool isDetecting = false;
     protected bool isRangedDetecting = false;
 
-    private float meleeCooldown;
-    private float rangedCooldown;
-    private float deathTimer;
+    protected float meleeCooldown;
+    protected float rangedCooldown;
 
     [SerializeField] protected SpriteRenderer unitSprite;
     [SerializeField] protected Rigidbody2D unitRb;
@@ -24,8 +23,8 @@ public class DeployedUnitController : UnitController
     [SerializeField] protected DetectionTrigger enemyRangedDetect;
     [SerializeField] protected Slider healthBar;
 
-    [SerializeField] protected Transform projectileSpawn;
-    [SerializeField] protected ParticleSystem AoeEffect;
+    //[SerializeField] protected Transform projectileSpawn;
+    //[SerializeField] protected ParticleSystem AoeEffect;
 
     [SerializeField] protected UnitController targetEnemyUnitMelee;
     [SerializeField] protected UnitController targetEnemyUnitRanged;
@@ -35,10 +34,16 @@ public class DeployedUnitController : UnitController
 
     protected void Awake()
     {
-        enemyDetect.enemyDetected += EnemyDetected;
-        enemyDetect.enemyOutRange += EnemyGoneMelee;
-        enemyRangedDetect.enemyDetected += EnemyRangedDetected;
-        enemyRangedDetect.enemyOutRange += EnemyGoneRanged;
+        if(enemyDetect != null)
+        {
+            enemyDetect.enemyDetected += EnemyMeleeDetected;
+            enemyDetect.enemyOutRange += EnemyMeleeLost;
+        }
+        if (enemyRangedDetect != null)
+        {
+            enemyRangedDetect.enemyDetected += EnemyRangedDetected;
+            enemyRangedDetect.enemyOutRange += EnemyRangedLost;
+        }
     }
 
     public virtual void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers)
@@ -47,7 +52,7 @@ public class DeployedUnitController : UnitController
         unitHp = AdjustMaxHP(GetModifiersForType(StatType.HP, modifiers), UnitSO.UnitHp);
         unitAtk = new UnitStat(UnitSO.UnitAtk, StatType.ATK, GetModifiersForType(StatType.ATK, modifiers));
         unitRangedAtk = new UnitStat(UnitSO.UnitRangedAtk, StatType.RANGEDATK, GetModifiersForType(StatType.RANGEDATK, modifiers));
-        attackType = UnitSO.attackType;
+        //attackType = UnitSO.attackType;
         unitSprite.sprite = UnitSO.UnitSprite;
         meleeCooldown = UnitSO.UnitAtkSpeed;
         rangedCooldown = UnitSO.UnitRangedAtkSpeed;
@@ -55,7 +60,7 @@ public class DeployedUnitController : UnitController
         UpdateHealthBar(unitHp, UnitSO.UnitHp);
 
         //Might make its own function
-        if (attackType.HasFlag(AttackType.MELEE))
+       /* if (attackType.HasFlag(AttackType.MELEE))
         {
             enemyDetect.InitializeRange(UnitSO.UnitXRange, UnitSO.UnitYRange, AttackType.MELEE);
             enemyDetect.gameObject.SetActive(true);
@@ -74,9 +79,9 @@ public class DeployedUnitController : UnitController
         {
             enemyRangedDetect.InitializeRange(UnitSO.UnitRangedXRange, UnitSO.UnitRangedYRange, AttackType.ARTILERRY);
             enemyRangedDetect.gameObject.SetActive(true);
-        }    
+        }*/ 
     }
-    private List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
+    protected List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
     {
         return allModifiers.Where(mod => mod.StatToMod == statType).ToList();
     }
@@ -90,10 +95,10 @@ public class DeployedUnitController : UnitController
         return maxHp.ReturnFinalValue();
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         // Melee priority for now
-        if (isDetecting) 
+        /*if (isDetecting) 
         {
             if (meleeCooldown > 0)
             {
@@ -142,7 +147,7 @@ public class DeployedUnitController : UnitController
             {
                 Stop();
             }
-        }
+        }*/
     }
     public void ProcessAbility(AbilityType ability)
     {
@@ -173,7 +178,7 @@ public class DeployedUnitController : UnitController
     
 
     #region Detection
-    protected void EnemyDetected(UnitController enemyUnit) //Set up Attack Priority
+    protected void EnemyMeleeDetected(UnitController enemyUnit)
     {
         isDetecting = true;
         Stop();
@@ -192,7 +197,7 @@ public class DeployedUnitController : UnitController
             }
         }
     }
-    protected void EnemyRangedDetected(UnitController enemyUnit) // Set up Attack Priority
+    protected void EnemyRangedDetected(UnitController enemyUnit)
     {
         isRangedDetecting = true;
         Stop();
@@ -211,7 +216,7 @@ public class DeployedUnitController : UnitController
             }
         }
     }
-    protected void EnemyGoneMelee(UnitController enemyUnit)
+    protected void EnemyMeleeLost(UnitController enemyUnit)
     {
         if (detectedUnitMelee.ContainsKey(enemyUnit.GetInstanceID()))
         {
@@ -235,7 +240,7 @@ public class DeployedUnitController : UnitController
             isDetecting = false;
         }
     }
-    protected void EnemyGoneRanged(UnitController enemyUnit)
+    protected void EnemyRangedLost(UnitController enemyUnit)
     {
         if (detectedUnitRanged.ContainsKey(enemyUnit.GetInstanceID()))
         {
@@ -280,13 +285,13 @@ public class DeployedUnitController : UnitController
     protected void EnemyDead(UnitController enemyUnit)
     {
         enemyUnit.ThisUnitKilled -= EnemyDead;
-        EnemyGoneMelee(enemyUnit);
-        EnemyGoneRanged(enemyUnit);
+        EnemyMeleeLost(enemyUnit);
+        EnemyRangedLost(enemyUnit);
     }
     #endregion Detection
 
     #region Attack
-    protected void AttackMelee()
+    /*protected void AttackMelee()
     {
         if (targetEnemyUnitMelee != null)
         {
@@ -313,10 +318,10 @@ public class DeployedUnitController : UnitController
             spawnProjectile.InitializeArtilleryProjectile(10, UnitSO.UnitRangedAtk, 
                 targetEnemyUnitRanged, UnitSO.UnitArtilleryRadius); // 10 is placeholder
         }
-    }
+    }*/
     #endregion
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("UnitLimit"))
         {
@@ -336,9 +341,15 @@ public class DeployedUnitController : UnitController
 
     protected void OnDestroy()
     {
-        enemyDetect.enemyDetected -= EnemyDetected;
-        enemyDetect.enemyOutRange -= EnemyGoneMelee;
-        enemyRangedDetect.enemyDetected -= EnemyRangedDetected;
-        enemyRangedDetect.enemyOutRange -= EnemyGoneRanged;
+        if (enemyDetect != null)
+        {
+            enemyDetect.enemyDetected -= EnemyMeleeDetected;
+            enemyDetect.enemyOutRange -= EnemyMeleeLost;
+        }
+        if (enemyRangedDetect != null)
+        {
+            enemyRangedDetect.enemyDetected -= EnemyRangedDetected;
+            enemyRangedDetect.enemyOutRange -= EnemyRangedLost;
+        }
     }
 }
