@@ -13,23 +13,17 @@ MonoBehaviour:
   m_Name: Plasma Cell
   m_EditorClassIdentifier: 
   unitId: 106
+  unitPrefab: {fileID: 7345157238821727144, guid: c3f7476f1802bf94082b32f24f746ca6, type: 3}
   UnitName: Plasma Cell
   unitType: 1
   UnitHp: 80
-  UnitCost: 300
+  UnitCost: 500
   UnitSpeed: 2
-  attackType: 5
-  UnitAtk: 30
-  UnitAtkSpeed: 1
-  UnitXRange: 0.9
-  UnitYRange: 0.2
+  UnitAtk: 0
+  UnitAtkSpeed: 0
   UnitRangedAtk: 50
   UnitRangedAtkSpeed: 3
-  UnitRangedXRange: 13
-  UnitRangedYRange: 6
   RangedProjectile: {fileID: 5661811759104570259, guid: 1e37c474fa4c4ec43b1a749b9222b0e4, type: 3}
-  UnitArtilleryOffset: 0
-  UnitArtilleryRadius: 0
   UnitSimpleDesc: 
   UnitFullDesc: 'Sel Plasma merupakan tipe dari sel B yang berasal dari jaringan
     limfoid seperti sumsum tulang, limpa, dan kelenjar getah bening. Sebelum berubah

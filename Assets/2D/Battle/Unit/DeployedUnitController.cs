@@ -32,7 +32,7 @@ public class DeployedUnitController : UnitController
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitMelee = new Dictionary<int, UnitController>();
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitRanged = new Dictionary<int, UnitController>();
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         if(enemyDetect != null)
         {
@@ -95,10 +95,9 @@ public class DeployedUnitController : UnitController
         return maxHp.ReturnFinalValue();
     }
 
-    protected virtual void Update()
+    /*protected virtual void Update()
     {
-        // Melee priority for now
-        /*if (isDetecting) 
+        if (isDetecting) 
         {
             if (meleeCooldown > 0)
             {
@@ -138,7 +137,7 @@ public class DeployedUnitController : UnitController
         }
         else
         {
-            AoeEffect.Stop();
+            //AoeEffect.Stop();
             if (isMoveOrder)
             {
                 Move();
@@ -147,9 +146,9 @@ public class DeployedUnitController : UnitController
             {
                 Stop();
             }
-        }*/
-    }
-    public void ProcessAbility(AbilityType ability)
+        }
+    }*/
+    public virtual void ProcessAbility(AbilityType ability)
     {
         switch(ability)
         {
@@ -339,7 +338,7 @@ public class DeployedUnitController : UnitController
         UpdateHealthBar(unitHp, UnitSO.UnitHp);
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (enemyDetect != null)
         {

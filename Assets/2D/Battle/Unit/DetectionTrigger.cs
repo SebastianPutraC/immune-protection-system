@@ -4,7 +4,7 @@ using UnityEngine;
 public class DetectionTrigger : MonoBehaviour
 {
     [SerializeField] private UnitSide unitSide;
-    [SerializeField] private CapsuleCollider2D trigger;
+    [SerializeField] private Collider2D trigger;
     //private AttackType attackType;
 
     public Action<UnitController> enemyDetected;

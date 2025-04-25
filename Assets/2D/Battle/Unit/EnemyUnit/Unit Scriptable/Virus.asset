@@ -10,28 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce796e6962da51042b65050b4a4fd6fc, type: 3}
-  m_Name: Salmonella
+  m_Name: Virus
   m_EditorClassIdentifier: 
   unitId: 202
-  UnitName: Salmonella
+  unitPrefab: {fileID: -448099447957358943, guid: 95b33c3e25d53fe48a8282e6f6b9cfa8, type: 3}
+  UnitName: Virus
   unitType: 2
   UnitHp: 50
   UnitCost: 100
   UnitSpeed: 3
-  attackType: 3
   UnitAtk: 10
   UnitAtkSpeed: 0.7
-  UnitXRange: 0.9
-  UnitYRange: 0.2
   UnitRangedAtk: 20
   UnitRangedAtkSpeed: 1
-  UnitRangedXRange: 5
-  UnitRangedYRange: 5
   RangedProjectile: {fileID: 5845206643913531204, guid: bce1fa5d374d4ad4e98b5dc20b426799, type: 3}
-  UnitArtilleryOffset: 0
-  UnitArtilleryRadius: 0
   UnitSimpleDesc: 
   UnitFullDesc: 
-  UnitSprite: {fileID: 21300000, guid: 46b9b9ec5ddfd14458eb44665c1f6864, type: 3}
+  UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
   AbilityType: 
   UnitAbility: []

@@ -10,28 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce796e6962da51042b65050b4a4fd6fc, type: 3}
-  m_Name: Influenzavirus
+  m_Name: Worms
   m_EditorClassIdentifier: 
-  unitId: 201
-  UnitName: Influenzavirus
+  unitId: 203
+  unitPrefab: {fileID: 8992754535199334865, guid: 3cc01b2ff5caae348b534c3c7511d215, type: 3}
+  UnitName: Worms
   unitType: 2
-  UnitHp: 80
-  UnitCost: 75
-  UnitSpeed: 4
-  attackType: 1
-  UnitAtk: 20
+  UnitHp: 200
+  UnitCost: 200
+  UnitSpeed: 2
+  UnitAtk: 50
   UnitAtkSpeed: 1
-  UnitXRange: 0.9
-  UnitYRange: 0.2
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
-  UnitRangedXRange: 0
-  UnitRangedYRange: 0
-  RangedProjectile: {fileID: 5845206643913531204, guid: bce1fa5d374d4ad4e98b5dc20b426799, type: 3}
-  UnitArtilleryOffset: 0
-  UnitArtilleryRadius: 0
+  RangedProjectile: {fileID: 0}
   UnitSimpleDesc: 
   UnitFullDesc: 
-  UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
+  UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
   AbilityType: 
   UnitAbility: []

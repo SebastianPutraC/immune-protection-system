@@ -8,7 +8,6 @@ public class RowController : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Transform allySpawn;
     [SerializeField] private Transform enemySpawn;
 
-    [SerializeField] private AllyUnitController allyPrefab;
     [SerializeField] private EnemyUnitController enemyPrefab;
 
     public Action<RowController> RowClicked; // Might move to other script
@@ -21,14 +20,14 @@ public class RowController : MonoBehaviour, IPointerClickHandler
 
     public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers)
     {
-        AllyUnitController newAlly = Instantiate(allyPrefab, allySpawn);
+        AllyUnitController newAlly = (AllyUnitController)Instantiate(allyUnit.unitPrefab, allySpawn);
         newAlly.InitializeUnit(allyUnit, modifiers);
         AllySpawned?.Invoke(newAlly);
     }
 
     public void SpawnEnemy(EnemyUnit enemyUnit, List<StatModifier> modifiers)
     {
-        EnemyUnitController newEnemy = Instantiate(enemyPrefab, enemySpawn);
+        EnemyUnitController newEnemy = (EnemyUnitController)Instantiate(enemyUnit.unitPrefab, enemySpawn);
         newEnemy.InitializeUnit(enemyUnit, modifiers);
     }
 }

@@ -12,7 +12,7 @@ public enum UnitId
     THELPER = 108,
 
 
-    INFLUENZAVIRUS = 201,
-    SALMONELLA = 202,
-    PLATYHELMINTHES = 203
+    BACTERIA = 201,
+    VIRUS = 202,
+    WORMS = 203
 }

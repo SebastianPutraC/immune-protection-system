@@ -10,28 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce796e6962da51042b65050b4a4fd6fc, type: 3}
-  m_Name: Platyhelminthes
+  m_Name: Bacteria
   m_EditorClassIdentifier: 
-  unitId: 203
-  UnitName: Platyhelminthes
+  unitId: 201
+  unitPrefab: {fileID: 6484644874592221341, guid: adadcc0cd6a16a246b52c2711bbe31c0, type: 3}
+  UnitName: Bacteria
   unitType: 2
-  UnitHp: 200
-  UnitCost: 200
-  UnitSpeed: 2
-  attackType: 1
-  UnitAtk: 50
+  UnitHp: 80
+  UnitCost: 75
+  UnitSpeed: 4
+  UnitAtk: 20
   UnitAtkSpeed: 1
-  UnitXRange: 0.9
-  UnitYRange: 0.2
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
-  UnitRangedXRange: 0
-  UnitRangedYRange: 0
   RangedProjectile: {fileID: 0}
-  UnitArtilleryOffset: 0
-  UnitArtilleryRadius: 0
   UnitSimpleDesc: 
   UnitFullDesc: 
-  UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
+  UnitSprite: {fileID: 21300000, guid: 46b9b9ec5ddfd14458eb44665c1f6864, type: 3}
   AbilityType: 
   UnitAbility: []

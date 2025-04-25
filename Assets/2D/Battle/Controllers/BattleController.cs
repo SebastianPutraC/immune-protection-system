@@ -110,6 +110,9 @@ public class BattleController : MonoBehaviour
 
     protected void SetUpLevel(LevelInfo levelInfo)
     {
+        resourcePoints = levelInfo.defaultStatingResource;
+        basicIncome = levelInfo.defaultIncome;
+
         List<AllyUnit> alliesData = new List<AllyUnit>();
         for (int i = 0; i < levelInfo.allyUnits.Count; i++)
         {
@@ -178,6 +181,11 @@ public class BattleController : MonoBehaviour
     protected void OnAllySpawned(AllyUnitController allyUnit)
     {
         allyUnit.ThisUnitKilled += OnAllyKilled;
+        if (allyUnit is IInflammator)
+        {
+            IInflammator inflammatorUnit = (IInflammator)allyUnit;
+            inflammatorUnit.InflammatoryActivated += IncreaseResourcePoint;
+        }
         allAllyUnits.Add(allyUnit);
     }
     protected void OnAllyKilled(UnitController allyUnit)
@@ -187,6 +195,11 @@ public class BattleController : MonoBehaviour
             unitStatsController.ClearUI();
         }
         allyUnit.ThisUnitKilled -= OnAllyKilled;
+        if (allyUnit is IInflammator)
+        {
+            IInflammator inflammatorUnit = (IInflammator)allyUnit;
+            inflammatorUnit.InflammatoryActivated -= IncreaseResourcePoint;
+        }
         allAllyUnits.Remove((AllyUnitController)allyUnit);
     }
     
@@ -311,6 +324,11 @@ public class BattleController : MonoBehaviour
         for (int i = 0; i < allAllyUnits.Count; i++)
         {
             allAllyUnits[i].ThisUnitKilled -= OnAllyKilled;
+            if (allAllyUnits[i] is IInflammator)
+            {
+                IInflammator inflammatorUnit = (IInflammator)allAllyUnits[i];
+                inflammatorUnit.InflammatoryActivated -= IncreaseResourcePoint;
+            }
         }
     }
 

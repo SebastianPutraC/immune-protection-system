@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitData : ScriptableObject
 {
     public UnitId unitId;
+    public DeployedUnitController unitPrefab;
 
     public string UnitName;
     public UnitType unitType;
