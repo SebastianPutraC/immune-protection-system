@@ -13,23 +13,17 @@ MonoBehaviour:
   m_Name: Killer T Cell
   m_EditorClassIdentifier: 
   unitId: 107
+  unitPrefab: {fileID: -4250696035177228427, guid: 9759ba70e665dea40ba1e23d074c715a, type: 3}
   UnitName: Killer T Cell
   unitType: 1
-  UnitHp: 0
-  UnitCost: 0
-  UnitSpeed: 0
-  attackType: 0
+  UnitHp: 150
+  UnitCost: 100
+  UnitSpeed: 10
   UnitAtk: 0
   UnitAtkSpeed: 0
-  UnitXRange: 0
-  UnitYRange: 0
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
-  UnitRangedXRange: 0
-  UnitRangedYRange: 0
   RangedProjectile: {fileID: 0}
-  UnitArtilleryOffset: 0
-  UnitArtilleryRadius: 0
   UnitSimpleDesc: 
   UnitFullDesc: 'Sel T Pembunuh merupakan sel yang berasal dari jaringan limfoid
     yang satu keluarga dengan Sel T Pembantu. Tugas dari sel ini berfokus melawan
@@ -39,7 +33,7 @@ MonoBehaviour:
     dengan menggunakan enzim kaspase yang mengaktifkan nuklease sitosolik yang membelah
     DNA dari sel yang terinfeksi. Ini merupakan fungsi yang sama dengan sel pembunuh
     alami yaitu fungsi yang menyebabkan apoptosis atau kematian sel terprogram. '
-  UnitSprite: {fileID: 0}
+  UnitSprite: {fileID: 21300000, guid: 3394d3b5802c78245b9cb68fc8dfa28b, type: 3}
   AbilityType: 01000000
   UnitAbility:
   - {fileID: 11400000, guid: af1579f264e992e4899ed33fbc0f3f6c, type: 2}

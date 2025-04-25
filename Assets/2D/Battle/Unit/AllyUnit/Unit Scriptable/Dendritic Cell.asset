@@ -13,23 +13,17 @@ MonoBehaviour:
   m_Name: Dendritic Cell
   m_EditorClassIdentifier: 
   unitId: 105
+  unitPrefab: {fileID: 7389718965511584711, guid: 7f1cf0514c7973e48a65c004489c51cd, type: 3}
   UnitName: Dendritic Cell
   unitType: 1
-  UnitHp: 0
-  UnitCost: 0
-  UnitSpeed: 0
-  attackType: 0
+  UnitHp: 50
+  UnitCost: 200
+  UnitSpeed: 10
   UnitAtk: 0
   UnitAtkSpeed: 0
-  UnitXRange: 0
-  UnitYRange: 0
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
-  UnitRangedXRange: 0
-  UnitRangedYRange: 0
   RangedProjectile: {fileID: 0}
-  UnitArtilleryOffset: 0
-  UnitArtilleryRadius: 0
   UnitSimpleDesc: 
   UnitFullDesc: Sel Dendritik merupakan sel yang juga berasal dari sumsum tulang
     sama seperti makrofag. Sel ini juga berada di sebagian besar jaringan tisu tubuh.
@@ -40,7 +34,7 @@ MonoBehaviour:
     menjadi APC, Sel Dendritik juga dapat menginduksi inflamasi untuk memberi tahun
     mengenai infeksi yang terjadi.  Ini dikarenakan oleh Sel Dendritik juga memproduksi
     protein sitokin yang merekrut sel imun lain.
-  UnitSprite: {fileID: 0}
+  UnitSprite: {fileID: 21300000, guid: 06b4454dc007e454f8428afdfcea8f18, type: 3}
   AbilityType: 01000000
   UnitAbility:
   - {fileID: 11400000, guid: da17486cfc5ff7f47b727db8b078c117, type: 2}

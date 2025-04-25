@@ -13,23 +13,17 @@ MonoBehaviour:
   m_Name: Natural KIller Cell
   m_EditorClassIdentifier: 
   unitId: 104
+  unitPrefab: {fileID: 7492695235832587713, guid: e8fb5cbd8f30d3c4081e6a11e62da6b4, type: 3}
   UnitName: Natural Killer Cell
   unitType: 1
-  UnitHp: 0
-  UnitCost: 0
-  UnitSpeed: 0
-  attackType: 0
+  UnitHp: 75
+  UnitCost: 300
+  UnitSpeed: 7
   UnitAtk: 0
   UnitAtkSpeed: 0
-  UnitXRange: 0
-  UnitYRange: 0
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
-  UnitRangedXRange: 0
-  UnitRangedYRange: 0
   RangedProjectile: {fileID: 0}
-  UnitArtilleryOffset: 0
-  UnitArtilleryRadius: 0
   UnitSimpleDesc: 
   UnitFullDesc: Sel Pembunuh Alami merupakan sel limfosit yang berkeluarga dengan
     sel T limfosit dan sel B. Perbedaannya, sel ini tidak membutuhkan aktivasi dari
@@ -41,7 +35,7 @@ MonoBehaviour:
     Sel Pembunuh Alami akan terpicu untuk membunuh sel tersebut. Untuk membunuh sel
     target, sel ini memanfaatkan granula yang dimilikinya berupa protein granzim
     yang menyebabkan apoptosis atau kematian sel terprogram.
-  UnitSprite: {fileID: 0}
+  UnitSprite: {fileID: 21300000, guid: 1aa2f12e5e3091e469e8ff3d2bc56a3b, type: 3}
   AbilityType: 01000000
   UnitAbility:
   - {fileID: 11400000, guid: af1579f264e992e4899ed33fbc0f3f6c, type: 2}
