@@ -18,7 +18,7 @@ public class RowController : MonoBehaviour, IPointerClickHandler
         RowClicked?.Invoke(this);
     }
 
-    public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers)
+    /*public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers)
     {
         AllyUnitController newAlly = (AllyUnitController)Instantiate(allyUnit.unitPrefab, allySpawn);
         newAlly.InitializeUnit(allyUnit, modifiers);
@@ -29,5 +29,5 @@ public class RowController : MonoBehaviour, IPointerClickHandler
     {
         EnemyUnitController newEnemy = (EnemyUnitController)Instantiate(enemyUnit.unitPrefab, enemySpawn);
         newEnemy.InitializeUnit(enemyUnit, modifiers);
-    }
+    }*/
 }

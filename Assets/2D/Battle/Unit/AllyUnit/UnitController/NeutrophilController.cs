@@ -17,8 +17,9 @@ public class NeutrophilController : AllyUnitController
         base.Awake();
         netDetection.enemyDetected += NetDetect;
     }
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         if (trapActivated)
         {
             trapCooldown -= Time.deltaTime;
@@ -49,17 +50,6 @@ public class NeutrophilController : AllyUnitController
             {
                 DegranulationAttack();
                 rangedCooldown = UnitSO.UnitRangedAtkSpeed;
-            }
-        }
-        else
-        {
-            if (isMoveOrder)
-            {
-                Move();
-            }
-            else
-            {
-                Stop();
             }
         }
     }

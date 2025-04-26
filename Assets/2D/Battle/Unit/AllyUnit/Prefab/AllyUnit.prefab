@@ -4990,7 +4990,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!61 &5959548902423482687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5065,8 +5065,6 @@ MonoBehaviour:
   enemyDetect: {fileID: 756482806150650280}
   enemyRangedDetect: {fileID: 5553200897856739096}
   healthBar: {fileID: 309026105501343869}
-  projectileSpawn: {fileID: 3415652066066232364}
-  AoeEffect: {fileID: 7254000371764980698}
   targetEnemyUnitMelee: {fileID: 0}
   targetEnemyUnitRanged: {fileID: 0}
   selectedIndicator: {fileID: 8673450375288716165}

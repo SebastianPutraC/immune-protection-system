@@ -19,18 +19,6 @@ public class DendriticController : AllyUnitController, IInflammator
         antigenDetect.enemyDetected += GetAntigen;
     }
 
-    protected void Update()
-    {
-        if (isMoveOrder)
-        {
-            Move();
-        }
-        else
-        {
-            Stop();
-        }
-    }
-
     private void GetAntigen(UnitController antigen)
     {
 

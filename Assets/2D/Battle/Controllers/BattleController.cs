@@ -16,7 +16,9 @@ public class BattleController : MonoBehaviour
 
     protected bool adaptiveUnlocked;
 
-    [SerializeField] protected List<RowController> rowsController;
+    [SerializeField] protected List<Spawner> allySpawners;
+    [SerializeField] protected List<Spawner> enemySpawners;
+    [SerializeField] protected RouteController routeController;
     [SerializeField] protected UnitPanelController unitPanelController;
     [SerializeField] protected BattlePanelController battlePanelController;
     [SerializeField] protected UnitStatsController unitStatsController;
@@ -26,6 +28,7 @@ public class BattleController : MonoBehaviour
 
     public List<UnitData> UnitReferences = new List<UnitData>();
     public List<AllyUnitController> allAllyUnits = new List<AllyUnitController>(); // Public for visual
+    public List<EnemyUnitController> allEnemyUnits = new List<EnemyUnitController>();
     public AllyUnitController selectedUnit; //Public for visual
 
     [SerializeField] protected AllyBaseController allyBaseController;
@@ -40,10 +43,14 @@ public class BattleController : MonoBehaviour
 
     protected void Awake()
     {
-        for (int i = 0; i < rowsController.Count; i++)
+        for (int i = 0; i < allySpawners.Count; i++)
         {
-            rowsController[i].RowClicked += CheckAllyCardSelected;
-            rowsController[i].AllySpawned += OnAllySpawned;
+            allySpawners[i].spawnClicked += CheckAllyCardSelected;
+            allySpawners[i].AllySpawned += OnAllySpawned;
+        }
+        for (int i = 0; i < enemySpawners.Count; i++)
+        {
+            enemySpawners[i].enemySpawned += OnEnemySpawned;
         }
         allyBaseController.allyBaseAttacked += UpdateAllyBaseUI;
         allyBaseController.allyBaseDestroyed += GameLost;
@@ -82,7 +89,6 @@ public class BattleController : MonoBehaviour
         ResumeGame();
         gameOverPanelController.gameObject.SetActive(false);
     }
-
     protected void Update()
     {
         if (RpIncomeTimer > 0)
@@ -107,7 +113,6 @@ public class BattleController : MonoBehaviour
             unitStatsController.UpdateUnitStats(selectedUnit);
         }
     }
-
     protected void SetUpLevel(LevelInfo levelInfo)
     {
         resourcePoints = levelInfo.defaultStatingResource;
@@ -130,6 +135,7 @@ public class BattleController : MonoBehaviour
         }
         testUnits = enemiesData;
     }
+
 
     protected void IncreaseResourcePoint(int income)
     {
@@ -161,26 +167,31 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    protected void CheckAllyCardSelected(RowController spawnRow)
+
+    protected void CheckAllyCardSelected(Spawner spawner)
     {
         if (unitPanelController.selectedCard != null)
         {
-            DeployAllyUnit(unitPanelController.DeployCard(), spawnRow);
+            DeployAllyUnit(unitPanelController.DeployCard(), spawner);
             unitPanelController.ResetSelectedCard();
         }
     }
-    protected void DeployAllyUnit(AllyUnit allyData, RowController spawnRow)
+    protected void DeployAllyUnit(AllyUnit allyData, Spawner spawner)
     {
         if (allyData.UnitCost > resourcePoints)
             return;
 
         resourcePoints -= allyData.UnitCost;
         UpdateResourcePointUI();
-        spawnRow.SpawnAlly(allyData, allyGlobalModifiers);
+
+        Route initialRoute = routeController.GetRouteByID(spawner.initialRouteId);
+
+        spawner.SpawnAlly(allyData, allyGlobalModifiers, initialRoute);
     }
     protected void OnAllySpawned(AllyUnitController allyUnit)
     {
         allyUnit.ThisUnitKilled += OnAllyKilled;
+        allyUnit.UnitArrivedAtWaypoint += SetNewUnitRoute;
         if (allyUnit is IInflammator)
         {
             IInflammator inflammatorUnit = (IInflammator)allyUnit;
@@ -195,6 +206,7 @@ public class BattleController : MonoBehaviour
             unitStatsController.ClearUI();
         }
         allyUnit.ThisUnitKilled -= OnAllyKilled;
+        allyUnit.UnitArrivedAtWaypoint -= SetNewUnitRoute;
         if (allyUnit is IInflammator)
         {
             IInflammator inflammatorUnit = (IInflammator)allyUnit;
@@ -202,10 +214,23 @@ public class BattleController : MonoBehaviour
         }
         allAllyUnits.Remove((AllyUnitController)allyUnit);
     }
-    
-    protected void DeployEnemyUnit(EnemyUnit enemyData, RowController spawnRow)
+
+    protected void DeployEnemyUnit(EnemyUnit enemyData, Spawner spawner)
     {
-        spawnRow.SpawnEnemy(enemyData, enemyGlobalModifiers);
+        Route initialRoute = routeController.GetRouteByID(spawner.initialRouteId);
+        spawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute);
+    }
+    protected void OnEnemySpawned(EnemyUnitController enemyUnit)
+    {
+        enemyUnit.ThisUnitKilled += OnEnemyKilled;
+        enemyUnit.UnitArrivedAtWaypoint += SetNewUnitRoute;
+        allEnemyUnits.Add(enemyUnit);
+    }
+    protected void OnEnemyKilled(UnitController enemyUnit)
+    {
+        enemyUnit.ThisUnitKilled -= OnEnemyKilled;
+        enemyUnit.UnitArrivedAtWaypoint -= SetNewUnitRoute;
+        allEnemyUnits.Remove((EnemyUnitController)enemyUnit);
     }
 
 
@@ -239,6 +264,12 @@ public class BattleController : MonoBehaviour
     {
         selectedUnit.ProcessAbility(ability);
     }
+    protected void SetNewUnitRoute(int routeId, DeployedUnitController unit)
+    {
+        Route newRoute = routeController.GetRouteByID(routeId);
+        unit.SetNewRoute(newRoute);
+    }
+
 
     protected void PauseGame()
     {
@@ -300,10 +331,14 @@ public class BattleController : MonoBehaviour
 
     protected void OnDestroy()
     {
-        for (int i = 0; i < rowsController.Count; i++)
+        for (int i = 0; i < allySpawners.Count; i++)
         {
-            rowsController[i].RowClicked -= CheckAllyCardSelected;
-            rowsController[i].AllySpawned -= OnAllySpawned;
+            allySpawners[i].spawnClicked -= CheckAllyCardSelected;
+            allySpawners[i].AllySpawned -= OnAllySpawned;
+        }
+        for (int i = 0; i < enemySpawners.Count; i++)
+        {
+            enemySpawners[i].enemySpawned -= OnEnemySpawned;
         }
         allyBaseController.allyBaseAttacked -= UpdateAllyBaseUI;
         allyBaseController.allyBaseDestroyed -= GameLost;
@@ -324,11 +359,17 @@ public class BattleController : MonoBehaviour
         for (int i = 0; i < allAllyUnits.Count; i++)
         {
             allAllyUnits[i].ThisUnitKilled -= OnAllyKilled;
+            allAllyUnits[i].UnitArrivedAtWaypoint -= SetNewUnitRoute;
             if (allAllyUnits[i] is IInflammator)
             {
                 IInflammator inflammatorUnit = (IInflammator)allAllyUnits[i];
                 inflammatorUnit.InflammatoryActivated -= IncreaseResourcePoint;
             }
+        }
+        for (int i = 0; i < allEnemyUnits.Count; i++)
+        {
+            allEnemyUnits[i].ThisUnitKilled -= OnEnemyKilled;
+            allEnemyUnits[i].UnitArrivedAtWaypoint -= SetNewUnitRoute;
         }
     }
 
@@ -340,11 +381,11 @@ public class BattleController : MonoBehaviour
         isSpawned = true;
         yield return new WaitForSeconds(3f);
 
-        int randomRow = Random.Range(0, 3);
+        int randomRow = Random.Range(0, enemySpawners.Count - 1);
         int randomUnit = Random.Range(0, testUnits.Count);
         EnemyUnit spawnEnemy = testUnits[randomUnit];
 
-        DeployEnemyUnit(spawnEnemy, rowsController[randomRow]);
+        DeployEnemyUnit(spawnEnemy, enemySpawners[randomRow]);
         isSpawned = false;
     }
 }

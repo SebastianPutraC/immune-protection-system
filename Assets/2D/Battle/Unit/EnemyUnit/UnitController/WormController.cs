@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WormController : EnemyUnitController
 {
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         if (isDetecting)
         {
             if (meleeCooldown > 0)
@@ -14,17 +15,6 @@ public class WormController : EnemyUnitController
             {
                 PhagocytosisAttack();
                 meleeCooldown = UnitSO.UnitAtkSpeed;
-            }
-        }
-        else
-        {
-            if (isMoveOrder)
-            {
-                Move();
-            }
-            else
-            {
-                Stop();
             }
         }
     }

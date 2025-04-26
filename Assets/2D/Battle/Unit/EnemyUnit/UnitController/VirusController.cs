@@ -8,8 +8,9 @@ public class VirusController : EnemyUnitController
     {
         base.Awake();
     }
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         if (isDetecting)
         {
             if (meleeCooldown > 0)
@@ -32,17 +33,6 @@ public class VirusController : EnemyUnitController
             {
                 DegranulationAttack();
                 rangedCooldown = UnitSO.UnitRangedAtkSpeed;
-            }
-        }
-        else
-        {
-            if (isMoveOrder)
-            {
-                Move();
-            }
-            else
-            {
-                Stop();
             }
         }
     }

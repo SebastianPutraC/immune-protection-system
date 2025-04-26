@@ -249,14 +249,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitHp: 0
   UnitSO: {fileID: 0}
+  unitAtk:
+    Type: 0
+    BaseValue: 0
+    statModifiers: []
+  unitRangedAtk:
+    Type: 0
+    BaseValue: 0
+    statModifiers: []
   isMoveOrder: 1
   unitSprite: {fileID: 720281373946100966}
   unitRb: {fileID: 3492434757526021382}
   enemyDetect: {fileID: 4297844154839780485}
   enemyRangedDetect: {fileID: 3890283359431878776}
   healthBar: {fileID: 8098436229280307710}
-  projectileSpawn: {fileID: 1966306069519363130}
-  AoeEffect: {fileID: 5946430142412073283}
   targetEnemyUnitMelee: {fileID: 0}
   targetEnemyUnitRanged: {fileID: 0}
 --- !u!50 &3492434757526021382
@@ -285,7 +291,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!61 &6206869954549846549
 BoxCollider2D:
   m_ObjectHideFlags: 0

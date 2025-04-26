@@ -4,8 +4,9 @@ public class PlasmaCellController : AllyUnitController
 {
     [SerializeField] protected Transform projectileSpawn;
 
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         if (isRangedDetecting)
         {
             if (rangedCooldown > 0)
@@ -16,17 +17,6 @@ public class PlasmaCellController : AllyUnitController
             {
                 AttackArtillery();
                 rangedCooldown = UnitSO.UnitRangedAtkSpeed;
-            }
-        }
-        else
-        {
-            if (isMoveOrder)
-            {
-                Move();
-            }
-            else
-            {
-                Stop();
             }
         }
     }

@@ -5,33 +5,24 @@ using UnityEngine;
 
 public class EnemyUnitController : DeployedUnitController
 {
-    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers)
+    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
     {
-        base.InitializeUnit(unitSO, modifiers);
+        currentWaypointIndex = initialRoute.GetWaypointsLength();
+        base.InitializeUnit(unitSO, modifiers, initialRoute);
         this.transform.localEulerAngles = new Vector3(0, 180, 0); // rotate for enemy
     }
-
-    protected override void Move()
+    protected override void ArrivedAtWaypoint(bool isStart)
     {
-        unitRb.linearVelocityX = -UnitSO.UnitSpeed;
-    }
-   /* protected override void AttackAOE() // CHANGE THIS
-    {
-        LayerMask enemy = LayerMask.GetMask("Ally");
-        if (targetEnemyUnitRanged != null)
+        if (!isStart)
         {
-            List<Collider2D> enemyOnAOE = Physics2D.OverlapCapsuleAll(this.transform.position, new Vector2(
-                UnitSO.UnitXRange, UnitSO.UnitYRange), CapsuleDirection2D.Horizontal, 0, enemy).ToList();
-
-            for (int i = 0; i < enemyOnAOE.Count; i++)
-            {
-                if (enemyOnAOE[i].CompareTag("AllyUnit"))
-                {
-                    enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(unitAtk.ReturnFinalValue());
-                }
-            }
+            currentWaypointIndex--;
         }
 
-        base.AttackAOE();
-    }*/
+        base.ArrivedAtWaypoint(isStart);
+    }
+    public override void SetNewRoute(Route route)
+    {
+        base.SetNewRoute(route);
+        currentWaypointIndex = currentRouteTaken.GetWaypointsLength();
+    }
 }

@@ -8,11 +8,11 @@ public class DeployedUnitController : UnitController
     public UnitData UnitSO;
     [SerializeField]protected UnitStat unitAtk;
     [SerializeField]protected UnitStat unitRangedAtk;
-    //protected AttackType attackType;
 
-    public bool isMoveOrder = true; // public for now
+    public bool isMoveOrder = true;
     protected bool isDetecting = false;
     protected bool isRangedDetecting = false;
+    protected bool forceStop = false;
 
     protected float meleeCooldown;
     protected float rangedCooldown;
@@ -23,14 +23,16 @@ public class DeployedUnitController : UnitController
     [SerializeField] protected DetectionTrigger enemyRangedDetect;
     [SerializeField] protected Slider healthBar;
 
-    //[SerializeField] protected Transform projectileSpawn;
-    //[SerializeField] protected ParticleSystem AoeEffect;
-
     [SerializeField] protected UnitController targetEnemyUnitMelee;
     [SerializeField] protected UnitController targetEnemyUnitRanged;
 
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitMelee = new Dictionary<int, UnitController>();
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitRanged = new Dictionary<int, UnitController>();
+
+    protected Route currentRouteTaken;
+    protected int currentWaypointIndex;
+    protected Transform currentTargetWaypoint;
+    protected bool isArrived = true;
 
     protected virtual void Awake()
     {
@@ -46,40 +48,19 @@ public class DeployedUnitController : UnitController
         }
     }
 
-    public virtual void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers)
+    public virtual void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
     {
         UnitSO = unitSO;
         unitHp = AdjustMaxHP(GetModifiersForType(StatType.HP, modifiers), UnitSO.UnitHp);
         unitAtk = new UnitStat(UnitSO.UnitAtk, StatType.ATK, GetModifiersForType(StatType.ATK, modifiers));
         unitRangedAtk = new UnitStat(UnitSO.UnitRangedAtk, StatType.RANGEDATK, GetModifiersForType(StatType.RANGEDATK, modifiers));
-        //attackType = UnitSO.attackType;
         unitSprite.sprite = UnitSO.UnitSprite;
         meleeCooldown = UnitSO.UnitAtkSpeed;
         rangedCooldown = UnitSO.UnitRangedAtkSpeed;
-        unitSprite.size = new Vector2(1, 1); // May change on custom transform size
+        unitSprite.size = new Vector2(1, 1); 
         UpdateHealthBar(unitHp, UnitSO.UnitHp);
 
-        //Might make its own function
-       /* if (attackType.HasFlag(AttackType.MELEE))
-        {
-            enemyDetect.InitializeRange(UnitSO.UnitXRange, UnitSO.UnitYRange, AttackType.MELEE);
-            enemyDetect.gameObject.SetActive(true);
-        }
-        else if (attackType.HasFlag(AttackType.AOE))
-        {
-            enemyDetect.InitializeRange(UnitSO.UnitXRange, UnitSO.UnitYRange, AttackType.AOE);
-            enemyDetect.gameObject.SetActive(true);
-        }
-        if (attackType.HasFlag(AttackType.RANGED))
-        {
-            enemyRangedDetect.InitializeRange(UnitSO.UnitRangedXRange, UnitSO.UnitRangedYRange, AttackType.RANGED);
-            enemyRangedDetect.gameObject.SetActive(true);
-        }
-        else if (attackType.HasFlag(AttackType.ARTILERRY))
-        {
-            enemyRangedDetect.InitializeRange(UnitSO.UnitRangedXRange, UnitSO.UnitRangedYRange, AttackType.ARTILERRY);
-            enemyRangedDetect.gameObject.SetActive(true);
-        }*/ 
+        SetNewRoute(initialRoute);
     }
     protected List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
     {
@@ -95,59 +76,71 @@ public class DeployedUnitController : UnitController
         return maxHp.ReturnFinalValue();
     }
 
-    /*protected virtual void Update()
+    protected virtual void Update()
     {
-        if (isDetecting) 
+        if (Vector2.Distance(currentTargetWaypoint.position, transform.position) <= 0.1f)
         {
-            if (meleeCooldown > 0)
+            if (!isArrived)
             {
-                meleeCooldown -= Time.deltaTime;
-            }
-            else
-            {
-                if (attackType.HasFlag(AttackType.MELEE))
-                {
-                    AttackMelee();
-                }
-                else if (attackType.HasFlag(AttackType.AOE))
-                {
-                    AttackAOE();
-                }
-                meleeCooldown = UnitSO.UnitAtkSpeed;
+                isArrived = true;
+                ArrivedAtWaypoint(false);
             }
         }
-        else if (isRangedDetecting)
+    }
+    protected void FixedUpdate()
+    {
+        if (isMoveOrder && !isDetecting && !isRangedDetecting && !forceStop && !isArrived && currentTargetWaypoint != null)
         {
-            if (rangedCooldown > 0)
-            {
-                rangedCooldown -= Time.deltaTime;
-            }
-            else
-            {
-                if (attackType.HasFlag(AttackType.RANGED))
-                {
-                    AttackRanged();
-                }
-                else if (attackType.HasFlag(AttackType.ARTILERRY))
-                {
-                    AttackArtillery();
-                }
-                rangedCooldown = UnitSO.UnitRangedAtkSpeed;
-            }
+            Move();
         }
         else
         {
-            //AoeEffect.Stop();
-            if (isMoveOrder)
+            Stop();
+        }
+    }
+
+    protected virtual void ArrivedAtWaypoint(bool isStart)
+    {
+        if (currentRouteTaken != null)
+        {
+            Transform waypoint = currentRouteTaken.GetNextWaypoint(currentWaypointIndex);
+
+            if (waypoint == null)
             {
-                Move();
+                UnitSide unitside = UnitSide.NONE;
+                if (this is AllyUnitController)
+                {
+                    unitside = UnitSide.ALLY;
+                }
+                else if (this is EnemyUnitController)
+                {
+                    unitside = UnitSide.ENEMY;
+                }
+
+                int nextRoute = currentRouteTaken.GetNextRoute(1, unitside);
+                if (nextRoute == -1)
+                {
+                    isArrived = true;
+                    forceStop = true;
+                    return;
+                }
+                UnitArrivedAtWaypoint?.Invoke(nextRoute, this);
             }
             else
             {
-                Stop();
+                currentTargetWaypoint = waypoint;
+                isArrived = false;
             }
         }
-    }*/
+    }
+    public virtual void SetNewRoute(Route route)
+    {
+        currentRouteTaken = route;
+        currentWaypointIndex = 0;
+        ArrivedAtWaypoint(true);
+    }
+
+
     public virtual void ProcessAbility(AbilityType ability)
     {
         switch(ability)
@@ -166,13 +159,26 @@ public class DeployedUnitController : UnitController
                 break;
         }
     }
+
     protected virtual void Move()
     {
-        unitRb.linearVelocityX = UnitSO.UnitSpeed;
+        Vector2 direction = (currentTargetWaypoint.position - transform.position).normalized;
+        unitRb.linearVelocity = direction * UnitSO.UnitSpeed;
+
+        float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        if (this is AllyUnitController)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+        }
+        else if (this is EnemyUnitController)
+        {
+            transform.rotation = Quaternion.Euler(180, 0, -rotationZ);
+        }
     }
     protected void Stop() //Change UI 
     {
-        unitRb.linearVelocityX = 0;
+        unitRb.linearVelocity = new Vector2(0, 0);
     }
     
 
@@ -288,37 +294,6 @@ public class DeployedUnitController : UnitController
         EnemyRangedLost(enemyUnit);
     }
     #endregion Detection
-
-    #region Attack
-    /*protected void AttackMelee()
-    {
-        if (targetEnemyUnitMelee != null)
-        {
-            targetEnemyUnitMelee.DealDamage(unitAtk.ReturnFinalValue());
-        }
-    }
-    protected void AttackRanged()
-    {
-        if (targetEnemyUnitRanged != null)
-        {
-            Projectile spawnProjectile = Instantiate(UnitSO.RangedProjectile, projectileSpawn);
-            spawnProjectile.InitializeBulletProjectile(10, UnitSO.UnitRangedAtk, targetEnemyUnitRanged); // 10 is placeholder
-        }
-    }
-    protected virtual void AttackAOE()
-    {
-        AoeEffect.Play();
-    }
-    protected void AttackArtillery()
-    {
-        if (targetEnemyUnitRanged != null)
-        {
-            Projectile spawnProjectile = Instantiate(UnitSO.RangedProjectile, projectileSpawn);
-            spawnProjectile.InitializeArtilleryProjectile(10, UnitSO.UnitRangedAtk, 
-                targetEnemyUnitRanged, UnitSO.UnitArtilleryRadius); // 10 is placeholder
-        }
-    }*/
-    #endregion
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {

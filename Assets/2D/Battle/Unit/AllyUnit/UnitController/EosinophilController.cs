@@ -21,8 +21,9 @@ public class EosinophilController : AllyUnitController
         netDetection.enemyDetected += NetDetect;
     }
 
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         if (trapActivated)
         {
             trapCooldown -= Time.deltaTime;
@@ -42,17 +43,6 @@ public class EosinophilController : AllyUnitController
             {
                 ToxinAttack();
                 meleeCooldown = UnitSO.UnitAtkSpeed;
-            }
-        }
-        else
-        {
-            if (isMoveOrder)
-            {
-                Move();
-            }
-            else
-            {
-                Stop();
             }
         }
     }

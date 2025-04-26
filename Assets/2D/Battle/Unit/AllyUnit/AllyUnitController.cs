@@ -7,7 +7,25 @@ using UnityEngine.EventSystems;
 public class AllyUnitController : DeployedUnitController
 {
     [SerializeField] protected GameObject selectedIndicator;
+    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
+    {
+        currentWaypointIndex = 0;
+        base.InitializeUnit(unitSO, modifiers, initialRoute);
+    }
+    protected override void ArrivedAtWaypoint(bool isStart)
+    {
+        if (!isStart)
+        {
+            currentWaypointIndex++;
+        }
 
+        base.ArrivedAtWaypoint(isStart);
+    }
+    public override void SetNewRoute(Route route)
+    {
+        base.SetNewRoute(route);
+        currentWaypointIndex = 0;
+    }
     public void UnitSelect()
     {
         selectedIndicator.SetActive(true);
@@ -16,24 +34,4 @@ public class AllyUnitController : DeployedUnitController
     {
         selectedIndicator.SetActive(false);
     }
-
-    /*protected override void AttackAOE() // CHANGE THIS
-    {
-        LayerMask enemy = LayerMask.GetMask("Enemy");
-        if (targetEnemyUnitMelee != null)
-        {
-            List<Collider2D> enemyOnAOE = Physics2D.OverlapCapsuleAll(this.transform.position, new Vector2(
-                UnitSO.UnitXRange + 5, UnitSO.UnitYRange + 5), CapsuleDirection2D.Horizontal, 1, enemy).ToList();
-
-            for (int i = 0; i < enemyOnAOE.Count; i++)
-            {
-                if (enemyOnAOE[i].CompareTag("EnemyUnit") || enemyOnAOE[i].CompareTag("EnemyBase"))
-                {
-                    enemyOnAOE[i].gameObject.GetComponent<UnitController>().DealDamage(unitAtk.ReturnFinalValue());
-                }
-            }
-        }
-
-        base.AttackAOE();
-    }*/
 }
