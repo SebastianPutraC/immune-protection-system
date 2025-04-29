@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Spawner : MonoBehaviour, IPointerClickHandler
+public class Spawner : MonoBehaviour, IPointerClickHandler, ISpawner
 {
     [SerializeField] private Transform spawnPoint;
-    public int initialRouteId;
+    [SerializeField] private int initialRouteId;
 
     public Action<Spawner> spawnClicked;
 
-    public Action<AllyUnitController> AllySpawned;
-    public Action<EnemyUnitController> enemySpawned;
+    public Action<AllyUnitController> AllySpawned { get; set; }
+    public Action<EnemyUnitController> EnemySpawned { get; set; }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -29,6 +29,11 @@ public class Spawner : MonoBehaviour, IPointerClickHandler
     {
         EnemyUnitController newEnemy = (EnemyUnitController)Instantiate(enemyUnit.unitPrefab, spawnPoint);
         newEnemy.InitializeUnit(enemyUnit, modifiers, initialRoute);
-        enemySpawned?.Invoke(newEnemy);
+        EnemySpawned?.Invoke(newEnemy);
+    }
+
+    public int GetInitialRouteId()
+    {
+        return initialRouteId;
     }
 }

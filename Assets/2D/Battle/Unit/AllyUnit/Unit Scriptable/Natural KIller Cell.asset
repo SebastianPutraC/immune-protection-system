@@ -39,4 +39,4 @@ MonoBehaviour:
   AbilityType: 01000000
   UnitAbility:
   - {fileID: 11400000, guid: af1579f264e992e4899ed33fbc0f3f6c, type: 2}
-  ImmuneCellType: 2
+  ImmuneCellType: 1

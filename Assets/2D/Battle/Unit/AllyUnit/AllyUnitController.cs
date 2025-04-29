@@ -7,19 +7,27 @@ using UnityEngine.EventSystems;
 public class AllyUnitController : DeployedUnitController
 {
     [SerializeField] protected GameObject selectedIndicator;
+
     public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
     {
         currentWaypointIndex = 0;
         base.InitializeUnit(unitSO, modifiers, initialRoute);
     }
-    protected override void ArrivedAtWaypoint(bool isStart)
+    protected override void GetNewWaypoint(bool isStart, bool isReturning = false)
     {
         if (!isStart)
         {
-            currentWaypointIndex++;
+            if (isReturning)
+            {
+                currentWaypointIndex--;
+            }
+            else
+            {
+                currentWaypointIndex++;
+            }
         }
 
-        base.ArrivedAtWaypoint(isStart);
+        base.GetNewWaypoint(isStart, isReturning);
     }
     public override void SetNewRoute(Route route)
     {

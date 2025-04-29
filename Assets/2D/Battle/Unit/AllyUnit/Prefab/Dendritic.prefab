@@ -5381,6 +5381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitSide: 1
   trigger: {fileID: 3042245686863707813}
+  isPresenter: 1
 --- !u!61 &3042245686863707813
 BoxCollider2D:
   m_ObjectHideFlags: 0

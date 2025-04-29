@@ -1,46 +1,48 @@
 using System;
 using UnityEngine;
 
-public class DetectionTrigger : MonoBehaviour
+public class DetectionTrigger : MonoBehaviour //Might make class to detect specific item
 {
     [SerializeField] private UnitSide unitSide;
     [SerializeField] private Collider2D trigger;
-    //private AttackType attackType;
+    [SerializeField] private bool isPresenter; //Placeholder
+    [SerializeField] private bool isCheckCell; //Placeholder
 
     public Action<UnitController> enemyDetected;
     public Action<UnitController> enemyOutRange;
 
-    /*public void InitializeRange(float xRange, float yRange, AttackType attackType)
-    {
-        this.attackType = attackType;
-        trigger.size = new Vector2(xRange, yRange);
-
-        if (this.attackType == AttackType.MELEE || this.attackType == AttackType.RANGED)
-        {
-            trigger.offset = new Vector2(xRange / 2, 0);
-        }
-        else if (this.attackType == AttackType.ARTILERRY)
-        {
-            trigger.offset = new Vector2(13, 0);
-        }
-        else
-        {
-            trigger.offset = Vector2.zero;
-        }
-    }*/
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (unitSide == UnitSide.ALLY)
+        if (!isPresenter && !isCheckCell)
         {
-            if (collision.CompareTag("EnemyUnit") || collision.CompareTag("EnemyBase"))
+            if (unitSide == UnitSide.ALLY)
             {
-                enemyDetected?.Invoke(collision.GetComponent<UnitController>());
+                if (collision.CompareTag("EnemyUnit") || collision.CompareTag("EnemyBase"))
+                {
+                    enemyDetected?.Invoke(collision.GetComponent<UnitController>());
+                }
+            }
+            else
+            {
+                if (collision.CompareTag("AllyUnit") || collision.CompareTag("AllyBase"))
+                {
+                    enemyDetected?.Invoke(collision.GetComponent<UnitController>());
+                }
             }
         }
-        else
+        else if (isPresenter)
         {
-            if (collision.CompareTag("AllyUnit") || collision.CompareTag("AllyBase"))
+            if (unitSide == UnitSide.ALLY)
+            {
+                if (collision.CompareTag("Antigen"))
+                {
+                    enemyDetected?.Invoke(collision.GetComponent<UnitController>());
+                }
+            }
+        }
+        else if (isCheckCell)
+        {
+            if (collision.CompareTag("BodyCell"))
             {
                 enemyDetected?.Invoke(collision.GetComponent<UnitController>());
             }

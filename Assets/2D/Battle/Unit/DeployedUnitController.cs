@@ -12,7 +12,8 @@ public class DeployedUnitController : UnitController
     public bool isMoveOrder = true;
     protected bool isDetecting = false;
     protected bool isRangedDetecting = false;
-    protected bool forceStop = false;
+    protected bool noMoreRoute = false;
+    protected bool isReturning = false;
 
     protected float meleeCooldown;
     protected float rangedCooldown;
@@ -83,13 +84,13 @@ public class DeployedUnitController : UnitController
             if (!isArrived)
             {
                 isArrived = true;
-                ArrivedAtWaypoint(false);
+                GetNewWaypoint(false, isReturning);
             }
         }
     }
     protected void FixedUpdate()
     {
-        if (isMoveOrder && !isDetecting && !isRangedDetecting && !forceStop && !isArrived && currentTargetWaypoint != null)
+        if (isMoveOrder && !isDetecting && !isRangedDetecting && !noMoreRoute && !isArrived && currentTargetWaypoint != null)
         {
             Move();
         }
@@ -99,7 +100,7 @@ public class DeployedUnitController : UnitController
         }
     }
 
-    protected virtual void ArrivedAtWaypoint(bool isStart)
+    protected virtual void GetNewWaypoint(bool isStart, bool isReturning = false)
     {
         if (currentRouteTaken != null)
         {
@@ -108,20 +109,20 @@ public class DeployedUnitController : UnitController
             if (waypoint == null)
             {
                 UnitSide unitside = UnitSide.NONE;
-                if (this is AllyUnitController)
-                {
-                    unitside = UnitSide.ALLY;
-                }
-                else if (this is EnemyUnitController)
+                if (this is EnemyUnitController || isReturning)
                 {
                     unitside = UnitSide.ENEMY;
+                }
+                else if (this is AllyUnitController)
+                {
+                    unitside = UnitSide.ALLY;
                 }
 
                 int nextRoute = currentRouteTaken.GetNextRoute(1, unitside);
                 if (nextRoute == -1)
                 {
                     isArrived = true;
-                    forceStop = true;
+                    noMoreRoute = true;
                     return;
                 }
                 UnitArrivedAtWaypoint?.Invoke(nextRoute, this);
@@ -137,7 +138,7 @@ public class DeployedUnitController : UnitController
     {
         currentRouteTaken = route;
         currentWaypointIndex = 0;
-        ArrivedAtWaypoint(true);
+        GetNewWaypoint(true, isReturning);
     }
 
 
@@ -167,13 +168,13 @@ public class DeployedUnitController : UnitController
 
         float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (this is AllyUnitController)
+        if (this is EnemyUnitController || (this is AllyUnitController && isReturning))
         {
-            transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+            transform.rotation = Quaternion.Euler(180, 0, -rotationZ);
         }
         else if (this is EnemyUnitController)
         {
-            transform.rotation = Quaternion.Euler(180, 0, -rotationZ);
+            transform.rotation = Quaternion.Euler(0, 0, rotationZ);
         }
     }
     protected void Stop() //Change UI 

@@ -1,18 +1,22 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EosinophilController : AllyUnitController
+public class EosinophilController : AllyUnitController, IPresenter
 {
     [SerializeField] protected ParticleSystem AoeEffect;
 
     [SerializeField] private DetectionTrigger antigenDetect;
     [SerializeField] private Transform antigenCarryPosition;
+    private AntigenController carriedAntigen;
 
     [SerializeField] private DetectionTrigger netDetection;
     [SerializeField] private ParticleSystem netEffect;
     private bool trapActivated = false;
     private float trapCooldown = 0.5f;
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitOnTrap = new Dictionary<int, UnitController>();
+
+    public Action<int> AntigenPresented { get; set; }
 
     protected override void Awake()
     {
@@ -73,17 +77,31 @@ public class EosinophilController : AllyUnitController
         }
     }
 
-    private void GetAntigen(UnitController antigen)
+    public void GetAntigen(UnitController antigen)
     {
+        if (antigen is not AntigenController)
+        {
+            return;
+        }
+        else
+        {
+            carriedAntigen = (AntigenController)antigen;
+            carriedAntigen.ObjectCarried();
+            carriedAntigen.transform.parent = antigenCarryPosition;
+            carriedAntigen.transform.position = antigenCarryPosition.position;
 
+            ReturnToBase();
+        }
     }
-    private void ReturnToBase()
+    public void ReturnToBase()
     {
-
+        isReturning = true;
+        GetNewWaypoint(false, isReturning);
     }
-    private void ReturnToNormal()
+    public void ArrivedAtBase()
     {
-
+        AntigenPresented?.Invoke(carriedAntigen.intelAmount);
+        Destroy(this.gameObject);
     }
 
     protected void ActivateNet()

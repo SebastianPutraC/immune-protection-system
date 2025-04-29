@@ -9,6 +9,8 @@ TagManager:
   - EnemyBase
   - AllyBase
   - UnitLimit
+  - Antigen
+  - BodyCell
   layers:
   - Default
   - TransparentFX

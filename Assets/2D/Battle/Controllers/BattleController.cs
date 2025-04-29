@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
 {
-    public int resourcePoints = 300;
-    public int basicIncome = 50;
-    public int maxResourcePoints = 800;
-    public int intelPoints = 0;
-    public int unlockIntelPoints = 1000;
+    protected int resourcePoints = 300;
+    protected int basicIncome = 50;
+    protected int maxResourcePoints = 800;
+    protected int intelPoints = 0;
+    protected int unlockIntelPoints = 100;
 
     public float RpIncomeTimer = 3f;
 
@@ -18,6 +18,8 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] protected List<Spawner> allySpawners;
     [SerializeField] protected List<Spawner> enemySpawners;
+    [SerializeField] protected List<BodyCellController> cellSpawner;
+
     [SerializeField] protected RouteController routeController;
     [SerializeField] protected UnitPanelController unitPanelController;
     [SerializeField] protected BattlePanelController battlePanelController;
@@ -50,7 +52,13 @@ public class BattleController : MonoBehaviour
         }
         for (int i = 0; i < enemySpawners.Count; i++)
         {
-            enemySpawners[i].enemySpawned += OnEnemySpawned;
+            enemySpawners[i].EnemySpawned += OnEnemySpawned;
+        }
+        for (int i = 0; i < cellSpawner.Count; i++)
+        {
+            cellSpawner[i].CellSpawning += DeployEnemyUnit;
+            cellSpawner[i].EnemySpawned += OnEnemySpawned;
+            cellSpawner[i].ThisUnitKilled += OnCellKilled;
         }
         allyBaseController.allyBaseAttacked += UpdateAllyBaseUI;
         allyBaseController.allyBaseDestroyed += GameLost;
@@ -84,7 +92,8 @@ public class BattleController : MonoBehaviour
 
         UpdateAllyBaseUI(allyBaseController.unitHp);
         UpdateEnemyBaseUI(enemyBaseController.unitHp);
-        UpdateResourcePointUI();
+        battlePanelController.UpdateResourcePointUI(resourcePoints);
+        battlePanelController.UpdateIntelPointUI(0, unlockIntelPoints);
 
         ResumeGame();
         gameOverPanelController.gameObject.SetActive(false);
@@ -145,11 +154,11 @@ public class BattleController : MonoBehaviour
             resourcePoints = maxResourcePoints;
         }
 
-        UpdateResourcePointUI();
+        battlePanelController.UpdateResourcePointUI(resourcePoints);
     }
-    protected void IncreaseIntelPoint(int intelPoints)
+    protected void IncreaseIntelPoint(int income)
     {
-        this.intelPoints += intelPoints;
+        intelPoints += income;
         if (intelPoints >= unlockIntelPoints)
         {
             intelPoints = unlockIntelPoints;
@@ -176,15 +185,15 @@ public class BattleController : MonoBehaviour
             unitPanelController.ResetSelectedCard();
         }
     }
-    protected void DeployAllyUnit(AllyUnit allyData, Spawner spawner)
+    protected void DeployAllyUnit(AllyUnit allyData, ISpawner spawner)
     {
         if (allyData.UnitCost > resourcePoints)
             return;
 
         resourcePoints -= allyData.UnitCost;
-        UpdateResourcePointUI();
+        battlePanelController.UpdateResourcePointUI(resourcePoints);
 
-        Route initialRoute = routeController.GetRouteByID(spawner.initialRouteId);
+        Route initialRoute = routeController.GetRouteByID(spawner.GetInitialRouteId());
 
         spawner.SpawnAlly(allyData, allyGlobalModifiers, initialRoute);
     }
@@ -196,6 +205,11 @@ public class BattleController : MonoBehaviour
         {
             IInflammator inflammatorUnit = (IInflammator)allyUnit;
             inflammatorUnit.InflammatoryActivated += IncreaseResourcePoint;
+        }
+        if (allyUnit is IPresenter)
+        {
+            IPresenter presenterUnit = (IPresenter)allyUnit;
+            presenterUnit.AntigenPresented += IncreaseIntelPoint;
         }
         allAllyUnits.Add(allyUnit);
     }
@@ -212,12 +226,17 @@ public class BattleController : MonoBehaviour
             IInflammator inflammatorUnit = (IInflammator)allyUnit;
             inflammatorUnit.InflammatoryActivated -= IncreaseResourcePoint;
         }
+        if (allyUnit is IPresenter)
+        {
+            IPresenter presenterUnit = (IPresenter)allyUnit;
+            presenterUnit.AntigenPresented -= IncreaseIntelPoint;
+        }
         allAllyUnits.Remove((AllyUnitController)allyUnit);
     }
 
-    protected void DeployEnemyUnit(EnemyUnit enemyData, Spawner spawner)
+    protected void DeployEnemyUnit(EnemyUnit enemyData, ISpawner spawner)
     {
-        Route initialRoute = routeController.GetRouteByID(spawner.initialRouteId);
+        Route initialRoute = routeController.GetRouteByID(spawner.GetInitialRouteId());
         spawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute);
     }
     protected void OnEnemySpawned(EnemyUnitController enemyUnit)
@@ -231,6 +250,14 @@ public class BattleController : MonoBehaviour
         enemyUnit.ThisUnitKilled -= OnEnemyKilled;
         enemyUnit.UnitArrivedAtWaypoint -= SetNewUnitRoute;
         allEnemyUnits.Remove((EnemyUnitController)enemyUnit);
+    }
+    protected void OnCellKilled(UnitController cellUnit)
+    {
+        BodyCellController cellController = (BodyCellController) cellUnit;
+        cellController.ThisUnitKilled -= OnCellKilled;
+        cellController.CellSpawning -= DeployEnemyUnit;
+        cellController.EnemySpawned -= OnEnemySpawned;
+        cellSpawner.Remove(cellController);
     }
 
 
@@ -324,10 +351,6 @@ public class BattleController : MonoBehaviour
     {
         battlePanelController.UpdateEnemyBaseUI(enemyBaseHp);
     }
-    protected void UpdateResourcePointUI()
-    {
-        battlePanelController.UpdateResourcePointUI(resourcePoints);
-    }
 
     protected void OnDestroy()
     {
@@ -338,7 +361,12 @@ public class BattleController : MonoBehaviour
         }
         for (int i = 0; i < enemySpawners.Count; i++)
         {
-            enemySpawners[i].enemySpawned -= OnEnemySpawned;
+            enemySpawners[i].EnemySpawned -= OnEnemySpawned;
+        }
+        for (int i = 0; i < cellSpawner.Count; i++)
+        {
+            cellSpawner[i].CellSpawning -= DeployEnemyUnit;
+            cellSpawner[i].EnemySpawned -= OnEnemySpawned;
         }
         allyBaseController.allyBaseAttacked -= UpdateAllyBaseUI;
         allyBaseController.allyBaseDestroyed -= GameLost;
@@ -365,6 +393,11 @@ public class BattleController : MonoBehaviour
                 IInflammator inflammatorUnit = (IInflammator)allAllyUnits[i];
                 inflammatorUnit.InflammatoryActivated -= IncreaseResourcePoint;
             }
+            if (allAllyUnits[i] is IPresenter)
+            {
+                IPresenter presenterUnit = (IPresenter)allAllyUnits[i];
+                presenterUnit.AntigenPresented -= IncreaseIntelPoint;
+            }
         }
         for (int i = 0; i < allEnemyUnits.Count; i++)
         {
@@ -373,10 +406,10 @@ public class BattleController : MonoBehaviour
         }
     }
 
-
+    // Basic ahh AI spawner, Will move to other script
     protected bool isSpawned;
     [SerializeField] protected List<EnemyUnit> testUnits;
-    protected IEnumerator RandomSpawn() // Basic ahh ai spawner
+    protected IEnumerator RandomSpawn() 
     {
         isSpawned = true;
         yield return new WaitForSeconds(3f);
