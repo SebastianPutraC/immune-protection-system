@@ -804,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelInfoReferences:
+  - {fileID: 11400000, guid: 610efe32163e9ba4f80ef99ae0828f79, type: 2}
   - {fileID: 11400000, guid: 915dab0d743f8a0468dcfc4fddf777f6, type: 2}
   - {fileID: 11400000, guid: dbd881c3d735da143bbb2c607a994362, type: 2}
   - {fileID: 11400000, guid: 04afea697ebc9464982c40b02d512cb5, type: 2}

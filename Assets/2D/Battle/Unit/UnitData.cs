@@ -35,7 +35,5 @@ public class UnitData : ScriptableObject
 
     public Sprite UnitSprite;
 
-    public List<AbilityType> AbilityType;
-
     public List<EncyclopediaAbilitySO> UnitAbility;
 }

@@ -14,6 +14,7 @@ public class DeployedUnitController : UnitController
     protected bool isRangedDetecting = false;
     protected bool noMoreRoute = false;
     protected bool isReturning = false;
+    protected bool isAbilityLocked = false; //USE THIS TO LOCK USE OF ABILITY, HIDE ABILITY ON STAT PANEL, HIDE IT ASAP
 
     protected float meleeCooldown;
     protected float rangedCooldown;
@@ -142,11 +143,11 @@ public class DeployedUnitController : UnitController
     }
 
 
-    public virtual void ProcessAbility(AbilityType ability)
+    public virtual void ProcessAbility(AbilityId ability)
     {
         switch(ability)
         {
-            case AbilityType.STOP:
+            case AbilityId.MOVE:
                 if (isMoveOrder)
                 {
                     isMoveOrder = false;

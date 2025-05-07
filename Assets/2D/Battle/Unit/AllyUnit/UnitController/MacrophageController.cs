@@ -14,6 +14,7 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
 
     public Action<int> InflammatoryActivated { get; set; }
     public Action<int> AntigenPresented { get; set; }
+    public bool isPresenting { get; set; }
 
     protected override void Awake()
     {
@@ -41,6 +42,25 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
         }
     }
 
+    public override void ProcessAbility(AbilityId ability)
+    {
+        base.ProcessAbility(ability);
+        switch (ability)
+        {
+            case AbilityId.APC:
+                if (antigenDetect.gameObject.activeSelf)
+                {
+                    antigenDetect.gameObject.SetActive(false);
+                }
+                else
+                {
+                    antigenDetect.gameObject.SetActive(true);
+                }
+                break;
+            default:
+                break;
+        }
+    }
     private void PhagocytosisAttack()
     {
         if (targetEnemyUnitMelee != null)
@@ -48,21 +68,23 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
             targetEnemyUnitMelee.DealDamage(unitAtk.ReturnFinalValue());
         }
     }
-
     public void GetAntigen(UnitController antigen)
     {
-        if (antigen is not AntigenController)
+        if (carriedAntigen == null)
         {
-            return;
-        }
-        else
-        {
-            AntigenController carriedAntigen = (AntigenController)antigen;
-            carriedAntigen.ObjectCarried();
-            carriedAntigen.transform.parent = antigenCarryPosition;
-            carriedAntigen.transform.position = antigenCarryPosition.position;
+            if (antigen is not AntigenController)
+            {
+                return;
+            }
+            else
+            {
+                AntigenController carriedAntigen = (AntigenController)antigen;
+                carriedAntigen.ObjectCarried();
+                carriedAntigen.transform.parent = antigenCarryPosition;
+                carriedAntigen.transform.position = antigenCarryPosition.position;
 
-            ReturnToBase();
+                ReturnToBase();
+            }
         }
     }
     public void ReturnToBase()

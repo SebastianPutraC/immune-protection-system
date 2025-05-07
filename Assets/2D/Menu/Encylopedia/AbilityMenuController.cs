@@ -46,8 +46,8 @@ public class AbilityMenuController : MonoBehaviour
 
     private void UpdateAbilityDescription(EncyclopediaAbilitySO info)
     {
-        abilityImage.sprite = info.AbilityImage;
-        abilityDescriptionText.text = info.AbilityName + "\n" + info.AbilityDescription;
+        abilityImage.sprite = info.AbilityEncyclopediaImage;
+        abilityDescriptionText.text = info.AbilityEncyclopediaName + "\n" + info.AbilityDescription;
     }
 
     private void OnEncyclopediaButtonPressed()

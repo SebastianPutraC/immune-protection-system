@@ -14,6 +14,7 @@ public class DendriticController : AllyUnitController, IInflammator, IPresenter
 
     public Action<int> InflammatoryActivated { get; set; }
     public Action<int> AntigenPresented { get; set; }
+    public bool isPresenting { get; set; }
 
     protected override void Awake()
     {

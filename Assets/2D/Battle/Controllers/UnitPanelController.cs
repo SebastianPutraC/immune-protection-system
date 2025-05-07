@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -76,6 +76,12 @@ public class UnitPanelController : MonoBehaviour
         {
             adaptiveUnitCards[i].UnlockCard();
         }
+    }
+
+    public UnitCardController GetUnitCard(UnitId id)
+    {
+        UnitCardController unitCard = unitCards.Where(x => x.unitData.unitId.Equals(id)).FirstOrDefault();
+        return unitCard;
     }
 
     private void OnDestroy()

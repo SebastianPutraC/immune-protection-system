@@ -53,12 +53,12 @@ public class NeutrophilController : AllyUnitController
             }
         }
     }
-    public override void ProcessAbility(AbilityType ability)
+    public override void ProcessAbility(AbilityId ability)
     {
         base.ProcessAbility(ability);
         switch (ability)
         {
-            case AbilityType.NET:
+            case AbilityId.TRAP:
                 if (!trapActivated)
                 {
                     ActivateNet();

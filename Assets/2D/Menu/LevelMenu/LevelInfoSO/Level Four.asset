@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a139550b3f31e114981a4e86e527364d, type: 3}
   m_Name: Level Four
   m_EditorClassIdentifier: 
-  levelId: 4
+  levelId: 5
   levelName: Level Four
   allyUnits: 6500000066000000670000006a000000
   enemyUnits: c9000000ca000000
   defaultStatingResource: 0
   defaultIncome: 100
-  levelIdUnlock: 5
+  levelIdUnlock: 6
   DecisionInfos: []

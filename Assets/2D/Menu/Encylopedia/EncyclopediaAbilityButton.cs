@@ -20,7 +20,7 @@ public class EncyclopediaAbilityButton : MonoBehaviour
     public void InitializeButton(EncyclopediaAbilitySO info)
     {
         abilityData = info;
-        abilityName.text = info.AbilityName;
+        abilityName.text = info.AbilityEncyclopediaName;
     }
 
     private void ButtonClicked()

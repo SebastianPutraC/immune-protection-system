@@ -6,18 +6,44 @@ using TMPro;
 
 public class AbilityButton : MonoBehaviour, IPointerUpHandler
 {
-    [SerializeField] private Image buttonImage;
+    [SerializeField] private Image primaryImage;
+    [SerializeField] private Image secondaryImage;
+
     [SerializeField] private TextMeshProUGUI abilityText;
 
-    private AbilityType abilityType; // Should Change to its own SO
+    private AbilityId abilityType;
 
-    public Action<AbilityType> abilityPressed;
+    public Action<AbilityId> abilityPressed;
 
-    public void InitializeButton(AbilityType abilityType, Color color, string abilityText)
+    public void InitializeButton(AbilityId abilityType, string abilityText, Sprite primary, Sprite secondary = null, bool isSecondaryOn = false)
     {
         this.abilityType = abilityType;
         this.abilityText.text = abilityText;
-        buttonImage.color = color;
+        this.primaryImage.sprite = primary;
+        this.secondaryImage.sprite = secondary;
+
+        if (isSecondaryOn)
+        {
+            SwapImage();
+        }
+        else
+        {
+            secondaryImage.gameObject.SetActive(false);
+        }
+    }
+
+    private void SwapImage()
+    {
+        if (primaryImage.gameObject.activeSelf)
+        {
+            secondaryImage.gameObject.SetActive(true);
+            primaryImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            secondaryImage.gameObject.SetActive(false);
+            primaryImage.gameObject.SetActive(true);
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)

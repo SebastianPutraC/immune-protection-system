@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class BattleController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class BattleController : MonoBehaviour
 
     public float RpIncomeTimer = 3f;
 
-    protected bool adaptiveUnlocked;
+    protected bool isAdaptiveUnlocked;
 
     [SerializeField] protected List<Spawner> allySpawners;
     [SerializeField] protected List<Spawner> enemySpawners;
@@ -27,6 +28,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] protected UnitSelectionController unitSelectionController;
     [SerializeField] protected PausePanelController pausePanelController;
     [SerializeField] protected GameOverPanelController gameOverPanelController;
+    [SerializeField] protected BattleCameraController battleCameraController;
 
     public List<UnitData> UnitReferences = new List<UnitData>();
     public List<AllyUnitController> allAllyUnits = new List<AllyUnitController>(); // Public for visual
@@ -43,7 +45,7 @@ public class BattleController : MonoBehaviour
     protected List<StatModifier> allyGlobalModifiers = new List<StatModifier>();
     protected List<StatModifier> enemyGlobalModifiers = new List<StatModifier>();
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         for (int i = 0; i < allySpawners.Count; i++)
         {
@@ -98,7 +100,7 @@ public class BattleController : MonoBehaviour
         ResumeGame();
         gameOverPanelController.gameObject.SetActive(false);
     }
-    protected void Update()
+    protected virtual void Update()
     {
         if (RpIncomeTimer > 0)
         {
@@ -169,10 +171,10 @@ public class BattleController : MonoBehaviour
     }
     protected void UnlockAdaptiveCells()
     {
-        if (!adaptiveUnlocked)
+        if (!isAdaptiveUnlocked)
         {
             unitPanelController.UnlockAdaptiveCard();
-            adaptiveUnlocked = true;
+            isAdaptiveUnlocked = true;
         }
     }
 
@@ -261,18 +263,26 @@ public class BattleController : MonoBehaviour
     }
 
 
-    protected void StopAllUnit()
+    protected virtual void StopAllUnit()
     {
         for (int i = 0; i < allAllyUnits.Count; i++)
         {
             allAllyUnits[i].isMoveOrder = false;
         }
+        if (selectedUnit != null)
+        {
+            unitStatsController.InitializeUnitStats(selectedUnit, selectedUnit.UnitSO.UnitAbility);
+        }
     }
-    protected void AdvanceAllUnit()
+    protected virtual void AdvanceAllUnit()
     {
         for (int i = 0; i < allAllyUnits.Count; i++)
         {
             allAllyUnits[i].isMoveOrder = true;
+        }
+        if (selectedUnit != null)
+        {
+            unitStatsController.InitializeUnitStats(selectedUnit, selectedUnit.UnitSO.UnitAbility);
         }
     }
     protected void OnUnitSelected(AllyUnitController allyUnitSelected)
@@ -285,11 +295,12 @@ public class BattleController : MonoBehaviour
         selectedUnit = allyUnitSelected;
         selectedUnit.UnitSelect();
 
-        unitStatsController.InitializeUnitStats(allyUnitSelected, allyUnitSelected.UnitSO.AbilityType);
+        unitStatsController.InitializeUnitStats(allyUnitSelected, selectedUnit.UnitSO.UnitAbility);
     }
-    protected void OnAbilitySelected(AbilityType ability)
+    protected virtual void OnAbilitySelected(AbilityId ability)
     {
         selectedUnit.ProcessAbility(ability);
+        unitStatsController.InitializeUnitStats(selectedUnit, selectedUnit.UnitSO.UnitAbility);
     }
     protected void SetNewUnitRoute(int routeId, DeployedUnitController unit)
     {
@@ -352,7 +363,7 @@ public class BattleController : MonoBehaviour
         battlePanelController.UpdateEnemyBaseUI(enemyBaseHp);
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         for (int i = 0; i < allySpawners.Count; i++)
         {
@@ -409,10 +420,11 @@ public class BattleController : MonoBehaviour
     // Basic ahh AI spawner, Will move to other script
     protected bool isSpawned;
     [SerializeField] protected List<EnemyUnit> testUnits;
+    protected float enemyTestspawnTimer = 3f;
     protected IEnumerator RandomSpawn() 
     {
         isSpawned = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(enemyTestspawnTimer);
 
         int randomRow = Random.Range(0, enemySpawners.Count - 1);
         int randomUnit = Random.Range(0, testUnits.Count);

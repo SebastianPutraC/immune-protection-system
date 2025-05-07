@@ -1394,6 +1394,10 @@ MonoBehaviour:
   infoPopup: {fileID: 614379235287693440}
   inGameIndicator: {fileID: 6060110115749869062, guid: 5ab7c6ef14b1f184c88e5fdd1c653a68, type: 3}
   uiIndicator: {fileID: 6641573796093320558, guid: 12ffee94b286ce244b13e4f0b2886331, type: 3}
+  tutorialNeutrophil: {fileID: 0}
+  tutorialMacrophage: {fileID: 0}
+  tutorialBacteriaOne: {fileID: 0}
+  tutorialBacteriaTwo: {fileID: 0}
   deployNeutroInfo: []
   basicMoveInfo:
   - {fileID: 11400000, guid: 979a7f0b36755a4459b04d88f77b5be3, type: 2}
@@ -2487,7 +2491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8869782792192440615, guid: 14ff88cd3cd5dda45ba6b10bd287a70e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

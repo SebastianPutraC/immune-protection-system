@@ -13,47 +13,67 @@ public class UnitStatsController : MonoBehaviour
     private List<AbilityButton> abilityButtons = new List<AbilityButton>();
     [SerializeField] private Transform abilityPanel;
 
-    private readonly Color stopColor = Color.red;
-    private readonly Color netColor = Color.black;
-    private readonly Color repairColor = Color.green;
+    [SerializeField] private EncyclopediaAbilitySO stopAbility;
 
-    public Action<AbilityType> AbilityButtonSelected;
+    public Action<AbilityId> AbilityButtonSelected;
 
     private void Awake()
     {
         ClearUI();
     }
 
-    public void InitializeUnitStats(AllyUnitController allyUnit, List<AbilityType> abilities)
+    public void InitializeUnitStats(AllyUnitController allyUnit, List<EncyclopediaAbilitySO> abilities) //AUTOMATICALLY ADD "STOP" ABILITY | ALSO ADD SECONDARY BUTTON | MAKE SURE SITUATION OF THE UNIT BE APPLIED | ADD CHECK WHEN ADVANCE/STOP ALL
     {
-        unitNameText.text = allyUnit.UnitSO.UnitName;
-
         ClearUI();
 
+        List<EncyclopediaAbilitySO> unitAbilities = new List<EncyclopediaAbilitySO>(abilities);
+        unitAbilities.Insert(0, stopAbility); //ESSENTIAL ABILITY
 
-        for (int i = 0; i < abilities.Count; i++)
+        unitNameText.text = allyUnit.UnitSO.UnitName;
+
+        for (int i = 0; i < unitAbilities.Count; i++)
         {
+            if (!unitAbilities[i].IsManual)
+            {
+                continue;
+            }
             AbilityButton newButton = Instantiate(abilityButtonPrefab, abilityPanel);
 
-            Color buttonColor = Color.white;
-            string abilityString = "PLACEHOLDER ";
-            switch(abilities[i])
+            string abilityString = unitAbilities[i].AbilityPrimaryName;
+            bool secondary = false;
+            Sprite secondaryImage = null;
+            if (unitAbilities[i].AbilitySecondaryImage != null)
             {
-                case AbilityType.STOP:
-                    buttonColor = stopColor;
-                    abilityString = "STOP";
+                secondaryImage = unitAbilities[i].AbilitySecondaryImage;
+            }
+
+            switch (unitAbilities[i].AbilityID)
+            {
+                case AbilityId.MOVE:
+                    if (allyUnit.isMoveOrder)
+                    {
+                        secondary = true;
+                        abilityString = unitAbilities[i].AbilitySecondaryName;
+                    }
                     break;
-                case AbilityType.NET:
-                    buttonColor = netColor;
-                    abilityString = "NET";
+                case AbilityId.APC:
+                    if (allyUnit is IPresenter)
+                    {
+                        IPresenter presenter = (IPresenter)allyUnit;
+                        if (presenter.isPresenting)
+                        {
+                            secondary = true;
+                            abilityString = unitAbilities[i].AbilitySecondaryName;
+                        }
+                    }
                     break;
                 default:
-                    buttonColor = Color.white;
-                    abilityString = "PLACEHOLDER";
+                    if (abilityString == "")
+                        abilityString = "PLACEHOLDER";
                     break;
             }
 
-            newButton.InitializeButton(abilities[i], buttonColor, abilityString);
+            newButton.InitializeButton(unitAbilities[i].AbilityID, abilityString, unitAbilities[i].AbilityPrimaryImage, secondaryImage, secondary);
             newButton.abilityPressed += OnAbilityButtonSelected;
             abilityButtons.Add(newButton);
         }
@@ -61,7 +81,7 @@ public class UnitStatsController : MonoBehaviour
         UpdateUnitStats(allyUnit);
     }
 
-    private void OnAbilityButtonSelected(AbilityType abilitySelected)
+    private void OnAbilityButtonSelected(AbilityId abilitySelected)
     {
         AbilityButtonSelected?.Invoke(abilitySelected);
     }

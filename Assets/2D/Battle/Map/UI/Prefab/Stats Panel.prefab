@@ -233,6 +233,7 @@ MonoBehaviour:
   unitAtkText: {fileID: 6656835087392543706}
   abilityButtonPrefab: {fileID: 8375375893699893897, guid: 31eeb0ca70cafb640a4aa22bc47a939c, type: 3}
   abilityPanel: {fileID: 7997623064363182646}
+  stopAbility: {fileID: 11400000, guid: b83aa67ae453c1442997fd8cfb3590b3, type: 2}
 --- !u!1 &4334240990681491522
 GameObject:
   m_ObjectHideFlags: 0

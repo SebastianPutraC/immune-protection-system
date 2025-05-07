@@ -17,6 +17,7 @@ public class EosinophilController : AllyUnitController, IPresenter
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitOnTrap = new Dictionary<int, UnitController>();
 
     public Action<int> AntigenPresented { get; set; }
+    public bool isPresenting { get; set; }
 
     protected override void Awake()
     {
@@ -50,12 +51,12 @@ public class EosinophilController : AllyUnitController, IPresenter
             }
         }
     }
-    public override void ProcessAbility(AbilityType ability)
+    public override void ProcessAbility(AbilityId ability)
     {
         base.ProcessAbility(ability);
         switch (ability)
         {
-            case AbilityType.NET:
+            case AbilityId.TRAP:
                 if (!trapActivated)
                 {
                     ActivateNet();
