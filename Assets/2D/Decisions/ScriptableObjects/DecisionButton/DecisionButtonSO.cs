@@ -4,6 +4,8 @@ using UnityEngine;
 public class DecisionButtonSO : ScriptableObject
 {
     public string DecisionButtonText;
-    public UnitSide SideToBoost;
     public StatModifier StatMod;
+
+    public bool IsPickNextInfo;
+    public int NextDecisionID;
 }

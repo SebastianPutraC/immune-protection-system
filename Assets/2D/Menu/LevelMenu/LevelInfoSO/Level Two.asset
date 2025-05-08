@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level Two
   m_EditorClassIdentifier: 
   levelId: 3
-  levelName: Level Two
+  levelName: Selasa
   allyUnits: 6500000066000000670000006a000000
   enemyUnits: ca000000c9000000
   defaultStatingResource: 400

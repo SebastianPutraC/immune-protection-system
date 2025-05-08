@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Level Five
   m_EditorClassIdentifier: 
   levelId: 6
-  levelName: Level FIve
+  levelName: Jumat
   allyUnits: 6500000066000000670000006a000000
   enemyUnits: c9000000ca000000cb000000
   defaultStatingResource: 0
   defaultIncome: 100
-  levelIdUnlock: 1
+  levelIdUnlock: 7
   DecisionInfos: []

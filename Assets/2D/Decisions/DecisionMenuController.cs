@@ -6,7 +6,6 @@ using System;
 
 public class DecisionMenuController : MonoBehaviour
 {
-    [SerializeField] private Image decisionImage;
     [SerializeField] private TextMeshProUGUI decisionDescription;
     [SerializeField] private Transform decisionButtonsContent;
 
@@ -17,7 +16,6 @@ public class DecisionMenuController : MonoBehaviour
 
     public void InitializeMenu(DecisionInfoSO data)
     {
-        decisionImage.sprite = data.DecisionInfoImage;
         decisionDescription.text = data.DecisionInfoText;
 
         for (int i = 0; i < data.DecisionButtons.Count; i++)
@@ -31,7 +29,6 @@ public class DecisionMenuController : MonoBehaviour
     
     public void ResetMenu()
     {
-        decisionImage.sprite = null;
         decisionDescription.text = "";
 
         for (int i = 0; i < decisionButtons.Count; i++)

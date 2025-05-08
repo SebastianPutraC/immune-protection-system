@@ -810,6 +810,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 04afea697ebc9464982c40b02d512cb5, type: 2}
   - {fileID: 11400000, guid: 5c4a59e821edc9640a66bd522ffa2fdb, type: 2}
   - {fileID: 11400000, guid: 718c088a791f77342bbbe46413249524, type: 2}
+  - {fileID: 11400000, guid: cd514e4ec9a24c541b2a4a4ee967d768, type: 2}
+  - {fileID: 11400000, guid: 4bc5f3bc64a895345ac1973103a83d28, type: 2}
   currentLevelInfo: {fileID: 0}
 --- !u!1001 &1516609827
 PrefabInstance:
@@ -821,11 +823,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 544222220268363507, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0000038146973
+      value: 0.00002861023
       objectReference: {fileID: 0}
     - target: {fileID: 544222220268363507, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0009765625
+      value: -0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 2436672789306885108, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
       propertyPath: m_Pivot.x
@@ -927,6 +929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EncylopediaMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4849999355600463183, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4886478686932775913, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1019,13 +1025,13 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8683120782790865872, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8709800957945955078, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0009765625
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742866497488243407, guid: 0cf43ac55f4e4a24fa7f986bb017ea59, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

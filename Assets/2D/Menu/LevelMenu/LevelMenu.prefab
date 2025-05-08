@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return to Menu
+  m_text: Kembali
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level Select
+  m_text: Pilih Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -391,12 +391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelContent: {fileID: 8393923554947642385}
-  levelInfos:
-  - {fileID: 11400000, guid: 915dab0d743f8a0468dcfc4fddf777f6, type: 2}
-  - {fileID: 11400000, guid: dbd881c3d735da143bbb2c607a994362, type: 2}
-  - {fileID: 11400000, guid: 04afea697ebc9464982c40b02d512cb5, type: 2}
-  - {fileID: 11400000, guid: 5c4a59e821edc9640a66bd522ffa2fdb, type: 2}
-  - {fileID: 11400000, guid: 718c088a791f77342bbbe46413249524, type: 2}
   buttonPrefab: {fileID: 6613621412749575451, guid: fcb975ef273a0dc49a206cff411ca8ef, type: 3}
   returnButton: {fileID: 1955749800411498673}
 --- !u!1 &5440413740144802796

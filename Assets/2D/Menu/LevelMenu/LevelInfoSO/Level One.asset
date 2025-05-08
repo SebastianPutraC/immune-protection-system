@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Level One
   m_EditorClassIdentifier: 
   levelId: 2
-  levelName: Level One
+  levelName: Senin
   allyUnits: 65000000660000006a00000068000000
   enemyUnits: c9000000
   defaultStatingResource: 300
   defaultIncome: 100
   levelIdUnlock: 3
-  DecisionInfos:
-  - {fileID: 11400000, guid: b5fb7361e21bedb4c90b7dd62e7195a4, type: 2}
-  - {fileID: 11400000, guid: 12e599d9030982d4a9f65c91dbaa6eea, type: 2}
+  DecisionInfos: []

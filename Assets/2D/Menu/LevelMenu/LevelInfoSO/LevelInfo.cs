@@ -13,4 +13,5 @@ public class LevelInfo : ScriptableObject
     public LevelId levelIdUnlock;
 
     public List<DecisionInfoSO> DecisionInfos;
+    public List<DecisionInfoSO> QuizInfos;
 }

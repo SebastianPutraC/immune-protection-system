@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level Four
   m_EditorClassIdentifier: 
   levelId: 5
-  levelName: Level Four
+  levelName: Kamis
   allyUnits: 6500000066000000670000006a000000
   enemyUnits: c9000000ca000000
   defaultStatingResource: 0

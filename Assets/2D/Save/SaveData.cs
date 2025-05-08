@@ -14,7 +14,7 @@ public class SaveData
         for (int i = 0; i < levelIds.Count; i++)
         {
             LevelData newLevelData = new LevelData(levelIds[i], false);
-            if (i == 0)
+            if (newLevelData.LevelId == (int)LevelId.LEVEL_TUTORIAL || newLevelData.LevelId == (int)LevelId.LEVEL_ONE)
             {
                 newLevelData.Unlocked = true;
             }

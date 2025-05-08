@@ -21,7 +21,6 @@ public class DecisionButton : MonoBehaviour
     {
         buttonText.text = info.DecisionButtonText;
         boostData.StatMod = info.StatMod;
-        boostData.SideToBoost = info.SideToBoost;
     }
 
     private void ButtonClicked()

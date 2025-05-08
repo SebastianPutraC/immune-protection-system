@@ -6,5 +6,7 @@ public enum LevelId
     LEVEL_TWO,
     LEVEL_THREE,
     LEVEL_FOUR,
-    LEVEL_FIVE
+    LEVEL_FIVE,
+    LEVEL_SIX,
+    LEVEL_SEVEN
 }
