@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Senin_Decision_02
+  m_EditorClassIdentifier: 
+  decisionId: 2
+  DecisionInfoText: "\"Hei Andi! Ayo, kelas 11B mengajak kita bertanding.\"\r\nItu
+    Bobi, kapten tim sepak bola kelasnya. Andi telah bermain dengan baik sebagai
+    bek sayap.\n \nBobi mengatakan bahwa umpannya merupakan aspek penting melawan
+    kelas 11C minggu lalu. Namun, sekali lagi, Bobi selalu mengatakan hal-hal baik
+    tentang semua orang jika mereka berhasil menang (Bahkan kepada Ruri!). Andi belajar
+    untuk tidak pernah mengingatkan sejarah kekalahan kelas 11A 2 bulan yang lalu.\n\r\n\"Sepertinya
+    ini saat yang tepat untuk berolahraga\"\r\nPikir Andi, Ia sudah duduk di kursi
+    ini selama 3 jam. Namun mungkin ia bisa bersantai di ruangan ini. Ia merasa terpaku
+    di kursi ini, dan ia bisa melanjutkan permainan gacha-nya.\r\n"
+  DecisionButtons:
+  - {fileID: 11400000, guid: 8aabe4f0c520de5489063a20e534f52e, type: 2}
+  - {fileID: 11400000, guid: 449810e22c64b7a4bba507daea966c3f, type: 2}

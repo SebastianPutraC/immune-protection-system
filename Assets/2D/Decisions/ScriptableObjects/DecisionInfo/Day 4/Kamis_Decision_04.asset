@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Kamis_Decision_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: 'Andi kembali ke stasiun untuk menunggu bus. Betapa terkejutnya
+    dia, dia melihat Joko di toko minuman keras yang sama. Dia pikir Joko sakit,
+    dan Andi memutuskan untuk menengoknya.
+
+    "Oh, halo lagi, Andi. Kamu masih
+    mau Matze yang aku tawarkan kemarin?"
+
+'
+  DecisionButtons:
+  - {fileID: 11400000, guid: eb767f1ae2b58574fb15a396dbcb6f66, type: 2}
+  - {fileID: 11400000, guid: 9713b48e84c86374b862040756de5962, type: 2}

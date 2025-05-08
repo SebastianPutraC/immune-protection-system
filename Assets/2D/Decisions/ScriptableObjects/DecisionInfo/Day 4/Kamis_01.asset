@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Kamis_01
+  m_EditorClassIdentifier: 
+  decisionId: 1
+  DecisionInfoText: 'Hari kedua bapak Andi sakit. Kondisi ayahnya tampaknya makin
+    memburuk. Ia terus bercerita tentang bagaimana ia tidak yakin apakah proyek kerja
+    itu dapat diselesaikan tanpa melibatkan dirinya. Kadang-kadang ia berjalan di
+    ruang tamu sambil memikirkan kemungkinan terburuk.
+
+    
+
+    "Grr, kalau si
+    bodoh Bayu itu tidak menyelesaikan tugasnya, seluruh rencana ini akan hancur.
+    Aku seharusnya mengawasinya." Andi mengingkatkan bapak untuk lebih banyak beristirahat
+    hari ini. Andi juga harus menjaga dirinya sendiri agar tidak terlalu stres menghadapi
+    ujian yang akan datang.
+
+'
+  DecisionButtons:
+  - {fileID: 11400000, guid: db7a85586e1d26942a083e399b2372a3, type: 2}

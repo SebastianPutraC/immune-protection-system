@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Senin_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: "\"Apa kamu tidak lupa ujian terakhir kita? Bahkan si kutu buku
+    Joko gemetar saat membaca kertas ujian\". Bisik Ruri, mengetahui bahwa Joko masih
+    mencatat apa yang ada di papan tulis.\n\r\n\u201C....\u201D. Sepertinya Bobi
+    masih menggerutu berkat kekalahan pertandingan kelas tadi siang.\r\nAndi tahu
+    bahwa ia perlu mempersiapkan diri. Jadi ia pulang dan merencanakan waktu belajar
+    saat ia akhirnya sampai di rumah.\r\n"
+  DecisionButtons:
+  - {fileID: 11400000, guid: db7a85586e1d26942a083e399b2372a3, type: 2}

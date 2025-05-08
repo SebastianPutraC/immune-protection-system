@@ -5,7 +5,6 @@ using UnityEngine;
 public class DecisionInfoSO : ScriptableObject
 {
     public int decisionId;
-    public Sprite DecisionInfoImage;
 
     [TextArea(5, 10)]
     public string DecisionInfoText;

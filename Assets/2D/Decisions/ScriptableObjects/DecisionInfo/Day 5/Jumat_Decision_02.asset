@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Jumat_Decision_02
+  m_EditorClassIdentifier: 
+  decisionId: 2
+  DecisionInfoText: "Di sekolah, teman-temannya mengajaknya bermain bersama malam
+    ini. Andi menurutinya, menurutnya hari Jumat adalah hari yang tepat untuk itu.
+    Namun, ia harus tahu kapan harus berhenti dan mengerjakan latihan matematika
+    lagi. Ia tahu bahwa bermain bersama teman \u2013 teman terkadang menghabiskan
+    banyak waktu. Ia perlu memikirkan waktu belajar, bermain, dan tidur setelah pulang"
+  DecisionButtons:
+  - {fileID: 0}
+  - {fileID: 0}

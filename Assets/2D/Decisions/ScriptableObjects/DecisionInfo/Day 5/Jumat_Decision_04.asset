@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Jumat_Decision_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: Terkadang Andi berharap untuk tidak pernah tahu game yang bernama
+    League of Lords. Ia sangat menyukainya, tetapi juga membencinya. Ia hanya bisa
+    menoleransi jika ada orang lain yang bermain bersamanya. Ketika mereka sudah
+    berada di lobi yang sama, temannya meminta Andi untuk bermain secara kasual atau
+    kompetitif. Dia tahu bahwa jika dia bermain secara kompetitif, dia akan semakin
+    stres dengan hal-hal yang mungkin terjadi dalam permainan.
+  DecisionButtons:
+  - {fileID: 0}
+  - {fileID: 0}

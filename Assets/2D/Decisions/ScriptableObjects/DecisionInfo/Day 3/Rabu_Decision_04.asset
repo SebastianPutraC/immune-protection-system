@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Rabu_Decision_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: "\"Oh, eh, halo Andi... Hehe, senang bertemu denganmu.. Ermm\"
+    Joko gugup\n\r\n\"Ini untuk ayahku, sebenarnya, ehm. Kau tahu, minum dan sebagainya.
+    Joko melihat sekeliling dengan curiga.\n\r\n\"Begini saja, kau bisa mendapatkan
+    yang ini gratis, aku yang traktir. \"Mazte\", setelah kau meminumnya, bisa membuatmu
+    pingsan dalam tiga teguk. Ehe bukan pengalamanku tentu saja, ehe\".\r"
+  DecisionButtons:
+  - {fileID: 11400000, guid: ac45e5361e4fa7f41b7bac9a47c27b38, type: 2}
+  - {fileID: 11400000, guid: 4db6024a66cf8164e877c7dc6dca53ec, type: 2}

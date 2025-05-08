@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Minggu_03
+  m_EditorClassIdentifier: 
+  decisionId: 3
+  DecisionInfoText: Malam harinya, Andi mengerjakan setiap soal matematika sulit
+    yang dapat dipikirkannya. Apa pun yang dapat diberikan Pak Wu kepadanya dalam
+    ujian, ia pasti dapat menyelesaikannya. Ia merasa percaya diri, ia ingin segera
+    melihat soal ujian itu. Memikirkan itu membuat Ia kesulitan tidur.
+  DecisionButtons:
+  - {fileID: 11400000, guid: 2bb1279e0a5efea45be1705245350ffe, type: 2}
