@@ -19,4 +19,8 @@ MonoBehaviour:
   defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 1
-  DecisionInfos: []
+  DecisionInfos:
+  - {fileID: 11400000, guid: 2f04727f637f6c842ade48c55bbae5e1, type: 2}
+  - {fileID: 11400000, guid: 03347a1e1e22af04a978a03a8a477e87, type: 2}
+  - {fileID: 11400000, guid: b9a1334c9a86b954897d57d7d140b676, type: 2}
+  QuizInfos: []

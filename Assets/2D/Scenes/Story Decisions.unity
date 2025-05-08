@@ -375,8 +375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decisionMenuController: {fileID: 1243563772}
-  allyBonusController: {fileID: 1243563774}
-  enemyBonusController: {fileID: 1243563773}
+  BoostPanelController: {fileID: 1243563774}
+  NerfPanelController: {fileID: 1243563773}
   readyMenu: {fileID: 1682577872048334941}
   startLevel: {fileID: 1682577872048334942}
 --- !u!4 &677331796
@@ -878,7 +878,7 @@ GameObject:
   - component: {fileID: 1604263771}
   - component: {fileID: 1604263770}
   m_Layer: 5
-  m_Name: Backgroudn
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

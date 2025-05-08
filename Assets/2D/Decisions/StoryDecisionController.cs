@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,8 @@ public class StoryDecisionController : MonoBehaviour
     private LevelInfo levelInfo;
 
     [SerializeField] private DecisionMenuController decisionMenuController;
-    [SerializeField] private BonusPanelController allyBonusController;
-    [SerializeField] private BonusPanelController enemyBonusController;
+    [SerializeField] private BonusPanelController BoostPanelController;
+    [SerializeField] private BonusPanelController NerfPanelController;
 
     [SerializeField] private GameObject readyMenu;
     [SerializeField] private Button startLevel;
@@ -18,7 +19,8 @@ public class StoryDecisionController : MonoBehaviour
     private List<DecisionInfoSO> decisionInfos = new List<DecisionInfoSO>();
 
     private List<BoostData> allyBoostData = new List<BoostData>();
-    private List<BoostData> enemyBoostData = new List<BoostData>();
+
+    private List<BoostData> enemyBoostData = new List<BoostData>(); // Might never be used
 
     private void Awake()
     {
@@ -44,19 +46,26 @@ public class StoryDecisionController : MonoBehaviour
         NextDecision(decisionIndex);
     }
 
-    private void OnDecisionChosen(BoostData boostData)
+    private void OnDecisionChosen(BoostData boostData, int setId = -1)
     {
-        decisionIndex++;
-
-        if (boostData.SideToBoost == UnitSide.ALLY)
+        if (setId <= -1)
         {
-            allyBoostData.Add(boostData);
-            allyBonusController.UpdateBonusText(boostData.StatMod.StatToMod, boostData.StatMod.ModValue);
+            decisionIndex++;
         }
-        else if (boostData.SideToBoost == UnitSide.ENEMY)
+        else
         {
-            enemyBoostData.Add(boostData);
-            enemyBonusController.UpdateBonusText(boostData.StatMod.StatToMod, boostData.StatMod.ModValue);
+            decisionIndex = decisionInfos.Where(x => x.decisionId == setId).FirstOrDefault().decisionId;
+        }
+
+        allyBoostData.Add(boostData);
+
+        if (boostData.StatMod.ModValue < 0)
+        {
+            NerfPanelController.UpdateBonusText(boostData.StatMod.StatToMod, boostData.StatMod.ModValue);
+        }
+        else
+        {
+            BoostPanelController.UpdateBonusText(boostData.StatMod.StatToMod, boostData.StatMod.ModValue);
         }
 
         NextDecision(decisionIndex);
@@ -78,7 +87,6 @@ public class StoryDecisionController : MonoBehaviour
     private void OnStartSelected()
     {
         LevelDataSingleton.Instance.SetModifiersData(allyBoostData, UnitSide.ALLY);
-        LevelDataSingleton.Instance.SetModifiersData(enemyBoostData, UnitSide.ENEMY);
         SceneManager.LoadScene(2);
     }
 

@@ -12,7 +12,7 @@ public class DecisionMenuController : MonoBehaviour
     [SerializeField] private DecisionButton buttonPrefab;
     private List<DecisionButton> decisionButtons = new List<DecisionButton>();
 
-    public Action<BoostData> DecisionChosen;
+    public Action<BoostData, int> DecisionChosen;
 
     public void InitializeMenu(DecisionInfoSO data)
     {
@@ -39,9 +39,9 @@ public class DecisionMenuController : MonoBehaviour
         decisionButtons.Clear();
     }
 
-    private void OnDecisionSelected(BoostData boostData)
+    private void OnDecisionSelected(BoostData boostData, int setId = -1)
     {
-        DecisionChosen?.Invoke(boostData);
+        DecisionChosen?.Invoke(boostData, setId);
     }
 
 

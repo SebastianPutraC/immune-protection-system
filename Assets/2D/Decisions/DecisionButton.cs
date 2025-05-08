@@ -9,8 +9,9 @@ public class DecisionButton : MonoBehaviour
     [SerializeField] private Button decisionButton;
 
     private BoostData boostData = new BoostData();
+    private int setId = -1;
 
-    public Action<BoostData> DecisionSelected;
+    public Action<BoostData, int> DecisionSelected;
 
     private void Awake()
     {
@@ -21,11 +22,15 @@ public class DecisionButton : MonoBehaviour
     {
         buttonText.text = info.DecisionButtonText;
         boostData.StatMod = info.StatMod;
+        if (info.IsPickNextInfo == true)
+        {
+            setId = info.NextDecisionID;
+        }
     }
 
     private void ButtonClicked()
     {
-        DecisionSelected?.Invoke(boostData);
+        DecisionSelected?.Invoke(boostData, setId);
     }
 
     private void OnDestroy()

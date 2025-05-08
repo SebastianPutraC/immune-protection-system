@@ -17,5 +17,5 @@ MonoBehaviour:
     ModType: 0
     StatToMod: 0
     ModValue: 0
-  IsPickNextInfo: 1
+  IsPickNextInfo: 0
   NextDecisionID: 0

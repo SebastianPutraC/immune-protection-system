@@ -7,6 +7,11 @@ public class BonusPanelController : MonoBehaviour
 
     public void UpdateBonusText(StatType stat, float bonus)
     {
+        if (stat == StatType.NONE)
+        {
+            return;
+        }
+
         string bonusTextToAdd = "";
         if (bonusText.text == "")
         {
@@ -14,7 +19,7 @@ public class BonusPanelController : MonoBehaviour
         }
         else
         {
-            bonusTextToAdd = "<br>" + stat.ToString() + " : " + bonus + "%";
+            bonusTextToAdd = "<br>" + stat.ToString() + " : " + bonus * 100 + "%";
         }
 
         bonusText.text += bonusTextToAdd;
