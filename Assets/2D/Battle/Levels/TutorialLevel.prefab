@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 7596951603051648274}
   - component: {fileID: 556378174195699418}
   - component: {fileID: 7927501671386574547}
-  - component: {fileID: 8434643545291083320}
+  - component: {fileID: 4478485230730424253}
   m_Layer: 6
   m_Name: Enemy Base
   m_TagString: EnemyBase
@@ -817,7 +817,7 @@ Transform:
   m_GameObject: {fileID: 4460301994839957733}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.999176, y: 5, z: 0}
+  m_LocalPosition: {x: 35.01, y: 5.18, z: 0}
   m_LocalScale: {x: 0.5, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -924,7 +924,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8434643545291083320
+--- !u!114 &4478485230730424253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -933,10 +933,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4460301994839957733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b11a46d0d4a534e9e7ecb4e8c6012f, type: 3}
+  m_Script: {fileID: 11500000, guid: f7f178ba69656ca4b9916c62d1f931e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitHp: 0
+  baseHP: 0
+  maxHP: 0
+  baseSide: 2
 --- !u!1 &4791447950050171141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1254,7 @@ GameObject:
   - component: {fileID: 4508174995587544403}
   - component: {fileID: 7770096296418901673}
   - component: {fileID: 5622343712728401647}
-  - component: {fileID: 3900349726427751986}
+  - component: {fileID: 2527242771484750319}
   m_Layer: 7
   m_Name: Ally Base
   m_TagString: AllyBase
@@ -1269,7 +1271,7 @@ Transform:
   m_GameObject: {fileID: 6574028740290100169}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.500824, y: 5, z: 0}
+  m_LocalPosition: {x: -2.500824, y: 5.23, z: 0}
   m_LocalScale: {x: 0.5, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1376,7 +1378,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3900349726427751986
+--- !u!114 &2527242771484750319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1385,10 +1387,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6574028740290100169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352129233bd799a448b2e0f566ea2eed, type: 3}
+  m_Script: {fileID: 11500000, guid: f7f178ba69656ca4b9916c62d1f931e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitHp: 0
+  baseHP: 0
+  maxHP: 0
+  baseSide: 1
 --- !u!1 &9072421610279781358
 GameObject:
   m_ObjectHideFlags: 0

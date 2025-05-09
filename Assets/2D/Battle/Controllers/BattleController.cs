@@ -10,10 +10,15 @@ public class BattleController : MonoBehaviour
     protected int resourcePoints = 300;
     protected int basicIncome = 50;
     protected int maxResourcePoints = 800;
+    public float RpIncomeTimer = 3f;
+
     protected int intelPoints = 0;
     protected int unlockIntelPoints = 100;
 
-    public float RpIncomeTimer = 3f;
+    protected int currBaseHp;
+    protected int maxBaseHp;
+    protected int currRepairPoint = 0;
+    protected int maxRepairPoint;
 
     protected bool isAdaptiveUnlocked;
 
@@ -35,8 +40,8 @@ public class BattleController : MonoBehaviour
     public List<EnemyUnitController> allEnemyUnits = new List<EnemyUnitController>();
     public AllyUnitController selectedUnit; //Public for visual
 
-    [SerializeField] protected AllyBaseController allyBaseController;
-    [SerializeField] protected EnemyBaseController enemyBaseController;
+    [SerializeField] protected List<BaseController> allyBaseControllers;
+    [SerializeField] protected List<BaseController> enemyBaseControllers;
 
     [SerializeField] protected Button StopAllButton;
     [SerializeField] protected Button AdvanceAllButton;
@@ -62,13 +67,14 @@ public class BattleController : MonoBehaviour
             cellSpawner[i].EnemySpawned += OnEnemySpawned;
             cellSpawner[i].ThisUnitKilled += OnCellKilled;
         }
-        allyBaseController.allyBaseAttacked += UpdateAllyBaseUI;
-        allyBaseController.allyBaseDestroyed += GameLost;
-        enemyBaseController.enemyBaseAttacked += UpdateEnemyBaseUI;
-        enemyBaseController.enemyBaseDestroyed += GameWon;
-
-        allyBaseController.InitializeBase(100);
-        enemyBaseController.InitializeBase(100);
+        for (int i = 0; i < allyBaseControllers.Count; i++)
+        {
+            allyBaseControllers[i].baseAttacked += BaseAttacked;
+        }
+        for (int i = 0; i < enemyBaseControllers.Count; i++)
+        {
+            enemyBaseControllers[i].baseAttacked += BaseAttacked;
+        }
 
         unitSelectionController.UnitSelected += OnUnitSelected;
         unitStatsController.AbilityButtonSelected += OnAbilitySelected;
@@ -92,10 +98,24 @@ public class BattleController : MonoBehaviour
             SetUpLevel(levelInfo);
         }
 
-        UpdateAllyBaseUI(allyBaseController.unitHp);
-        UpdateEnemyBaseUI(enemyBaseController.unitHp);
-        battlePanelController.UpdateResourcePointUI(resourcePoints);
+        maxBaseHp = levelInfo.allyBaseMaxHP;
+        currBaseHp = maxBaseHp;
+        maxRepairPoint = levelInfo.maxRepairPoints;
+        currRepairPoint = 0;
+
+        UpdateBaseUI(currBaseHp, maxBaseHp, UnitSide.ALLY);
+        UpdateBaseUI(currRepairPoint, maxRepairPoint, UnitSide.ENEMY);
+        battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
         battlePanelController.UpdateIntelPointUI(0, unlockIntelPoints);
+
+        for (int i = 0; i < allyBaseControllers.Count; i++)
+        {
+            allyBaseControllers[i].InitializeBase(UnitSide.ALLY);
+        }
+        for (int i = 0; i < enemyBaseControllers.Count; i++)
+        {
+            enemyBaseControllers[i].InitializeBase(UnitSide.ENEMY);
+        }
 
         ResumeGame();
         gameOverPanelController.gameObject.SetActive(false);
@@ -156,7 +176,7 @@ public class BattleController : MonoBehaviour
             resourcePoints = maxResourcePoints;
         }
 
-        battlePanelController.UpdateResourcePointUI(resourcePoints);
+        battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
     }
     protected void IncreaseIntelPoint(int income)
     {
@@ -193,7 +213,7 @@ public class BattleController : MonoBehaviour
             return;
 
         resourcePoints -= allyData.UnitCost;
-        battlePanelController.UpdateResourcePointUI(resourcePoints);
+        battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
 
         Route initialRoute = routeController.GetRouteByID(spawner.GetInitialRouteId());
 
@@ -319,25 +339,29 @@ public class BattleController : MonoBehaviour
         pausePanelController.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
-    protected void GameLost()
+    protected void GameEnd(UnitSide side)
     {
-        gameOverPanelController.gameObject.SetActive(true);
-        gameOverPanelController.GameLost();
-        Time.timeScale = 0;
-    }
-    protected void GameWon()
-    {
-        LevelId unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
-        SaveManagerSingleton.Instance.UpdateSelectedData(UnitId.NONE, unlockedLevel);
-
-        List<UnitId> unlockedUnits = LevelDataSingleton.Instance.GetAllUnits();
-        for (int i = 0; i < unlockedUnits.Count; i++)
+        if (side == UnitSide.ALLY)
         {
-            SaveManagerSingleton.Instance.UpdateSelectedData(unlockedUnits[i], LevelId.NONE);
-        }
+            LevelId unlockedLevel = LevelDataSingleton.Instance.GetUnlockedLevel();
+            SaveManagerSingleton.Instance.UpdateSelectedData(UnitId.NONE, unlockedLevel);
 
-        gameOverPanelController.gameObject.SetActive(true);
-        gameOverPanelController.GameWon();
+            List<UnitId> unlockedUnits = LevelDataSingleton.Instance.GetAllUnits();
+            for (int i = 0; i < unlockedUnits.Count; i++)
+            {
+                SaveManagerSingleton.Instance.UpdateSelectedData(unlockedUnits[i], LevelId.NONE);
+            }
+
+            gameOverPanelController.gameObject.SetActive(true);
+            gameOverPanelController.GameWon();
+        }
+        else
+        {
+            gameOverPanelController.gameObject.SetActive(true);
+            gameOverPanelController.GameLost();
+            Time.timeScale = 0;
+        }
+       
         Time.timeScale = 0;
     }
     protected void StartNextLevel()
@@ -352,15 +376,37 @@ public class BattleController : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    // To be easily subscribed to event and called to UI
-    // If too complex, combine to one reset UI
-    protected void UpdateAllyBaseUI(float allyBaseHp)
+    protected void BaseAttacked(UnitSide side)
     {
-        battlePanelController.UpdateAllyBaseUI(allyBaseHp);
+        if (side == UnitSide.ALLY)
+        {
+            currBaseHp--;
+            UpdateBaseUI(currBaseHp, maxBaseHp, UnitSide.ALLY);
+            if (currBaseHp <= 0)
+            {
+                GameEnd(UnitSide.ENEMY);
+            }
+        }
+        else
+        {
+            currRepairPoint++;
+            UpdateBaseUI(currRepairPoint, maxRepairPoint, UnitSide.ENEMY);
+            if (currRepairPoint >= maxRepairPoint)
+            {
+                GameEnd(UnitSide.ALLY);
+            }
+        }
     }
-    protected void UpdateEnemyBaseUI(float enemyBaseHp)
+    protected void UpdateBaseUI(int currPoint, int maxPoint, UnitSide side)
     {
-        battlePanelController.UpdateEnemyBaseUI(enemyBaseHp);
+        if (side == UnitSide.ALLY)
+        {
+            battlePanelController.UpdateAllyBaseUI(currPoint, maxPoint);
+        }
+        else
+        {
+            battlePanelController.UpdateEnemyBaseUI(currPoint, maxPoint);
+        }
     }
 
     protected virtual void OnDestroy()
@@ -379,10 +425,14 @@ public class BattleController : MonoBehaviour
             cellSpawner[i].CellSpawning -= DeployEnemyUnit;
             cellSpawner[i].EnemySpawned -= OnEnemySpawned;
         }
-        allyBaseController.allyBaseAttacked -= UpdateAllyBaseUI;
-        allyBaseController.allyBaseDestroyed -= GameLost;
-        enemyBaseController.enemyBaseAttacked -= UpdateEnemyBaseUI;
-        enemyBaseController.enemyBaseDestroyed -= GameWon;
+        for (int i = 0; i < allyBaseControllers.Count; i++)
+        {
+            allyBaseControllers[i].baseAttacked -= BaseAttacked;
+        }
+        for (int i = 0; i < enemyBaseControllers.Count; i++)
+        {
+            enemyBaseControllers[i].baseAttacked -= BaseAttacked;
+        }
 
         unitSelectionController.UnitSelected -= OnUnitSelected;
         unitStatsController.AbilityButtonSelected -= OnAbilitySelected;

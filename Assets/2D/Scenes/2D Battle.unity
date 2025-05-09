@@ -619,24 +619,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &754600742 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8434643545291083320, guid: df371cd5d8cfeac418453cc0bbe512ee, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6316797427444567683, guid: df371cd5d8cfeac418453cc0bbe512ee, type: 3}
   m_PrefabInstance: {fileID: 754600740}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b11a46d0d4a534e9e7ecb4e8c6012f, type: 3}
+  m_Script: {fileID: 11500000, guid: f7f178ba69656ca4b9916c62d1f931e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &754600743 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3900349726427751986, guid: df371cd5d8cfeac418453cc0bbe512ee, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4355987563756874791, guid: df371cd5d8cfeac418453cc0bbe512ee, type: 3}
   m_PrefabInstance: {fileID: 754600740}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352129233bd799a448b2e0f566ea2eed, type: 3}
+  m_Script: {fileID: 11500000, guid: f7f178ba69656ca4b9916c62d1f931e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &754600744 stripped
@@ -1172,7 +1172,7 @@ MonoBehaviour:
   unitSelectionController: {fileID: 1063371168}
   pausePanelController: {fileID: 2190631808204530211}
   gameOverPanelController: {fileID: 1429431098}
-  battleCameraController: {fileID: 0}
+  battleCameraController: {fileID: 307727497}
   UnitReferences:
   - {fileID: 11400000, guid: 9434ad48328fdad4eb11cda80727c7db, type: 2}
   - {fileID: 11400000, guid: 59383435e58f6bd4e9bce2fab492a8b4, type: 2}
@@ -1188,8 +1188,10 @@ MonoBehaviour:
   allAllyUnits: []
   allEnemyUnits: []
   selectedUnit: {fileID: 0}
-  allyBaseController: {fileID: 754600743}
-  enemyBaseController: {fileID: 754600742}
+  allyBaseControllers:
+  - {fileID: 754600743}
+  enemyBaseControllers:
+  - {fileID: 754600742}
   StopAllButton: {fileID: 1791481104}
   AdvanceAllButton: {fileID: 1205373974}
   pauseButton: {fileID: 850506278}
@@ -2093,6 +2095,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1646250003494890278, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13.43512
+      objectReference: {fileID: 0}
     - target: {fileID: 2643514707710545892, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2240,6 +2246,10 @@ PrefabInstance:
     - target: {fileID: 5711879745654607009, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6029619407984803832, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13.434631
       objectReference: {fileID: 0}
     - target: {fileID: 6236618452028075666, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
       propertyPath: m_AnchorMax.y

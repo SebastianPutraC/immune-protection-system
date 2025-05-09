@@ -80,18 +80,28 @@ public class EosinophilController : AllyUnitController, IPresenter
 
     public void GetAntigen(UnitController antigen)
     {
-        if (antigen is not AntigenController)
+        if (isPresenting)
         {
-            return;
-        }
-        else
-        {
-            carriedAntigen = (AntigenController)antigen;
-            carriedAntigen.ObjectCarried();
-            carriedAntigen.transform.parent = antigenCarryPosition;
-            carriedAntigen.transform.position = antigenCarryPosition.position;
+            if (carriedAntigen == null)
+            {
+                if (antigen is not AntigenController)
+                {
+                    return;
+                }
+                else
+                {
+                    AntigenController carriedAntigen = (AntigenController)antigen;
+                    carriedAntigen.ObjectCarried();
+                    carriedAntigen.transform.parent = antigenCarryPosition;
+                    carriedAntigen.transform.position = antigenCarryPosition.position;
 
-            ReturnToBase();
+                    if (carriedAntigen != null)
+                    {
+                        this.carriedAntigen = carriedAntigen;
+                    }
+                    ReturnToBase();
+                }
+            }
         }
     }
     public void ReturnToBase()

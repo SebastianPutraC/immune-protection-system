@@ -12,6 +12,9 @@ public class LevelInfo : ScriptableObject
     public int defaultIncome;
     public LevelId levelIdUnlock;
 
+    public int allyBaseMaxHP;
+    public int maxRepairPoints;
+
     public List<DecisionInfoSO> DecisionInfos;
     public List<DecisionInfoSO> QuizInfos;
 }

@@ -19,6 +19,8 @@ MonoBehaviour:
   defaultStatingResource: 400
   defaultIncome: 100
   levelIdUnlock: 4
+  allyBaseMaxHP: 10
+  maxRepairPoints: 3
   DecisionInfos:
   - {fileID: 11400000, guid: d55476fb9a92bf948a86deb9ca9ff410, type: 2}
   - {fileID: 11400000, guid: dd4953425c30fd14191721153931cd23, type: 2}

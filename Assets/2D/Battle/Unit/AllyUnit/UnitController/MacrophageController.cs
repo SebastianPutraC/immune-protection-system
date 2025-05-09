@@ -70,20 +70,27 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
     }
     public void GetAntigen(UnitController antigen)
     {
-        if (carriedAntigen == null)
+        if (isPresenting)
         {
-            if (antigen is not AntigenController)
+            if (carriedAntigen == null)
             {
-                return;
-            }
-            else
-            {
-                AntigenController carriedAntigen = (AntigenController)antigen;
-                carriedAntigen.ObjectCarried();
-                carriedAntigen.transform.parent = antigenCarryPosition;
-                carriedAntigen.transform.position = antigenCarryPosition.position;
+                if (antigen is not AntigenController)
+                {
+                    return;
+                }
+                else
+                {
+                    AntigenController carriedAntigen = (AntigenController)antigen;
+                    carriedAntigen.ObjectCarried();
+                    carriedAntigen.transform.parent = antigenCarryPosition;
+                    carriedAntigen.transform.position = antigenCarryPosition.position;
 
-                ReturnToBase();
+                    if (carriedAntigen != null)
+                    {
+                        this.carriedAntigen = carriedAntigen;
+                    }
+                    ReturnToBase();
+                }
             }
         }
     }

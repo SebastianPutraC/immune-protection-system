@@ -10,17 +10,17 @@ public class BattlePanelController : MonoBehaviour
 
     [SerializeField] private TutorialController tutorial;
 
-    public void UpdateAllyBaseUI(float baseHp)
+    public void UpdateAllyBaseUI(int baseHp, int maxHp)
     {
-        allyBaseHpText.text = "HP : " + baseHp;
+        allyBaseHpText.text = "HP :\n" + baseHp + " / " + maxHp;
     }
-    public void UpdateEnemyBaseUI(float baseHp)
+    public void UpdateEnemyBaseUI(int currRp, int maxRp)
     {
-        enemyBaseHpText.text = "Enemy HP : " + baseHp;
+        enemyBaseHpText.text = "Repair Points :\n" + currRp + " / " + maxRp;
     }
-    public void UpdateResourcePointUI(float rp)
+    public void UpdateResourcePointUI(float rp, float maxRp)
     {
-        resourcePointText.text = "Resource Points : " + rp;
+        resourcePointText.text = "Resource Points : " + rp + " / " + maxRp;
     }
     public void UpdateIntelPointUI(float currentIntel, float maxIntel)
     {

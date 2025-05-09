@@ -17,14 +17,14 @@ public class DetectionTrigger : MonoBehaviour //Might make class to detect speci
         {
             if (unitSide == UnitSide.ALLY)
             {
-                if (collision.CompareTag("EnemyUnit") || collision.CompareTag("EnemyBase"))
+                if (collision.CompareTag("EnemyUnit"))
                 {
                     enemyDetected?.Invoke(collision.GetComponent<UnitController>());
                 }
             }
             else
             {
-                if (collision.CompareTag("AllyUnit") || collision.CompareTag("AllyBase"))
+                if (collision.CompareTag("AllyUnit"))
                 {
                     enemyDetected?.Invoke(collision.GetComponent<UnitController>());
                 }
