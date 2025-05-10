@@ -68,6 +68,10 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         optionMenu.gameObject.SetActive(true);
+
+        float musicVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().musicVolume;
+        float sfxVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().sfxVolume;
+        optionMenu.InitializeSetting(musicVolume, sfxVolume);
     }
     private void OpenEncyclopediaMenu()
     {

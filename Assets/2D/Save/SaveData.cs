@@ -7,6 +7,8 @@ public class SaveData
     public List<EncyclopediaData> enyclopediaUnlock;
     public List<LevelData> levelUnlock;
     public List<QuizScoreData> quizScores;
+    public float sfxVolume;
+    public float musicVolume;
 
     public SaveData(string name, List<int> levelIds, List<int> encylopediaIds, List<int> quizIds)
     {
@@ -14,6 +16,9 @@ public class SaveData
         enyclopediaUnlock = new List<EncyclopediaData>();
         levelUnlock = new List<LevelData>();
         quizScores = new List<QuizScoreData>();
+
+        sfxVolume = 0.5f;
+        musicVolume = 0.5f;
 
         for (int i = 0; i < levelIds.Count; i++)
         {

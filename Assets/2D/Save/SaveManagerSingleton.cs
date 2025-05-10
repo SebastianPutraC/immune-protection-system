@@ -81,6 +81,13 @@ public class SaveManagerSingleton : MonoBehaviour
             int levelId = (int)level;
             selectedSaveData.levelUnlock.Where(x => x.LevelId.Equals(levelId)).FirstOrDefault().Unlocked = true;
         }
+        SaveProfileData();
+    }
+    public void UpdateSoundData(float musicVolume, float sfxVolume)
+    {
+        selectedSaveData.musicVolume = musicVolume;
+        selectedSaveData.sfxVolume = sfxVolume;
+        SaveProfileData();
     }
 
     public Dictionary<string, SaveData> GetAllSaveData()
