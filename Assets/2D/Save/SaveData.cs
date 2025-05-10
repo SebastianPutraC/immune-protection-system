@@ -3,13 +3,17 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SaveData
 {
+    public string profileName;
     public List<EncyclopediaData> enyclopediaUnlock;
     public List<LevelData> levelUnlock;
+    public List<QuizScoreData> quizScores;
 
-    public SaveData(List<int> levelIds, List<int> encylopediaIds)
+    public SaveData(string name, List<int> levelIds, List<int> encylopediaIds, List<int> quizIds)
     {
+        profileName = name;
         enyclopediaUnlock = new List<EncyclopediaData>();
         levelUnlock = new List<LevelData>();
+        quizScores = new List<QuizScoreData>();
 
         for (int i = 0; i < levelIds.Count; i++)
         {
@@ -25,6 +29,12 @@ public class SaveData
         {
             EncyclopediaData newEncylopediaData = new EncyclopediaData(encylopediaIds[i], false);
             enyclopediaUnlock.Add(newEncylopediaData);
+        }
+
+        for (int i = 0; i < quizIds.Count; i++)
+        {
+            QuizScoreData newQuizScore = new QuizScoreData(quizIds[i], 0);
+            quizScores.Add(newQuizScore);
         }
     }
 }

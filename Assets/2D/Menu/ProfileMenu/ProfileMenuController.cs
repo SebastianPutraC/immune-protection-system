@@ -1,13 +1,27 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Collections.Generic;
+using System.Linq;
 
 public class ProfileMenuController : MonoBehaviour
 {
-    [SerializeField] private List<ProfileButton> profileButtons;
     [SerializeField] private Button returnButton;
+    [SerializeField] private Button changeNameButton;
+    [SerializeField] private Button quizMenuButton;
+    [SerializeField] private Button statisticMenuButton;
+    [SerializeField] private Button deleteProgressButton;
+
+    [SerializeField] private TextMeshProUGUI playerNameText;
+    [SerializeField] private TextMeshProUGUI encyclopediaText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI averageStatisticText;
+    [SerializeField] private TextMeshProUGUI quizStatisticText;
+    [SerializeField] private List<TextMeshProUGUI> quizTexts;
+
+    [SerializeField] private GameObject statisticPanel;
+    [SerializeField] private GameObject quizPanel;
 
     public Action ReturnButtonPressed;
     public Action ProfileSelected;
@@ -15,75 +29,59 @@ public class ProfileMenuController : MonoBehaviour
     private void Awake()
     {
         returnButton.onClick.AddListener(OnReturnButtonPressed);
-
-        for (int i = 0; i < profileButtons.Count; i++)
-        {
-            profileButtons[i].ProfileSelected += OnProfilePick;
-            profileButtons[i].DeleteSelected += OnProfileDelete;
-            profileButtons[i].NewProfileSelected += OnNewProfile;
-        }
+        quizMenuButton.onClick.AddListener(OpenQuizPanel);
+        statisticMenuButton.onClick.AddListener(OpenStatisticPanel);
     }
 
-    public void InitializeProfile()
+    public void InitializeProfile(SaveData saveData)
     {
-        SaveManagerSingleton.Instance.LoadProfileData();
-        Dictionary<string, SaveData> loadedProfiles = SaveManagerSingleton.Instance.GetAllSaveData();
+        playerNameText.text = "Nama Pemain : " + saveData.profileName;
 
-        bool allEmpty = true;
-        for (int i = 0; i < profileButtons.Count; i++)
+        int unlockedEncyclopedia = saveData.enyclopediaUnlock.Where(x => x.Unlocked == true).ToList().Count;
+        encyclopediaText.text = "Enyclopedia Terbuka : " + unlockedEncyclopedia + " / 50";
+
+        int unlockedLevel = saveData.levelUnlock.Where(x => x.Unlocked == true).ToList().Count;
+        levelText.text = "Level Selesai : " + unlockedLevel + " / 8";
+
+        List<int> scores = saveData.quizScores.Select(x => x.quizScore).ToList();
+        double average = CalculateAverage(scores);
+        averageStatisticText.text = "Rata-rata Nilai Quiz : " + average;
+        quizStatisticText.text = "Rata-rata Nilai Quiz : " + average;
+
+        int levelIndex = 2;
+        for (int i = 0; i < quizTexts.Count; i++)
         {
-            SaveData loadData = loadedProfiles.Where(data => data.Key == profileButtons[i].profileId).FirstOrDefault().Value;
-            if (loadData != null)
-            {
-                allEmpty = false;
-                profileButtons[i].InitializeButton(loadData, true);
-            }
-            else
-            {
-                profileButtons[i].InitializeButton(null, false);
-            }
+            quizTexts[i].text = "Level " + levelIndex + " : " + scores[i];
+            levelIndex++;
         }
-        
-        if (allEmpty || SaveManagerSingleton.Instance.GetSelectedSaveData() == null)
-        {
-            returnButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            returnButton.gameObject.SetActive(true);
-        }
+
+        OpenStatisticPanel();
+    }
+    private double CalculateAverage(List<int> scores)
+    {
+        double average = scores.Average();
+        return average;
     }
 
-    private void OnNewProfile(string profileId)
+    
+    private void OpenQuizPanel()
     {
-        SaveManagerSingleton.Instance.NewProfileData(profileId);
-        ProfileSelected?.Invoke();
+        quizPanel.gameObject.SetActive(true);
+        statisticPanel.gameObject.SetActive(false);
     }
-    private void OnProfilePick(string profileId)
+    private void OpenStatisticPanel()
     {
-        SaveManagerSingleton.Instance.PickProfileData(profileId);
-        ProfileSelected?.Invoke();
+        quizPanel.gameObject.SetActive(false);
+        statisticPanel.gameObject.SetActive(true);
     }
-    private void OnProfileDelete(string profileId)
-    {
-        SaveManagerSingleton.Instance.DeleteProfileData(profileId);
-        InitializeProfile();
-    }
-
-
     private void OnReturnButtonPressed()
     {
         ReturnButtonPressed?.Invoke();
     }
-
     private void OnDestroy()
     {
         returnButton.onClick.RemoveListener(OnReturnButtonPressed);
-        for (int i = 0; i < profileButtons.Count; i++)
-        {
-            profileButtons[i].ProfileSelected -= OnProfilePick;
-            profileButtons[i].DeleteSelected -= OnProfileDelete;
-            profileButtons[i].NewProfileSelected -= OnNewProfile;
-        }
+        quizMenuButton.onClick.RemoveListener(OpenQuizPanel);
+        statisticMenuButton.onClick.RemoveListener(OpenStatisticPanel);
     }
 }

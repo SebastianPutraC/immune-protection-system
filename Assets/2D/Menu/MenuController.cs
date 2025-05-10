@@ -14,7 +14,6 @@ public class MenuController : MonoBehaviour
     private void Awake()
     {
         profileMenu.ReturnButtonPressed += OpenMainMenu;
-        profileMenu.ProfileSelected += OnProfileSelected;
         mainMenu.OnStartButtonPressed += OpenLevelMenu;
         mainMenu.OnOptionButtonPressed += OpenOptionMenu;
         mainMenu.OnEnyclopediaButtonPressed += OpenEncyclopediaMenu;
@@ -27,16 +26,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        if (SaveManagerSingleton.Instance.GetSelectedSaveData() == null) // Force to Profile Menu
-        {
-            OpenProfileMenu();
-            return;
-        }
-        else // To Main Menu
-        {
-            OpenMainMenu();
-        }
-        
+        OpenMainMenu();
     }
 
     private void HideAllMenu()
@@ -48,10 +38,6 @@ public class MenuController : MonoBehaviour
         profileMenu.gameObject.SetActive(false);
     }
 
-    private void OnProfileSelected()
-    {
-        OpenMainMenu();
-    }
     private void StartLevel(LevelId levelSelected)
     {
         LevelDataSingleton.Instance.SetCurrentLevelInfo(levelSelected);
@@ -64,7 +50,7 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         profileMenu.gameObject.SetActive(true);
-        profileMenu.InitializeProfile();
+        profileMenu.InitializeProfile(SaveManagerSingleton.Instance.GetSelectedSaveData());
     }
     private void OpenLevelMenu()
     {
@@ -76,7 +62,7 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         mainMenu.gameObject.SetActive(true);
-        mainMenu.InitializeMenu(SaveManagerSingleton.Instance.GetProfileId());
+        mainMenu.InitializeMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().profileName);
     }
     private void OpenOptionMenu()
     {
@@ -94,7 +80,6 @@ public class MenuController : MonoBehaviour
     private void OnDestroy()
     {
         profileMenu.ReturnButtonPressed -= OpenMainMenu;
-        profileMenu.ProfileSelected -= OnProfileSelected;
         mainMenu.OnStartButtonPressed -= OpenLevelMenu;
         mainMenu.OnOptionButtonPressed -= OpenOptionMenu;
         mainMenu.OnEnyclopediaButtonPressed -= OpenEncyclopediaMenu;

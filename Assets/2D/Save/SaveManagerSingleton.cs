@@ -8,12 +8,15 @@ public class SaveManagerSingleton : MonoBehaviour
 
     [SerializeField] private string fileName;
 
-    [SerializeField] private string selectedProfileId = "";
+    [SerializeField] private string profileId = "Profile";
     private SaveData selectedSaveData;
 
     private Dictionary<string, SaveData> allSaveData = new Dictionary<string, SaveData>();
 
     private SaveFileHandler saveFileHandler;
+
+    private string defaultProfileName = "TidakAdaNama";
+    private int numberOfQuiz = 6;
 
     private void Awake()
     {
@@ -26,18 +29,25 @@ public class SaveManagerSingleton : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         saveFileHandler = new SaveFileHandler(Application.persistentDataPath, fileName);
+
+        LoadProfileData();
+        if (!allSaveData.ContainsKey(profileId))
+        {
+            NewProfileData(profileId);
+        }
+        PickProfileData(profileId);
     }
 
     public void NewProfileData(string profileId)
     {
-        selectedSaveData = new SaveData(GetAllLevelIds(), GetAllEncylopediaIds());
+        selectedSaveData = new SaveData(defaultProfileName, GetAllLevelIds(), GetAllEncylopediaIds(), GetAllScoreIds());
         saveFileHandler.SaveData(selectedSaveData, profileId);
         PickProfileData(profileId);
     }
     public void PickProfileData(string profileId)
     {
         LoadProfileData();
-        selectedProfileId = profileId;
+        this.profileId = profileId;
         selectedSaveData = allSaveData[profileId];
     }
     public void DeleteProfileData(string profileId)
@@ -52,7 +62,7 @@ public class SaveManagerSingleton : MonoBehaviour
     }
     public string GetProfileId()
     {
-        return selectedProfileId;
+        return profileId;
     }
     public SaveData GetSelectedSaveData()
     {
@@ -89,16 +99,23 @@ public class SaveManagerSingleton : MonoBehaviour
         ids.Remove(0);
         return ids;
     }
+    private List<int> GetAllScoreIds()
+    {
+        List<int> ids = ((LevelId[])LevelId.GetValues(typeof(LevelId))).Select(c => (int)c).ToList();
+        ids.RemoveRange(0, 2);
+        return ids;
+    }
 
     public void SaveProfileData()
     {
-        if (selectedSaveData == null || selectedProfileId == "")
+        if (selectedSaveData == null || profileId == "")
         {
             Debug.LogWarning("No Save Data found");
+            NewProfileData(profileId);
             return;
         }
 
-        saveFileHandler.SaveData(selectedSaveData, selectedProfileId);
+        saveFileHandler.SaveData(selectedSaveData, profileId);
     }
 
     private void OnApplicationQuit()

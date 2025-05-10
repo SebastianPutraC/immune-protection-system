@@ -27,9 +27,9 @@ public class MainMenuController : MonoBehaviour
         changeProfileButton.onClick.AddListener(ChangeProfileButtonPressed);
     }
 
-    public void InitializeMenu(string profileId)
+    public void InitializeMenu(string profileName)
     {
-        profileText.text = "WELCOME\n" + profileId; 
+        profileText.text = "WELCOME\n" + profileName; 
     }
 
     private void StartButtonPressed()
