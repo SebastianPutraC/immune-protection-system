@@ -7,11 +7,11 @@ public class DecisionButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI buttonText;
     [SerializeField] private Button decisionButton;
+    private DecisionButtonSO decisionInfo;
 
-    private BoostData boostData = new BoostData();
     private int setId = -1;
 
-    public Action<BoostData, int> DecisionSelected;
+    public Action<DecisionButtonSO, int> DecisionSelected;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class DecisionButton : MonoBehaviour
     public void InitializeButton(DecisionButtonSO info)
     {
         buttonText.text = info.DecisionButtonText;
-        boostData.StatMod = info.StatMod;
+        decisionInfo = info;
         if (info.IsPickNextInfo == true)
         {
             setId = info.NextDecisionID;
@@ -30,7 +30,7 @@ public class DecisionButton : MonoBehaviour
 
     private void ButtonClicked()
     {
-        DecisionSelected?.Invoke(boostData, setId);
+        DecisionSelected?.Invoke(decisionInfo, setId);
     }
 
     private void OnDestroy()

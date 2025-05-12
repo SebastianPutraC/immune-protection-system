@@ -15,11 +15,18 @@ public class StoryDecisionController : MonoBehaviour
     [SerializeField] private GameObject readyMenu;
     [SerializeField] private Button startLevel;
 
-    private int decisionIndex = 0;
     private List<DecisionInfoSO> decisionInfos = new List<DecisionInfoSO>();
+    private List<DecisionInfoSO> quizInfos = new List<DecisionInfoSO>();
+    [SerializeField] private DecisionInfoSO quizDecisionPrompt;
+
+    private int currentIndex = 1;
+    private StoryPhase currentPhase = StoryPhase.NONE;
+
+    private bool isPlayQuiz = false;
+    private int currentScore;
+    private int depleteScore;
 
     private List<BoostData> allyBoostData = new List<BoostData>();
-
     private List<BoostData> enemyBoostData = new List<BoostData>(); // Might never be used
 
     private void Awake()
@@ -30,62 +37,156 @@ public class StoryDecisionController : MonoBehaviour
 
     private void Start()
     {
+        currentPhase = StoryPhase.NONE;
         levelInfo = LevelDataSingleton.Instance.GetCurrentLevelInfo();
 
-        if (levelInfo.DecisionInfos.Count > 0)
+        decisionMenuController.gameObject.SetActive(true);
+        readyMenu.SetActive(false);
+
+        if (levelInfo.DecisionInfos.Count > 0 || levelInfo.QuizInfos.Count > 0)
         {
-            decisionInfos = levelInfo.DecisionInfos;
-            readyMenu.SetActive(false);
+            if (levelInfo.QuizInfos.Count > 0)
+            {
+                currentPhase = StoryPhase.PROMPT;
+                quizInfos = levelInfo.QuizInfos;
+            }
+            if (levelInfo.DecisionInfos.Count > 0)
+            {
+                currentPhase = StoryPhase.DECISION;
+                decisionInfos = levelInfo.DecisionInfos;
+            }
+
+            DecisionInfoSO newDecision = FindDecision(currentIndex);
+            NextDecision(newDecision);
         }
         else
         {
-            decisionMenuController.gameObject.SetActive(false);
-            readyMenu.SetActive(true);
+            currentPhase = StoryPhase.READY;
+            OpenReadyMenu();
         }
-
-        NextDecision(decisionIndex);
     }
 
-    private void OnDecisionChosen(BoostData boostData, int setId = -1)
+    private void OnDecisionChosen(DecisionButtonSO buttonInfo, int setId = -1)
     {
-        if (setId <= -1)
+        if (setId == -1)
         {
-            decisionIndex++;
+            currentIndex++;
         }
         else
         {
-            decisionIndex = decisionInfos.Where(x => x.decisionId == setId).FirstOrDefault().decisionId;
+            currentIndex = setId;
         }
 
-        allyBoostData.Add(boostData);
-
-        if (boostData.StatMod.ModValue < 0)
+        if (buttonInfo.StatMod.StatToMod == StatType.NONE)
         {
-            NerfPanelController.UpdateBonusText(boostData.StatMod.StatToMod, boostData.StatMod.ModValue);
+            if (buttonInfo.StatMod.ModValue < 0)
+            {
+                NerfPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+            }
+            else
+            {
+                BoostPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+            }
+
+            BoostData newBoost = new BoostData(buttonInfo.StatMod);
+            allyBoostData.Add(newBoost);
+        }
+
+        if (buttonInfo.IsQuiz)
+        {
+            if (!buttonInfo.IsCorrect)
+            {
+                currentScore -= depleteScore;
+            }
+        }
+
+        CheckPhase();
+        if (currentPhase != StoryPhase.NONE && currentPhase != StoryPhase.READY)
+        {
+            DecisionInfoSO newDecision = null;
+            newDecision = FindDecision(currentIndex);
+            NextDecision(newDecision);
         }
         else
         {
-            BoostPanelController.UpdateBonusText(boostData.StatMod.StatToMod, boostData.StatMod.ModValue);
+            OpenReadyMenu();
         }
-
-        NextDecision(decisionIndex);
     }
-    private void NextDecision(int index)
+    private void CheckPhase()
     {
-        decisionMenuController.ResetMenu();
-
-        if (index >= decisionInfos.Count)
+        switch (currentPhase)
         {
-            decisionMenuController.gameObject.SetActive(false);
-            readyMenu.SetActive(true);
-            return;
+            case StoryPhase.DECISION:
+                if (!decisionInfos.Any(x => x.decisionId == currentIndex))
+                {
+                    if (quizInfos.Count > 0)
+                    {
+                        currentPhase = StoryPhase.PROMPT;
+                    }
+                    else
+                    {
+                        currentPhase = StoryPhase.READY;
+                    }
+                }
+                break;
+            case StoryPhase.PROMPT:
+                if (currentIndex == 0)
+                {
+                    currentPhase = StoryPhase.READY;
+                }
+                else
+                {
+                    currentPhase = StoryPhase.QUIZ;
+
+                    isPlayQuiz = true;
+                    currentScore = 100;
+                    depleteScore = 100 / quizInfos.Count;
+                }
+                break;
+            case StoryPhase.QUIZ:
+                if (!quizInfos.Any(x => x.decisionId == currentIndex))
+                {
+                    currentPhase = StoryPhase.READY; 
+                }
+                break;
+        }
+    }
+    private DecisionInfoSO FindDecision(int index)
+    {
+        DecisionInfoSO newDecision = null;
+        switch (currentPhase)
+        {
+            case StoryPhase.DECISION:
+                newDecision = decisionInfos.Where(x => x.decisionId == index).FirstOrDefault();
+                break;
+            case StoryPhase.PROMPT:
+                newDecision = quizDecisionPrompt;
+                break;
+            case StoryPhase.QUIZ:
+                newDecision = quizInfos.Where(x => x.decisionId == index).FirstOrDefault();
+                break;
         }
 
-        decisionMenuController.InitializeMenu(decisionInfos[index]);
+        return newDecision;
+    }
+    private void NextDecision(DecisionInfoSO decisionInfo)
+    {
+        decisionMenuController.InitializeMenu(decisionInfo);
+    }
+    private void OpenReadyMenu()
+    {
+        currentPhase = StoryPhase.READY;
+        decisionMenuController.gameObject.SetActive(false);
+        readyMenu.SetActive(true);
     }
 
     private void OnStartSelected()
     {
+        if (isPlayQuiz)
+        {
+            SaveManagerSingleton.Instance.UpdateScore(levelInfo.levelId, currentScore);
+        }
+
         LevelDataSingleton.Instance.SetModifiersData(allyBoostData, UnitSide.ALLY);
         SceneManager.LoadScene(2);
     }
@@ -100,4 +201,13 @@ public class StoryDecisionController : MonoBehaviour
         decisionMenuController.DecisionChosen -= OnDecisionChosen;
         startLevel.onClick.RemoveListener(OnStartSelected);
     }
+}
+
+public enum StoryPhase
+{
+    NONE,
+    DECISION,
+    PROMPT,
+    QUIZ,
+    READY
 }

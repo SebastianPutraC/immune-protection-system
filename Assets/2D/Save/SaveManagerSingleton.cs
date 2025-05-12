@@ -89,6 +89,11 @@ public class SaveManagerSingleton : MonoBehaviour
         selectedSaveData.sfxVolume = sfxVolume;
         SaveProfileData();
     }
+    public void UpdateScore(LevelId levelId, int score)
+    {
+        selectedSaveData.quizScores.Where(x => x.quizId == (int)levelId).FirstOrDefault().quizScore = score;
+        SaveProfileData();
+    }
 
     public Dictionary<string, SaveData> GetAllSaveData()
     {
@@ -109,7 +114,7 @@ public class SaveManagerSingleton : MonoBehaviour
     private List<int> GetAllScoreIds()
     {
         List<int> ids = ((LevelId[])LevelId.GetValues(typeof(LevelId))).Select(c => (int)c).ToList();
-        ids.RemoveRange(0, 2);
+        ids.RemoveRange(0, 3);
         return ids;
     }
 

@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
-  m_Name: Selasa_EatHealthy
+  m_Name: Prompt_Yes
   m_EditorClassIdentifier: 
-  DecisionButtonText: "-\tHmm, mungkin lebih baik aku makan gado \u2013 gado pak
-    kris"
+  DecisionButtonText: Ya, Saya Ingin Mencoba
   StatMod:
-    ModType: 1
-    StatToMod: 2
-    ModValue: 0.1
-  IsPickNextInfo: 0
-  NextDecisionID: 0
+    ModType: 0
+    StatToMod: 0
+    ModValue: 0
+  IsPickNextInfo: 1
+  NextDecisionID: 1

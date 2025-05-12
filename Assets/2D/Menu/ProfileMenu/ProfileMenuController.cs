@@ -45,8 +45,8 @@ public class ProfileMenuController : MonoBehaviour
 
         List<int> scores = saveData.quizScores.Select(x => x.quizScore).ToList();
         double average = CalculateAverage(scores);
-        averageStatisticText.text = "Rata-rata Nilai Quiz : " + average;
-        quizStatisticText.text = "Rata-rata Nilai Quiz : " + average;
+        averageStatisticText.text = "Rata-rata Nilai Quiz : " + String.Format("{0:0.00}", average);
+        quizStatisticText.text = "Rata-rata Nilai Quiz : " + String.Format("{0:0.00}", average);
 
         int levelIndex = 2;
         for (int i = 0; i < quizTexts.Count; i++)

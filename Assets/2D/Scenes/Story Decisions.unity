@@ -379,6 +379,7 @@ MonoBehaviour:
   NerfPanelController: {fileID: 1243563773}
   readyMenu: {fileID: 1682577872048334941}
   startLevel: {fileID: 1682577872048334942}
+  quizDecisionPrompt: {fileID: 11400000, guid: e44b241fc33357a4cb968c452b36129b, type: 2}
 --- !u!4 &677331796
 Transform:
   m_ObjectHideFlags: 0

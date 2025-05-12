@@ -8,4 +8,7 @@ public class DecisionButtonSO : ScriptableObject
 
     public bool IsPickNextInfo;
     public int NextDecisionID;
+
+    public bool IsQuiz;
+    public bool IsCorrect;
 }
