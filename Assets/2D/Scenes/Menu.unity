@@ -423,6 +423,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7752417089653957967, guid: c81886ae24334664c8710f58cadd2a6c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8380396653980389022, guid: c81886ae24334664c8710f58cadd2a6c, type: 3}
       propertyPath: m_Name
       value: OptionMenu

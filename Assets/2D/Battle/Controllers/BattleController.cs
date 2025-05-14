@@ -35,6 +35,8 @@ public class BattleController : MonoBehaviour
     [SerializeField] protected GameOverPanelController gameOverPanelController;
     [SerializeField] protected BattleCameraController battleCameraController;
 
+    [SerializeField] protected InformationPopup infoPopup;
+
     public List<UnitData> UnitReferences = new List<UnitData>();
     public List<AllyUnitController> allAllyUnits = new List<AllyUnitController>(); // Public for visual
     public List<EnemyUnitController> allEnemyUnits = new List<EnemyUnitController>();
@@ -82,6 +84,7 @@ public class BattleController : MonoBehaviour
         pausePanelController.QuitPressed += ReturnToMenu;
         gameOverPanelController.QuitPressed += ReturnToMenu;
         gameOverPanelController.NextLevelPressed += StartNextLevel;
+        infoPopup.PopupFinished += ResumeGame;
 
         StopAllButton.onClick.AddListener(StopAllUnit);
         AdvanceAllButton.onClick.AddListener(AdvanceAllUnit);
@@ -117,7 +120,17 @@ public class BattleController : MonoBehaviour
             enemyBaseControllers[i].InitializeBase(UnitSide.ENEMY);
         }
 
-        ResumeGame();
+        if (levelInfo.IntroInfos.Count > 0)
+        {
+            Time.timeScale = 0;
+            infoPopup.InitializePopup(levelInfo.IntroInfos);
+        }
+        else
+        {
+            ResumeGame();
+            infoPopup.ExitPopup();
+        }
+
         gameOverPanelController.gameObject.SetActive(false);
     }
     protected virtual void Update()
@@ -440,6 +453,7 @@ public class BattleController : MonoBehaviour
         pausePanelController.QuitPressed -= ReturnToMenu;
         gameOverPanelController.QuitPressed -= ReturnToMenu;
         gameOverPanelController.NextLevelPressed -= StartNextLevel;
+        infoPopup.PopupFinished -= ResumeGame;
 
         StopAllButton.onClick.RemoveListener(StopAllUnit);
         AdvanceAllButton.onClick.RemoveListener(AdvanceAllUnit);

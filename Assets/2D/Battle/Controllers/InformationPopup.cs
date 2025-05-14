@@ -26,6 +26,7 @@ public class InformationPopup : MonoBehaviour
 
     public void InitializePopup(List<InformationSO> informations)
     {
+        this.gameObject.SetActive(true);
         currentInfoIndex = 0;
         currentInformation = informations;
         ShowInfo(currentInformation[0]);
@@ -33,15 +34,38 @@ public class InformationPopup : MonoBehaviour
     private void NextInfo()
     {
         currentInfoIndex++;
-        ShowInfo(currentInformation[currentInfoIndex]);
+        if (currentInfoIndex >= currentInformation.Count)
+        {
+            ExitPopup();
+        }
+        else
+        {
+            ShowInfo(currentInformation[currentInfoIndex]);
+        }
     }
     private void ShowInfo(InformationSO info)
     {
         infoDescription.text = info.InfoText;
         infoImage.sprite = info.InfoImage;
+        if (infoImage.sprite == null)
+        {
+            infoImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            infoImage.gameObject.SetActive(true);
+        }
         infoMascot.sprite = info.InfoMascot;
+        if (infoMascot.sprite == null)
+        {
+            infoMascot.gameObject.SetActive(false);
+        }
+        else
+        {
+            infoMascot.gameObject.SetActive(true);
+        }
     }
-    private void ExitPopup()
+    public void ExitPopup()
     {
         this.gameObject.SetActive(false);
         PopupFinished?.Invoke();

@@ -29,3 +29,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f3b899d89a2d64245b12a1468324859a, type: 2}
   - {fileID: 11400000, guid: 06cf9bd6e7d6447409d9ec8f6a6da869, type: 2}
   QuizInfos: []
+  IntroInfos:
+  - {fileID: 11400000, guid: 92213755dac56e640adc120b62c316ce, type: 2}
+  - {fileID: 11400000, guid: fc72c2d1cc795084e8153d0f4abe29c4, type: 2}
+  - {fileID: 11400000, guid: 866a3e29e1c458342be84cfb86f7f9fb, type: 2}

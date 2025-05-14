@@ -17,4 +17,6 @@ public class LevelInfo : ScriptableObject
 
     public List<DecisionInfoSO> DecisionInfos;
     public List<DecisionInfoSO> QuizInfos;
+
+    public List<InformationSO> IntroInfos;
 }
