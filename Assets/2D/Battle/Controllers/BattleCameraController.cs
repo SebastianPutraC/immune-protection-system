@@ -6,8 +6,18 @@ public class BattleCameraController : MonoBehaviour //Will update this
     [SerializeField] private Camera battleCamera;
     private Vector3 dragOrigin;
 
-    readonly private float leftXLimit = -15;
-    readonly private float rightXLimit = 15;
+    private float upYLimit = 5;
+    private float leftXLimit = -15;
+    private float rightXLimit = 15;
+    private float downYLimit = -5;
+
+    public void InitializeBattleCamer(float up, float left, float right, float down)
+    {
+        upYLimit = up;
+        leftXLimit = left;
+        rightXLimit = right;
+        downYLimit = down;
+    }
 
     private void Update()
 	{
@@ -26,21 +36,28 @@ public class BattleCameraController : MonoBehaviour //Will update this
 
     private void CheckCameraLimit()
     {
+        if (battleCamera.transform.position.y > upYLimit)
+        {
+            battleCamera.transform.position = new Vector3(battleCamera.transform.position.x, upYLimit, battleCamera.transform.position.z);
+        }
         if (battleCamera.transform.position.x < leftXLimit)
         {
             battleCamera.transform.position = new Vector3(leftXLimit, battleCamera.transform.position.y, battleCamera.transform.position.z);
         }
-
         if (battleCamera.transform.position.x > rightXLimit)
         {
             battleCamera.transform.position = new Vector3(rightXLimit, battleCamera.transform.position.y, battleCamera.transform.position.z);
+        }
+        if (battleCamera.transform.position.y < downYLimit)
+        {
+            battleCamera.transform.position = new Vector3(battleCamera.transform.position.x, downYLimit, battleCamera.transform.position.z);
         }
     }
 
     private void MoveCamera()
     {
         Vector3 pos = battleCamera.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
-        Vector3 move = new Vector3(-pos.x * dragSpeed, 0, 0);
+        Vector3 move = new Vector3(-pos.x * dragSpeed, -pos.y * dragSpeed, 0);
 
         transform.Translate(move, Space.World);
     }

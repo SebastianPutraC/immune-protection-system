@@ -4,7 +4,7 @@ using UnityEngine;
 public class Route : MonoBehaviour
 {
     public int routeId;
-    [SerializeField] private List<GameObject> waypoints; //LAST WAYPOINT IS THE END
+    [SerializeField] private List<Transform> waypoints; //LAST WAYPOINT IS THE END
     [SerializeField] private int[] allyConnectingRouteIds;
     [SerializeField] private int[] enemyConnectingRouteIds;
 
@@ -14,7 +14,7 @@ public class Route : MonoBehaviour
         {
             return null; //Already reached last waypoint
         }
-        return waypoints[index].transform;
+        return waypoints[index];
     }
     public int GetWaypointsLength()
     {

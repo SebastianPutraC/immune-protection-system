@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour, IPointerClickHandler, ISpawner
     [SerializeField] private int initialRouteId;
 
     public Action<Spawner> spawnClicked;
+    public UnitSide baseSide;
 
     public Action<AllyUnitController> AllySpawned { get; set; }
     public Action<EnemyUnitController> EnemySpawned { get; set; }
@@ -30,6 +31,24 @@ public class Spawner : MonoBehaviour, IPointerClickHandler, ISpawner
         EnemyUnitController newEnemy = (EnemyUnitController)Instantiate(enemyUnit.unitPrefab, spawnPoint);
         newEnemy.InitializeUnit(enemyUnit, modifiers, initialRoute);
         EnemySpawned?.Invoke(newEnemy);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (baseSide == UnitSide.ALLY)
+        {
+            if (collision.CompareTag("EnemyUnit"))
+            {
+                collision.GetComponent<EnemyUnitController>().DealDamage(9999);
+            }
+        }
+        else
+        {
+            if (collision.CompareTag("AllyUnit"))
+            {
+                collision.GetComponent<AllyUnitController>().DealDamage(9999);
+            }
+        }
     }
 
     public int GetInitialRouteId()

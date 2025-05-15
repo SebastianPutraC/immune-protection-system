@@ -120,14 +120,23 @@ public class EncyclopediaMenuController : MonoBehaviour
     {
         ClearDescriptionPanel();
 
-        unitImage.sprite = unitData.UnitSprite;
-        unitNameText.text = unitData.UnitName;
-        unitDescriptionText.text = unitData.UnitSimpleDesc;
-        abilityButton.interactable = true;
-        aboutButton.interactable = true;
+        if (unitData != null)
+        {
+            unitImage.gameObject.SetActive(true);
+            unitImage.sprite = unitData.UnitSprite;
+            unitNameText.text = unitData.UnitName;
+            unitDescriptionText.text = unitData.UnitSimpleDesc;
+            abilityButton.interactable = true;
+            aboutButton.interactable = true;
+        }
+        else
+        {
+            ClearDescriptionPanel();
+        }
     }
     private void ClearDescriptionPanel()
     {
+        unitImage.gameObject.SetActive(false);
         unitImage.sprite = null;
         unitNameText.text = "";
         unitDescriptionText.text = "";

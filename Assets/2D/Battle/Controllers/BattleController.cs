@@ -150,11 +150,81 @@ public class BattleController : MonoBehaviour
             StartCoroutine(RandomSpawn());
         }
 
-
-        //Maybe Change
         if (selectedUnit != null)
         {
             unitStatsController.UpdateUnitStats(selectedUnit);
+            
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                selectedUnit.isMoveOrder = false;
+                if (selectedUnit != null)
+                {
+                    unitStatsController.InitializeUnitStats(selectedUnit, selectedUnit.UnitSO.UnitAbility);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                selectedUnit.isMoveOrder = true;
+                if (selectedUnit != null)
+                {
+                    unitStatsController.InitializeUnitStats(selectedUnit, selectedUnit.UnitSO.UnitAbility);
+                }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            StopAllUnit();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            AdvanceAllUnit();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+
+        if (unitPanelController.selectedCard != null)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                unitPanelController.ResetSelectedCard();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if (allySpawners[0] != null)
+                {
+                    CheckAllyCardSelected(allySpawners[0]);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                if (allySpawners[1] != null)
+                {
+                    CheckAllyCardSelected(allySpawners[1]);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                if (allySpawners[2] != null)
+                {
+                    CheckAllyCardSelected(allySpawners[2]);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                if (allySpawners[3] != null)
+                {
+                    CheckAllyCardSelected(allySpawners[3]);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                if (allySpawners[4] != null)
+                {
+                    CheckAllyCardSelected(allySpawners[4]);
+                }
+            }
         }
     }
     protected void SetUpLevel(LevelInfo levelInfo)

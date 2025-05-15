@@ -36,14 +36,6 @@ public class UnitPanelController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1)) // Change to better input system
-        {
-            ResetSelectedCard();
-        }
-    }
-
     public void ResetSelectedCard()
     {
         if (selectedCard == null)
