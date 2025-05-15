@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1835403521909513381}
-  initialRouteId: 4
+  initialRouteId: 444
   baseSide: 0
 --- !u!61 &5883206889296002245
 BoxCollider2D:
@@ -3131,7 +3131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 7257006543736667825}
-  initialRouteId: 1
+  initialRouteId: 111
   baseSide: 0
 --- !u!61 &3902300549343892893
 BoxCollider2D:
