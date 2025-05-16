@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541447a9a3c69c645a346870b142eaff, type: 3}
+  m_Name: Markas
+  m_EditorClassIdentifier: 
+  mechanicTitle: Markas
+  mechanicDescription: "Penentu kemenangan dan kekalahan level. Markas digambarkan
+    sebagai garis dalam medan. Unit lawan yang melewati garis tersebut akan mengurangi
+    nyawa markas. \n\r\nTiap markas memiliki \u201CHealth\u201D seperti Unit. Jika
+    \u201CHealth\u201D markas Patogen habis, maka pemain memenangkan level. Sebaliknya,
+    jika \u201CHealth\u201D markas pemain habis, maka pemain kalah.\r\n"

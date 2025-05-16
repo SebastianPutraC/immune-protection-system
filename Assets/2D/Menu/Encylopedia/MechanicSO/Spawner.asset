@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541447a9a3c69c645a346870b142eaff, type: 3}
+  m_Name: Spawner
+  m_EditorClassIdentifier: 
+  mechanicTitle: Spawner
+  mechanicDescription: 'Tempat unit Sel dan Patogen dapat masuk ke dalam medan permainan.
+    Sel dan Patogen memiliki tempat Spawner yang berbeda.
+
+    
+
+    Suatu patogen
+    yang telah menginfeksi sel tubuh dapat mengubah fungsi sel untuk memproduksi
+    patogen yang sama. Sel ini menjadi tempat Spawner yang baru bagi patogen tanpa
+    mengurangi RP yang dimiliki Patogen.
+
+'

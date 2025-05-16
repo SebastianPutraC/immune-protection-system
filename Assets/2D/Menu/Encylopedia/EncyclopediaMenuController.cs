@@ -9,30 +9,32 @@ public class EncyclopediaMenuController : MonoBehaviour
 {
     [SerializeField] private Button cellsPanelButton;
     [SerializeField] private Button pathogenPanelButton;
+    [SerializeField] private Button mechanicPanelButton;
 
-    [SerializeField] private EncylopediaUnitGrid gridPrefab;
+    [SerializeField] private EncylopediaUnitGrid unitGridPrefab;
+    [SerializeField] private EncyclopediaMechanicGrid mechanicGridPrefab;
 
     [SerializeField] private GameObject cellsScrollViewObject;
     [SerializeField] private GameObject pathogenScrollViewObject;
+    [SerializeField] private GameObject mechanicScrollViewObject;
     [SerializeField] private Transform cellsContent;
     [SerializeField] private Transform pathogenContent;
+    [SerializeField] private Transform mechanicContent;
 
     [SerializeField] private AbilityMenuController abilityMenuController;
     [SerializeField] private AboutMenuController aboutMenuController;
+    [SerializeField] private DescriptionPanel descriptionPanel;
     [SerializeField] private GameObject encyclopediaPanel;
 
-    [SerializeField] private TextMeshProUGUI unitNameText;
-    [SerializeField] private Image unitImage;
-    [SerializeField] private TextMeshProUGUI unitDescriptionText;
-
     [SerializeField] private Button returnButton;
-    [SerializeField] private Button aboutButton;
-    [SerializeField] private Button abilityButton;
 
     [SerializeField] private List<UnitData> encylopediaReference = new List<UnitData>();
+    [SerializeField] private List<MechanicSO> mechanicReference = new List<MechanicSO>();
 
     private List<EncylopediaUnitGrid> unitGrids = new List<EncylopediaUnitGrid>();
-    private EncylopediaUnitGrid selectedGrid;
+    private EncylopediaUnitGrid selectedUnitGrid;
+    private List<EncyclopediaMechanicGrid> mechanicGrids = new List<EncyclopediaMechanicGrid>();
+    private EncyclopediaMechanicGrid selectedMechanicGrid;
 
     public Action OnReturnButtonPressed;
 
@@ -41,13 +43,14 @@ public class EncyclopediaMenuController : MonoBehaviour
         returnButton.onClick.AddListener(ReturnButtonPressed);
         cellsPanelButton.onClick.AddListener(delegate { SetupViewUnits(UnitType.CELLS); });
         pathogenPanelButton.onClick.AddListener(delegate { SetupViewUnits(UnitType.PATHOGEN); });
-        aboutButton.onClick.AddListener(OpenAboutMenu);
-        abilityButton.onClick.AddListener(OpenAbilityMenu);
+        mechanicPanelButton.onClick.AddListener(SetupViewMechanic);
+        descriptionPanel.AbilityPressed += OpenAbilityMenu;
+        descriptionPanel.AboutPressed += OpenAboutMenu;
         abilityMenuController.ReturnToEncyclopedia += ReturnToEncyclopedia;
         aboutMenuController.ReturnToEncyclopedia += ReturnToEncyclopedia;
     }
 
-    public void InitializeUnits(List<EncyclopediaData> units)
+    public void InitializeEncyclopedia(List<EncyclopediaData> units)
     {
         for (int i = 0; i < units.Count; i++)
         {
@@ -56,11 +59,11 @@ public class EncyclopediaMenuController : MonoBehaviour
 
             if (newUnit.unitType == UnitType.CELLS)
             {
-                newUnitGrid = Instantiate(gridPrefab, cellsContent);
+                newUnitGrid = Instantiate(unitGridPrefab, cellsContent);
             }
             else if (newUnit.unitType == UnitType.PATHOGEN)
             {
-                newUnitGrid = Instantiate(gridPrefab, pathogenContent);
+                newUnitGrid = Instantiate(unitGridPrefab, pathogenContent);
             }
             else return;
 
@@ -77,22 +80,34 @@ public class EncyclopediaMenuController : MonoBehaviour
             unitGrids.Add(newUnitGrid);
         }
 
+        for (int i = 0; i < mechanicReference.Count; i++)
+        {
+            EncyclopediaMechanicGrid newMechanicGrid = Instantiate(mechanicGridPrefab, mechanicContent);
+            newMechanicGrid.InitializeData(mechanicReference[i]);
+            newMechanicGrid.MechanicClicked += OnMechanicClicked;
+            mechanicGrids.Add(newMechanicGrid);
+        }
+
         SetupViewUnits(UnitType.CELLS);
     }
 
     private void SetupViewUnits(UnitType unitType)
     {
-        ClearDescriptionPanel();
+        descriptionPanel.ClearDescriptionPanel();
+        descriptionPanel.SwitchToUnit();
 
         if (unitType == UnitType.CELLS)
         {
             cellsScrollViewObject.gameObject.SetActive(true);
             pathogenScrollViewObject.gameObject.SetActive(false);
+            mechanicScrollViewObject.gameObject.SetActive(false);
+
         }
         else if (unitType == UnitType.PATHOGEN)
         {
             cellsScrollViewObject.gameObject.SetActive(false);
             pathogenScrollViewObject.gameObject.SetActive(true);
+            mechanicScrollViewObject.gameObject.SetActive(false);
         }
     }
     private void ClearViewUnits()
@@ -104,45 +119,48 @@ public class EncyclopediaMenuController : MonoBehaviour
         }
         unitGrids.Clear();
     }
+    private void SetupViewMechanic()
+    {
+        descriptionPanel.ClearDescriptionPanel();
+        descriptionPanel.SwitchToMechanic();
+
+        cellsScrollViewObject.gameObject.SetActive(false);
+        pathogenScrollViewObject.gameObject.SetActive(false);
+        mechanicScrollViewObject.gameObject.SetActive(true);
+    }
+    private void ClearViewMechanic()
+    {
+        for (int i = 0; i < mechanicGrids.Count; i++)
+        {
+            mechanicGrids[i].MechanicClicked -= OnMechanicClicked;
+            Destroy(mechanicGrids[i].gameObject);
+        }
+        mechanicGrids.Clear();
+    }
 
     private void OnUnitClicked(EncylopediaUnitGrid unitGrid)
     {
-        if (selectedGrid != null)
+        if (selectedUnitGrid != null)
         {
-            selectedGrid.DeselectGrid();
+            selectedUnitGrid.DeselectGrid();
         }
 
-        selectedGrid = unitGrid;
-        SetupDescriptionPanel(selectedGrid.unitSo);
-        selectedGrid.SelectGrid();
+        selectedUnitGrid = unitGrid;
+        descriptionPanel.SetupUnitDescriptionPanel(selectedUnitGrid.unitSo);
+        selectedUnitGrid.SelectGrid();
     }
-    private void SetupDescriptionPanel(UnitData unitData)
+    private void OnMechanicClicked(EncyclopediaMechanicGrid mechanicGrid)
     {
-        ClearDescriptionPanel();
+        if (selectedMechanicGrid != null)
+        {
+            selectedMechanicGrid.DeselectGrid();
+        }
 
-        if (unitData != null)
-        {
-            unitImage.gameObject.SetActive(true);
-            unitImage.sprite = unitData.UnitSprite;
-            unitNameText.text = unitData.UnitName;
-            unitDescriptionText.text = unitData.UnitSimpleDesc;
-            abilityButton.interactable = true;
-            aboutButton.interactable = true;
-        }
-        else
-        {
-            ClearDescriptionPanel();
-        }
+        selectedMechanicGrid = mechanicGrid;
+        descriptionPanel.SetupMechanicDescriptionPanel(selectedMechanicGrid.mechanicSo);
+        selectedMechanicGrid.SelectGrid();
     }
-    private void ClearDescriptionPanel()
-    {
-        unitImage.gameObject.SetActive(false);
-        unitImage.sprite = null;
-        unitNameText.text = "";
-        unitDescriptionText.text = "";
-        abilityButton.interactable = false;
-        aboutButton.interactable = false;
-    }
+    
 
     private void ReturnToEncyclopedia()
     {
@@ -153,22 +171,22 @@ public class EncyclopediaMenuController : MonoBehaviour
     }
     private void OpenAbilityMenu()
     {
-        if (selectedGrid == null)
+        if (selectedUnitGrid == null)
         {
             return;
         }
         abilityMenuController.gameObject.SetActive(true);
-        abilityMenuController.InitializeMenu(selectedGrid.unitSo);
+        abilityMenuController.InitializeMenu(selectedUnitGrid.unitSo);
         encyclopediaPanel.gameObject.SetActive(false);
     }
     private void OpenAboutMenu()
     {
-        if (selectedGrid == null)
+        if (selectedUnitGrid == null)
         {
             return;
         }
         aboutMenuController.gameObject.SetActive(true);
-        aboutMenuController.InitializeMenu(selectedGrid.unitSo);
+        aboutMenuController.InitializeMenu(selectedUnitGrid.unitSo);
         encyclopediaPanel.gameObject.SetActive(false);
     }
 
@@ -179,15 +197,18 @@ public class EncyclopediaMenuController : MonoBehaviour
     private void OnDisable()
     {
         ClearViewUnits();
+        ClearViewMechanic();
     }
     private void OnDestroy()
     {
         ClearViewUnits();
+        ClearViewMechanic();
         returnButton.onClick.RemoveListener(ReturnButtonPressed);
         cellsPanelButton.onClick.RemoveListener(delegate { SetupViewUnits(UnitType.CELLS); });
         pathogenPanelButton.onClick.RemoveListener(delegate { SetupViewUnits(UnitType.PATHOGEN); });
-        aboutButton.onClick.RemoveListener(OpenAboutMenu);
-        abilityButton.onClick.RemoveListener(OpenAbilityMenu);
+        mechanicPanelButton.onClick.RemoveListener(SetupViewMechanic);
+        descriptionPanel.AbilityPressed -= OpenAbilityMenu;
+        descriptionPanel.AboutPressed -= OpenAboutMenu;
         abilityMenuController.ReturnToEncyclopedia -= ReturnToEncyclopedia;
         aboutMenuController.ReturnToEncyclopedia -= ReturnToEncyclopedia;
     }

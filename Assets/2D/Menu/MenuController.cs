@@ -77,7 +77,7 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         encyclopediaMenu.gameObject.SetActive(true);
-        encyclopediaMenu.InitializeUnits(SaveManagerSingleton.Instance.GetSelectedSaveData().enyclopediaUnlock);
+        encyclopediaMenu.InitializeEncyclopedia(SaveManagerSingleton.Instance.GetSelectedSaveData().enyclopediaUnlock);
     }
     #endregion
 

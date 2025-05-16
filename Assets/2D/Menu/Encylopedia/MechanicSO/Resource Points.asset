@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541447a9a3c69c645a346870b142eaff, type: 3}
+  m_Name: Resource Points
+  m_EditorClassIdentifier: 
+  mechanicTitle: Resource Points
+  mechanicDescription: "Resource Points (RP) digunakan untuk membeli satu unit berdasarkan
+    harganya untuk dapat dikerahkan ke medan permainan. RP dapat diproduksi secara
+    otomatis secara berkala dan dengan mengerahkan unit dengan kemampuan \u201CInflamasi\u201D.
+    \n\r\nUnit dengan kemampuan \u201CInflamasi\u201D dapat memproduksi RP jika unit
+    tersebut terkena serangan dari musuh.\r\n"
