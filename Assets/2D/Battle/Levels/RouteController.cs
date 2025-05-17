@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class RouteController : MonoBehaviour
 {
@@ -11,6 +10,8 @@ public class RouteController : MonoBehaviour
     [SerializeField] private float leftLimit;
     [SerializeField] private float rightLimit;
     [SerializeField] private float downLimit;
+
+    [SerializeField] private Vector2 startingCameraPosition;
 
     public Route GetRouteByID(int id)
     {

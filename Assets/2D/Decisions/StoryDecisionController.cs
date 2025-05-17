@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StoryDecisionController : MonoBehaviour
 {
@@ -12,8 +13,13 @@ public class StoryDecisionController : MonoBehaviour
     [SerializeField] private BonusPanelController BoostPanelController;
     [SerializeField] private BonusPanelController NerfPanelController;
 
-    [SerializeField] private GameObject readyMenu;
+    [SerializeField] private GameObject readyPanel;
+    [SerializeField] private GameObject scorePanel;
     [SerializeField] private Button startLevel;
+
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI previousScoreText;
+    [SerializeField] private Button saveScoreButton;
 
     private List<DecisionInfoSO> decisionInfos = new List<DecisionInfoSO>();
     private List<DecisionInfoSO> quizInfos = new List<DecisionInfoSO>();
@@ -33,6 +39,7 @@ public class StoryDecisionController : MonoBehaviour
     {
         decisionMenuController.DecisionChosen += OnDecisionChosen;
         startLevel.onClick.AddListener(OnStartSelected);
+        saveScoreButton.onClick.AddListener(OnSaveScoreSelected);
     }
 
     private void Start()
@@ -41,7 +48,8 @@ public class StoryDecisionController : MonoBehaviour
         levelInfo = LevelDataSingleton.Instance.GetCurrentLevelInfo();
 
         decisionMenuController.gameObject.SetActive(true);
-        readyMenu.SetActive(false);
+        readyPanel.SetActive(false);
+        scorePanel.SetActive(false);
 
         if (levelInfo.DecisionInfos.Count > 0 || levelInfo.QuizInfos.Count > 0)
         {
@@ -62,7 +70,7 @@ public class StoryDecisionController : MonoBehaviour
         else
         {
             currentPhase = StoryPhase.READY;
-            OpenReadyMenu();
+            OpenReadyPanel();
         }
     }
 
@@ -101,15 +109,20 @@ public class StoryDecisionController : MonoBehaviour
         }
 
         CheckPhase();
-        if (currentPhase != StoryPhase.NONE && currentPhase != StoryPhase.READY)
+        if (currentPhase != StoryPhase.NONE && currentPhase != StoryPhase.READY && currentPhase != StoryPhase.SCORE)
         {
             DecisionInfoSO newDecision = null;
             newDecision = FindDecision(currentIndex);
             NextDecision(newDecision);
         }
+        else if (currentPhase == StoryPhase.SCORE)
+        {
+            OpenScorePanel();
+        }
         else
         {
-            OpenReadyMenu();
+            scorePanel.gameObject.SetActive(false);
+            OpenReadyPanel();
         }
     }
     private void CheckPhase()
@@ -146,7 +159,7 @@ public class StoryDecisionController : MonoBehaviour
             case StoryPhase.QUIZ:
                 if (!quizInfos.Any(x => x.decisionId == currentIndex))
                 {
-                    currentPhase = StoryPhase.READY; 
+                    currentPhase = StoryPhase.SCORE; 
                 }
                 break;
         }
@@ -173,33 +186,43 @@ public class StoryDecisionController : MonoBehaviour
     {
         decisionMenuController.InitializeMenu(decisionInfo);
     }
-    private void OpenReadyMenu()
+    private void OpenReadyPanel()
     {
         currentPhase = StoryPhase.READY;
         decisionMenuController.gameObject.SetActive(false);
-        readyMenu.SetActive(true);
+        readyPanel.SetActive(true);
+    }
+    private void OpenScorePanel()
+    {
+        scorePanel.gameObject.SetActive(true);
+
+        scoreText.text = currentScore.ToString();
+
+        int previousScore = SaveManagerSingleton.Instance.GetSelectedSaveData().quizScores
+            .Where(x => x.quizId == (int)levelInfo.levelId).Select(x => x.quizScore).FirstOrDefault();
+        previousScoreText.text = "Nilai Anda Sebelumnya : " + previousScore;
     }
 
-    private void OnStartSelected()
+    private void OnSaveScoreSelected()
     {
         if (isPlayQuiz)
         {
             SaveManagerSingleton.Instance.UpdateScore(levelInfo.levelId, currentScore);
         }
-
+        scorePanel.gameObject.SetActive(false);
+        OpenReadyPanel();
+    }
+    private void OnStartSelected()
+    {
         LevelDataSingleton.Instance.SetModifiersData(allyBoostData, UnitSide.ALLY);
         SceneManager.LoadScene(2);
     }
 
-    private void OnDisable()
-    {
-        decisionMenuController.DecisionChosen -= OnDecisionChosen;
-        startLevel.onClick.RemoveListener(OnStartSelected);
-    }
     private void OnDestroy()
     {
         decisionMenuController.DecisionChosen -= OnDecisionChosen;
         startLevel.onClick.RemoveListener(OnStartSelected);
+        saveScoreButton.onClick.RemoveListener(OnSaveScoreSelected);
     }
 }
 
@@ -209,5 +232,6 @@ public enum StoryPhase
     DECISION,
     PROMPT,
     QUIZ,
+    SCORE,
     READY
 }
