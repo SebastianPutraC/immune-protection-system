@@ -25,17 +25,8 @@ MonoBehaviour:
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
   UnitSimpleDesc: 
-  UnitFullDesc: 'Sel T Pembantu merupakan salah satu sel limfoid T. Sesuai dengan
-    namanya Sel T Pembantu membantu melawan patogen dengan menggunakan fungsinya
-    yaitu memberikan sinyal dengan bentuk protein sitokin dan kemokin untuk memanggil
-    sel imun lain. Fungsi lain merupakan aktivasi sel adaptif berupa sel B dan sel
-    T Pembunuh. Tidak hanya aktivasi, sel ini juga membantu efektivitas kerja dari
-    sel imun lain menggunakan sekresi mediator. Mediator ini dapat merangsang pembuatan
-    antibodi serta menaikkan fungsi fagositosis kepada makrofag dan neutrofil. Sel
-    ini walaupun tidak secara langsung membunuh patogen, dapat membantu sel lain
-    untuk menjalankan tugasnya. '
+  UnitFullDesc: 
   UnitSprite: {fileID: 21300000, guid: 0032dbd32b0a3ef48969215892764ca7, type: 3}
-  AbilityType: 01000000
   UnitAbility:
   - {fileID: 11400000, guid: 9f5b398528062d749948a9a5e7b8a290, type: 2}
   ImmuneCellType: 2

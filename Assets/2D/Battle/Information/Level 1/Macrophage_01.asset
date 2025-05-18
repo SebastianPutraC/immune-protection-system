@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: I'm Macrophage
+  InfoText: Berbicara tentang informasi, saya rasa saya tidak pernah memperkenalkan
+    diri saya secara lengkap.

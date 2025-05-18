@@ -21,4 +21,6 @@ public class LevelInfo : ScriptableObject
     public List<InformationSO> IntroInfos;
 
     public LevelController levelPrefab;
+
+    public Sprite levelMapSprite;
 }

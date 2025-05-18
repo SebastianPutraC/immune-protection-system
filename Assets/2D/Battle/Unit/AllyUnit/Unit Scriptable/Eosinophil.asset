@@ -25,18 +25,8 @@ MonoBehaviour:
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
   UnitSimpleDesc: 
-  UnitFullDesc: Eosinofil berasal dari tempat yang sama dengan neutrofil tetapi memiliki
-    jumlah yang lebih sedikit. Sel ini memiliki enzim dan protein toksin untuk melawan
-    patogen. Ini berupa 4 protein toksin yang dikeluarkan berupa dua ribonuklease,
-    satu peroksidase, dan protein dasar eosinofil sendiri. Penggunaan toksin ini
-    dimanfaatkan dalam sekresinya yang dapat berefek kepada membran patogen. Selain
-    penggunaan toksin, Eosinofil juga memiliki fungsi yang sama seperti neutrofil
-    berupa EET (Eosinofil Extracellular Traps). Ini menggunakan kandungan DNA dari
-    sel yang dilapisi dengan peptida antimikroba dan dilepaskan. Kandungan ini membentuk
-    jaring yang menjebak patogen, mencegah penyebaran, menetralkan, dan membunuh
-    mereka.
+  UnitFullDesc: 
   UnitSprite: {fileID: 21300000, guid: 49e48521da289dc4da49d0417746dcff, type: 3}
-  AbilityType: 0100000002000000
   UnitAbility:
   - {fileID: 11400000, guid: 71bfae75e31cd5a4983510aa3fe93d43, type: 2}
   - {fileID: 11400000, guid: 203140017ee78b049875ef079ee5e13e, type: 2}

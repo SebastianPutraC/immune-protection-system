@@ -25,17 +25,8 @@ MonoBehaviour:
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
   UnitSimpleDesc: 
-  UnitFullDesc: Sel Dendritik merupakan sel yang juga berasal dari sumsum tulang
-    sama seperti makrofag. Sel ini juga berada di sebagian besar jaringan tisu tubuh.
-    Sel Dendritik memiliki fungsi yang membantu sistem imun tubuh berupa sebagai
-    sel APC yaitu menyajikan antigen dari patogen kepada sistem imun adaptif. Ini
-    dengan melakukan migrasi ke jaringan limfoid yang memiliki sel sistem imun adaptif
-    setelah mendapatkan antigen. Setelah itu, sel ini mengaktivasi sel T. Selain
-    menjadi APC, Sel Dendritik juga dapat menginduksi inflamasi untuk memberi tahun
-    mengenai infeksi yang terjadi.  Ini dikarenakan oleh Sel Dendritik juga memproduksi
-    protein sitokin yang merekrut sel imun lain.
+  UnitFullDesc: 
   UnitSprite: {fileID: 21300000, guid: 06b4454dc007e454f8428afdfcea8f18, type: 3}
-  AbilityType: 01000000
   UnitAbility:
   - {fileID: 11400000, guid: da17486cfc5ff7f47b727db8b078c117, type: 2}
   - {fileID: 11400000, guid: 9f5b398528062d749948a9a5e7b8a290, type: 2}

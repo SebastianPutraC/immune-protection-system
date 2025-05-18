@@ -25,16 +25,8 @@ MonoBehaviour:
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
   UnitSimpleDesc: 
-  UnitFullDesc: 'Sel T Pembunuh merupakan sel yang berasal dari jaringan limfoid
-    yang satu keluarga dengan Sel T Pembantu. Tugas dari sel ini berfokus melawan
-    sel yang telah terinfeksi dengan virus. Sel T Pembunuh dapat mendeteksi sel yang
-    telah terinfeksi dengan merasakan ekspresi molekul MHC yang dimiliki oleh sel.
-    Jika ekspresi molekul MHC menurun, maka sel ini akan membunuh sel terinfeksi
-    dengan menggunakan enzim kaspase yang mengaktifkan nuklease sitosolik yang membelah
-    DNA dari sel yang terinfeksi. Ini merupakan fungsi yang sama dengan sel pembunuh
-    alami yaitu fungsi yang menyebabkan apoptosis atau kematian sel terprogram. '
+  UnitFullDesc: 
   UnitSprite: {fileID: 21300000, guid: 3394d3b5802c78245b9cb68fc8dfa28b, type: 3}
-  AbilityType: 01000000
   UnitAbility:
   - {fileID: 11400000, guid: af1579f264e992e4899ed33fbc0f3f6c, type: 2}
   ImmuneCellType: 2

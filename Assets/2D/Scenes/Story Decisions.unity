@@ -524,6 +524,7 @@ MonoBehaviour:
   scoreText: {fileID: 371312374}
   previousScoreText: {fileID: 371312373}
   saveScoreButton: {fileID: 371312376}
+  battleMap: {fileID: 1682577872048334943}
   quizDecisionPrompt: {fileID: 11400000, guid: e44b241fc33357a4cb968c452b36129b, type: 2}
 --- !u!4 &677331796
 Transform:
@@ -1334,6 +1335,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1682577872048334943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5121232684387592591, guid: 325436060618c154d860f27c21e1885d, type: 3}
+  m_PrefabInstance: {fileID: 1682577872048334940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6094739726133454879 stripped

@@ -24,23 +24,8 @@ MonoBehaviour:
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
-  UnitSimpleDesc: Makrofag melawan patogen dengan fagositosis untuk membunuhnya.
-    Sel ini juga dapat membawa antigen dari patogen untuk mengaktifkan sel imun adaptif.
-    Saat terjadi infeksi, makrofag juga mengeluarkan sitokin dan kemokin untuk menginduksi
-    inflamasi yang membawa sel imun lain ke daerah infeksi.
-  UnitFullDesc: 'Makrofag merupakan sel imun bawaan yang sebelumnya berupa sel monosit
-    dewasa yang sudah mencapai jaringan tisu. Sel ini berasal dari sumsum tulang
-    dan berada di hampir seluruh jaringan dan beredar dalam darah. Makrofag memiliki
-    berbagai fungsi sebagai sel sistem imun. Pertahanan pertama yang dilakukan pertama
-    oleh makrofag berupa fungsi fagosistosis. Fungsi ini berupa menalan dan memberikan
-    kimia bersifat toksik serta enzim yang degradatif. Ini membunuh mikroorganisme
-    yang telah ditelan. Fungsi lain adalah berperan sebagai Antigen-Presenting Cells
-    (APC). Fungsi ini berupa memberikan antigen dari patogen kepada sel imun adaptif
-    untuk mengenali dan merespons kepada patogen tersebut. Ini juga mengaktifkan
-    sel limfosit T dan mengaktifkannya. Fungsi lain berupa menginduksi inflamasi
-    dengan melakukan sekresi protein berupa sitokin dan kemokin. Kedua protein tersebut
-    bertugas untuk merekrut sel imun lain ke daerah yang terinfeksi. Selain itu,
-    terjadi peningkatan aliran darah untuk membawa sel imun lain. '
+  UnitSimpleDesc: 
+  UnitFullDesc: 
   UnitSprite: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: da17486cfc5ff7f47b727db8b078c117, type: 2}

@@ -25,21 +25,8 @@ MonoBehaviour:
   UnitRangedAtkSpeed: 1
   RangedProjectile: {fileID: 5845206643913531204, guid: 557a4fdcd3cf1b943bcc82136fde73f1, type: 3}
   UnitSimpleDesc: 
-  UnitFullDesc: Neutrofil merupakan salah satu tipe sel darah putih yang berjumlah
-    paling banyak. Sel ini menjadi salah satu sel paling efektif sebagai sel imun
-    bawaan oleh karena spesialisasi untuk membunuh patogen. Sel ini juga biasanya
-    yang menjadi sel pertama datang dalam situs terinfeksi. Neutrofil memiliki fungsi
-    fagositosis yang sama seperti makrofag. Neutrofil menelan mikroorganisme dan
-    memberikannya suatu enzim degradatif untuk menghancurkan mikroorganisme tersebut.
-    Selain menggunakan fungsi fagositosis, Neutrofil dalam melakukan degranulasi
-    di mana sel melepaskan bahan kimia reaktif sebagai respons kepada patogen.  Bahan
-    reaktif ini berupa protein dan enzim bersifat anti mikrobial serta spesies oksigen
-    reaktif untuk membunuh patogen. Terakhir Neutrofil dapat melakukan NET (Neutrofil
-    Extracellular Traps) di mana sel terjadi pelepasan matriks fibril yang merangkap
-    patogen dan melingkupinya dengan protein anti mikrobial. Tetapi fungsi ini sekalian
-    membunuh Neutrofil yang menggunakanya.
+  UnitFullDesc: 
   UnitSprite: {fileID: 21300000, guid: fcc074a3090b0534f9bcef302bd220fc, type: 3}
-  AbilityType: 0100000002000000
   UnitAbility:
   - {fileID: 11400000, guid: 99c14c5241a4d9d4f9b151b0fc6d1125, type: 2}
   - {fileID: 11400000, guid: baf85f090db5afb4cbbd496c01e865f1, type: 2}

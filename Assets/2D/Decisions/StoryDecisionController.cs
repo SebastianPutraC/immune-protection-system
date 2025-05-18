@@ -21,6 +21,8 @@ public class StoryDecisionController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI previousScoreText;
     [SerializeField] private Button saveScoreButton;
 
+    [SerializeField] private Image battleMap;
+
     private List<DecisionInfoSO> decisionInfos = new List<DecisionInfoSO>();
     private List<DecisionInfoSO> quizInfos = new List<DecisionInfoSO>();
     [SerializeField] private DecisionInfoSO quizDecisionPrompt;
@@ -71,6 +73,16 @@ public class StoryDecisionController : MonoBehaviour
         {
             currentPhase = StoryPhase.READY;
             OpenReadyPanel();
+        }
+
+        if (levelInfo.levelMapSprite != null)
+        {
+            battleMap.gameObject.SetActive(true);
+            battleMap.sprite = levelInfo.levelMapSprite;
+        }
+        else
+        {
+            battleMap.gameObject.SetActive(false);
         }
     }
 

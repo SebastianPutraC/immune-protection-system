@@ -31,3 +31,4 @@ MonoBehaviour:
   QuizInfos: []
   IntroInfos: []
   levelPrefab: {fileID: 3481419003891693231, guid: a3582510cd519154093d64c3daa27fd1, type: 3}
+  levelMapSprite: {fileID: 21300000, guid: bdeca044266d0cf40bb06e67881dac41, type: 3}
