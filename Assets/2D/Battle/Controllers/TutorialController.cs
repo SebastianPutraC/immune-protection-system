@@ -13,7 +13,6 @@ public enum TutorialPhase
     BASICATTACK,
     NETABILITY,
     DEPLOYMAKRO,
-    DIFFLANE,
     ANTIGEN,
     UNLOCKADAPTIVE,
     OBJECTIVEDEF,
@@ -63,12 +62,12 @@ public class TutorialController : BattleController
     private bool isTimerDone;
 
     [SerializeField] private TutorialPhase phase = TutorialPhase.NONE;
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
-        for (int i = 0; i < allySpawners.Count; i++)
+        base.Start();
+        for (int i = 0; i < levelController.allySpawners.Count; i++)
         {
-            allySpawners[i].AllySpawned += OnUnitSpawned;
+            levelController.allySpawners[i].AllySpawned += OnUnitSpawned;
         }
         infoPopup.PopupFinished += OnInfoPopupFinished;
     }
@@ -128,10 +127,6 @@ public class TutorialController : BattleController
                 break;
             case TutorialPhase.DEPLOYMAKRO:
                 if (isUnitSpawn && isTimerDone && allAllyUnits.Count > 0)
-                    isPhaseDone = true;
-                break;
-            case TutorialPhase.DIFFLANE:
-                if (isTimerDone)
                     isPhaseDone = true;
                 break;
             case TutorialPhase.ANTIGEN:
@@ -201,8 +196,6 @@ public class TutorialController : BattleController
                 break;
             case TutorialPhase.DEPLOYMAKRO:
                 break;
-            case TutorialPhase.DIFFLANE:
-                break;
             case TutorialPhase.ANTIGEN:
                 break;
             case TutorialPhase.UNLOCKADAPTIVE:
@@ -234,8 +227,6 @@ public class TutorialController : BattleController
                 return netAbilityInfo;
             case TutorialPhase.DEPLOYMAKRO:
                 return deployNeutroInfo;
-            case TutorialPhase.DIFFLANE:
-                return diffLaneInfo;
             case TutorialPhase.ANTIGEN:
                 return antigenInfo;
             case TutorialPhase.UNLOCKADAPTIVE:
@@ -375,9 +366,9 @@ public class TutorialController : BattleController
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        for (int i = 0; i < allySpawners.Count; i++)
+        for (int i = 0; i < levelController.allySpawners.Count; i++)
         {
-            allySpawners[i].AllySpawned -= OnUnitSpawned;
+            levelController.allySpawners[i].AllySpawned -= OnUnitSpawned;
         }
         infoPopup.PopupFinished -= OnInfoPopupFinished;
     }

@@ -11,12 +11,16 @@ public class BattleCameraController : MonoBehaviour //Will update this
     private float rightXLimit = 15;
     private float downYLimit = -5;
 
-    public void InitializeBattleCamer(float up, float left, float right, float down)
+    private readonly float zPosition = -25;
+
+    public void InitializeBattleCamera(float up, float left, float right, float down, Vector2 position)
     {
         upYLimit = up;
         leftXLimit = left;
         rightXLimit = right;
         downYLimit = down;
+
+        this.transform.position = new Vector3(position.x, position.y, zPosition);
     }
 
     private void Update()

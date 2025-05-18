@@ -28,3 +28,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c20efaafe8b7cb94680b4543dba4c091, type: 2}
   - {fileID: 11400000, guid: 1a08fe41b1071524a88f46be748c7eb0, type: 2}
   QuizInfos: []
+  IntroInfos: []
+  levelPrefab: {fileID: 3481419003891693231, guid: 302364f69ae7a8442be1675b08db7e2b, type: 3}

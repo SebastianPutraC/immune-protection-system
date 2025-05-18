@@ -19,4 +19,6 @@ public class LevelInfo : ScriptableObject
     public List<DecisionInfoSO> QuizInfos;
 
     public List<InformationSO> IntroInfos;
+
+    public LevelController levelPrefab;
 }

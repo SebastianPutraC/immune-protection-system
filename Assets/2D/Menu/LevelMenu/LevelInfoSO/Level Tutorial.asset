@@ -23,3 +23,5 @@ MonoBehaviour:
   maxRepairPoints: 3
   DecisionInfos: []
   QuizInfos: []
+  IntroInfos: []
+  levelPrefab: {fileID: 3481419003891693231, guid: 487126fe38e38ae4499eeae55bafcb7d, type: 3}

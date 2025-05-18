@@ -16,7 +16,7 @@ MonoBehaviour:
   levelName: Selasa
   allyUnits: 6500000066000000670000006a000000
   enemyUnits: ca000000c9000000
-  defaultStatingResource: 400
+  defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 4
   allyBaseMaxHP: 10
@@ -29,3 +29,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d75b7a59ded4cbc4e87935f354858bc2, type: 2}
   QuizInfos: []
   IntroInfos: []
+  levelPrefab: {fileID: 3481419003891693231, guid: 929008a7097ae034b88530873fa98485, type: 3}

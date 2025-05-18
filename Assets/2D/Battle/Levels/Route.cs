@@ -4,7 +4,7 @@ using UnityEngine;
 public class Route : MonoBehaviour
 {
     public int routeId;
-    [SerializeField] private List<Transform> waypoints; //LAST WAYPOINT IS THE END
+    public List<Transform> waypoints;
     [SerializeField] private int[] allyConnectingRouteIds;
     [SerializeField] private int[] enemyConnectingRouteIds;
 

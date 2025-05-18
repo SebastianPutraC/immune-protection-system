@@ -22,11 +22,7 @@ public class BattleController : MonoBehaviour
 
     protected bool isAdaptiveUnlocked;
 
-    [SerializeField] protected List<Spawner> allySpawners;
-    [SerializeField] protected List<Spawner> enemySpawners;
-    [SerializeField] protected List<BodyCellController> cellSpawner;
-
-    [SerializeField] protected RouteController routeController;
+    [SerializeField] protected LevelController levelController;
     [SerializeField] protected UnitPanelController unitPanelController;
     [SerializeField] protected BattlePanelController battlePanelController;
     [SerializeField] protected UnitStatsController unitStatsController;
@@ -42,9 +38,6 @@ public class BattleController : MonoBehaviour
     public List<EnemyUnitController> allEnemyUnits = new List<EnemyUnitController>();
     public AllyUnitController selectedUnit; //Public for visual
 
-    [SerializeField] protected List<BaseController> allyBaseControllers;
-    [SerializeField] protected List<BaseController> enemyBaseControllers;
-
     [SerializeField] protected Button StopAllButton;
     [SerializeField] protected Button AdvanceAllButton;
     [SerializeField] protected Button pauseButton;
@@ -52,32 +45,8 @@ public class BattleController : MonoBehaviour
     protected List<StatModifier> allyGlobalModifiers = new List<StatModifier>();
     protected List<StatModifier> enemyGlobalModifiers = new List<StatModifier>();
 
-    protected virtual void Awake()
+    protected void Awake()
     {
-        for (int i = 0; i < allySpawners.Count; i++)
-        {
-            allySpawners[i].spawnClicked += CheckAllyCardSelected;
-            allySpawners[i].AllySpawned += OnAllySpawned;
-        }
-        for (int i = 0; i < enemySpawners.Count; i++)
-        {
-            enemySpawners[i].EnemySpawned += OnEnemySpawned;
-        }
-        for (int i = 0; i < cellSpawner.Count; i++)
-        {
-            cellSpawner[i].CellSpawning += DeployEnemyUnit;
-            cellSpawner[i].EnemySpawned += OnEnemySpawned;
-            cellSpawner[i].ThisUnitKilled += OnCellKilled;
-        }
-        for (int i = 0; i < allyBaseControllers.Count; i++)
-        {
-            allyBaseControllers[i].baseAttacked += BaseAttacked;
-        }
-        for (int i = 0; i < enemyBaseControllers.Count; i++)
-        {
-            enemyBaseControllers[i].baseAttacked += BaseAttacked;
-        }
-
         unitSelectionController.UnitSelected += OnUnitSelected;
         unitStatsController.AbilityButtonSelected += OnAbilitySelected;
         pausePanelController.ResumePressed += ResumeGame;
@@ -90,7 +59,7 @@ public class BattleController : MonoBehaviour
         AdvanceAllButton.onClick.AddListener(AdvanceAllUnit);
         pauseButton.onClick.AddListener(PauseGame);
     }
-    protected void Start()
+    protected virtual void Start()
     {
         //Get Level Info
         LevelInfo levelInfo = LevelDataSingleton.Instance.GetCurrentLevelInfo();
@@ -111,15 +80,6 @@ public class BattleController : MonoBehaviour
         battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
         battlePanelController.UpdateIntelPointUI(0, unlockIntelPoints);
 
-        for (int i = 0; i < allyBaseControllers.Count; i++)
-        {
-            allyBaseControllers[i].InitializeBase(UnitSide.ALLY);
-        }
-        for (int i = 0; i < enemyBaseControllers.Count; i++)
-        {
-            enemyBaseControllers[i].InitializeBase(UnitSide.ENEMY);
-        }
-
         if (levelInfo.IntroInfos.Count > 0)
         {
             Time.timeScale = 0;
@@ -131,6 +91,44 @@ public class BattleController : MonoBehaviour
             infoPopup.ExitPopup();
         }
 
+        levelController = Instantiate(levelInfo.levelPrefab);
+
+        for (int i = 0; i < levelController.allyBaseControllers.Count; i++)
+        {
+            levelController.allyBaseControllers[i].InitializeBase(UnitSide.ALLY);
+        }
+        for (int i = 0; i < levelController.enemyBaseControllers.Count; i++)
+        {
+            levelController.enemyBaseControllers[i].InitializeBase(UnitSide.ENEMY);
+        }
+
+        for (int i = 0; i < levelController.allySpawners.Count; i++)
+        {
+            levelController.allySpawners[i].spawnClicked += CheckAllyCardSelected;
+            levelController.allySpawners[i].AllySpawned += OnAllySpawned;
+        }
+        for (int i = 0; i < levelController.enemySpawners.Count; i++)
+        {
+            levelController.enemySpawners[i].EnemySpawned += OnEnemySpawned;
+        }
+        for (int i = 0; i < levelController.cellSpawner.Count; i++)
+        {
+            levelController.cellSpawner[i].CellSpawning += DeployEnemyUnit;
+            levelController.cellSpawner[i].EnemySpawned += OnEnemySpawned;
+            levelController.cellSpawner[i].ThisUnitKilled += OnCellKilled;
+        }
+        for (int i = 0; i < levelController.allyBaseControllers.Count; i++)
+        {
+            levelController.allyBaseControllers[i].baseAttacked += BaseAttacked;
+        }
+        for (int i = 0; i < levelController.enemyBaseControllers.Count; i++)
+        {
+            levelController.enemyBaseControllers[i].baseAttacked += BaseAttacked;
+        }
+
+
+        battleCameraController.InitializeBattleCamera(levelController.upLimit, levelController.leftLimit, 
+            levelController.rightLimit, levelController.downLimit, levelController.startingCameraPosition);
         gameOverPanelController.gameObject.SetActive(false);
     }
     protected virtual void Update()
@@ -192,37 +190,37 @@ public class BattleController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                if (allySpawners[0] != null)
+                if (levelController.allySpawners[0] != null)
                 {
-                    CheckAllyCardSelected(allySpawners[0]);
+                    CheckAllyCardSelected(levelController.allySpawners[0]);
                 }
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                if (allySpawners[1] != null)
+                if (levelController.allySpawners[1] != null)
                 {
-                    CheckAllyCardSelected(allySpawners[1]);
+                    CheckAllyCardSelected(levelController.allySpawners[1]);
                 }
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                if (allySpawners[2] != null)
+                if (levelController.allySpawners[2] != null)
                 {
-                    CheckAllyCardSelected(allySpawners[2]);
+                    CheckAllyCardSelected(levelController.allySpawners[2]);
                 }
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                if (allySpawners[3] != null)
+                if (levelController.allySpawners[3] != null)
                 {
-                    CheckAllyCardSelected(allySpawners[3]);
+                    CheckAllyCardSelected(levelController.allySpawners[3]);
                 }
             }
             if (Input.GetKeyDown(KeyCode.Alpha5))
             {
-                if (allySpawners[4] != null)
+                if (levelController.allySpawners[4] != null)
                 {
-                    CheckAllyCardSelected(allySpawners[4]);
+                    CheckAllyCardSelected(levelController.allySpawners[4]);
                 }
             }
         }
@@ -298,7 +296,7 @@ public class BattleController : MonoBehaviour
         resourcePoints -= allyData.UnitCost;
         battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
 
-        Route initialRoute = routeController.GetRouteByID(spawner.GetInitialRouteId());
+        Route initialRoute = levelController.GetRouteByID(spawner.GetInitialRouteId());
 
         spawner.SpawnAlly(allyData, allyGlobalModifiers, initialRoute);
     }
@@ -341,7 +339,7 @@ public class BattleController : MonoBehaviour
 
     protected void DeployEnemyUnit(EnemyUnit enemyData, ISpawner spawner)
     {
-        Route initialRoute = routeController.GetRouteByID(spawner.GetInitialRouteId());
+        Route initialRoute = levelController.GetRouteByID(spawner.GetInitialRouteId());
         spawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute);
     }
     protected void OnEnemySpawned(EnemyUnitController enemyUnit)
@@ -362,7 +360,7 @@ public class BattleController : MonoBehaviour
         cellController.ThisUnitKilled -= OnCellKilled;
         cellController.CellSpawning -= DeployEnemyUnit;
         cellController.EnemySpawned -= OnEnemySpawned;
-        cellSpawner.Remove(cellController);
+        levelController.cellSpawner.Remove(cellController);
     }
 
 
@@ -407,7 +405,7 @@ public class BattleController : MonoBehaviour
     }
     protected void SetNewUnitRoute(int routeId, DeployedUnitController unit)
     {
-        Route newRoute = routeController.GetRouteByID(routeId);
+        Route newRoute = levelController.GetRouteByID(routeId);
         unit.SetNewRoute(newRoute);
     }
 
@@ -494,27 +492,27 @@ public class BattleController : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        for (int i = 0; i < allySpawners.Count; i++)
+        for (int i = 0; i < levelController.allySpawners.Count; i++)
         {
-            allySpawners[i].spawnClicked -= CheckAllyCardSelected;
-            allySpawners[i].AllySpawned -= OnAllySpawned;
+            levelController.allySpawners[i].spawnClicked -= CheckAllyCardSelected;
+            levelController.allySpawners[i].AllySpawned -= OnAllySpawned;
         }
-        for (int i = 0; i < enemySpawners.Count; i++)
+        for (int i = 0; i < levelController.enemySpawners.Count; i++)
         {
-            enemySpawners[i].EnemySpawned -= OnEnemySpawned;
+            levelController.enemySpawners[i].EnemySpawned -= OnEnemySpawned;
         }
-        for (int i = 0; i < cellSpawner.Count; i++)
+        for (int i = 0; i < levelController.cellSpawner.Count; i++)
         {
-            cellSpawner[i].CellSpawning -= DeployEnemyUnit;
-            cellSpawner[i].EnemySpawned -= OnEnemySpawned;
+            levelController.cellSpawner[i].CellSpawning -= DeployEnemyUnit;
+            levelController.cellSpawner[i].EnemySpawned -= OnEnemySpawned;
         }
-        for (int i = 0; i < allyBaseControllers.Count; i++)
+        for (int i = 0; i < levelController.allyBaseControllers.Count; i++)
         {
-            allyBaseControllers[i].baseAttacked -= BaseAttacked;
+            levelController.allyBaseControllers[i].baseAttacked -= BaseAttacked;
         }
-        for (int i = 0; i < enemyBaseControllers.Count; i++)
+        for (int i = 0; i < levelController.enemyBaseControllers.Count; i++)
         {
-            enemyBaseControllers[i].baseAttacked -= BaseAttacked;
+            levelController.enemyBaseControllers[i].baseAttacked -= BaseAttacked;
         }
 
         unitSelectionController.UnitSelected -= OnUnitSelected;
@@ -560,11 +558,11 @@ public class BattleController : MonoBehaviour
         isSpawned = true;
         yield return new WaitForSeconds(enemyTestspawnTimer);
 
-        int randomRow = Random.Range(0, enemySpawners.Count - 1);
+        int randomRow = Random.Range(0, levelController.enemySpawners.Count - 1);
         int randomUnit = Random.Range(0, testUnits.Count);
         EnemyUnit spawnEnemy = testUnits[randomUnit];
 
-        DeployEnemyUnit(spawnEnemy, enemySpawners[randomRow]);
+        DeployEnemyUnit(spawnEnemy, levelController.enemySpawners[randomRow]);
         isSpawned = false;
     }
 }

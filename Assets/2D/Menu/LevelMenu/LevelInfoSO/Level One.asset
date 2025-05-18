@@ -16,7 +16,7 @@ MonoBehaviour:
   levelName: Senin
   allyUnits: 65000000660000006a00000068000000
   enemyUnits: c9000000
-  defaultStatingResource: 300
+  defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 3
   allyBaseMaxHP: 10
@@ -33,3 +33,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92213755dac56e640adc120b62c316ce, type: 2}
   - {fileID: 11400000, guid: fc72c2d1cc795084e8153d0f4abe29c4, type: 2}
   - {fileID: 11400000, guid: 866a3e29e1c458342be84cfb86f7f9fb, type: 2}
+  levelPrefab: {fileID: 3481419003891693231, guid: 5464390fe798bf044b82b4a720eb3896, type: 3}

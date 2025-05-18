@@ -25,8 +25,9 @@ public class EnemyUnitController : DeployedUnitController
     }
     public override void SetNewRoute(Route route)
     {
-        base.SetNewRoute(route);
-        currentWaypointIndex = currentRouteTaken.GetWaypointsLength();
+        currentWaypointIndex = route.GetWaypointsLength();
+        currentRouteTaken = route;
+        GetNewWaypoint(true, isReturning);
     }
 
     protected override void Death()
