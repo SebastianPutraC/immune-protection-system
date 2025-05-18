@@ -24,8 +24,22 @@ MonoBehaviour:
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: Sel T Pembunuh merupakan sel yang berasal dari jaringan limfoid
+    yang satu keluarga dengan Sel T Pembantu. Seperti sel Limfoid pada umumnya, sel
+    ini merupakan salah satu sel imun adaptif.  Tugas dari sel ini berfokus melawan
+    sel yang telah terinfeksi dengan virus. Sama seperti Sel Pembunuh Alami, sel
+    ini memiliki protein yang digunakan untuk mengaktivasi Apoptosis atau kematian
+    sel terprogram ke sel yang dideteksi telah mengalami infeksi.
+  UnitFullDesc: "Sel T Pembunuh merupakan sel yang berasal dari jaringan limfoid
+    yang satu keluarga dengan Sel T Pembantu. Sama seperti Sel Limfoid pada umumnya,
+    sel ini merupakan salah satu sel imun Adaptif. \n\r\nTugas dari sel ini berfokus
+    melawan sel yang telah terinfeksi dengan virus. Sel T Pembunuh dapat mendeteksi
+    sel yang telah terinfeksi dengan merasakan ekspresi molekul MHC yang dimiliki
+    oleh sel. \n\r\nJika ekspresi molekul MHC menurun, maka sel ini akan membunuh
+    sel terinfeksi dengan memanfaatkan granula yang dimilikinya berupa protein granzim
+    dan perforin yang menyebabkan Apoptosis atau kematian sel terprogram. \n\nIni
+    merupakan fungsi yang sama dengan sel pembunuh alami yaitu fungsi yang menyebabkan
+    Apoptosis atau kematian sel terprogram.\r\n"
   UnitSprite: {fileID: 21300000, guid: 3394d3b5802c78245b9cb68fc8dfa28b, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: af1579f264e992e4899ed33fbc0f3f6c, type: 2}

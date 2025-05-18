@@ -24,8 +24,22 @@ MonoBehaviour:
   UnitRangedAtk: 50
   UnitRangedAtkSpeed: 3
   RangedProjectile: {fileID: 5661811759104570259, guid: 1e37c474fa4c4ec43b1a749b9222b0e4, type: 3}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: Sel Plasma merupakan tipe dari sel B yang berasal dari jaringan
+    limfoid dan salah satu sel imun adaptif. Sel Plasma membunuh patogen dengan kemampuannya
+    dalam memproduksi dan sekresi antibodi yang berisi dengan Imunoglobulin. Imunoglobulin
+    ini digunakan untuk melawan dan membunuh patogen yang menginfeksi tubuh manusia.
+  UnitFullDesc: "Sel Plasma merupakan tipe dari Sel B yang berasal dari jaringan
+    limfoid seperti sumsum tulang, limpa, dan kelenjar getah bening. Sel B sendiri
+    merupakan salah satu sel imun adaptif. Sebelum berubah menjadi Sel Plasma, Sel
+    B yang belum dewasa berupa Plasmablast. Plasmablast dapat mengeluarkan sedikit
+    antibodi untuk melawan patogen. \n\r\nSetelah dewasa, Sel Plasma melanjutkan
+    tugas Plasmablast dan dapat melakukan produksi dan sekresi ribuan antibodi per
+    detik. Antibodi ini berupa lima tipe imunoglobulin yaitu IgG, IgA, IgM, IgD,
+    dan IgE. IgG. Imunoglobulin ini digunakan untuk melawan dan membunuh patogen
+    yang menginfeksi tubuh manusia. \n\r\nTerdapat juga tipe sel B1 yang memiliki
+    fungsi yang sama dengan Sel plasma tetapi tidak membutuhkan aktivasi oleh sel
+    APC atau sel T. Walaupun itu Sel B1 berjumlah sedikit dalam jaringan limfoid.
+    Oleh karena itu Sel B1 ini termasuk dalam sel imun bawaan. \r\n"
   UnitSprite: {fileID: 21300000, guid: 9e3c1cf24863e224abdb8ff07aa4200d, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 8091ec9dded2a0f4f9b5ce9e621d59b3, type: 2}

@@ -24,8 +24,26 @@ MonoBehaviour:
   UnitRangedAtk: 20
   UnitRangedAtkSpeed: 1
   RangedProjectile: {fileID: 5845206643913531204, guid: 557a4fdcd3cf1b943bcc82136fde73f1, type: 3}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: 'Neutrofil merupakan salah satu tipe sel darah putih yang menjadi
+    mayoritas dalam sel darah putih. Neutrofil dapat membunuh patogen dengan banyak
+    cara. Sel ini memiliki kemampuan untuk melahap patogen dengan fagositosis, mengeluarkan
+    enzim degradatif melalui degranulasi, dan menjebak dan membunuh patogen yang
+    terkena serangan NET (Neutrophil Extracelullar Trap) dari kandungan DNA yang
+    dimilikinya. '
+  UnitFullDesc: "Neutrofil merupakan salah satu tipe sel darah putih yang berjumlah
+    paling banyak yaitu sekitar 50% - 70% dalam sel darah putih. Sel ini menjadi
+    salah satu sel paling efektif sebagai sel imun bawaan oleh karena spesialisasi
+    untuk membunuh patogen. Sel ini juga biasanya yang menjadi sel pertama datang
+    dalam situs terinfeksi. \n\r\nNeutrofil memiliki fungsi fagositosis yang sama
+    seperti makrofag. Neutrofil menelan mikroorganisme dan memberikannya suatu enzim
+    degradatif untuk menghancurkan mikroorganisme tersebut. \n\r\nSelain menggunakan
+    fungsi fagositosis, Neutrofil dalam melakukan degranulasi di mana sel melepaskan
+    bahan kimia reaktif sebagai respons kepada patogen.  Bahan reaktif ini berupa
+    protein dan enzim bersifat anti mikrobial serta spesies oksigen reaktif untuk
+    membunuh patogen. \n\r\nTerakhir Neutrofil dapat melakukan NET (Neutrofil Extracellular
+    Traps) di mana sel terjadi pelepasan matriks fibril dari kandungan DNA yang merangkap
+    patogen dan melingkupinya dengan protein anti mikrobial. Tetapi fungsi ini sekalian
+    membunuh Neutrofil yang menggunakanya. \r\n"
   UnitSprite: {fileID: 21300000, guid: fcc074a3090b0534f9bcef302bd220fc, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 99c14c5241a4d9d4f9b151b0fc6d1125, type: 2}

@@ -24,8 +24,22 @@ MonoBehaviour:
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: Tidak sebanyak Neutrofil dalam sel darah putih, Eosinofil membantu
+    pertahanan sel imun tubuh dengan mengeluarkan toksin dari enzim dan protein yang
+    merusak membran patogen di sekitarnya serta membunuhnya. Eosinofil juga memiliki
+    kemampuan EET (Eosinofil Extracellular Trap) yang menggunakan kandungan DNA Eosinofil
+    untuk membentuk jaring yang menjebak patogen, mencegah penyebaran, menetralkan,
+    dan membunuh mereka.
+  UnitFullDesc: "Eosinofil berasal dari tempat yang sama dengan neutrofil tetapi
+    memiliki jumlah yang lebih sedikit yaitu sekitar 2% - 4% dalam sel darah putih.
+    \n\r\nSel ini memiliki enzim dan protein toksin untuk melawan patogen. Ini berupa
+    4 protein toksin yang dikeluarkan berupa dua ribonuklease, satu peroksidase,
+    dan protein dasar eosinofil sendiri. Penggunaan toksin ini dimanfaatkan dalam
+    sekresinya yang dapat berefek kepada membran patogen. \n\r\nSelain penggunaan
+    toksin, Eosinofil juga memiliki fungsi yang sama seperti neutrofil berupa EET
+    (Eosinofil Extracellular Traps). Ini menggunakan kandungan DNA dari sel yang
+    dilapisi dengan peptida antimikroba dan dilepaskan. Kandungan ini membentuk jaring
+    yang menjebak patogen, mencegah penyebaran, menetralkan, dan membunuh mereka.\r\n"
   UnitSprite: {fileID: 21300000, guid: 49e48521da289dc4da49d0417746dcff, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 71bfae75e31cd5a4983510aa3fe93d43, type: 2}
