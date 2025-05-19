@@ -29,6 +29,35 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f3b899d89a2d64245b12a1468324859a, type: 2}
   - {fileID: 11400000, guid: 06cf9bd6e7d6447409d9ec8f6a6da869, type: 2}
   QuizInfos: []
-  IntroInfos: []
+  IntroInfos:
+  - {fileID: 11400000, guid: 92213755dac56e640adc120b62c316ce, type: 2}
+  - {fileID: 11400000, guid: 11602c433dfdfe14eb02a6387aed97ad, type: 2}
+  - {fileID: 11400000, guid: eef5dbb15502c8d46ba075bae2b954d9, type: 2}
+  - {fileID: 11400000, guid: 31c3ad31a1dcf3b40b4540cb78506d75, type: 2}
+  - {fileID: 11400000, guid: 46a128abb087d1d468a6e9a464e958a7, type: 2}
+  - {fileID: 11400000, guid: fc72c2d1cc795084e8153d0f4abe29c4, type: 2}
+  - {fileID: 11400000, guid: 2de40af65a7c36544ba4a5db207f6ee8, type: 2}
+  - {fileID: 11400000, guid: 3f3ce2794b51de44b8b917374d06f907, type: 2}
+  - {fileID: 11400000, guid: 9de2e776c0c9c9545926e6c8b06f5052, type: 2}
+  - {fileID: 11400000, guid: b168708f44268d545a15ffdb688a56c1, type: 2}
+  - {fileID: 11400000, guid: af08b7ff845fa3a43ac2664f49ba9449, type: 2}
+  - {fileID: 11400000, guid: 3bbb87c46c1bb334ba8d1c6388f109f2, type: 2}
+  - {fileID: 11400000, guid: 88e76243bdc2af44984edab969fe2ea0, type: 2}
+  - {fileID: 11400000, guid: 5d3f053f947eb784fb3a361851d4f4f7, type: 2}
+  - {fileID: 11400000, guid: b2e154241533f13439278870f9e07e5d, type: 2}
+  - {fileID: 11400000, guid: 866a3e29e1c458342be84cfb86f7f9fb, type: 2}
+  - {fileID: 11400000, guid: 60d92167de41d464ab53a9f4ba419b61, type: 2}
+  - {fileID: 11400000, guid: 7ab89ade3bbee8743aa969180243c007, type: 2}
+  - {fileID: 11400000, guid: d9b9470acdf7d0744a67a216d39f1a5b, type: 2}
+  - {fileID: 11400000, guid: 1cd1ba107d4dc304e8d21543fef00ad2, type: 2}
+  - {fileID: 11400000, guid: dae1a1c49bb4987459c0873adc97d11c, type: 2}
+  - {fileID: 11400000, guid: 7c7c40254f4c372429dc201605e7d596, type: 2}
+  - {fileID: 11400000, guid: 6d8131aaf0d4fe846a7c5404c147e765, type: 2}
+  - {fileID: 11400000, guid: 6843c9c938fde264ea4c56652eee2a3a, type: 2}
+  - {fileID: 11400000, guid: 86c03a234adf4cd4db05b9f8ad2110a3, type: 2}
+  - {fileID: 11400000, guid: 5d780e01f3b7bfe4ca61adebbbfb2416, type: 2}
+  - {fileID: 11400000, guid: 82d4e467a0424694db65e19e6426013d, type: 2}
+  - {fileID: 11400000, guid: ef54a3102e2179143939786170aef922, type: 2}
   levelPrefab: {fileID: 3481419003891693231, guid: 5464390fe798bf044b82b4a720eb3896, type: 3}
   levelMapSprite: {fileID: 21300000, guid: d872b818c01293c47b7906682a84fc21, type: 3}
+  skipIntroIndex: 

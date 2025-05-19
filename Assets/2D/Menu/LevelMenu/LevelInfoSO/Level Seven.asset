@@ -25,7 +25,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f04727f637f6c842ade48c55bbae5e1, type: 2}
   - {fileID: 11400000, guid: 03347a1e1e22af04a978a03a8a477e87, type: 2}
   - {fileID: 11400000, guid: b9a1334c9a86b954897d57d7d140b676, type: 2}
-  QuizInfos: []
-  IntroInfos: []
+  QuizInfos:
+  - {fileID: 11400000, guid: f7faeb2b3006c0543939e10ac33e208b, type: 2}
+  - {fileID: 11400000, guid: 476a096e82d22df42abc38ba4d38049f, type: 2}
+  - {fileID: 11400000, guid: 7d533107cb7dd404db894923ed993c86, type: 2}
+  - {fileID: 11400000, guid: fd4a5e91f9463fb489e16bad3b3a5e15, type: 2}
+  - {fileID: 11400000, guid: 69aecedb896f72a46b15ac9f3c337947, type: 2}
+  IntroInfos:
+  - {fileID: 11400000, guid: 29c7cf9db54861b4e814b4f5a9f0bb48, type: 2}
+  - {fileID: 11400000, guid: ae610e6676f55e141add469d347669f0, type: 2}
+  - {fileID: 11400000, guid: c65148f9717d36c4ba7011e803076036, type: 2}
   levelPrefab: {fileID: 3481419003891693231, guid: 7a419ab3bf0458843bff9e28f8c95c49, type: 3}
   levelMapSprite: {fileID: 21300000, guid: a559b38545d8bf843bd65d8ead12fb59, type: 3}
+  skipIntroIndex: 

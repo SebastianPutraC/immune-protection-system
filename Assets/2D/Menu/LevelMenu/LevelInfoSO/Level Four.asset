@@ -28,7 +28,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bbd0770fc7202548bf35020385b0122, type: 2}
   - {fileID: 11400000, guid: 841316deed049f548b7c0a858f1c4ece, type: 2}
   - {fileID: 11400000, guid: 543aa76d638c4c049b98da4119cf90dc, type: 2}
-  QuizInfos: []
-  IntroInfos: []
+  QuizInfos:
+  - {fileID: 11400000, guid: 5e1b3c14a49762d4eb57fd894b0b209f, type: 2}
+  - {fileID: 11400000, guid: 77b09a42d6ebb5e4aa51e332ad8836be, type: 2}
+  - {fileID: 11400000, guid: 25e6c4df025ada6449ba1b9779b459e8, type: 2}
+  - {fileID: 11400000, guid: d1aee739050fa1b45a501a820ce0e9cb, type: 2}
+  - {fileID: 11400000, guid: 77da0cf392ed06f418bc20b229393f38, type: 2}
+  IntroInfos:
+  - {fileID: 11400000, guid: 7477ab162a3989346b2d6df2489727c4, type: 2}
+  - {fileID: 11400000, guid: 322ed3b5434ae194ba449c054e5bf713, type: 2}
+  - {fileID: 11400000, guid: 393f1590dae3b324cb6ae5be0d63616f, type: 2}
+  - {fileID: 11400000, guid: d607f529e67733141852f277befea055, type: 2}
+  - {fileID: 11400000, guid: 446d24bd964f4874aa9a7399ed53a32f, type: 2}
+  - {fileID: 11400000, guid: 6d1d5a2a7c70c66459ca7c14bc890a92, type: 2}
+  - {fileID: 11400000, guid: 7b1b184c35a6d104b904195455c1286a, type: 2}
+  - {fileID: 11400000, guid: bb468de5c5952ab43869858d9e729dea, type: 2}
+  - {fileID: 11400000, guid: 26e44db64d9049341bb9b91efff5eb60, type: 2}
   levelPrefab: {fileID: 3481419003891693231, guid: a3582510cd519154093d64c3daa27fd1, type: 3}
   levelMapSprite: {fileID: 21300000, guid: bdeca044266d0cf40bb06e67881dac41, type: 3}
+  skipIntroIndex: 

@@ -20,6 +20,7 @@ public class StoryDecisionController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI previousScoreText;
     [SerializeField] private Button saveScoreButton;
+    [SerializeField] private Button dontSaveButton;
 
     [SerializeField] private Image battleMap;
 
@@ -42,6 +43,7 @@ public class StoryDecisionController : MonoBehaviour
         decisionMenuController.DecisionChosen += OnDecisionChosen;
         startLevel.onClick.AddListener(OnStartSelected);
         saveScoreButton.onClick.AddListener(OnSaveScoreSelected);
+        dontSaveButton.onClick.AddListener(OnDontSaveSelected);
     }
 
     private void Start()
@@ -224,6 +226,11 @@ public class StoryDecisionController : MonoBehaviour
         scorePanel.gameObject.SetActive(false);
         OpenReadyPanel();
     }
+    private void OnDontSaveSelected()
+    {
+        scorePanel.gameObject.SetActive(false);
+        OpenReadyPanel();
+    }
     private void OnStartSelected()
     {
         LevelDataSingleton.Instance.SetModifiersData(allyBoostData, UnitSide.ALLY);
@@ -235,6 +242,7 @@ public class StoryDecisionController : MonoBehaviour
         decisionMenuController.DecisionChosen -= OnDecisionChosen;
         startLevel.onClick.RemoveListener(OnStartSelected);
         saveScoreButton.onClick.RemoveListener(OnSaveScoreSelected);
+        dontSaveButton.onClick.RemoveListener(OnDontSaveSelected);
     }
 }
 

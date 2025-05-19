@@ -23,4 +23,6 @@ public class LevelInfo : ScriptableObject
     public LevelController levelPrefab;
 
     public Sprite levelMapSprite;
+
+    public List<int> skipIntroIndex;
 }

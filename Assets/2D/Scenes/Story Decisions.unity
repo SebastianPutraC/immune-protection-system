@@ -215,8 +215,8 @@ RectTransform:
   m_Children:
   - {fileID: 1604263769}
   - {fileID: 6094739726133454879}
-  - {fileID: 1243563771}
   - {fileID: 371312372}
+  - {fileID: 1243563771}
   - {fileID: 121330909}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -524,6 +524,7 @@ MonoBehaviour:
   scoreText: {fileID: 371312374}
   previousScoreText: {fileID: 371312373}
   saveScoreButton: {fileID: 371312376}
+  dontSaveButton: {fileID: 774213450}
   battleMap: {fileID: 1682577872048334943}
   quizDecisionPrompt: {fileID: 11400000, guid: e44b241fc33357a4cb968c452b36129b, type: 2}
 --- !u!4 &677331796
@@ -678,6 +679,17 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &774213450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1431942938547846994, guid: d7c1abf2e9456704289d355b4643212e, type: 3}
+  m_PrefabInstance: {fileID: 371312371}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1243563770
 PrefabInstance:
   m_ObjectHideFlags: 0
