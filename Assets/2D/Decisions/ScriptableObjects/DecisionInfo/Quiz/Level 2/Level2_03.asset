@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 3
   DecisionInfoText: Makrofag dapat membawa antigen dari patogen untuk di representasikan
     ke sel imun adaptif. Apa jenis kemampuan tersebut?
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 631eaa7e8640b754dbee35f6a236b626, type: 2}
+  - {fileID: 11400000, guid: d3af4aa7f877d7a4c9c87eed8b07320a, type: 2}
+  - {fileID: 11400000, guid: 89a3679da22f251459ebb11b35c74454, type: 2}
+  - {fileID: 11400000, guid: 8b4043aacec5c43478c61ba892b96c57, type: 2}

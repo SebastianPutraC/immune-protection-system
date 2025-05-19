@@ -16,4 +16,8 @@ MonoBehaviour:
   DecisionInfoText: "Sel dendritik adalah salah satu sel imun utama untuk menyajikan
     antigen ke sel imun adaptif (Professional APC). Adakah sel bawaan lain yang juga
     termasuk dalam \u201CProfessional APC\u201D? "
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 70fdd35e9371d044a9abec71d0dfd95b, type: 2}
+  - {fileID: 11400000, guid: ff04f98da9227e84992aa6a614b0240c, type: 2}
+  - {fileID: 11400000, guid: 46f3b2629b76c064d9b8eebb6ea5fd51, type: 2}
+  - {fileID: 11400000, guid: 478480fb87568a44985bcc23b4ac5715, type: 2}

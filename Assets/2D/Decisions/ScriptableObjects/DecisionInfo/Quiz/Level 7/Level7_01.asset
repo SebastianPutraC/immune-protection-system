@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 1
   DecisionInfoText: 'Sel T Pembantu dapat membantu suatu sel dalam pencernaan fagosit
     di dalam phagosome suatu sel. Sel apa yang dibantu oleh Sel T Pembantu? '
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 53e04059ad9310b47a54778f91f7b9cd, type: 2}
+  - {fileID: 11400000, guid: f74e766887b5e874596e1c4e503fdae1, type: 2}
+  - {fileID: 11400000, guid: 7e3004b5ddca81f459653abc64843054, type: 2}
+  - {fileID: 11400000, guid: 82f1d41b621d7ff4792f6f6dbec09ce6, type: 2}

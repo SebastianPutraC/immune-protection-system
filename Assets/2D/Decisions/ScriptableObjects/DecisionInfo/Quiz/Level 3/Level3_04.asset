@@ -16,4 +16,6 @@ MonoBehaviour:
   DecisionInfoText: Apakah pernyataan ini benar? Neutrofil dapat melakukan kemampuan
     Fagositosis di mana sel ini melahap patogen dan memanfaatkan phagolysosome untuk
     menghabisi patogen di dalamnya.
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 45646819aa003bd4eb3620fa366815d6, type: 2}
+  - {fileID: 11400000, guid: 600e05d993c5dba4f9cb9468e07ebcf2, type: 2}

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Level5_05
   m_EditorClassIdentifier: 
   decisionId: 5
-  DecisionInfoText: Apa saja tipe sel imun bawaan di dalam tubuh manusia?
-  DecisionButtons: []
+  DecisionInfoText: Sel Pembunuh Alami termasuk dalam sel imun tipe?
+  DecisionButtons:
+  - {fileID: 11400000, guid: d358ac30144301746b08dd4145f1f073, type: 2}
+  - {fileID: 11400000, guid: 936c93408219d0046928f91100c801ce, type: 2}
+  - {fileID: 11400000, guid: 482dc02139dcc8a4d92bf752a0d9fcd8, type: 2}
+  - {fileID: 11400000, guid: 5bf6eda6aa9eba44fbe682752985f1fb, type: 2}

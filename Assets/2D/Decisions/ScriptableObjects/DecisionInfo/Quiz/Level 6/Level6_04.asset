@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decisionId: 4
   DecisionInfoText: 'Berapa persentase sel limfosit di sel darah putih manusia? '
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 00bd2efd0a48b94439ea663bfe7124a1, type: 2}
+  - {fileID: 11400000, guid: a9995038022f1314bb4591798c9ce508, type: 2}
+  - {fileID: 11400000, guid: 5ba5a28dc1d6b514098d15fda824179c, type: 2}
+  - {fileID: 11400000, guid: 06a1993f113712b43a8ae92a530dc86c, type: 2}

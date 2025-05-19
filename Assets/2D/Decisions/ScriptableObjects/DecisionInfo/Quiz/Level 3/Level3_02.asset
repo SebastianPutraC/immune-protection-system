@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Level3_02
   m_EditorClassIdentifier: 
   decisionId: 2
-  DecisionInfoText: Apakah pernyataan ini benar? Eosinofil dapat berperan sebagai
-    APC (Antigen Presenting Cell) untuk mengaktifkan sel imun adapatif.
-  DecisionButtons: []
+  DecisionInfoText: 'Saat jaringan terinfeksi oleh patogen, Makrofag melakukan sekresi
+    protein yang dapat memberikan sinyal ke sel lain untuk masuk ke area infeksi.
+    Protein tersebut adalah? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: 528da847ffe802449bf9604ae1658059, type: 2}
+  - {fileID: 11400000, guid: 80660abddc6dcb044a7f3f60c2c4bc23, type: 2}
+  - {fileID: 11400000, guid: b81f02bb75197db41972dc1bc633796f, type: 2}
+  - {fileID: 11400000, guid: 6c0f8c6f98e88a24e96485d073f2b132, type: 2}

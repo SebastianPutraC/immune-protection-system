@@ -65,4 +65,9 @@ public class BattleCameraController : MonoBehaviour //Will update this
 
         transform.Translate(move, Space.World);
     }
+
+    public void SetCameraPosition(Vector2 cameraPosition)
+    {
+        this.gameObject.transform.position = new Vector3(cameraPosition.x, cameraPosition.y, zPosition);
+    }    
 }

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Level2_05
   m_EditorClassIdentifier: 
   decisionId: 5
-  DecisionInfoText: 
-  DecisionButtons: []
+  DecisionInfoText: 'Sel Plasma termasuk dalam kategori sel imun apa? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: 40ae2ea8086c06045a46fe8ae5c736b9, type: 2}
+  - {fileID: 11400000, guid: 63a5dd2b91fb8c046a39fc6686f6e959, type: 2}
+  - {fileID: 11400000, guid: 66bae78797132f54d8637d70de6f248f, type: 2}
+  - {fileID: 11400000, guid: 19ac9e3277f76ae48882c38806e9842e, type: 2}

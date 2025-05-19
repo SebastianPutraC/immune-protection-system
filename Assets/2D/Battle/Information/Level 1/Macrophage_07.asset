@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: Dalam permainan, kemampuan ini berupa "Melee Attack" atau kemampuan untuk
-    menyerang musuh dalam jarak dekat.
+  InfoText: Saya juga dapat melakukan Inflamasi. Saya mengeluarkan protein yang disebut
+    Sitokin dan Kemokin. Protein ini bertindak sebagai sinyal bagi sel imun lain
+    untuk melawan patogen.

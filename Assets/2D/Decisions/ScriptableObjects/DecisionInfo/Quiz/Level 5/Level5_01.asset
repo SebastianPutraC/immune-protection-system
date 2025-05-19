@@ -16,4 +16,8 @@ MonoBehaviour:
   DecisionInfoText: 'Sel Pembunuh Alami dapat membunuh suatu sel yang telah terinfeksi
     dan membunuhnya dengan memaksa sel untuk menjalankan suatu proses. Proses tersebut
     bernama? '
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 20ee0c86ed20a6747b4ddb3c4f1c20bd, type: 2}
+  - {fileID: 11400000, guid: 004565b584fa7f5428d99192865b6e70, type: 2}
+  - {fileID: 11400000, guid: db850607bba005d429b712ef2f20d852, type: 2}
+  - {fileID: 11400000, guid: b555ad133678a57418c54279f0370639, type: 2}

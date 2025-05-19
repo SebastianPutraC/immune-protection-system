@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 2
   DecisionInfoText: Dalam melawan antigen, Sel T Pembantu juga membantu sekresi antibodi
     yang dikeluarkan dari suatu sel. Sel apa yang dibantu oleh Sel T Pembantu?
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 4bd0ab442fe9adb4094008a89aab7dc9, type: 2}
+  - {fileID: 11400000, guid: b941f07bae8beb3489cf74df4ad87b31, type: 2}
+  - {fileID: 11400000, guid: f215b0f61cfbad04fa378a778b0bb1f2, type: 2}
+  - {fileID: 11400000, guid: ba1c458899dec3c438afadc4e44aa05d, type: 2}

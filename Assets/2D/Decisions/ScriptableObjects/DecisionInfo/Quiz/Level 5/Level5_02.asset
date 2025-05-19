@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 2
   DecisionInfoText: Mendeteksi sel terinfeksi merupakan salah satu kemampuan terbesar
     Sel Pembunuh Alami. Bagaimana sel tersebut dapat mendeteksi sel yang terinfeksi?
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: ad301157febcde744bb356f0685163e8, type: 2}
+  - {fileID: 11400000, guid: e0438860dd03e134dbc2abc59e772eb8, type: 2}
+  - {fileID: 11400000, guid: 7a4f99d6bd1ba044da296680f136c116, type: 2}
+  - {fileID: 11400000, guid: 12acdc5c5de6ac54b9964a5b95c0278b, type: 2}

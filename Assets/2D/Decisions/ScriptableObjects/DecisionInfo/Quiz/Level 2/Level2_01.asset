@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 1
   DecisionInfoText: 'Sel darah putih apa yang akan berubah menjadi makrofag sebelum
     sel tersebut menjadi dewasa dan mencapai jaringan? '
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 4c7f066dc8c12df448c4cb2b6ee99d62, type: 2}
+  - {fileID: 11400000, guid: 04c227735a707b44d817b1f77bb0fbad, type: 2}
+  - {fileID: 11400000, guid: 81ee336141b884c47812a652d3ebf585, type: 2}
+  - {fileID: 11400000, guid: f16880d8fed0c1941b0ea30ec04f03ca, type: 2}

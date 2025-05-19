@@ -16,4 +16,6 @@ MonoBehaviour:
   DecisionInfoText: Apakah pernyataan ini benar? Setelah melakukan seluruh tugasnya,
     Sel T Pembantu terus hidup seperti Sel Memori untuk mengingat tipe antibodi yang
     tepat dalam melawan patogen yang beragam
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 0a394f3239a140246aac96014d55bab9, type: 2}
+  - {fileID: 11400000, guid: 30c759b1cdb9a6948ad6b33d084ba227, type: 2}

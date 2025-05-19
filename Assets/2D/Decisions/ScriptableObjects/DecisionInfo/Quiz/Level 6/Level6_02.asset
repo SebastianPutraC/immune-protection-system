@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 2
   DecisionInfoText: 'Pada proses pembunuhan sel yang terinfeksi, Sel T Pembunuh memasukkan
     protein bernama? '
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 0d1b437847b46c84eb56c72313aaad68, type: 2}
+  - {fileID: 11400000, guid: 64ed53088879d79448d2fe13bd24c305, type: 2}
+  - {fileID: 11400000, guid: f6a5c7ef538af9d4f833ea2b7e10b062, type: 2}
+  - {fileID: 11400000, guid: 7af375f66c073e74c9fccd3104a4b63d, type: 2}

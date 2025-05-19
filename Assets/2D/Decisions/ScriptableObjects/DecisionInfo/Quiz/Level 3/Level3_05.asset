@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Level3_05
   m_EditorClassIdentifier: 
   decisionId: 5
-  DecisionInfoText: 
-  DecisionButtons: []
+  DecisionInfoText: Terdapat lima tipe imunoglobulin yang menjadi antibodi yang diproduksi
+    oleh Sel Plasma. Apa saja kelima imunoglobulin tersebut?
+  DecisionButtons:
+  - {fileID: 11400000, guid: b205c6673d82c8d4aa1b15a127cc364e, type: 2}
+  - {fileID: 11400000, guid: 696920e68d317824ca73e3600652392b, type: 2}
+  - {fileID: 11400000, guid: 263d38b84cb1edf4e8dd7db32fd6a6aa, type: 2}
+  - {fileID: 11400000, guid: 143d9c59c6b8c57439e2771559b0b7c5, type: 2}

@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 1
   DecisionInfoText: Berapa perkiraan jumlah persentase Eosinofil dalam sel darah
     putih?
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 7bd8b737bd9207443974350d1d66db8a, type: 2}
+  - {fileID: 11400000, guid: 66d0728312f9caa469ff385b01449710, type: 2}
+  - {fileID: 11400000, guid: d9d2b637d2edebd4ab21de99a9d0e061, type: 2}
+  - {fileID: 11400000, guid: 737c2fe5dddefa74b9b9f2b0168b7b62, type: 2}

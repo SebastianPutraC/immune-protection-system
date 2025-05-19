@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decisionId: 2
   DecisionInfoText: Apa yang menjadi tugas utama dan yang terpenting untuk sel dendritik?
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 71f1a556596aee142a1d9107b9fec198, type: 2}
+  - {fileID: 11400000, guid: f7925e0204ca27c4287c8187ad5ffc06, type: 2}
+  - {fileID: 11400000, guid: 94231709cab573d47a0963a50cb7f043, type: 2}
+  - {fileID: 11400000, guid: d1f0dcb5acac7b247ab51a14baca77f6, type: 2}

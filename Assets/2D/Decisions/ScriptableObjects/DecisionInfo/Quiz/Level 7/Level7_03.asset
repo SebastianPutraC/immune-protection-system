@@ -15,4 +15,8 @@ MonoBehaviour:
   decisionId: 3
   DecisionInfoText: 'Terdapat dua tipe dari Sel T Pembantu berdasarkan tugasnya.
     Apa tugas utama dari Sel T Pembantu tipe 2? '
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: 5cfd2409e3194ca46912187731ae5fcc, type: 2}
+  - {fileID: 11400000, guid: 70b830aa957dbbe4f9f69def74e7ec71, type: 2}
+  - {fileID: 11400000, guid: ce082b97df94b8b45a20f2dd786868ac, type: 2}
+  - {fileID: 11400000, guid: fe6237455427e544f88f23bb287a8e95, type: 2}

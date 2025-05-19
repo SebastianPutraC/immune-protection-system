@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: 'Ketika saya melakukan fagositosis, saya akan mencoba melahap patogen.
-    Ketika di dalam, vesikel yang disebut Fagosom dibuat untuk membungkus patogen.
-    Kemudian organel Lisosom memecah patogen di dalam Fagosom. Pembentukan ini disebut
-    Fagolisosom. '
+  InfoText: Dalam permainan, kemampuan ini berupa "Melee Attack" atau kemampuan untuk
+    menyerang musuh dalam jarak dekat.

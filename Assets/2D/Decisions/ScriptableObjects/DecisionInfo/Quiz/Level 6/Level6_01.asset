@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decisionId: 1
   DecisionInfoText: Apa nama lain dari Sel T Pembunuh?
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: e401e013d22b387478b8cf0d084b35e8, type: 2}
+  - {fileID: 11400000, guid: d934c2ccf0e22db45bdf05863e07afef, type: 2}
+  - {fileID: 11400000, guid: 9a2d2eb88c5ee0944aab6b1db49a52ed, type: 2}
+  - {fileID: 11400000, guid: bcbf505d61adced4799aab1803037c9a, type: 2}

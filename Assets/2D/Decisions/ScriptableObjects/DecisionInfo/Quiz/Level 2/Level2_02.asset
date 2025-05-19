@@ -16,4 +16,8 @@ MonoBehaviour:
   DecisionInfoText: Saat makrofag melahap patogen, kehancuran patogen disebabkan
     oleh phagolysosome yang membunuh dan menghabiskan patogen dalam makrofag. Kombinasi
     organel sel apa yang membentuk phagolysosome?
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: f5eab7a6405cf4e449d174c50cb98bf2, type: 2}
+  - {fileID: 11400000, guid: 7aa2379ad9f1d23478158c465b2803ee, type: 2}
+  - {fileID: 11400000, guid: bdad135d53af50b4eb9c6d65e95a6872, type: 2}
+  - {fileID: 11400000, guid: a31b1a6a92424bd408fc870df16484aa, type: 2}

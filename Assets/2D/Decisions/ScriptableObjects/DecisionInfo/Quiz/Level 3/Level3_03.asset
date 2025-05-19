@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Level3_03
   m_EditorClassIdentifier: 
   decisionId: 3
-  DecisionInfoText: 'Saat jaringan terinfeksi oleh patogen, Makrofag melakukan sekresi
-    protein yang dapat memberikan sinyal ke sel lain untuk masuk ke area infeksi.
-    Protein tersebut adalah? '
-  DecisionButtons: []
+  DecisionInfoText: 'Eosinophil dapat mengeluarkan enzim yang beracun kepada patogen.
+    Apa jenis enzim tersebut? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: befe1e78162e4e44da7236528ee3c86f, type: 2}
+  - {fileID: 11400000, guid: 47ca8f178511b194894ce25d0100442b, type: 2}
+  - {fileID: 11400000, guid: 0dfb392e19a70b248be02216adc37f3d, type: 2}
+  - {fileID: 11400000, guid: f5b802b4615c583468eaed67a4d46c28, type: 2}

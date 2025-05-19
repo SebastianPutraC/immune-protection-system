@@ -16,4 +16,8 @@ MonoBehaviour:
   DecisionInfoText: 'Neutrofil memiliki kemampuan untuk melepaskan fibril matriks
     dari DNA dan protein anti-mikrobial untuk menjebak dan membunuh patogen. Apa
     jenis kemampuan neutrofil tersebut? '
-  DecisionButtons: []
+  DecisionButtons:
+  - {fileID: 11400000, guid: a4dd7fb5a7965fd41a2169112d0bcb19, type: 2}
+  - {fileID: 11400000, guid: cc666bbcc7a77cd438b01b9691379d59, type: 2}
+  - {fileID: 11400000, guid: 04723904b0b31a04bb050d2b2ecc6c95, type: 2}
+  - {fileID: 11400000, guid: 8c8330269218f294885d43c173077d61, type: 2}

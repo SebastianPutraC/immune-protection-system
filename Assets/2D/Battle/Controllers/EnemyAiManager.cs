@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class EnemyAiManager : MonoBehaviour
 {
+    private int currentResourcePoints;
+    private int maxResourcePoints;
+    private float resourcePointIncome;
+
     public List<LaneData> lanes;
     public List<UnitData> units;
 

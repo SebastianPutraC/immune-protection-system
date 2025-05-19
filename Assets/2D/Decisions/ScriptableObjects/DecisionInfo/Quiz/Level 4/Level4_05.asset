@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Level4_05
   m_EditorClassIdentifier: 
   decisionId: 5
-  DecisionInfoText: 
-  DecisionButtons: []
+  DecisionInfoText: 'Sebelum sel plasma menjadi dewasa, sel ini tetap melakukan fungsinya
+    dengan memproduksi antibodi tetapi dengan jumlah yang lebih sedikit. Apa nama
+    sel tersebut? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: c9d729bc8ee0f1a4db8d362b50ad1784, type: 2}
+  - {fileID: 11400000, guid: c89dc4f0ce5793a4bb3f30138eacd363, type: 2}
+  - {fileID: 11400000, guid: 945760cabf7207840a0f6bae3f08500e, type: 2}
+  - {fileID: 11400000, guid: 45371f6e64a2b1c4bab74dcd3d4c9344, type: 2}

@@ -24,7 +24,6 @@ public class TutorialController : BattleController
 {
     [SerializeField] private Button skipTutorial;
     [SerializeField] private TextMeshProUGUI tutorialText;
-    [SerializeField] private InformationPopup infoPopup;
 
     [SerializeField] private GameObject inGameIndicator;
     [SerializeField] private GameObject uiIndicator;

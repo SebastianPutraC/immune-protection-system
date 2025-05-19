@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
+  m_Name: Level5_01_04_Correct
+  m_EditorClassIdentifier: 
+  DecisionButtonText: Apoptosis
+  StatMod:
+    ModType: 0
+    StatToMod: 0
+    ModValue: 0
+  IsPickNextInfo: 0
+  NextDecisionID: 0
+  IsQuiz: 0
+  IsCorrect: 0
