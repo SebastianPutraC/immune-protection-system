@@ -94,6 +94,11 @@ public class SaveManagerSingleton : MonoBehaviour
         selectedSaveData.quizScores.Where(x => x.quizId == (int)levelId).FirstOrDefault().quizScore = score;
         SaveProfileData();
     }
+    public void UpdateName(string newName)
+    {
+        selectedSaveData.profileName = newName;
+        SaveProfileData();
+    }
 
     public Dictionary<string, SaveData> GetAllSaveData()
     {
