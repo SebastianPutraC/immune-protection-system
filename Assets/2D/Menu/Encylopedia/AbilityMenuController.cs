@@ -24,6 +24,7 @@ public class AbilityMenuController : MonoBehaviour
     }
     public void InitializeMenu(UnitData unitData)
     {
+        ResetDescription();
         unitNameText.text = unitData.UnitName;
         for (int i = 0; i < unitData.UnitAbility.Count; i++)
         {
@@ -53,6 +54,11 @@ public class AbilityMenuController : MonoBehaviour
         {
             abilityImage.gameObject.SetActive(false);
         }
+    }
+    private void ResetDescription()
+    {
+        abilityImage.gameObject.SetActive(false);
+        abilityDescriptionText.text = "";
     }
 
     private void OnEncyclopediaButtonPressed()

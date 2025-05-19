@@ -19,5 +19,5 @@ MonoBehaviour:
     ModValue: 0
   IsPickNextInfo: 0
   NextDecisionID: 0
-  IsQuiz: 0
+  IsQuiz: 1
   IsCorrect: 0
