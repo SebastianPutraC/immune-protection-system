@@ -20,5 +20,5 @@ MonoBehaviour:
     kompetitif. Dia tahu bahwa jika dia bermain secara kompetitif, dia akan semakin
     stres dengan hal-hal yang mungkin terjadi dalam permainan.
   DecisionButtons:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3cdc35767ad2aec4e9a5a33bacac6ae8, type: 2}
+  - {fileID: 11400000, guid: 6cba55a36c8a35c4b91e100021ae3c5c, type: 2}

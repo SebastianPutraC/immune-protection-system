@@ -48,6 +48,7 @@ MonoBehaviour:
   unitSide: 1
   trigger: {fileID: 8076563334776430376}
   isPresenter: 1
+  isCheckCell: 0
 --- !u!61 &8076563334776430376
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10370,6 +10371,7 @@ MonoBehaviour:
   unitSide: 1
   trigger: {fileID: 5076051849865452390}
   isPresenter: 0
+  isCheckCell: 0
 --- !u!70 &5076051849865452390
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10488,6 +10490,7 @@ MonoBehaviour:
   unitSide: 1
   trigger: {fileID: 103621405168916007}
   isPresenter: 0
+  isCheckCell: 0
 --- !u!70 &103621405168916007
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10523,7 +10526,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 6, y: 6}
   m_Direction: 1
 --- !u!1 &8198603798534628444
 GameObject:

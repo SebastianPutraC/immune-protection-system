@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b2a9c7b5e8df242af4d08629cc0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routeId: 3
+  routeId: 33
   waypoints:
   - {fileID: 125537743328344645}
   - {fileID: 2206283424981237918}
@@ -3421,8 +3421,8 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1000278896463658433}
   - {fileID: 2079628729183953412}
+  - {fileID: 1000278896463658433}
   m_Father: {fileID: 4126951902430647375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1486630994726677554
@@ -3494,8 +3494,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   routeId: 4
   waypoints:
-  - {fileID: 1000278896463658433}
   - {fileID: 2079628729183953412}
+  - {fileID: 1000278896463658433}
   allyConnectingRouteIds: 2c000000
   enemyConnectingRouteIds: 
 --- !u!1 &3604947092164599409
@@ -4237,7 +4237,7 @@ GameObject:
   - component: {fileID: 1000278896463658433}
   - component: {fileID: 3064949094562622741}
   m_Layer: 0
-  m_Name: Waypoint 1
+  m_Name: Waypoint 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7540,7 +7540,7 @@ GameObject:
   - component: {fileID: 2079628729183953412}
   - component: {fileID: 399427858984260874}
   m_Layer: 0
-  m_Name: Waypoint 2
+  m_Name: Waypoint 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

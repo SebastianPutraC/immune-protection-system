@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 3417523179221809239}
   - component: {fileID: 4286117310747024020}
   m_Layer: 0
-  m_Name: Route 44
+  m_Name: Route 444
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -622,12 +622,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b2a9c7b5e8df242af4d08629cc0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routeId: 44
+  routeId: 444
   waypoints:
   - {fileID: 1035740181450599402}
   - {fileID: 7235452444866026058}
-  allyConnectingRouteIds: bc010000
-  enemyConnectingRouteIds: 04000000
+  allyConnectingRouteIds: 5c110000
+  enemyConnectingRouteIds: 2c000000
 --- !u!1 &1087104014878996679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,8 +1795,8 @@ MonoBehaviour:
   - {fileID: 4565829333154884787}
   - {fileID: 7849316801226899029}
   - {fileID: 51704288834195185}
-  - {fileID: 4286117310747024020}
   - {fileID: 312322581946932684}
+  - {fileID: 4286117310747024020}
   - {fileID: 199770525382598512}
   allySpawners:
   - {fileID: 2705697267810380702}
@@ -1816,8 +1816,8 @@ MonoBehaviour:
   enemyBaseControllers:
   - {fileID: 6316797427444567683}
   upLimit: 15
-  leftLimit: 28
-  rightLimit: -28
+  leftLimit: -28
+  rightLimit: 28
   downLimit: -15
   startingCameraPosition: {x: -23, y: 0}
 --- !u!1 &2911138319726400846
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b2a9c7b5e8df242af4d08629cc0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routeId: 444
+  routeId: 4444
   waypoints:
   - {fileID: 3444300897747793130}
   - {fileID: 8516395810871171194}
@@ -2396,7 +2396,7 @@ GameObject:
   - component: {fileID: 1171978783214862095}
   - component: {fileID: 312322581946932684}
   m_Layer: 0
-  m_Name: Route 444
+  m_Name: Route 44
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2486,12 +2486,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b2a9c7b5e8df242af4d08629cc0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routeId: 444
+  routeId: 44
   waypoints:
   - {fileID: 8420722246315786717}
   - {fileID: 6516296401077876691}
-  allyConnectingRouteIds: 5c110000
-  enemyConnectingRouteIds: 2c000000
+  allyConnectingRouteIds: bc010000
+  enemyConnectingRouteIds: 04000000
 --- !u!1 &3972425325125588177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,8 +3063,8 @@ Transform:
   - {fileID: 7858899529271487322}
   - {fileID: 4513485227679889852}
   - {fileID: 5979318141063579928}
-  - {fileID: 7581288879342083453}
   - {fileID: 6203965044228676133}
+  - {fileID: 7581288879342083453}
   - {fileID: 5803104524989274265}
   m_Father: {fileID: 2578880943014497943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5603,7 +5603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b2a9c7b5e8df242af4d08629cc0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routeId: 111
+  routeId: 1111
   waypoints:
   - {fileID: 8874455237916688434}
   - {fileID: 6940469896464782108}

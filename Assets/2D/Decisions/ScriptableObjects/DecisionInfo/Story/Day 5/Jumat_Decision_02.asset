@@ -19,5 +19,5 @@ MonoBehaviour:
     lagi. Ia tahu bahwa bermain bersama teman \u2013 teman terkadang menghabiskan
     banyak waktu. Ia perlu memikirkan waktu belajar, bermain, dan tidur setelah pulang"
   DecisionButtons:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: b223c9c3b840d574f8b90bdd56453358, type: 2}
+  - {fileID: 11400000, guid: 3b6c1566d36e13c4bb7ac6e7a0123717, type: 2}
