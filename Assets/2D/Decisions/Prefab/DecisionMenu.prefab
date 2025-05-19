@@ -636,6 +636,7 @@ MonoBehaviour:
   decisionDescription: {fileID: 5912862295643528240}
   decisionButtonsContent: {fileID: 6540372747460403222}
   buttonPrefab: {fileID: 1689890548646016440, guid: 422fa62542f90d84bb8ac1775ea3b30a, type: 3}
+  continueButtonPrefab: {fileID: 2292225341914567620, guid: 10bad0753350d684fbb1f51593eb71f8, type: 3}
 --- !u!1 &7803640771519890905
 GameObject:
   m_ObjectHideFlags: 0

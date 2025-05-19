@@ -44,6 +44,7 @@ public class StoryDecisionController : MonoBehaviour
         startLevel.onClick.AddListener(OnStartSelected);
         saveScoreButton.onClick.AddListener(OnSaveScoreSelected);
         dontSaveButton.onClick.AddListener(OnDontSaveSelected);
+        decisionMenuController.ContinueAnswer += OnContinueAnswer;
     }
 
     private void Start()
@@ -121,8 +122,17 @@ public class StoryDecisionController : MonoBehaviour
                 currentScore -= depleteScore;
             }
         }
+        if (currentPhase == StoryPhase.QUIZ)
+        {
+            decisionMenuController.InitializeMenuQuizAnswer(buttonInfo.DecisionButtonText, buttonInfo.IsCorrect);
+            return;
+        }
 
         CheckPhase();
+        ReadyDecisionPanel();
+    }
+    private void ReadyDecisionPanel()
+    {
         if (currentPhase != StoryPhase.NONE && currentPhase != StoryPhase.READY && currentPhase != StoryPhase.SCORE)
         {
             DecisionInfoSO newDecision = null;
@@ -138,6 +148,11 @@ public class StoryDecisionController : MonoBehaviour
             scorePanel.gameObject.SetActive(false);
             OpenReadyPanel();
         }
+    }
+    private void OnContinueAnswer()
+    {
+        CheckPhase();
+        ReadyDecisionPanel();
     }
     private void CheckPhase()
     {
@@ -165,6 +180,7 @@ public class StoryDecisionController : MonoBehaviour
                 {
                     currentPhase = StoryPhase.QUIZ;
 
+                    currentIndex = 1;
                     isPlayQuiz = true;
                     currentScore = 100;
                     depleteScore = 100 / quizInfos.Count;
@@ -198,16 +214,19 @@ public class StoryDecisionController : MonoBehaviour
     }
     private void NextDecision(DecisionInfoSO decisionInfo)
     {
-        decisionMenuController.InitializeMenu(decisionInfo);
+        decisionMenuController.InitializeMenu(decisionInfo, currentPhase);
     }
     private void OpenReadyPanel()
     {
         currentPhase = StoryPhase.READY;
         decisionMenuController.gameObject.SetActive(false);
+        scorePanel.gameObject.SetActive(false);
         readyPanel.SetActive(true);
     }
     private void OpenScorePanel()
     {
+        readyPanel.SetActive(false);
+        decisionMenuController.gameObject.SetActive(false);
         scorePanel.gameObject.SetActive(true);
 
         scoreText.text = currentScore.ToString();
@@ -243,6 +262,7 @@ public class StoryDecisionController : MonoBehaviour
         startLevel.onClick.RemoveListener(OnStartSelected);
         saveScoreButton.onClick.RemoveListener(OnSaveScoreSelected);
         dontSaveButton.onClick.RemoveListener(OnDontSaveSelected);
+        decisionMenuController.ContinueAnswer -= OnContinueAnswer;
     }
 }
 
