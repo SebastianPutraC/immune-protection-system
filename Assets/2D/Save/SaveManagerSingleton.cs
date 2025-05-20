@@ -50,10 +50,19 @@ public class SaveManagerSingleton : MonoBehaviour
         this.profileId = profileId;
         selectedSaveData = allSaveData[profileId];
     }
-    public void DeleteProfileData(string profileId)
+    public void ResetProfileData(string profileId)
     {
+        string playerName = selectedSaveData.profileName;
+        float musicVolume = selectedSaveData.musicVolume;
+        float sfxVolume = selectedSaveData.sfxVolume;
+
         saveFileHandler.DeleteData(profileId);
+        NewProfileData(profileId);
         LoadProfileData();
+        PickProfileData(profileId);
+
+        UpdateName(playerName);
+        UpdateSoundData(musicVolume, sfxVolume);
     }
 
     public void LoadProfileData()

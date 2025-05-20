@@ -40,6 +40,7 @@ public class ProfileMenuController : MonoBehaviour
         changeNameButton.onClick.AddListener(OpenChangeNamePanel);
         cancelButton.onClick.AddListener(OpenStatisticPanel);
         confirmButton.onClick.AddListener(ChangeName);
+        deleteProgressButton.onClick.AddListener(ResetProgress);
     }
 
     public void InitializeProfile(SaveData saveData)
@@ -84,6 +85,11 @@ public class ProfileMenuController : MonoBehaviour
 
         OpenStatisticPanel();
     }
+    private void ResetProgress()
+    {
+        SaveManagerSingleton.Instance.ResetProfileData("Profile");
+        InitializeProfile(SaveManagerSingleton.Instance.GetSelectedSaveData());
+    }
 
     private void OpenQuizPanel()
     {
@@ -116,5 +122,6 @@ public class ProfileMenuController : MonoBehaviour
         changeNameButton.onClick.RemoveListener(OpenChangeNamePanel);
         cancelButton.onClick.RemoveListener(OpenStatisticPanel);
         confirmButton.onClick.RemoveListener(ChangeName);
+        deleteProgressButton.onClick.RemoveListener(ResetProgress);
     }
 }
