@@ -83,7 +83,7 @@ public class BattleController : MonoBehaviour
         if (levelInfo.IntroInfos.Count > 0)
         {
             Time.timeScale = 0;
-            infoPopup.InitializePopup(levelInfo.IntroInfos);
+            infoPopup.InitializePopup(levelInfo.IntroInfos, levelInfo.skipIntroIndex);
         }
         else
         {

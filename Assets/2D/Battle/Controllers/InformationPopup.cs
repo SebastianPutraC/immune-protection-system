@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Linq;
 
 public class InformationPopup : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class InformationPopup : MonoBehaviour
 
     [SerializeField] private Button nextInfoButton;
     [SerializeField] private Button skipInfoButton;
+    [SerializeField] private Button skipSomeButton;
+
+    private List<int> skipIndexList = new List<int>();
 
     private int currentInfoIndex = 0;
 
@@ -22,11 +26,16 @@ public class InformationPopup : MonoBehaviour
     {
         nextInfoButton.onClick.AddListener(NextInfo);
         skipInfoButton.onClick.AddListener(ExitPopup);
+        skipSomeButton.onClick.AddListener(SkipSomeInfo);
     }
 
-    public void InitializePopup(List<InformationSO> informations)
+    public void InitializePopup(List<InformationSO> informations, List<int> skipIndex = null)
     {
         this.gameObject.SetActive(true);
+        if (skipIndex != null)
+        {
+            skipIndexList = skipIndex;
+        }
         currentInfoIndex = 0;
         currentInformation = informations;
         ShowInfo(currentInformation[0]);
@@ -65,6 +74,19 @@ public class InformationPopup : MonoBehaviour
             infoMascot.gameObject.SetActive(true);
         }
     }
+    private void SkipSomeInfo()
+    {
+        List<int> forwardIndex = skipIndexList.Where(x => x > currentInfoIndex).ToList();
+        if (forwardIndex.Count <= 0)
+        {
+            ExitPopup();
+        }
+        else
+        {
+            currentInfoIndex = forwardIndex[0];
+            ShowInfo(currentInformation[currentInfoIndex]);
+        }
+    }
     public void ExitPopup()
     {
         this.gameObject.SetActive(false);
@@ -75,5 +97,6 @@ public class InformationPopup : MonoBehaviour
     {
         nextInfoButton.onClick.RemoveListener(NextInfo);
         skipInfoButton.onClick.RemoveListener(ExitPopup);
+        skipSomeButton.onClick.RemoveListener(SkipSomeInfo);
     }
 }

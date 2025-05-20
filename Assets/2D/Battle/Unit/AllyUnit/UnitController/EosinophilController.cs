@@ -2,13 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EosinophilController : AllyUnitController, IPresenter
+public class EosinophilController : AllyUnitController
 {
     [SerializeField] protected ParticleSystem AoeEffect;
-
-    [SerializeField] private DetectionTrigger antigenDetect;
-    [SerializeField] private Transform antigenCarryPosition;
-    private AntigenController carriedAntigen;
 
     [SerializeField] private DetectionTrigger netDetection;
     [SerializeField] private ParticleSystem netEffect;
@@ -22,7 +18,6 @@ public class EosinophilController : AllyUnitController, IPresenter
     protected override void Awake()
     {
         base.Awake();
-        antigenDetect.enemyDetected += GetAntigen;
         netDetection.enemyDetected += NetDetect;
     }
 
@@ -78,43 +73,6 @@ public class EosinophilController : AllyUnitController, IPresenter
         }
     }
 
-    public void GetAntigen(UnitController antigen)
-    {
-        if (isPresenting)
-        {
-            if (carriedAntigen == null)
-            {
-                if (antigen is not AntigenController)
-                {
-                    return;
-                }
-                else
-                {
-                    AntigenController carriedAntigen = (AntigenController)antigen;
-                    carriedAntigen.ObjectCarried();
-                    carriedAntigen.transform.parent = antigenCarryPosition;
-                    carriedAntigen.transform.position = antigenCarryPosition.position;
-
-                    if (carriedAntigen != null)
-                    {
-                        this.carriedAntigen = carriedAntigen;
-                    }
-                    ReturnToBase();
-                }
-            }
-        }
-    }
-    public void ReturnToBase()
-    {
-        isReturning = true;
-        GetNewWaypoint(false, isReturning);
-    }
-    public void ArrivedAtBase()
-    {
-        AntigenPresented?.Invoke(carriedAntigen.intelAmount);
-        Destroy(this.gameObject);
-    }
-
     protected void ActivateNet()
     {
         trapActivated = true;
@@ -144,7 +102,6 @@ public class EosinophilController : AllyUnitController, IPresenter
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        antigenDetect.enemyDetected -= GetAntigen;
         netDetection.enemyDetected -= NetDetect;
     }
 }

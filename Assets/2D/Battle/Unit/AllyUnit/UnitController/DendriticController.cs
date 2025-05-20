@@ -20,6 +20,8 @@ public class DendriticController : AllyUnitController, IInflammator, IPresenter
     {
         base.Awake();
         antigenDetect.enemyDetected += GetAntigen;
+        isPresenting = false;
+        antigenDetect.gameObject.SetActive(false);
     }
 
     public void GetAntigen(UnitController antigen)
@@ -46,6 +48,27 @@ public class DendriticController : AllyUnitController, IInflammator, IPresenter
                     ReturnToBase();
                 }
             }
+        }
+    }
+    public override void ProcessAbility(AbilityId ability)
+    {
+        base.ProcessAbility(ability);
+        switch (ability)
+        {
+            case AbilityId.APC:
+                if (isPresenting)
+                {
+                    isPresenting = false;
+                    antigenDetect.gameObject.SetActive(false);
+                }
+                else
+                {
+                    isPresenting = true;
+                    antigenDetect.gameObject.SetActive(true);
+                }
+                break;
+            default:
+                break;
         }
     }
     public void ReturnToBase()

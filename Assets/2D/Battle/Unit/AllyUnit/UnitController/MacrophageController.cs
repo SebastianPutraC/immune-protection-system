@@ -20,6 +20,8 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
     {
         base.Awake();
         antigenDetect.enemyDetected += GetAntigen;
+        isPresenting = false;
+        antigenDetect.gameObject.SetActive(false);
     }
     protected override void Update()
     {
@@ -48,12 +50,14 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
         switch (ability)
         {
             case AbilityId.APC:
-                if (antigenDetect.gameObject.activeSelf)
+                if (isPresenting)
                 {
+                    isPresenting = false;
                     antigenDetect.gameObject.SetActive(false);
                 }
                 else
                 {
+                    isPresenting = true;
                     antigenDetect.gameObject.SetActive(true);
                 }
                 break;

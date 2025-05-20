@@ -23,7 +23,6 @@ public class LevelController : MonoBehaviour
 
     public Route GetRouteByID(int id)
     {
-        Debug.Log("Get Route By ID : " + id);
         Route chosenRoute = routes.Where(route => route.routeId == id).FirstOrDefault();
         return chosenRoute;
     }

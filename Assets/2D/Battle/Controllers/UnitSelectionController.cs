@@ -11,7 +11,7 @@ public class UnitSelectionController : MonoBehaviour
     public Action<AllyUnitController> UnitSelected;
     private float zDistance;
 
-    private void Awake()
+    private void Start()
     {
         layerMask = LayerMask.GetMask("Ally");
         zDistance = Mathf.Abs(cam.transform.position.z - battlefieldZPosition.position.z);

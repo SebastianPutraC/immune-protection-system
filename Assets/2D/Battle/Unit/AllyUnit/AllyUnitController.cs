@@ -31,7 +31,14 @@ public class AllyUnitController : DeployedUnitController
     }
     public override void SetNewRoute(Route route)
     {
-        currentWaypointIndex = 0;
+        if (isReturning)
+        {
+            currentWaypointIndex = route.GetWaypointsLength();
+        }
+        else
+        {
+            currentWaypointIndex = 0;
+        }
         currentRouteTaken = route;
         GetNewWaypoint(true, isReturning);
     }

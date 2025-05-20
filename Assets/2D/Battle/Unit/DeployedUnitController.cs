@@ -109,7 +109,6 @@ public class DeployedUnitController : UnitController
 
             if (waypoint == null)
             {
-                Debug.Log(this.gameObject + "waypoint = null");
                 UnitSide unitside = UnitSide.NONE;
                 if (this is EnemyUnitController || isReturning)
                 {
@@ -133,7 +132,6 @@ public class DeployedUnitController : UnitController
             {
                 currentTargetWaypoint = waypoint;
                 isArrived = false;
-                Debug.Log(this.gameObject + "new = " + currentTargetWaypoint);
             }
         }
     }
@@ -164,7 +162,6 @@ public class DeployedUnitController : UnitController
 
     protected virtual void Move()
     {
-        Debug.Log(this.gameObject + " : " + currentTargetWaypoint.position);
         Vector2 direction = (currentTargetWaypoint.position - transform.position).normalized;
         unitRb.linearVelocity = direction * UnitSO.UnitSpeed;
 
