@@ -1799,22 +1799,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialLevel
       objectReference: {fileID: 0}
-    - target: {fileID: 4086043843922719169, guid: 487126fe38e38ae4499eeae55bafcb7d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086043843922719169, guid: 487126fe38e38ae4499eeae55bafcb7d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9105392500550439035, guid: 487126fe38e38ae4499eeae55bafcb7d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9105392500550439035, guid: 487126fe38e38ae4499eeae55bafcb7d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -19,6 +19,10 @@ public class NeutrophilController : AllyUnitController
         base.Awake();
         netDetection.enemyDetected += NetDetect;
     }
+    private void Start()
+    {
+        netDetection.gameObject.SetActive(false);
+    }
     protected override void Update()
     {
         base.Update();

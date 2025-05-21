@@ -11,6 +11,8 @@ public class UnitSelectionController : MonoBehaviour
     public Action<AllyUnitController> UnitSelected;
     private float zDistance;
 
+    public bool canSelect = true;
+
     private void Start()
     {
         layerMask = LayerMask.GetMask("Ally");
@@ -19,15 +21,18 @@ public class UnitSelectionController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //One selected unit
+        if (canSelect)
         {
-            var mousePos = Input.mousePosition;
-            mousePos.z = zDistance;
-            RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(mousePos), transform.up, Mathf.Infinity, layerMask);
-            if (hit.collider != null && hit.collider.tag == "AllyUnit")
+            if (Input.GetMouseButtonDown(0)) //One selected unit
             {
-                AllyUnitController unitSelect = hit.collider.GetComponent<AllyUnitController>();
-                UnitSelected?.Invoke(unitSelect);
+                var mousePos = Input.mousePosition;
+                mousePos.z = zDistance;
+                RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(mousePos), transform.up, Mathf.Infinity, layerMask);
+                if (hit.collider != null && hit.collider.tag == "AllyUnit")
+                {
+                    AllyUnitController unitSelect = hit.collider.GetComponent<AllyUnitController>();
+                    UnitSelected?.Invoke(unitSelect);
+                }
             }
         }
     }

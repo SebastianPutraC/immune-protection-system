@@ -410,6 +410,10 @@ public class BattleController : MonoBehaviour
 
         unitStatsController.InitializeUnitStats(allyUnitSelected, selectedUnit.UnitSO.UnitAbility);
     }
+    protected void ResetSelected()
+    {
+        selectedUnit = null;
+    }
     protected virtual void OnAbilitySelected(AbilityId ability)
     {
         selectedUnit.ProcessAbility(ability);

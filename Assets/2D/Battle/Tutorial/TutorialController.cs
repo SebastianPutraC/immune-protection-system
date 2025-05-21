@@ -283,7 +283,7 @@ public class TutorialController : BattleController
             case TutorialPhase.NETABILITY:
                 return netAbilityInfo;
             case TutorialPhase.DEPLOYMAKRO:
-                return deployNeutroInfo;
+                return deployMakroInfo;
             case TutorialPhase.ANTIGEN:
                 return antigenInfo;
             case TutorialPhase.UNLOCKADAPTIVE:
@@ -509,6 +509,7 @@ public class TutorialController : BattleController
                 break;
             case 2:
                 unitStatsController.TurnTutorialArrow(AbilityId.MOVE);
+                barrier.gameObject.SetActive(true);
                 tutorialText.text = "Klik tombol Stop dalam panel Kemampuan di kiri bawah layar";
                 break;
             case 3:
@@ -568,12 +569,14 @@ public class TutorialController : BattleController
 
                 barrier.gameObject.SetActive(true);
 
+                StopAllButton.gameObject.SetActive(true);
                 holdArrow.SetActive(true);
                 tutorialText.text = "Klik tombol Semua Berhenti di kiri layar";
                 break;
             case 2:
                 holdArrow.SetActive(false);
                 advanceArrow.SetActive(true);
+                AdvanceAllButton.gameObject.SetActive(true);
                 tutorialText.text = "Klik tombol Semua Maju di kanan layar";
                 break;
             case 3:
@@ -657,7 +660,7 @@ public class TutorialController : BattleController
                 if (isUnitKilled)
                 {
                     subPhaseStep = 3;
-                    isProcessRunning = true;
+                    isProcessRunning = false;
                 }
                 break;
         }
@@ -669,6 +672,7 @@ public class TutorialController : BattleController
         switch (subPhaseStep)
         {
             case 1:
+                KillAllUnit();
                 AllyUnit neutrofil = (AllyUnit)UnitReferences.Where(x => x.unitId == UnitId.NEUTROPHIL).FirstOrDefault();
                 DeployAllyTutorialUnit(neutrofil, levelController.tutorialAllySpawners[0]);
 
@@ -677,12 +681,12 @@ public class TutorialController : BattleController
 
                 tutorialNeutrophil.TutorialArrow.gameObject.SetActive(true);
                 tutorialNeutrophil.transform.position = netAllyPosition.position;
-                tutorialNeutrophil.isMoveOrder = false;
                 tutorialNeutrophil.DisableDetection();
+                tutorialNeutrophil.isMoveOrder = false;
 
                 tutorialBacteriaOne.transform.position = netEnemyPosition.position;
-                tutorialBacteriaOne.isMoveOrder = false;
                 tutorialBacteriaOne.DisableDetection();
+                tutorialBacteriaOne.isMoveOrder = false;
 
                 tutorialText.text = "Klik unit Neutrofil dalam medan";
                 break;
@@ -704,7 +708,7 @@ public class TutorialController : BattleController
     private void CheckMacroPhase()
     {
         isPhaseDone = false;
-        if (isUnitSpawn && isTimerDone && allAllyUnits.Count > 0 && subPhaseStep == 3 && isUnitKilled)
+        if (isUnitSpawn && isTimerDone && allAllyUnits.Count > 0 && subPhaseStep == 4 && isUnitKilled)
         {
             isPhaseDone = true;
             return;
@@ -803,7 +807,7 @@ public class TutorialController : BattleController
         switch (subPhaseStep)
         {
             case 1:
-                if (unitPanelController.selectedCard != null)
+                if (selectedUnit != null)
                 {
                     subPhaseStep = 2;
                     isProcessRunning = false;
@@ -908,6 +912,8 @@ public class TutorialController : BattleController
                 unitPanelController.ResetUnitCards();
                 unitPanelController.InitializeUnitCards(unitList);
                 unitPanelController.TurnTutorialArrow(plasma.unitId);
+
+                unitPanelController.UnlockAdaptiveCard();
                 break;
             case 2:
                 ResetArrows();
@@ -950,6 +956,7 @@ public class TutorialController : BattleController
         switch (subPhaseStep)
         {
             case 1:
+                KillAllUnit();
                 EnemyUnit bacteria = (EnemyUnit)UnitReferences.Where(x => x.unitId == UnitId.BACTERIA).FirstOrDefault();
                 DeployEnemyTutorialUnit(bacteria, levelController.tutorialEnemySpawners[0]);
 
@@ -982,6 +989,7 @@ public class TutorialController : BattleController
         switch (subPhaseStep)
         {
             case 1:
+                KillAllUnit();
                 AllyUnit macrophage = (AllyUnit)UnitReferences.Where(x => x.unitId == UnitId.MACROPHAGE).FirstOrDefault();
                 DeployAllyTutorialUnit(macrophage, levelController.tutorialAllySpawners[0]);
 
@@ -994,7 +1002,7 @@ public class TutorialController : BattleController
                 enemyHPArrow.gameObject.SetActive(true);
                 waitTimer = 3f;
                 isCheckTime = true;
-                tutorialText.text = "Anda Meningkatkan Repair Points";
+                tutorialText.text = "Anda Meningkatkan Repair Points!";
                 break;
         }
 
@@ -1063,7 +1071,7 @@ public class TutorialController : BattleController
     private void OnUnitKilled(UnitController unitKilled)
     {
         unitKilled.ThisUnitKilled -= OnUnitKilled;
-        if (phase == TutorialPhase.BASICATTACK || phase == TutorialPhase.NETABILITY)
+        if (phase == TutorialPhase.BASICATTACK || phase == TutorialPhase.NETABILITY || phase == TutorialPhase.DEPLOYMAKRO || phase == TutorialPhase.OBJECTIVEDEF)
         {
             if (allEnemyUnits.Count <= 0)
             {
@@ -1090,6 +1098,15 @@ public class TutorialController : BattleController
         {
             allEnemyUnits[i].DealDamage(9999);
         }
+
+        if (tutorialMacrophage != null)
+            tutorialMacrophage.DealDamage(9999);
+        if (tutorialNeutrophil != null)
+            tutorialNeutrophil.DealDamage(9999);
+        if (tutorialBacteriaOne != null)
+            tutorialBacteriaOne.DealDamage(9999);
+        if (tutorialBacteriaTwo != null)
+            tutorialBacteriaTwo.DealDamage(9999);
     }
     private void DeployAllyTutorialUnit(AllyUnit allyData, ISpawner spawner)
     {

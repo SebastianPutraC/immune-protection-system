@@ -318,8 +318,10 @@ public class DeployedUnitController : UnitController
     }
     public void DisableDetection()
     {
-        enemyDetect.gameObject.SetActive(false);
-        enemyRangedDetect.gameObject.SetActive(false);
+        if (enemyDetect != null)
+            enemyDetect.gameObject.SetActive(false);
+        if (enemyRangedDetect != null)
+            enemyRangedDetect.gameObject.SetActive(false);
     }
 
     protected virtual void OnDestroy()

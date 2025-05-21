@@ -23,11 +23,16 @@ public class UnitStatsController : MonoBehaviour
         ClearUI();
     }
 
-    public void InitializeUnitStats(AllyUnitController allyUnit, List<EncyclopediaAbilitySO> abilities) //AUTOMATICALLY ADD "STOP" ABILITY | ALSO ADD SECONDARY BUTTON | MAKE SURE SITUATION OF THE UNIT BE APPLIED | ADD CHECK WHEN ADVANCE/STOP ALL
+    public void InitializeUnitStats(AllyUnitController allyUnit, List<EncyclopediaAbilitySO> abilities)
     {
         ClearUI();
+        List<EncyclopediaAbilitySO> unitAbilities = new List<EncyclopediaAbilitySO>();
 
-        List<EncyclopediaAbilitySO> unitAbilities = new List<EncyclopediaAbilitySO>(abilities);
+        if (abilities != null)
+        {
+            unitAbilities.AddRange(abilities);
+        }
+
         unitAbilities.Insert(0, stopAbility); //ESSENTIAL ABILITY
 
         unitNameText.text = allyUnit.UnitSO.UnitName;
