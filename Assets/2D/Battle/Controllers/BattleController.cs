@@ -31,6 +31,16 @@ public class BattleController : MonoBehaviour
     [SerializeField] protected GameOverPanelController gameOverPanelController;
     [SerializeField] protected BattleCameraController battleCameraController;
 
+    [SerializeField] protected AudioSource battleMusicAudioSource;
+    [SerializeField] protected AudioClip winningMusic;
+    [SerializeField] protected AudioClip losingMusic;
+
+    [SerializeField] protected AudioSource buttonAudioSource;
+
+    [SerializeField] protected AudioSource gainAudioSource;
+    [SerializeField] protected AudioClip rpGain;
+    [SerializeField] protected AudioClip intelGain;
+
     [SerializeField] protected InformationPopup infoPopup;
 
     public List<UnitData> UnitReferences = new List<UnitData>();
@@ -61,6 +71,7 @@ public class BattleController : MonoBehaviour
     }
     protected virtual void Start()
     {
+        battleMusicAudioSource.Play();
         //Get Level Info
         LevelInfo levelInfo = LevelDataSingleton.Instance.GetCurrentLevelInfo();
         allyGlobalModifiers = LevelDataSingleton.Instance.GetModifiersData(UnitSide.ALLY);
@@ -268,6 +279,11 @@ public class BattleController : MonoBehaviour
         {
             resourcePoints = maxResourcePoints;
         }
+        else
+        {
+            gainAudioSource.clip = rpGain;
+            gainAudioSource.Play();
+        }
 
         battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
     }
@@ -278,6 +294,11 @@ public class BattleController : MonoBehaviour
         {
             intelPoints = unlockIntelPoints;
             UnlockAdaptiveCells();
+        }
+        else
+        {
+            gainAudioSource.clip = intelGain;
+            gainAudioSource.Play();
         }
 
         battlePanelController.UpdateIntelPointUI(intelPoints, unlockIntelPoints);
@@ -428,11 +449,13 @@ public class BattleController : MonoBehaviour
 
     protected void PauseGame()
     {
+        battleMusicAudioSource.Pause();
         pausePanelController.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
     protected void ResumeGame()
     {
+        battleMusicAudioSource.UnPause();
         pausePanelController.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
@@ -451,11 +474,16 @@ public class BattleController : MonoBehaviour
 
             gameOverPanelController.gameObject.SetActive(true);
             gameOverPanelController.GameWon();
+
+            battleMusicAudioSource.clip = winningMusic;
+            battleMusicAudioSource.Play();
         }
         else
         {
             gameOverPanelController.gameObject.SetActive(true);
             gameOverPanelController.GameLost();
+            battleMusicAudioSource.clip = losingMusic;
+            battleMusicAudioSource.Play();
             Time.timeScale = 0;
         }
        

@@ -31,6 +31,9 @@ public class DeployedUnitController : UnitController
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitMelee = new Dictionary<int, UnitController>();
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitRanged = new Dictionary<int, UnitController>();
 
+    [SerializeField] private AudioSource unitAudioSource;
+    [SerializeField] private AudioClip deathSound;
+
     protected Route currentRouteTaken;
     protected int currentWaypointIndex;
     protected Transform currentTargetWaypoint;

@@ -12,6 +12,10 @@ public class NeutrophilController : AllyUnitController
 
     [SerializeField] protected Transform projectileSpawn;
 
+    [SerializeField] protected AudioSource rangedAttackSource;
+    [SerializeField] protected AudioClip netSound;
+    [SerializeField] protected AudioClip degranulasiSound;
+
     public GameObject TutorialArrow;
 
     protected override void Awake()
@@ -85,6 +89,9 @@ public class NeutrophilController : AllyUnitController
     {
         if (targetEnemyUnitRanged != null)
         {
+            rangedAttackSource.clip = degranulasiSound;
+            rangedAttackSource.Play();
+
             Projectile spawnProjectile = Instantiate(UnitSO.RangedProjectile, projectileSpawn);
             spawnProjectile.InitializeBulletProjectile(10, UnitSO.UnitRangedAtk, targetEnemyUnitRanged); // 10 is placeholder
         }
@@ -106,6 +113,9 @@ public class NeutrophilController : AllyUnitController
     {
         foreach (UnitController unit in detectedUnitOnTrap.Values)
         {
+            rangedAttackSource.clip = netSound;
+            rangedAttackSource.Play();
+
             if (unit != null)
             {
                 unit.DealDamage(100);

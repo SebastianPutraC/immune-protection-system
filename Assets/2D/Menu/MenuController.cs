@@ -11,6 +11,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private OptionMenuController optionMenu;
     [SerializeField] private EncyclopediaMenuController encyclopediaMenu;
 
+    [SerializeField] private AudioSource buttonSfx;
+
     private void Awake()
     {
         profileMenu.ReturnButtonPressed += OpenMainMenu;
@@ -22,6 +24,11 @@ public class MenuController : MonoBehaviour
         encyclopediaMenu.OnReturnButtonPressed += OpenMainMenu;
         levelMenu.ReturnButtonPressed += OpenMainMenu;
         levelMenu.LevelSelected += StartLevel;
+
+        profileMenu.ButtonPressed += PlayButtonSFX;
+        optionMenu.ButtonPressed += PlayButtonSFX;
+        encyclopediaMenu.ButtonPressed += PlayButtonSFX;
+        levelMenu.ButtonPressed += PlayButtonSFX;
     }
 
     private void Start()
@@ -57,12 +64,14 @@ public class MenuController : MonoBehaviour
         HideAllMenu();
         profileMenu.gameObject.SetActive(true);
         profileMenu.InitializeProfile(SaveManagerSingleton.Instance.GetSelectedSaveData());
+        PlayButtonSFX();
     }
     private void OpenLevelMenu()
     {
         HideAllMenu();
         levelMenu.gameObject.SetActive(true);
         levelMenu.InitializeLevelMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().levelUnlock, LevelDataSingleton.Instance.GetAllLevelReferences());
+        PlayButtonSFX();
     }
     private void OpenMainMenu() 
     {
@@ -78,14 +87,21 @@ public class MenuController : MonoBehaviour
         float musicVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().musicVolume;
         float sfxVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().sfxVolume;
         optionMenu.InitializeSetting(musicVolume, sfxVolume);
+        PlayButtonSFX();
     }
     private void OpenEncyclopediaMenu()
     {
         HideAllMenu();
         encyclopediaMenu.gameObject.SetActive(true);
         encyclopediaMenu.InitializeEncyclopedia(SaveManagerSingleton.Instance.GetSelectedSaveData().enyclopediaUnlock);
+        PlayButtonSFX();
     }
     #endregion
+
+    private void PlayButtonSFX()
+    {
+        buttonSfx.Play();
+    }
 
     private void OnDestroy()
     {
@@ -98,5 +114,10 @@ public class MenuController : MonoBehaviour
         encyclopediaMenu.OnReturnButtonPressed -= OpenMainMenu;
         levelMenu.ReturnButtonPressed -= OpenMainMenu;
         levelMenu.LevelSelected -= StartLevel;
+
+        profileMenu.ButtonPressed -= PlayButtonSFX;
+        optionMenu.ButtonPressed -= PlayButtonSFX;
+        encyclopediaMenu.ButtonPressed -= PlayButtonSFX;
+        levelMenu.ButtonPressed -= PlayButtonSFX;
     }
 }

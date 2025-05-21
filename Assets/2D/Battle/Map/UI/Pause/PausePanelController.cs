@@ -7,6 +7,8 @@ public class PausePanelController : MonoBehaviour
     [SerializeField] private OptionMenuController optionMenu;
     [SerializeField] private EncyclopediaMenuController encyclopediaMenu;
 
+    [SerializeField] private AudioSource pauseSound;
+
     public Action ResumePressed;
     public Action QuitPressed;
 
@@ -22,6 +24,7 @@ public class PausePanelController : MonoBehaviour
 
     private void OnEnable()
     {
+        pauseSound.Play();
         OpenPauseMenu();
     }
 

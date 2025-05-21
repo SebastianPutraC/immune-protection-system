@@ -15,6 +15,7 @@ public class LevelMenuController : MonoBehaviour
 
     public Action ReturnButtonPressed;
     public Action<LevelId> LevelSelected;
+    public Action ButtonPressed;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class LevelMenuController : MonoBehaviour
     private void PlayLevel(LevelId LevelId)
     {
         LevelSelected?.Invoke(LevelId);
+        ButtonPressed?.Invoke();
     }
 
     private void OnReturnButtonPressed()

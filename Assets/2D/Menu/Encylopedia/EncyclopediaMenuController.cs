@@ -37,6 +37,7 @@ public class EncyclopediaMenuController : MonoBehaviour
     private EncyclopediaMechanicGrid selectedMechanicGrid;
 
     public Action OnReturnButtonPressed;
+    public Action ButtonPressed;
 
     private void Awake()
     {
@@ -109,6 +110,7 @@ public class EncyclopediaMenuController : MonoBehaviour
             pathogenScrollViewObject.gameObject.SetActive(true);
             mechanicScrollViewObject.gameObject.SetActive(false);
         }
+        ButtonPressed?.Invoke();
     }
     private void ClearViewUnits()
     {
@@ -168,6 +170,8 @@ public class EncyclopediaMenuController : MonoBehaviour
         encyclopediaPanel.gameObject.SetActive(true);
         abilityMenuController.gameObject.SetActive(false);
         aboutMenuController.gameObject.SetActive(false);
+
+        ButtonPressed?.Invoke();
     }
     private void OpenAbilityMenu()
     {
@@ -177,7 +181,10 @@ public class EncyclopediaMenuController : MonoBehaviour
         }
         abilityMenuController.gameObject.SetActive(true);
         abilityMenuController.InitializeMenu(selectedUnitGrid.unitSo);
+        aboutMenuController.gameObject.SetActive(false);
         encyclopediaPanel.gameObject.SetActive(false);
+
+        ButtonPressed?.Invoke();
     }
     private void OpenAboutMenu()
     {
@@ -187,7 +194,10 @@ public class EncyclopediaMenuController : MonoBehaviour
         }
         aboutMenuController.gameObject.SetActive(true);
         aboutMenuController.InitializeMenu(selectedUnitGrid.unitSo);
+        abilityMenuController.gameObject.SetActive(false);
         encyclopediaPanel.gameObject.SetActive(false);
+
+        ButtonPressed?.Invoke();
     }
 
     private void ReturnButtonPressed()

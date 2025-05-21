@@ -14,6 +14,7 @@ public class OptionMenuController : MonoBehaviour
     public Action OnReturnButtonPressed;
     public const string MUSIC_PARAM = "musicVolume";
     public const string SFX_PARAM = "sfxVolume";
+    public Action ButtonPressed;
 
     private void Awake()
     {
@@ -29,16 +30,31 @@ public class OptionMenuController : MonoBehaviour
 
     private void SetMusicVolume(float value)
     {
-        audioMixer.SetFloat(MUSIC_PARAM, Mathf.Log10(value) * 20);
+        if (value > 0)
+        {
+            audioMixer.SetFloat(MUSIC_PARAM, Mathf.Log10(value) * 20);
+        }
+        else
+        {
+            audioMixer.SetFloat(MUSIC_PARAM, -80);
+        }
     }
     private void SetSFXVolume(float value)
     {
-        audioMixer.SetFloat(SFX_PARAM, Mathf.Log10(value) * 20);
+        if (value > 0)
+        {
+            audioMixer.SetFloat(SFX_PARAM, Mathf.Log10(value) * 20);
+        }
+        else
+        {
+            audioMixer.SetFloat(SFX_PARAM, -80);
+        }
     }
     private void ConfirmChanges()
     {
         SaveManagerSingleton.Instance.UpdateSoundData(musicSlider.value, sfxSlider.value);
         AudioManagerSingleton.Instance.LoadVolume(musicSlider.value, sfxSlider.value);
+        ButtonPressed?.Invoke();
     }
 
     private void ReturnButtonPressed()

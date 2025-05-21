@@ -29,7 +29,21 @@ public class AudioManagerSingleton : MonoBehaviour
 
     public void LoadVolume(float musicVolume, float sfxVolume)
     {
-        audioMixer.SetFloat(MUSIC_PARAM, Mathf.Log10(musicVolume) * 20);
-        audioMixer.SetFloat(SFX_PARAM, Mathf.Log10(sfxVolume) * 20);
+        if (musicVolume > 0)
+        {
+            audioMixer.SetFloat(MUSIC_PARAM, Mathf.Log10(musicVolume) * 20);
+        }
+        else
+        {
+            audioMixer.SetFloat(MUSIC_PARAM, -80);
+        }
+        if (sfxVolume > 0)
+        {
+            audioMixer.SetFloat(SFX_PARAM, Mathf.Log10(sfxVolume) * 20);
+        }
+        else
+        {
+            audioMixer.SetFloat(SFX_PARAM, -80);
+        }
     }
 }

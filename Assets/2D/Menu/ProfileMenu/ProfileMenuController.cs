@@ -31,6 +31,7 @@ public class ProfileMenuController : MonoBehaviour
 
     public Action ReturnButtonPressed;
     public Action ProfileSelected;
+    public Action ButtonPressed;
 
     private void Awake()
     {
@@ -84,11 +85,13 @@ public class ProfileMenuController : MonoBehaviour
         playerNameText.text = "Nama Pemain : " + newNameInput.text;
 
         OpenStatisticPanel();
+        ButtonPressed?.Invoke();
     }
     private void ResetProgress()
     {
         SaveManagerSingleton.Instance.ResetProfileData("Profile");
         InitializeProfile(SaveManagerSingleton.Instance.GetSelectedSaveData());
+        ButtonPressed?.Invoke();
     }
 
     private void OpenQuizPanel()
@@ -96,6 +99,7 @@ public class ProfileMenuController : MonoBehaviour
         quizPanel.gameObject.SetActive(true);
         statisticPanel.gameObject.SetActive(false);
         changeNamePanel.gameObject.SetActive(false);
+        ButtonPressed?.Invoke();
     }
     private void OpenStatisticPanel()
     {
@@ -103,12 +107,14 @@ public class ProfileMenuController : MonoBehaviour
         statisticPanel.gameObject.SetActive(true);
         changeNamePanel.gameObject.SetActive(false);
         newNameInput.text = "";
+        ButtonPressed?.Invoke();
     }
     private void OpenChangeNamePanel()
     {
         quizPanel.gameObject.SetActive(false);
         statisticPanel.gameObject.SetActive(false);
         changeNamePanel.gameObject.SetActive(true);
+        ButtonPressed?.Invoke();
     }
     private void OnReturnButtonPressed()
     {
