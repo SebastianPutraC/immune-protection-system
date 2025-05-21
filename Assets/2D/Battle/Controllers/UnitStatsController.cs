@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class UnitStatsController : MonoBehaviour
 {
@@ -90,6 +91,19 @@ public class UnitStatsController : MonoBehaviour
     {
         unitHpText.text = "HP : " + allyUnit.unitHp;
         unitAtkText.text = "ATK : " + allyUnit.UnitSO.UnitAtk;
+    }
+
+    public void TurnTutorialArrow(AbilityId abilityId)
+    {
+        AbilityButton ability = abilityButtons.Where(x => x.abilityType == abilityId).FirstOrDefault();
+        ability.tutorialArrow.SetActive(true);
+    }
+    public void TurnOffArrows()
+    {
+        for (int i = 0; i < abilityButtons.Count; i++)
+        {
+            abilityButtons[i].tutorialArrow.gameObject.SetActive(false);
+        }
     }
 
     public void ClearUI()

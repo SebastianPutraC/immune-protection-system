@@ -16,9 +16,10 @@ MonoBehaviour:
   levelName: Tutorial
   allyUnits: 65000000660000006a000000
   enemyUnits: c9000000
-  defaultStatingResource: 200
+  defaultStatingResource: 400
   defaultIncome: 100
   levelIdUnlock: 2
+  unlockIntelPoint: 25
   allyBaseMaxHP: 10
   maxRepairPoints: 3
   DecisionInfos: []
@@ -26,3 +27,4 @@ MonoBehaviour:
   IntroInfos: []
   levelPrefab: {fileID: 3481419003891693231, guid: 487126fe38e38ae4499eeae55bafcb7d, type: 3}
   levelMapSprite: {fileID: 21300000, guid: 875aff4f56adc0343b119c38910a2c26, type: 3}
+  skipIntroIndex: 

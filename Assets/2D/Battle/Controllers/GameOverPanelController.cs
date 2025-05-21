@@ -6,7 +6,6 @@ using TMPro;
 public class GameOverPanelController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI endGameText;
-    [SerializeField] private GameObject starsPanel;
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button quitButton;
 
@@ -23,13 +22,11 @@ public class GameOverPanelController : MonoBehaviour
     {
         endGameText.text = "Defeat";
         nextLevelButton.gameObject.SetActive(false);
-        starsPanel.gameObject.SetActive(false);
     }
     public void GameWon()
     {
         endGameText.text = "Victory";
         nextLevelButton.gameObject.SetActive(true);
-        starsPanel.gameObject.SetActive(true);
     }
 
     private void OnQuitPressed()

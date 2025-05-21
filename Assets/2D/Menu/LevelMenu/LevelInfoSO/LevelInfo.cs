@@ -11,6 +11,7 @@ public class LevelInfo : ScriptableObject
     public int defaultStatingResource;
     public int defaultIncome;
     public LevelId levelIdUnlock;
+    public int unlockIntelPoint;
 
     public int allyBaseMaxHP;
     public int maxRepairPoints;

@@ -40,6 +40,12 @@ public class MenuController : MonoBehaviour
 
     private void StartLevel(LevelId levelSelected)
     {
+        if (levelSelected == LevelId.LEVEL_TUTORIAL)
+        {
+            LevelDataSingleton.Instance.SetCurrentLevelInfo(levelSelected);
+            SceneManager.LoadScene(3);
+            return;
+        }
         LevelDataSingleton.Instance.SetCurrentLevelInfo(levelSelected);
         SceneManager.LoadScene(1);
     }

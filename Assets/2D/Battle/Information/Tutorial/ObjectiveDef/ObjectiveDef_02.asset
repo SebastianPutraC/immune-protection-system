@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: f73f598a857b60d41807bbe8c29474e0, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: Jika anda melewati garis hijau ini, pathogen akan masuk lebih dalam ke
-    tubuh dan dapat menyebabkan penyakit
+  InfoText: Jika anda melewati garis markas, pathogen akan masuk lebih dalam ke tubuh
+    dan dapat menyebabkan penyakit

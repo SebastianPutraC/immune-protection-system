@@ -13,6 +13,9 @@ public class LevelController : MonoBehaviour
     public List<BaseController> allyBaseControllers;
     public List<BaseController> enemyBaseControllers;
 
+    public List<Spawner> tutorialAllySpawners;
+    public List<Spawner> tutorialEnemySpawners;
+
     //Might make new Class for this
     public float upLimit;
     public float leftLimit;

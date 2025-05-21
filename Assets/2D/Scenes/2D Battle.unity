@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d959e7d79e31fd440ae36a5359e24e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RpIncomeTimer: 3
+  RpIncomeTimer: 2
   levelController: {fileID: 0}
   unitPanelController: {fileID: 841235207}
   battlePanelController: {fileID: 98418210}

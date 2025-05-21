@@ -12,6 +12,8 @@ public class NeutrophilController : AllyUnitController
 
     [SerializeField] protected Transform projectileSpawn;
 
+    public GameObject TutorialArrow;
+
     protected override void Awake()
     {
         base.Awake();

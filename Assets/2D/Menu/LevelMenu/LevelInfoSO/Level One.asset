@@ -19,6 +19,7 @@ MonoBehaviour:
   defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 3
+  unlockIntelPoint: 100
   allyBaseMaxHP: 10
   maxRepairPoints: 3
   DecisionInfos:

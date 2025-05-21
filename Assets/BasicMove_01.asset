@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: 0f85adf9445940641be54592b6bc26be, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: "Terima kasih telah mengerahkan saya \U0001F60A!"
+  InfoText: Anda perlu membayar Resource Points (RP) untuk mengerahkan unit.

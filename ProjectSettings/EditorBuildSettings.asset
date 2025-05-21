@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/2D/Scenes/2D Battle.unity
     guid: 2e026c57b05992e4aba7f4d7e9d1f25c
+  - enabled: 1
+    path: Assets/2D/Scenes/2D Battle Tutorial.unity
+    guid: 78d869638c88c864fa29df884a8ffa22
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 47776220973576f4290a7433b6b29a91, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 91353283a7ea777488a1fe99f3a55220, type: 2}

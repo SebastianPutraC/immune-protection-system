@@ -139,6 +139,10 @@ public class DeployedUnitController : UnitController
     {
 
     }
+    public int GetRouteTakenId()
+    {
+        return currentRouteTaken.routeId;
+    }
 
 
     public virtual void ProcessAbility(AbilityId ability)
@@ -311,6 +315,11 @@ public class DeployedUnitController : UnitController
     {
         base.DealDamage(damage);
         UpdateHealthBar(unitHp, UnitSO.UnitHp);
+    }
+    public void DisableDetection()
+    {
+        enemyDetect.gameObject.SetActive(false);
+        enemyRangedDetect.gameObject.SetActive(false);
     }
 
     protected virtual void OnDestroy()

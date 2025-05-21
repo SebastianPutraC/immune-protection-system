@@ -33,7 +33,7 @@ public class EnemyUnitController : DeployedUnitController
     protected override void Death()
     {
         AntigenController droppedAntigen = Instantiate(antigenPrefab, antigenDroppedLocation);
-        droppedAntigen.InitializeAntigen(50);
+        droppedAntigen.InitializeAntigen(25);
         droppedAntigen.transform.parent = null;
 
         base.Death();

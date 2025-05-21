@@ -31,9 +31,22 @@ public class UnitPanelController : MonoBehaviour
                 newUnitCard.LockCard();
                 adaptiveUnitCards.Add(newUnitCard);
             }
-
             unitCards.Add(newUnitCard);
         }
+    }
+    public void ResetUnitCards()
+    {
+        for (int i = 0; i < unitCards.Count; i++)
+        {
+            unitCards[i].cardClicked -= ReadySelectedCard;
+            Destroy(unitCards[i].gameObject);
+        }
+        unitCards.Clear();
+        for (int i = 0; i < adaptiveUnitCards.Count; i++)
+        {
+            Destroy(adaptiveUnitCards[i].gameObject);
+        }
+        adaptiveUnitCards.Clear();
     }
 
     public void ResetSelectedCard()
@@ -60,6 +73,18 @@ public class UnitPanelController : MonoBehaviour
             return null;
 
         return selectedCard.unitData;
+    }
+    public void TurnTutorialArrow(UnitId unitId)
+    {
+        UnitCardController unitCardTutorial = unitCards.Where(x => x.unitData.unitId == unitId).FirstOrDefault();
+        unitCardTutorial.tutorialArrow.SetActive(true);
+    }
+    public void TurnOffArrows()
+    {
+        for (int i = 0; i < unitCards.Count; i++)
+        {
+            unitCards[i].tutorialArrow.gameObject.SetActive(false);
+        }
     }
 
     public void UnlockAdaptiveCard()

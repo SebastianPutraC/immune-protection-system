@@ -11,7 +11,9 @@ public class AbilityButton : MonoBehaviour, IPointerUpHandler
 
     [SerializeField] private TextMeshProUGUI abilityText;
 
-    private AbilityId abilityType;
+    public GameObject tutorialArrow;
+
+    public AbilityId abilityType;
 
     public Action<AbilityId> abilityPressed;
 

@@ -14,6 +14,8 @@ public class UnitCardController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI unitNameText;
     [SerializeField] private TextMeshProUGUI unitCostText;
 
+    public GameObject tutorialArrow;
+
     public Action<UnitCardController> cardClicked;
 
     private readonly Color deselectColor = new Color(1, 1, 1, 0.5f);

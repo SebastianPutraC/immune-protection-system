@@ -74,6 +74,7 @@ public class BattleController : MonoBehaviour
         currBaseHp = maxBaseHp;
         maxRepairPoint = levelInfo.maxRepairPoints;
         currRepairPoint = 0;
+        unlockIntelPoints = levelInfo.unlockIntelPoint;
 
         UpdateBaseUI(currBaseHp, maxBaseHp, UnitSide.ALLY);
         UpdateBaseUI(currRepairPoint, maxRepairPoint, UnitSide.ENEMY);
@@ -91,8 +92,11 @@ public class BattleController : MonoBehaviour
             infoPopup.ExitPopup();
         }
 
-        levelController = Instantiate(levelInfo.levelPrefab);
-
+        if (levelController == null)
+        {
+            levelController = Instantiate(levelInfo.levelPrefab);
+        }
+        
         for (int i = 0; i < levelController.allyBaseControllers.Count; i++)
         {
             levelController.allyBaseControllers[i].InitializeBase(UnitSide.ALLY);
@@ -140,7 +144,7 @@ public class BattleController : MonoBehaviour
         else
         {
             IncreaseResourcePoint(basicIncome);
-            RpIncomeTimer = 3f;
+            RpIncomeTimer = 2f;
         }
 
         if (!isSpawned)
@@ -151,7 +155,15 @@ public class BattleController : MonoBehaviour
         if (selectedUnit != null)
         {
             unitStatsController.UpdateUnitStats(selectedUnit);
-            
+        }
+
+        ProcessInput();
+    }
+
+    protected virtual void ProcessInput()
+    {
+        if (selectedUnit != null)
+        {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 selectedUnit.isMoveOrder = false;

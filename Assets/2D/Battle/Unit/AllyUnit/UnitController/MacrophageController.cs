@@ -12,6 +12,8 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
 
     [SerializeField] private ParticleSystem inflammationEffect;
 
+    public GameObject TutorialArrow;
+
     public Action<int> InflammatoryActivated { get; set; }
     public Action<int> AntigenPresented { get; set; }
     public bool isPresenting { get; set; }

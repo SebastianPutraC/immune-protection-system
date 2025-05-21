@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
-  m_Name: BasicMove_02
+  m_Name: BasicMove_04
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: 0f85adf9445940641be54592b6bc26be, type: 3}
   InfoImage: {fileID: 0}
   InfoText: "Dalam game ini, tiap unit akan bergerak secara otomatis berdasarkan
-    rute dari \u201CLane\u201D"
+    rute dari \u201CLane\u201D."
