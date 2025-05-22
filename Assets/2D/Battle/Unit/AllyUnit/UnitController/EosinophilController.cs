@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EosinophilController : AllyUnitController
@@ -45,6 +46,10 @@ public class EosinophilController : AllyUnitController
                 meleeCooldown = UnitSO.UnitAtkSpeed;
             }
         }
+        else
+        {
+            AoeEffect.Stop();
+        }
     }
     public override void ProcessAbility(AbilityId ability)
     {
@@ -64,11 +69,12 @@ public class EosinophilController : AllyUnitController
 
     protected void ToxinAttack()
     {
+        AoeEffect.Play();
         if (targetEnemyUnitMelee != null)
         {
-            for (int i = 0; i < detectedUnitMelee.Count; i++)
+            foreach(DeployedUnitController enemyUnit in detectedUnitMelee.Values.ToList())
             {
-                detectedUnitMelee[i].DealDamage(unitAtk.ReturnFinalValue());
+                enemyUnit.DealDamage(unitAtk.ReturnFinalValue());
             }
         }
     }
