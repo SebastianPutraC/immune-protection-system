@@ -22,6 +22,8 @@ MonoBehaviour:
   unlockIntelPoint: 25
   allyBaseMaxHP: 10
   maxRepairPoints: 3
+  enemyStartingResource: 0
+  enemyIncome: 0
   DecisionInfos: []
   QuizInfos: []
   IntroInfos: []

@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelId: 2
   levelName: Senin
-  allyUnits: 65000000660000006a00000068000000
-  enemyUnits: c9000000
+  allyUnits: 65000000660000006a000000
+  enemyUnits: c9000000ca000000
   defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 3
-  unlockIntelPoint: 100
+  unlockIntelPoint: 75
   allyBaseMaxHP: 10
-  maxRepairPoints: 3
+  maxRepairPoints: 7
+  enemyStartingResource: 75
+  enemyIncome: 0
   DecisionInfos:
   - {fileID: 11400000, guid: 760eacc809fdeed429b9854478412030, type: 2}
   - {fileID: 11400000, guid: b2f05c6457088f14ab78a827e9070d72, type: 2}

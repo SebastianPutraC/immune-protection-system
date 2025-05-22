@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelId: 7
   levelName: Sabtu
-  allyUnits: 6500000066000000670000006a000000
-  enemyUnits: c9000000ca000000cb000000
+  allyUnits: 6500000066000000670000006a00000069000000680000006b0000006c000000
+  enemyUnits: c9000000ca000000cc000000cb000000cd000000ce000000
   defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 8
-  unlockIntelPoint: 100
+  unlockIntelPoint: 175
   allyBaseMaxHP: 10
-  maxRepairPoints: 3
+  maxRepairPoints: 15
+  enemyStartingResource: 0
+  enemyIncome: 150
   DecisionInfos:
   - {fileID: 11400000, guid: 94ac932768a3ed14fa4ad94c77baeb2d, type: 2}
   - {fileID: 11400000, guid: 0ddccfae272dcf1438d3966dae686a0e, type: 2}

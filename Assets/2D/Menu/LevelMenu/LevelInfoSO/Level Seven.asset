@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelId: 8
   levelName: Minggu
-  allyUnits: 6500000066000000670000006a000000
-  enemyUnits: c9000000ca000000cb000000
+  allyUnits: 6500000066000000670000006a00000069000000680000006b0000006c000000
+  enemyUnits: c9000000ca000000cc000000cb000000cd000000ce000000
   defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 1
-  unlockIntelPoint: 100
+  unlockIntelPoint: 175
   allyBaseMaxHP: 10
-  maxRepairPoints: 3
+  maxRepairPoints: 15
+  enemyStartingResource: 0
+  enemyIncome: 150
   DecisionInfos:
   - {fileID: 11400000, guid: 2f04727f637f6c842ade48c55bbae5e1, type: 2}
   - {fileID: 11400000, guid: 03347a1e1e22af04a978a03a8a477e87, type: 2}

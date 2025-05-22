@@ -16,6 +16,9 @@ public class LevelInfo : ScriptableObject
     public int allyBaseMaxHP;
     public int maxRepairPoints;
 
+    public int enemyStartingResource;
+    public int enemyIncome;
+
     public List<DecisionInfoSO> DecisionInfos;
     public List<DecisionInfoSO> QuizInfos;
 

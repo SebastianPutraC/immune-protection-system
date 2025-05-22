@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelId: 5
   levelName: Kamis
-  allyUnits: 6500000066000000670000006a000000
-  enemyUnits: c9000000ca000000
+  allyUnits: 6500000066000000670000006a0000006900000068000000
+  enemyUnits: c9000000ca000000cc000000cb000000
   defaultStatingResource: 0
   defaultIncome: 100
   levelIdUnlock: 6
-  unlockIntelPoint: 100
+  unlockIntelPoint: 125
   allyBaseMaxHP: 10
-  maxRepairPoints: 3
+  maxRepairPoints: 10
+  enemyStartingResource: 0
+  enemyIncome: 100
   DecisionInfos:
   - {fileID: 11400000, guid: 3cad3f15278fedc4f81730130e702b4f, type: 2}
   - {fileID: 11400000, guid: 87f1194131bc8aa47904c46b40dfd740, type: 2}
