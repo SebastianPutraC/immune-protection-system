@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitSide: 1
   projectileRb: {fileID: 6840127515754355065}
+  explosionSfx: {fileID: 8300000, guid: 27e2d53399b1b3243bc66c6bacc1f32c, type: 3}
 --- !u!50 &6840127515754355065
 Rigidbody2D:
   serializedVersion: 5

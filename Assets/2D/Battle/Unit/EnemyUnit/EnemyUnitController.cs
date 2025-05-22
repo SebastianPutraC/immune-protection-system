@@ -13,6 +13,9 @@ public class EnemyUnitController : DeployedUnitController
         currentWaypointIndex = initialRoute.GetWaypointsLength();
         base.InitializeUnit(unitSO, modifiers, initialRoute);
         this.transform.localEulerAngles = new Vector3(0, 180, 0); // rotate for enemy
+
+        unitAudioSource.clip = spawnSound;
+        unitAudioSource.Play();
     }
     protected override void GetNewWaypoint(bool isStart, bool isReturning = false)
     {

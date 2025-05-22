@@ -1080,11 +1080,13 @@ MonoBehaviour:
   pausePanelController: {fileID: 2190631808204530211}
   gameOverPanelController: {fileID: 1429431098}
   battleCameraController: {fileID: 307727497}
-  battleMusicAudioSource: {fileID: 0}
-  winningMusic: {fileID: 0}
-  losingMusic: {fileID: 0}
-  buttonAudioSource: {fileID: 0}
-  gainAudioSource: {fileID: 0}
+  battleMusicAudioSource: {fileID: 1063371171}
+  winningMusic: {fileID: 8300000, guid: 36fd5b3f9c90fd34b8a4e9198e714359, type: 3}
+  losingMusic: {fileID: 8300000, guid: d4959c4039ba4c349b1a9ddc04065826, type: 3}
+  buttonAudioSource: {fileID: 1063371170}
+  gainAudioSource: {fileID: 1063371172}
+  rpGain: {fileID: 0}
+  intelGain: {fileID: 8300000, guid: fd77df4e28b34aa4a8a1d2279430f0d8, type: 3}
   infoPopup: {fileID: 893797858}
   UnitReferences:
   - {fileID: 11400000, guid: 9434ad48328fdad4eb11cda80727c7db, type: 2}
@@ -1093,11 +1095,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cbe28669d36a48547ad6594f4f6d6741, type: 2}
   - {fileID: 11400000, guid: 3162de85ad3f8ae4984138d35349dbb3, type: 2}
   - {fileID: 11400000, guid: 34ff86392bd90ff4091a698f3e495af3, type: 2}
-  - {fileID: 11400000, guid: 1f51f552a50c886498aceb7bd62959f6, type: 2}
   - {fileID: 11400000, guid: 5eeedc22bb1d8c74e938e30b0b9eb346, type: 2}
+  - {fileID: 11400000, guid: 1f51f552a50c886498aceb7bd62959f6, type: 2}
   - {fileID: 11400000, guid: 73163b3a4c0491e4f8752d8f939ed34c, type: 2}
   - {fileID: 11400000, guid: 974783aeb37f50247ba7cebb134a8fb9, type: 2}
   - {fileID: 11400000, guid: 4a69d336b0bd83549ba76839ac421a65, type: 2}
+  - {fileID: 11400000, guid: dc13e938110ce4241bfdb6d1f9637766, type: 2}
+  - {fileID: 11400000, guid: 31097786935dfbe4da1ad9e4aa01b1e8, type: 2}
+  - {fileID: 11400000, guid: 9b74b21719bab654aa8c4d4322123f4d, type: 2}
   allAllyUnits: []
   allEnemyUnits: []
   selectedUnit: {fileID: 0}

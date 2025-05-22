@@ -102,6 +102,7 @@ public class Projectile : MonoBehaviour
     // Artilerry
     private float radius;
     private bool artilerryExploded = false;
+    [SerializeField] private AudioClip explosionSfx;
 
     public void InitializeArtilleryProjectile(float speed, float damage, UnitController target, float radius)
     {
@@ -140,5 +141,6 @@ public class Projectile : MonoBehaviour
         }
 
         this.GetComponent<ParticleSystem>().Play();
+        AudioSource.PlayClipAtPoint(explosionSfx, this.transform.position);
     }
 }

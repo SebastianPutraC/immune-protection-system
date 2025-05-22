@@ -31,8 +31,9 @@ public class DeployedUnitController : UnitController
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitMelee = new Dictionary<int, UnitController>();
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitRanged = new Dictionary<int, UnitController>();
 
-    [SerializeField] private AudioSource unitAudioSource;
-    [SerializeField] private AudioClip deathSound;
+    [SerializeField] protected AudioSource unitAudioSource;
+    [SerializeField] protected AudioClip deathSound;
+    [SerializeField] protected AudioClip spawnSound;
 
     protected Route currentRouteTaken;
     protected int currentWaypointIndex;
@@ -318,6 +319,11 @@ public class DeployedUnitController : UnitController
     {
         base.DealDamage(damage);
         UpdateHealthBar(unitHp, UnitSO.UnitHp);
+    }
+    protected override void Death()
+    {
+        AudioSource.PlayClipAtPoint(deathSound, this.transform.position);
+        base.Death();
     }
     public void DisableDetection()
     {

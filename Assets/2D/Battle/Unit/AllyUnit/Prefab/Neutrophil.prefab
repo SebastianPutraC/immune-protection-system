@@ -322,7 +322,8 @@ MonoBehaviour:
   targetEnemyUnitMelee: {fileID: 0}
   targetEnemyUnitRanged: {fileID: 0}
   unitAudioSource: {fileID: 1172139342106449591}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: fa3c59f3931aa5d40b9716a08b3a1458, type: 3}
+  spawnSound: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
   selectedIndicator: {fileID: 8673450375288716165}
   netDetection: {fileID: 1925353371690513892}
   netEffect: {fileID: 7744016008313797124}
@@ -438,8 +439,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3386593539652003294, guid: e356e3fc3b8bff04bb4e3ebe9737a4bc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b325054771a2d114f930de5d00814a17, type: 3}
-  m_Resource: {fileID: 8300000, guid: b325054771a2d114f930de5d00814a17, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
+  m_Resource: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

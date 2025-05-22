@@ -14,5 +14,8 @@ public enum UnitId
 
     BACTERIA = 201,
     VIRUS = 202,
-    WORMS = 203
+    WORMS = 203,
+    FASTVIRUS = 204,
+    TOXINBACTERIA = 205,
+    TOXINWORMS = 206,
 }

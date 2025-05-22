@@ -8,10 +8,6 @@ public class Spawner : MonoBehaviour, IPointerClickHandler, ISpawner
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private int initialRouteId;
 
-    [SerializeField] private AudioSource spawnAudioSource;
-    [SerializeField] private AudioClip enemySpawnSound;
-    [SerializeField] private AudioClip allySpawnSound;
-
     public Action<Spawner> spawnClicked;
     public UnitSide baseSide;
 
@@ -28,9 +24,6 @@ public class Spawner : MonoBehaviour, IPointerClickHandler, ISpawner
         AllyUnitController newAlly = (AllyUnitController)Instantiate(allyUnit.unitPrefab, spawnPoint);
         newAlly.InitializeUnit(allyUnit, modifiers, initialRoute);
         AllySpawned?.Invoke(newAlly);
-
-        spawnAudioSource.clip = allySpawnSound;
-        spawnAudioSource.Play();
     }
 
     public void SpawnEnemy(EnemyUnit enemyUnit, List<StatModifier> modifiers, Route initialRoute)
@@ -38,9 +31,6 @@ public class Spawner : MonoBehaviour, IPointerClickHandler, ISpawner
         EnemyUnitController newEnemy = (EnemyUnitController)Instantiate(enemyUnit.unitPrefab, spawnPoint);
         newEnemy.InitializeUnit(enemyUnit, modifiers, initialRoute);
         EnemySpawned?.Invoke(newEnemy);
-
-        spawnAudioSource.clip = enemySpawnSound;
-        spawnAudioSource.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

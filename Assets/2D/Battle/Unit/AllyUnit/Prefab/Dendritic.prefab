@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5959548902423482687}
   - component: {fileID: 4359664904107751159}
   - component: {fileID: 7389718965511584711}
+  - component: {fileID: 3124383346550515672}
   m_Layer: 7
   m_Name: Dendritic
   m_TagString: AllyUnit
@@ -230,10 +231,110 @@ MonoBehaviour:
   healthBar: {fileID: 309026105501343869}
   targetEnemyUnitMelee: {fileID: 0}
   targetEnemyUnitRanged: {fileID: 0}
+  unitAudioSource: {fileID: 3124383346550515672}
+  deathSound: {fileID: 8300000, guid: fa3c59f3931aa5d40b9716a08b3a1458, type: 3}
+  spawnSound: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
   selectedIndicator: {fileID: 8673450375288716165}
   antigenDetect: {fileID: 2639325528991191217}
   antigenCarryPosition: {fileID: 5301021832357441140}
   inflammationEffect: {fileID: 4065138047251134163}
+--- !u!82 &3124383346550515672
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581567336585559137}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3386593539652003294, guid: e356e3fc3b8bff04bb4e3ebe9737a4bc, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
+  m_Resource: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3051227434669609450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,6 +5483,7 @@ MonoBehaviour:
   unitSide: 1
   trigger: {fileID: 3042245686863707813}
   isPresenter: 1
+  isCheckCell: 0
 --- !u!61 &3042245686863707813
 BoxCollider2D:
   m_ObjectHideFlags: 0

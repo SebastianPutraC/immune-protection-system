@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce796e6962da51042b65050b4a4fd6fc, type: 3}
+  m_Name: ToxinWorms
+  m_EditorClassIdentifier: 
+  unitId: 206
+  unitPrefab: {fileID: 8992754535199334865, guid: 53a7bcc002c44184780ff4742678615f, type: 3}
+  UnitName: Toxin Worms
+  unitType: 2
+  UnitHp: 150
+  UnitCost: 300
+  UnitSpeed: 2
+  UnitAtk: 20
+  UnitAtkSpeed: 0.1
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  RangedProjectile: {fileID: 0}
+  UnitSimpleDesc: 
+  UnitFullDesc: 
+  UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
+  UnitAbility: []

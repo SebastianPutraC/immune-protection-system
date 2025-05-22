@@ -5124,6 +5124,9 @@ MonoBehaviour:
   healthBar: {fileID: 309026105501343869}
   targetEnemyUnitMelee: {fileID: 0}
   targetEnemyUnitRanged: {fileID: 0}
+  unitAudioSource: {fileID: -6724667344698530166}
+  deathSound: {fileID: 8300000, guid: fa3c59f3931aa5d40b9716a08b3a1458, type: 3}
+  spawnSound: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
   selectedIndicator: {fileID: 8673450375288716165}
   antigenDetect: {fileID: 8529984833374308506}
   antigenCarryPosition: {fileID: 8254931994926916312}
@@ -5138,10 +5141,10 @@ AudioSource:
   m_GameObject: {fileID: 2581567336585559137}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: 3386593539652003294, guid: e356e3fc3b8bff04bb4e3ebe9737a4bc, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
+  m_Resource: {fileID: 8300000, guid: 17cf27e741d8cc64ba3b8c6f33ef7c87, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

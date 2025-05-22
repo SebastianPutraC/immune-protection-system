@@ -12,6 +12,9 @@ public class AllyUnitController : DeployedUnitController
     {
         currentWaypointIndex = 0;
         base.InitializeUnit(unitSO, modifiers, initialRoute);
+        unitAudioSource.time = 0.5f;
+        unitAudioSource.clip = spawnSound;
+        unitAudioSource.Play();
     }
     protected override void GetNewWaypoint(bool isStart, bool isReturning = false)
     {

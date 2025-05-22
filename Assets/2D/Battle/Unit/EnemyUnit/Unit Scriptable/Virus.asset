@@ -19,7 +19,7 @@ MonoBehaviour:
   UnitHp: 50
   UnitCost: 100
   UnitSpeed: 3
-  UnitAtk: 10
+  UnitAtk: 15
   UnitAtkSpeed: 0.7
   UnitRangedAtk: 20
   UnitRangedAtkSpeed: 1
@@ -27,5 +27,4 @@ MonoBehaviour:
   UnitSimpleDesc: 
   UnitFullDesc: 
   UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
-  AbilityType: 
   UnitAbility: []

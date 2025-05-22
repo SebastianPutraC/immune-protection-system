@@ -38,7 +38,6 @@ public class BattleController : MonoBehaviour
     [SerializeField] protected AudioSource buttonAudioSource;
 
     [SerializeField] protected AudioSource gainAudioSource;
-    [SerializeField] protected AudioClip rpGain;
     [SerializeField] protected AudioClip intelGain;
 
     [SerializeField] protected InformationPopup infoPopup;
@@ -281,8 +280,8 @@ public class BattleController : MonoBehaviour
         }
         else
         {
-            gainAudioSource.clip = rpGain;
-            gainAudioSource.Play();
+            //gainAudioSource.clip = rpGain;
+            //gainAudioSource.Play();
         }
 
         battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
