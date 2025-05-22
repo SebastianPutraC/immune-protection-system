@@ -20,12 +20,12 @@ public class GameOverPanelController : MonoBehaviour
 
     public void GameLost()
     {
-        endGameText.text = "Defeat";
+        endGameText.text = "Anda Kalah...";
         nextLevelButton.gameObject.SetActive(false);
     }
     public void GameWon()
     {
-        endGameText.text = "Victory";
+        endGameText.text = "Anda Menang!";
         nextLevelButton.gameObject.SetActive(true);
     }
 

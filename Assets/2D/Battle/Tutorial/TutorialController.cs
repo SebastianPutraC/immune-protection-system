@@ -248,7 +248,18 @@ public class TutorialController : BattleController
             ResetArrows();
             ResetBoolChecker();
 
+            unitPanelController.ResetSelectedCard();
+            unitPanelController.ResetUnitCards();
+            unitStatsController.ClearUI();
+
             SetUpLevel(LevelDataSingleton.Instance.GetCurrentLevelInfo());
+
+            unitPanelController.gameObject.SetActive(true);
+            unitStatsController.gameObject.SetActive(true);
+            AdvanceAllButton.gameObject.SetActive(true);
+            StopAllButton.gameObject.SetActive(true);
+
+            tutorialText.text = "";
         }
     }
 
@@ -450,8 +461,8 @@ public class TutorialController : BattleController
                 waitTimer = 2.5f;
                 isCheckTime = true;
 
-                NeutrophilController neutrophil = (NeutrophilController)deployableUnit;
-                neutrophil.TutorialArrow.SetActive(true);
+                firstRouteArrow.gameObject.SetActive(true);
+                secondRouteArrow.gameObject.SetActive(true);
 
                 tutorialText.text = "Mohon Menunggu";
                 break;
@@ -623,7 +634,6 @@ public class TutorialController : BattleController
                 EnemyUnit bacteria = (EnemyUnit)UnitReferences.Where(x => x.unitId == UnitId.BACTERIA).FirstOrDefault();
                 DeployEnemyTutorialUnit(bacteria, levelController.tutorialEnemySpawners[1]);
 
-                tutorialNeutrophil.TutorialArrow.SetActive(true);
                 tutorialBacteriaOne.DealDamage(50);
 
                 tutorialText.text = "Mohon Menunggu";
@@ -770,7 +780,6 @@ public class TutorialController : BattleController
 
                 deployableUnit = allAllyUnits[0];
                 MacrophageController macrophageController = (MacrophageController)deployableUnit;
-                macrophageController.TutorialArrow.SetActive(true);
 
                 int spawnIndex = 0;
                 if (macrophageController.GetRouteTakenId() == 2)
@@ -856,6 +865,7 @@ public class TutorialController : BattleController
             case 3:
                 tutorialMacrophage.isMoveOrder = true;
                 tutorialBacteriaOne.isMoveOrder = true;
+                unitStatsController.InitializeUnitStats(selectedUnit, selectedUnit.UnitSO.UnitAbility);
                 tutorialText.text = "Makrofag akan membawa antigen ke markas dari patogen yang telah mati";
                 break;
             case 4:
@@ -977,10 +987,20 @@ public class TutorialController : BattleController
     private void CheckObjectAtkPhase()
     {
         isPhaseDone = false;
-        if (isTimerDone && isUnitKilled)
+        if (currRepairPoint > 0 && isTimerDone)
         {
             isPhaseDone = true;
             return;
+        }
+        switch (subPhaseStep)
+        {
+            case 1:
+                if (currRepairPoint > 0)
+                {
+                    subPhaseStep = 2;
+                    isProcessRunning = false;
+                }
+                break;
         }
     }
     private void ObjectAtkPhase()
@@ -993,7 +1013,6 @@ public class TutorialController : BattleController
                 AllyUnit macrophage = (AllyUnit)UnitReferences.Where(x => x.unitId == UnitId.MACROPHAGE).FirstOrDefault();
                 DeployAllyTutorialUnit(macrophage, levelController.tutorialAllySpawners[0]);
 
-                tutorialMacrophage.TutorialArrow.gameObject.SetActive(true);
                 enemyBaseArrow.transform.gameObject.SetActive(true);
                 tutorialText.text = "Mohon Menunggu";
                 break;
@@ -1090,23 +1109,44 @@ public class TutorialController : BattleController
 
     private void KillAllUnit()
     {
+        if (tutorialMacrophage != null)
+        {
+            tutorialMacrophage.DealDamage(9999);
+            tutorialMacrophage = null;
+        }
+        if (tutorialNeutrophil != null)
+        {
+            tutorialNeutrophil.DealDamage(9999);
+            tutorialNeutrophil = null;
+        }
+        if (tutorialBacteriaOne != null)
+        {
+            tutorialBacteriaOne.DealDamage(9999);
+            tutorialBacteriaOne = null;
+        }
+        if (tutorialBacteriaTwo != null)
+        {
+            tutorialBacteriaTwo.DealDamage(9999);
+            tutorialBacteriaTwo = null;
+        }
+
         for (int i = 0; i < allAllyUnits.Count; i++)
         {
-            allAllyUnits[i].DealDamage(9999);
+            if (allAllyUnits[i] != null)
+            {
+                allAllyUnits[i].DealDamage(9999);
+            }
         }
         for (int i = 0; i < allEnemyUnits.Count; i++)
         {
-            allEnemyUnits[i].DealDamage(9999);
+            if (allEnemyUnits[i] != null)
+            {
+                allEnemyUnits[i].DealDamage(9999);
+            }
         }
 
-        if (tutorialMacrophage != null)
-            tutorialMacrophage.DealDamage(9999);
-        if (tutorialNeutrophil != null)
-            tutorialNeutrophil.DealDamage(9999);
-        if (tutorialBacteriaOne != null)
-            tutorialBacteriaOne.DealDamage(9999);
-        if (tutorialBacteriaTwo != null)
-            tutorialBacteriaTwo.DealDamage(9999);
+        allAllyUnits.Clear();
+        allEnemyUnits.Clear();
     }
     private void DeployAllyTutorialUnit(AllyUnit allyData, ISpawner spawner)
     {
