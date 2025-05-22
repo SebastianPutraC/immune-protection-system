@@ -68,7 +68,7 @@ public class DeployedUnitController : UnitController
         unitRangedAtk = new UnitStat(UnitSO.UnitRangedAtk, StatType.RANGEDATK, GetModifiersForType(StatType.RANGEDATK, modifiers));
         unitSpeed = new UnitStat(UnitSO.UnitSpeed, StatType.SPEED, GetModifiersForType(StatType.SPEED, modifiers));
         meleeCooldownSpeed = new UnitStat(UnitSO.UnitAtkSpeed, StatType.ATKCOOLDOWN, GetModifiersForType(StatType.ATKCOOLDOWN, modifiers));
-        rangedCooldownSpeed = new UnitStat(UnitSO.UnitRangedAtk, StatType.ATKCOOLDOWN, GetModifiersForType(StatType.ATKCOOLDOWN, modifiers));
+        rangedCooldownSpeed = new UnitStat(UnitSO.UnitRangedAtkSpeed, StatType.ATKCOOLDOWN, GetModifiersForType(StatType.ATKCOOLDOWN, modifiers));
         meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
         rangedCooldown = rangedCooldownSpeed.ReturnFinalValue();
 
@@ -186,7 +186,7 @@ public class DeployedUnitController : UnitController
         {
             transform.rotation = Quaternion.Euler(180, 0, -rotationZ);
         }
-        else if (this is EnemyUnitController)
+        else if (this is EnemyUnitController || this is AllyUnitController)
         {
             transform.rotation = Quaternion.Euler(0, 0, rotationZ);
         }

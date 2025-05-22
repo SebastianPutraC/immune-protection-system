@@ -13,8 +13,6 @@ public class EosinophilController : AllyUnitController
     private float trapCooldown = 0.5f;
     [SerializeField] protected Dictionary<int, UnitController> detectedUnitOnTrap = new Dictionary<int, UnitController>();
 
-    public Action<int> AntigenPresented { get; set; }
-    public bool isPresenting { get; set; }
 
     protected override void Awake()
     {

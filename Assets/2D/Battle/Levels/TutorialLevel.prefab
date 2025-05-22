@@ -1561,7 +1561,7 @@ GameObject:
   - component: {fileID: 4478485230730424253}
   m_Layer: 6
   m_Name: Enemy Base
-  m_TagString: EnemyBase
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2195,7 +2195,7 @@ GameObject:
   - component: {fileID: 2527242771484750319}
   m_Layer: 7
   m_Name: Ally Base
-  m_TagString: AllyBase
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

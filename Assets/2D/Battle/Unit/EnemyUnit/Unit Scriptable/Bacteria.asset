@@ -20,7 +20,7 @@ MonoBehaviour:
   UnitCost: 75
   UnitSpeed: 4
   UnitAtk: 25
-  UnitAtkSpeed: 1
+  UnitAtkSpeed: 0.8
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}

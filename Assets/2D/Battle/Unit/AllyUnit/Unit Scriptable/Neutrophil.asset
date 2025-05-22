@@ -22,7 +22,7 @@ MonoBehaviour:
   UnitAtk: 15
   UnitAtkSpeed: 0.7
   UnitRangedAtk: 20
-  UnitRangedAtkSpeed: 1
+  UnitRangedAtkSpeed: 0.9
   RangedProjectile: {fileID: 5845206643913531204, guid: 557a4fdcd3cf1b943bcc82136fde73f1, type: 3}
   UnitSimpleDesc: 'Neutrofil merupakan salah satu tipe sel darah putih yang menjadi
     mayoritas dalam sel darah putih. Neutrofil dapat membunuh patogen dengan banyak

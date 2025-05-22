@@ -1664,6 +1664,8 @@ MonoBehaviour:
   enemyBaseControllers:
   - {fileID: 6316797427444567683}
   - {fileID: 852269292181886376}
+  tutorialAllySpawners: []
+  tutorialEnemySpawners: []
   upLimit: 15
   leftLimit: -20
   rightLimit: 20
@@ -2115,7 +2117,7 @@ GameObject:
   - component: {fileID: 727525673217002746}
   m_Layer: 7
   m_Name: Ally Base (1)
-  m_TagString: AllyBase
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2581,7 +2583,7 @@ GameObject:
   - component: {fileID: 6316797427444567683}
   m_Layer: 6
   m_Name: Enemy Base
-  m_TagString: EnemyBase
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3181,7 +3183,7 @@ GameObject:
   - component: {fileID: 852269292181886376}
   m_Layer: 6
   m_Name: Enemy Base (1)
-  m_TagString: EnemyBase
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3990,7 +3992,7 @@ GameObject:
   - component: {fileID: 4355987563756874791}
   m_Layer: 7
   m_Name: Ally Base
-  m_TagString: AllyBase
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

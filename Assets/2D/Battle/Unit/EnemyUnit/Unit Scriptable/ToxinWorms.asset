@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: ToxinWorms
   m_EditorClassIdentifier: 
   unitId: 206
-  unitPrefab: {fileID: 8992754535199334865, guid: 53a7bcc002c44184780ff4742678615f, type: 3}
+  unitPrefab: {fileID: 2090285157580098431, guid: 53a7bcc002c44184780ff4742678615f, type: 3}
   UnitName: Toxin Worms
   unitType: 2
   UnitHp: 150
   UnitCost: 300
   UnitSpeed: 2
-  UnitAtk: 20
-  UnitAtkSpeed: 0.1
+  UnitAtk: 12
+  UnitAtkSpeed: 0.2
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
