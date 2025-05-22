@@ -13,6 +13,10 @@ public class LevelMenuController : MonoBehaviour
 
     [SerializeField] private Button returnButton;
 
+    [SerializeField] private GameObject epiloguePanel;
+    [SerializeField] private Button epilogueButton;
+    [SerializeField] private Button backToLevelButton;
+
     public Action ReturnButtonPressed;
     public Action<LevelId> LevelSelected;
     public Action ButtonPressed;
@@ -20,10 +24,14 @@ public class LevelMenuController : MonoBehaviour
     private void Awake()
     {
         returnButton.onClick.AddListener(OnReturnButtonPressed);
+        epilogueButton.onClick.AddListener(OpenEpilog);
+        backToLevelButton.onClick.AddListener(BackToLevel);
     }
 
     public void InitializeLevelMenu(List<LevelData> unlockedLevel, List<LevelInfo> levelReferences)
     {
+        bool isUnlockedEpilogue = true;
+
         for (int i = 0; i < unlockedLevel.Count; i++)
         {
             LevelInfo newLevel = levelReferences.Where(x => x.levelId.Equals((LevelId)unlockedLevel[i].LevelId)).FirstOrDefault();
@@ -33,7 +41,15 @@ public class LevelMenuController : MonoBehaviour
 
             activeLevelButtons.Add(newButton);
             newButton.buttonClicked += PlayLevel;
+            if (unlockedLevel[i].Unlocked == false)
+            {
+                isUnlockedEpilogue = false;
+            }
         }
+
+        BackToLevel();
+
+        epilogueButton.interactable = isUnlockedEpilogue;
     }
     private void ClearLevelButton()
     {
@@ -52,6 +68,17 @@ public class LevelMenuController : MonoBehaviour
         ButtonPressed?.Invoke();
     }
 
+    private void OpenEpilog()
+    {
+        epiloguePanel.gameObject.SetActive(true);
+        ButtonPressed?.Invoke();
+    }
+    private void BackToLevel()
+    {
+        epiloguePanel.gameObject.SetActive(false);
+        ButtonPressed?.Invoke();
+    }
+
     private void OnReturnButtonPressed()
     {
         ReturnButtonPressed?.Invoke();
@@ -63,6 +90,8 @@ public class LevelMenuController : MonoBehaviour
     private void OnDestroy()
     {
         returnButton.onClick.RemoveListener(OnReturnButtonPressed);
+        epilogueButton.onClick.RemoveListener(OpenEpilog);
+        backToLevelButton.onClick.RemoveListener(BackToLevel);
         ClearLevelButton();
     }
 }
