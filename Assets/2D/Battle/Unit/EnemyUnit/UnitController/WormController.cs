@@ -14,7 +14,7 @@ public class WormController : EnemyUnitController
             else
             {
                 PhagocytosisAttack();
-                meleeCooldown = UnitSO.UnitAtkSpeed;
+                meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
             }
         }
     }

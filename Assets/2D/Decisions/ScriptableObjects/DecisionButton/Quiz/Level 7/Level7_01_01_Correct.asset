@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionButtonText: Makrofag
   StatMod:
-    ModType: 0
-    StatToMod: 0
-    ModValue: 0
+    ModType: 1
+    StatToMod: 1
+    ModValue: 0.025
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 1

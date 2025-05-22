@@ -41,7 +41,7 @@ public class MacrophageController : AllyUnitController, IInflammator, IPresenter
             else
             {
                 PhagocytosisAttack();
-                meleeCooldown = UnitSO.UnitAtkSpeed;
+                meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
             }
         }
     }

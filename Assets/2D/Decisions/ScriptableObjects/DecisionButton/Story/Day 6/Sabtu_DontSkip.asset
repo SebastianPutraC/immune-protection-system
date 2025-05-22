@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionButtonText: Sepertinya lebih baik aku tidak mengubah jadwal belajarku
   StatMod:
-    ModType: 0
-    StatToMod: 0
-    ModValue: 0
+    ModType: 1
+    StatToMod: 3
+    ModValue: 0.2
   IsPickNextInfo: 0
   NextDecisionID: 0
+  IsQuiz: 0
+  IsCorrect: 0

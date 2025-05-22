@@ -100,15 +100,29 @@ public class StoryDecisionController : MonoBehaviour
             currentIndex = setId;
         }
 
-        if (buttonInfo.StatMod.StatToMod == StatType.NONE)
+        if (buttonInfo.StatMod.StatToMod != StatType.NONE)
         {
-            if (buttonInfo.StatMod.ModValue < 0)
+            if (buttonInfo.StatMod.StatToMod == StatType.ATKCOOLDOWN)
             {
-                NerfPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+                if (buttonInfo.StatMod.ModValue < 0)
+                {
+                    BoostPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+                }
+                else
+                {
+                    NerfPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+                }
             }
             else
             {
-                BoostPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+                if (buttonInfo.StatMod.ModValue < 0)
+                {
+                    NerfPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+                }
+                else
+                {
+                    BoostPanelController.UpdateBonusText(buttonInfo.StatMod.StatToMod, buttonInfo.StatMod.ModValue);
+                }
             }
 
             BoostData newBoost = new BoostData(buttonInfo.StatMod);
@@ -124,7 +138,8 @@ public class StoryDecisionController : MonoBehaviour
         }
         if (currentPhase == StoryPhase.QUIZ)
         {
-            decisionMenuController.InitializeMenuQuizAnswer(buttonInfo.DecisionButtonText, buttonInfo.IsCorrect);
+            DecisionInfoSO newDecision = FindDecision(currentIndex - 1);
+            decisionMenuController.InitializeMenuQuizAnswer(newDecision.DecisionButtons.Where(x => x.IsCorrect).FirstOrDefault().DecisionButtonText, buttonInfo.IsCorrect);
             return;
         }
 

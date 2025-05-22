@@ -16,7 +16,9 @@ MonoBehaviour:
     stress.
   StatMod:
     ModType: 1
-    StatToMod: 1
+    StatToMod: 3
     ModValue: -0.1
   IsPickNextInfo: 0
   NextDecisionID: 0
+  IsQuiz: 0
+  IsCorrect: 0

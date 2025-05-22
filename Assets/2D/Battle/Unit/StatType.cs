@@ -3,5 +3,7 @@ public enum StatType
     NONE,
     HP,
     ATK,
-    RANGEDATK
+    RANGEDATK,
+    SPEED,
+    ATKCOOLDOWN
 }

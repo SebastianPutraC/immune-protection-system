@@ -47,7 +47,7 @@ public class NeutrophilController : AllyUnitController
             else
             {
                 PhagocytosisAttack();
-                meleeCooldown = UnitSO.UnitAtkSpeed;
+                meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
             }
         }
         else if (isRangedDetecting)
@@ -59,7 +59,7 @@ public class NeutrophilController : AllyUnitController
             else
             {
                 DegranulationAttack();
-                rangedCooldown = UnitSO.UnitRangedAtkSpeed;
+                rangedCooldown = rangedCooldownSpeed.ReturnFinalValue();
             }
         }
     }

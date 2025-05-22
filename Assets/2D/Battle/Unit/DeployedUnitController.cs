@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class DeployedUnitController : UnitController
 {
     public UnitData UnitSO;
-    [SerializeField]protected UnitStat unitAtk;
-    [SerializeField]protected UnitStat unitRangedAtk;
+    [SerializeField] protected UnitStat unitAtk;
+    [SerializeField] protected UnitStat unitRangedAtk;
+    [SerializeField] protected UnitStat unitSpeed;
+    [SerializeField] protected UnitStat meleeCooldownSpeed;
+    [SerializeField] protected UnitStat rangedCooldownSpeed;
+
+    protected float meleeCooldown;
+    protected float rangedCooldown;
 
     public bool isMoveOrder = true;
     protected bool isDetecting = false;
@@ -15,9 +21,6 @@ public class DeployedUnitController : UnitController
     protected bool noMoreRoute = false;
     protected bool isReturning = false;
     protected bool isAbilityLocked = false; //USE THIS TO LOCK USE OF ABILITY, HIDE ABILITY ON STAT PANEL, HIDE IT ASAP
-
-    protected float meleeCooldown;
-    protected float rangedCooldown;
 
     [SerializeField] protected SpriteRenderer unitSprite;
     [SerializeField] protected Rigidbody2D unitRb;
@@ -57,15 +60,19 @@ public class DeployedUnitController : UnitController
     public virtual void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
     {
         UnitSO = unitSO;
+        unitSprite.sprite = UnitSO.UnitSprite;
+        unitSprite.size = new Vector2(1, 1);
+
         unitHp = AdjustMaxHP(GetModifiersForType(StatType.HP, modifiers), UnitSO.UnitHp);
         unitAtk = new UnitStat(UnitSO.UnitAtk, StatType.ATK, GetModifiersForType(StatType.ATK, modifiers));
         unitRangedAtk = new UnitStat(UnitSO.UnitRangedAtk, StatType.RANGEDATK, GetModifiersForType(StatType.RANGEDATK, modifiers));
-        unitSprite.sprite = UnitSO.UnitSprite;
-        meleeCooldown = UnitSO.UnitAtkSpeed;
-        rangedCooldown = UnitSO.UnitRangedAtkSpeed;
-        unitSprite.size = new Vector2(1, 1); 
-        UpdateHealthBar(unitHp, UnitSO.UnitHp);
+        unitSpeed = new UnitStat(UnitSO.UnitSpeed, StatType.SPEED, GetModifiersForType(StatType.SPEED, modifiers));
+        meleeCooldownSpeed = new UnitStat(UnitSO.UnitAtkSpeed, StatType.ATKCOOLDOWN, GetModifiersForType(StatType.ATKCOOLDOWN, modifiers));
+        rangedCooldownSpeed = new UnitStat(UnitSO.UnitRangedAtk, StatType.ATKCOOLDOWN, GetModifiersForType(StatType.ATKCOOLDOWN, modifiers));
+        meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
+        rangedCooldown = rangedCooldownSpeed.ReturnFinalValue();
 
+        UpdateHealthBar(unitHp, UnitSO.UnitHp);
         SetNewRoute(initialRoute);
     }
     protected List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
@@ -171,7 +178,7 @@ public class DeployedUnitController : UnitController
     protected virtual void Move()
     {
         Vector2 direction = (currentTargetWaypoint.position - transform.position).normalized;
-        unitRb.linearVelocity = direction * UnitSO.UnitSpeed;
+        unitRb.linearVelocity = direction * unitSpeed.ReturnFinalValue();
 
         float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 

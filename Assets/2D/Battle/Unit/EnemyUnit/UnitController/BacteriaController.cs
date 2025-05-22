@@ -22,7 +22,7 @@ public class BacteriaController : EnemyUnitController
             else
             {
                 PhagocytosisAttack();
-                meleeCooldown = UnitSO.UnitAtkSpeed;
+                meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
             }
         }
     }

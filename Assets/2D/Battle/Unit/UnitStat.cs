@@ -99,6 +99,6 @@ public class UnitStat
             finalValue += statModifiers[i].ModValue;
         }
 
-        return (float)Math.Round(finalValue);
+        return finalValue;
     }
 }

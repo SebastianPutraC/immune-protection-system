@@ -17,7 +17,7 @@ public class PlasmaCellController : AllyUnitController
             else
             {
                 AttackArtillery();
-                rangedCooldown = UnitSO.UnitRangedAtkSpeed;
+                rangedCooldown = rangedCooldownSpeed.ReturnFinalValue();
             }
         }
     }

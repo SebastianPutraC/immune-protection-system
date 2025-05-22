@@ -16,7 +16,7 @@ MonoBehaviour:
   StatMod:
     ModType: 1
     StatToMod: 2
-    ModValue: 0.1
+    ModValue: 0.2
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 0

@@ -15,7 +15,9 @@ MonoBehaviour:
   DecisionButtonText: Ahh kenapa tidak, ayo kita main sampai tengah malam!
   StatMod:
     ModType: 1
-    StatToMod: 2
+    StatToMod: 4
     ModValue: -0.1
   IsPickNextInfo: 0
   NextDecisionID: 0
+  IsQuiz: 0
+  IsCorrect: 0

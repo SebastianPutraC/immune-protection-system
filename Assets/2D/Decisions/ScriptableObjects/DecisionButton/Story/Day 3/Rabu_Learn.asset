@@ -15,8 +15,10 @@ MonoBehaviour:
   DecisionButtonText: Saya tidak ingin melakukan ini besok, mari kita lakukan hari
     ini.
   StatMod:
-    ModType: 0
-    StatToMod: 0
-    ModValue: 0
+    ModType: 1
+    StatToMod: 3
+    ModValue: 0.2
   IsPickNextInfo: 0
   NextDecisionID: 0
+  IsQuiz: 0
+  IsCorrect: 0

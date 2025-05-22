@@ -15,7 +15,9 @@ MonoBehaviour:
   DecisionButtonText: Hmmm mungkin satu atau dua tidak salah..
   StatMod:
     ModType: 1
-    StatToMod: 1
-    ModValue: -0.1
+    StatToMod: 5
+    ModValue: 0.1
   IsPickNextInfo: 0
   NextDecisionID: 0
+  IsQuiz: 0
+  IsCorrect: 0

@@ -43,7 +43,7 @@ public class EosinophilController : AllyUnitController
             else
             {
                 ToxinAttack();
-                meleeCooldown = UnitSO.UnitAtkSpeed;
+                meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
             }
         }
         else
