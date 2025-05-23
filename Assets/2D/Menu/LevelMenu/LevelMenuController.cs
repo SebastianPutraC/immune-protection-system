@@ -28,28 +28,22 @@ public class LevelMenuController : MonoBehaviour
         backToLevelButton.onClick.AddListener(BackToLevel);
     }
 
-    public void InitializeLevelMenu(List<LevelData> unlockedLevel, List<LevelInfo> levelReferences)
+    public void InitializeLevelMenu(List<LevelData> unlockedLevel, List<LevelInfo> levelReferences, bool isWonAllLevel)
     {
-        bool isUnlockedEpilogue = true;
-
         for (int i = 0; i < unlockedLevel.Count; i++)
         {
             LevelInfo newLevel = levelReferences.Where(x => x.levelId.Equals((LevelId)unlockedLevel[i].LevelId)).FirstOrDefault();
             LevelButton newButton = Instantiate(buttonPrefab, levelContent);
 
             newButton.InitializeButton(newLevel, unlockedLevel[i].Unlocked);
+            newButton.buttonClicked += PlayLevel;
 
             activeLevelButtons.Add(newButton);
-            newButton.buttonClicked += PlayLevel;
-            if (unlockedLevel[i].Unlocked == false)
-            {
-                isUnlockedEpilogue = false;
-            }
         }
 
-        BackToLevel();
+        epilogueButton.interactable = isWonAllLevel;
 
-        epilogueButton.interactable = isUnlockedEpilogue;
+        BackToLevel();
     }
     private void ClearLevelButton()
     {

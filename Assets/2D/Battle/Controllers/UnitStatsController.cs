@@ -16,6 +16,9 @@ public class UnitStatsController : MonoBehaviour
 
     [SerializeField] private EncyclopediaAbilitySO stopAbility;
 
+    [SerializeField] private GameObject blockAbility1;
+    [SerializeField] private GameObject blockAbility2;
+
     public Action<AbilityId> AbilityButtonSelected;
 
     private void Awake()
@@ -109,6 +112,22 @@ public class UnitStatsController : MonoBehaviour
         {
             abilityButtons[i].tutorialArrow.gameObject.SetActive(false);
         }
+    }
+    public void BlockAbility(bool left)
+    {
+        if (left)
+        {
+            blockAbility1.gameObject.SetActive(true);
+        }
+        else
+        {
+            blockAbility2.gameObject.SetActive(true);
+        }
+    }
+    public void HideBlock()
+    {
+        blockAbility1.gameObject.SetActive(false);
+        blockAbility2.gameObject.SetActive(false);
     }
 
     public void ClearUI()

@@ -108,6 +108,11 @@ public class SaveManagerSingleton : MonoBehaviour
         selectedSaveData.profileName = newName;
         SaveProfileData();
     }
+    public void WonAllLevel()
+    {
+        selectedSaveData.isWonAllLevel = true;
+        SaveProfileData();
+    }
 
     public Dictionary<string, SaveData> GetAllSaveData()
     {

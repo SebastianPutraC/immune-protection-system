@@ -70,7 +70,8 @@ public class MenuController : MonoBehaviour
     {
         HideAllMenu();
         levelMenu.gameObject.SetActive(true);
-        levelMenu.InitializeLevelMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().levelUnlock, LevelDataSingleton.Instance.GetAllLevelReferences());
+        levelMenu.InitializeLevelMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().levelUnlock, 
+            LevelDataSingleton.Instance.GetAllLevelReferences(), SaveManagerSingleton.Instance.GetSelectedSaveData().isWonAllLevel);
         PlayButtonSFX();
     }
     private void OpenMainMenu() 

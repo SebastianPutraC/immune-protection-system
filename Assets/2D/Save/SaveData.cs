@@ -10,12 +10,15 @@ public class SaveData
     public float sfxVolume;
     public float musicVolume;
 
+    public bool isWonAllLevel;
+
     public SaveData(string name, List<int> levelIds, List<int> encylopediaIds, List<int> quizIds)
     {
         profileName = name;
         enyclopediaUnlock = new List<EncyclopediaData>();
         levelUnlock = new List<LevelData>();
         quizScores = new List<QuizScoreData>();
+        isWonAllLevel = false;
 
         sfxVolume = 0.5f;
         musicVolume = 0.5f;

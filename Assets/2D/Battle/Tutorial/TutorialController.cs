@@ -54,6 +54,7 @@ public class TutorialController : BattleController
     [SerializeField] private GameObject firstRouteArrow;
     [SerializeField] private GameObject secondRouteArrow;
 
+    [SerializeField] private GameObject intelPointArrow;
     [SerializeField] private GameObject allyHPArrow;
     [SerializeField] private GameObject enemyHPArrow;
     [SerializeField] private GameObject holdArrow;
@@ -253,11 +254,15 @@ public class TutorialController : BattleController
             unitStatsController.ClearUI();
 
             SetUpLevel(LevelDataSingleton.Instance.GetCurrentLevelInfo());
+            UnlockAdaptiveCells();
 
             unitPanelController.gameObject.SetActive(true);
             unitStatsController.gameObject.SetActive(true);
             AdvanceAllButton.gameObject.SetActive(true);
             StopAllButton.gameObject.SetActive(true);
+
+            unitSelectionController.canSelect = true;
+            unitStatsController.HideBlock();
 
             tutorialText.text = "";
         }
@@ -333,6 +338,7 @@ public class TutorialController : BattleController
         advanceArrow.gameObject.SetActive(false);
         allyHPArrow.gameObject.SetActive(false);
         enemyHPArrow.gameObject.SetActive(false);
+        intelPointArrow.gameObject.SetActive(false);
 
         unitPanelController.TurnOffArrows();
         unitStatsController.TurnOffArrows();
@@ -424,6 +430,7 @@ public class TutorialController : BattleController
                 unitPanelController.ResetUnitCards();
                 unitPanelController.InitializeUnitCards(unitList);
                 unitPanelController.TurnTutorialArrow(neutrofil.unitId);
+                unitSelectionController.canSelect = false;
                 break;
             case 2:
                 ResetArrows();
@@ -517,11 +524,15 @@ public class TutorialController : BattleController
                 DeployAllyTutorialUnit(neutrofil, levelController.tutorialAllySpawners[0]);
                 barrier.gameObject.SetActive(true);
                 tutorialText.text = "Klik unit Neutrofil dalam medan";
+
+                unitSelectionController.canSelect = true;
                 break;
             case 2:
                 unitStatsController.TurnTutorialArrow(AbilityId.MOVE);
                 barrier.gameObject.SetActive(true);
                 tutorialText.text = "Klik tombol Stop dalam panel Kemampuan di kiri bawah layar";
+
+                unitStatsController.BlockAbility(false);
                 break;
             case 3:
                 unitStatsController.TurnTutorialArrow(AbilityId.MOVE);
@@ -533,6 +544,8 @@ public class TutorialController : BattleController
                 isCheckTime = true;
                 tutorialText.text = "Mohon Menunggu";
                 barrier.gameObject.SetActive(false);
+
+                unitSelectionController.canSelect = false;
                 break;
         }
 
@@ -682,6 +695,7 @@ public class TutorialController : BattleController
         switch (subPhaseStep)
         {
             case 1:
+                unitStatsController.HideBlock();
                 KillAllUnit();
                 AllyUnit neutrofil = (AllyUnit)UnitReferences.Where(x => x.unitId == UnitId.NEUTROPHIL).FirstOrDefault();
                 DeployAllyTutorialUnit(neutrofil, levelController.tutorialAllySpawners[0]);
@@ -698,11 +712,13 @@ public class TutorialController : BattleController
                 tutorialBacteriaOne.DisableDetection();
                 tutorialBacteriaOne.isMoveOrder = false;
 
+                unitSelectionController.canSelect = true;
                 tutorialText.text = "Klik unit Neutrofil dalam medan";
                 break;
             case 2:
                 unitStatsController.TurnTutorialArrow(AbilityId.TRAP);
                 tutorialText.text = "Klik tombol NET dalam panel Kemampuan di kiri bawah layar";
+                unitStatsController.BlockAbility(true);
                 break;
             case 3:
                 ResetArrows();
@@ -710,6 +726,8 @@ public class TutorialController : BattleController
                 isCheckTime = true;
                 tutorialText.text = "Mohon Menunggu";
                 barrier.gameObject.SetActive(false);
+
+                unitSelectionController.canSelect = false;
                 break;
         }
 
@@ -808,7 +826,7 @@ public class TutorialController : BattleController
     private void CheckAntigenPhase()
     {
         isPhaseDone = false;
-        if (isCollecting && isAdaptiveUnlocked)
+        if (isCollecting && isAdaptiveUnlocked && isTimerDone)
         {
             isPhaseDone = true;
             return;
@@ -847,6 +865,7 @@ public class TutorialController : BattleController
             case 1:
                 ResetArrows();
                 KillAllUnit();
+                unitStatsController.HideBlock();
 
                 AllyUnit macrophage = (AllyUnit)UnitReferences.Where(x => x.unitId == UnitId.MACROPHAGE).FirstOrDefault();
                 DeployAllyTutorialUnit(macrophage, levelController.tutorialAllySpawners[0]);
@@ -857,21 +876,26 @@ public class TutorialController : BattleController
                 tutorialBacteriaOne.isMoveOrder = false;
 
                 tutorialText.text = "Klik unit Makrofag dalam medan";
+                unitSelectionController.canSelect = true;
                 break;
             case 2:
                 unitStatsController.TurnTutorialArrow(AbilityId.APC);
                 tutorialText.text = "Klik tombol Koleksi dalam panel Kemampuan di kiri bawah layar";
+                unitStatsController.BlockAbility(true);
                 break;
             case 3:
                 tutorialMacrophage.isMoveOrder = true;
                 tutorialBacteriaOne.isMoveOrder = true;
                 unitStatsController.InitializeUnitStats(selectedUnit, selectedUnit.UnitSO.UnitAbility);
                 tutorialText.text = "Makrofag akan membawa antigen ke markas dari patogen yang telah mati";
+                unitStatsController.BlockAbility(false);
                 break;
             case 4:
                 waitTimer = 3f;
                 isCheckTime = true;
                 tutorialText.text = "Anda telah menambahkan Intel Points dan memenuhi syarat Sistem Imun Adaptif";
+                unitSelectionController.canSelect = false;
+                intelPointArrow.gameObject.SetActive(true);
                 break;
         }
 
@@ -911,6 +935,7 @@ public class TutorialController : BattleController
         switch (subPhaseStep)
         {
             case 1:
+                unitStatsController.HideBlock();
                 tutorialText.text = "Klik kartu unit Sel Plasma di panel kartu unit";
 
                 AllyUnit plasma = (AllyUnit)UnitReferences.Where(x => x.unitId == UnitId.PLASMACELL).FirstOrDefault();

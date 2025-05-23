@@ -80,17 +80,6 @@ public class BattleController : MonoBehaviour
             SetUpLevel(levelInfo);
         }
 
-        maxBaseHp = levelInfo.allyBaseMaxHP;
-        currBaseHp = maxBaseHp;
-        maxRepairPoint = levelInfo.maxRepairPoints;
-        currRepairPoint = 0;
-        unlockIntelPoints = levelInfo.unlockIntelPoint;
-
-        UpdateBaseUI(currBaseHp, maxBaseHp, UnitSide.ALLY);
-        UpdateBaseUI(currRepairPoint, maxRepairPoint, UnitSide.ENEMY);
-        battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
-        battlePanelController.UpdateIntelPointUI(0, unlockIntelPoints);
-
         if (levelInfo.IntroInfos.Count > 0)
         {
             Time.timeScale = 0;
@@ -249,6 +238,17 @@ public class BattleController : MonoBehaviour
     }
     protected void SetUpLevel(LevelInfo levelInfo)
     {
+        maxBaseHp = levelInfo.allyBaseMaxHP;
+        currBaseHp = maxBaseHp;
+        maxRepairPoint = levelInfo.maxRepairPoints;
+        currRepairPoint = 0;
+        unlockIntelPoints = levelInfo.unlockIntelPoint;
+
+        UpdateBaseUI(currBaseHp, maxBaseHp, UnitSide.ALLY);
+        UpdateBaseUI(currRepairPoint, maxRepairPoint, UnitSide.ENEMY);
+        battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
+        battlePanelController.UpdateIntelPointUI(0, unlockIntelPoints);
+
         resourcePoints = levelInfo.defaultStatingResource;
         basicIncome = levelInfo.defaultIncome;
 
@@ -304,11 +304,8 @@ public class BattleController : MonoBehaviour
     }
     protected void UnlockAdaptiveCells()
     {
-        if (!isAdaptiveUnlocked)
-        {
-            unitPanelController.UnlockAdaptiveCard();
-            isAdaptiveUnlocked = true;
-        }
+        unitPanelController.UnlockAdaptiveCard();
+        isAdaptiveUnlocked = true;
     }
 
 
@@ -469,6 +466,10 @@ public class BattleController : MonoBehaviour
             for (int i = 0; i < unlockedUnits.Count; i++)
             {
                 SaveManagerSingleton.Instance.UpdateSelectedData(unlockedUnits[i], LevelId.NONE);
+            }
+            if (LevelDataSingleton.Instance.GetCurrentLevelInfo().levelId == LevelId.LEVEL_SEVEN)
+            {
+                SaveManagerSingleton.Instance.WonAllLevel();
             }
 
             gameOverPanelController.gameObject.SetActive(true);
