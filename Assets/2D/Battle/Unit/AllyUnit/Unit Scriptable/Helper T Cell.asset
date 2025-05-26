@@ -18,15 +18,35 @@ MonoBehaviour:
   unitType: 1
   UnitHp: 70
   UnitCost: 400
-  UnitSpeed: 3
+  UnitSpeed: 4
   UnitAtk: 0
   UnitAtkSpeed: 0
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: 'Sel T Pembantu berasal dari jaringan limfoid dan satu keluarga
+    dengan Sel T Pembantu. Sel ini merupakan bagian dari sel imun adaptif. Tugas
+    dari sel ini adalah membantu sel lain melakukan kemampuannya. Sel ini meningkatkan
+    kemampuan penghancuran patogen dalam proses fagositosis kepada makrofag dan neutrofil.
+    Sel ini juga dapat meningkatkan kemampuan produksi antibodi dari sel plasma. '
+  UnitFullDesc: "Sel T Pembantu merupakan salah satu sel limfoid T yang merupakan
+    satu keluarga dengan Sel T Pembunuh. Sel ini termasuk sel imun adaptif. Sel ini
+    memiliki kemampuan untuk melawan patogen secara tidak langsung. Ini dengan membantu
+    sel lain mengerjakan tugasnya. Sel ini juga memiliki dua tipe yang berbeda berdasarkan
+    tugasnya, TH1, dan TH2.\n\r\nPertama, sel TH1 bertugas untuk membawa sel imun
+    lain ke lokasi infeksi dengan menginduksi inflamasi dengan sekresi protein sitokin
+    dan kemokin. Setelah itu, sel TH1 dapat membantu peningkatan kemampuan fagositosis
+    pada sel makrofag dan neutrofil dalam penghancuran patogen. Ini menggunakan suatu
+    tipe sitokin yang dikeluarkan oleh sel TH1.\n\r\nTipe kedua dari Sel T Pembantu
+    yaitu TH2 berperan lebih erat dengan sel plasma. Sel TH2 dapat mengaktivkan sel
+    plasma dengan memberikan informasi antigen. Setelah sel plasma telah aktif, Sel
+    TH2 dapat membantu produksi dari antibodi sel plasma, serta mampu memberikan
+    sinyal yang mengubah antibodi yang diproduksi berdasarkan patogen yang dihadapi.
+    Sinyal yang membantu produksi dan diferensiasi antibodi juga berasal dari sitokin
+    yang dikeluarkan Sel TH2. \r\n"
   UnitSprite: {fileID: 21300000, guid: 0032dbd32b0a3ef48969215892764ca7, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 9f5b398528062d749948a9a5e7b8a290, type: 2}
+  - {fileID: 11400000, guid: 3a7dd76a34e7b164882001624c67507a, type: 2}
+  - {fileID: 11400000, guid: db48217a11dc4bb4da6cfe3f6ffdb16c, type: 2}
   ImmuneCellType: 2

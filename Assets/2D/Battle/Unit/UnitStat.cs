@@ -53,7 +53,7 @@ public class UnitStat
         }
         return false;
     }
-    public bool RemoveModifersFromSource(object source)
+    public bool RemoveModifersFromSource(int source)
     {
         bool removed = false;
 
@@ -67,6 +67,18 @@ public class UnitStat
         }
 
         return removed;
+    }
+    public StatModifier GetStatFromSource(int source)
+    {
+        for (int i = 0; i < statModifiers.Count; i++)
+        {
+            if (statModifiers[i].Source == source)
+            {
+                return statModifiers[i];
+            }
+        }
+
+        return null;
     }
 
     public float ReturnFinalValue()

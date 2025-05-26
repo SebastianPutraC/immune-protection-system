@@ -7,9 +7,9 @@ public class StatModifier
     public StatType StatToMod;
     public float ModValue;
     public readonly int Order;
-    public object Source;
+    public int Source;
 
-    public StatModifier(float modValue, StatModType modType, StatType statType, int order, object source)
+    public StatModifier(float modValue, StatModType modType, StatType statType, int order, int source)
     {
         this.ModValue = modValue;
         this.ModType = modType;

@@ -45,6 +45,38 @@ public class AllyUnitController : DeployedUnitController
         currentRouteTaken = route;
         GetNewWaypoint(true, isReturning);
     }
+
+    public void AddBuff(StatModifier modifier)
+    {
+        switch (modifier.StatToMod)
+        {
+            case StatType.ATK:
+                if (unitAtk.GetStatFromSource(modifier.Source) == null)
+                {
+                    unitAtk.AddModifier(modifier);
+                }
+                break;
+            case StatType.RANGEDATK:
+                if (unitRangedAtk.GetStatFromSource(modifier.Source) == null)
+                {
+                    unitRangedAtk.AddModifier(modifier);
+                }
+                break;
+        }
+    }
+    public void RemoveBuff(StatType type, int bufferId)
+    {
+        switch (type)
+        {
+            case StatType.ATK:
+                unitAtk.RemoveModifersFromSource(bufferId);
+                break;
+            case StatType.RANGEDATK:
+                unitRangedAtk.RemoveModifersFromSource(bufferId);
+                break;
+        }
+    }
+
     public void UnitSelect()
     {
         selectedIndicator.SetActive(true);

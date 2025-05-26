@@ -11,5 +11,7 @@ public enum AbilityId
     TRAP,
     ANTIBODI,
     TOKSIN,
-    APOPTOSIS
+    APOPTOSIS,
+    BUFFFAGOSIT,
+    BUFFANTIBODI
 }
