@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
   m_Name: Level7_01_04
   m_EditorClassIdentifier: 
-  DecisionButtonText: Sel Plasma
+  DecisionButtonText: Sel Plasma dan Sel T Pembunuh
   StatMod:
     ModType: 0
     StatToMod: 0

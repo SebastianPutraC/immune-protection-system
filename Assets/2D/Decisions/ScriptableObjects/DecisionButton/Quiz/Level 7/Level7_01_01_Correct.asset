@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
   m_Name: Level7_01_01_Correct
   m_EditorClassIdentifier: 
-  DecisionButtonText: Makrofag
+  DecisionButtonText: Makrofag dan Neutrofil
   StatMod:
     ModType: 1
     StatToMod: 1
