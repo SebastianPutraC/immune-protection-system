@@ -52,10 +52,24 @@ public class HelperTCellController : AllyUnitController, IInflammator
             allyUnit.ThisUnitKilled += AllyDead;
         }
     }
-    protected void AllyBuffLost(UnitController allyUnit)
+    protected void AllyBuffLost(UnitController unit)
     {
+        if (unit is not AllyUnitController)
+        {
+            return;
+        }
+
+        AllyUnitController allyUnit = (AllyUnitController)unit;
         if (detectedUnitBuff.ContainsKey(allyUnit.GetInstanceID()))
         {
+            if (allyUnit is MacrophageController || unit is NeutrophilController)
+            {
+                allyUnit.RemoveBuff(StatType.ATK, this.gameObject.GetInstanceID());
+            }
+            else if (unit is PlasmaCellController)
+            {
+                allyUnit.RemoveBuff(StatType.ATKCOOLDOWN, this.gameObject.GetInstanceID());
+            }
             detectedUnitBuff.Remove(allyUnit.GetInstanceID());
         }
 
@@ -96,6 +110,17 @@ public class HelperTCellController : AllyUnitController, IInflammator
 
     protected override void OnDestroy()
     {
+        for (int i = 0; i < detectedUnitBuff.Count; i++)
+        {
+            if (detectedUnitBuff[i] is MacrophageController || detectedUnitBuff[i] is NeutrophilController)
+            {
+                detectedUnitBuff[i].RemoveBuff(StatType.ATK, this.gameObject.GetInstanceID());
+            }
+            else if (detectedUnitBuff[i] is PlasmaCellController)
+            {
+                detectedUnitBuff[i].RemoveBuff(StatType.ATKCOOLDOWN, this.gameObject.GetInstanceID());
+            }
+        }
         base.OnDestroy();
         allyDetect.enemyDetected -= AllyBuffDetected;
         allyDetect.enemyOutRange -= AllyBuffLost;
