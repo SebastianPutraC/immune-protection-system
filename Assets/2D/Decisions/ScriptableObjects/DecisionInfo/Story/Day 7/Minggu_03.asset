@@ -16,6 +16,6 @@ MonoBehaviour:
   DecisionInfoText: Malam harinya, Andi mengerjakan setiap soal matematika sulit
     yang dapat dipikirkannya. Apa pun yang dapat diberikan Pak Wu kepadanya dalam
     ujian, ia pasti dapat menyelesaikannya. Ia merasa percaya diri, ia ingin segera
-    melihat soal ujian itu. Memikirkan itu membuat Ia kesulitan tidur.
+    melihat soal ujian itu. Walaupun itu, memikirkannya membuat Ia kesulitan tidur.
   DecisionButtons:
   - {fileID: 11400000, guid: 2bb1279e0a5efea45be1705245350ffe, type: 2}

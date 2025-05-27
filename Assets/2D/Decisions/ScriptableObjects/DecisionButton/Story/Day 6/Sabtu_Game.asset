@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
   m_Name: Sabtu_Game
   m_EditorClassIdentifier: 
-  DecisionButtonText: Tentu saja, tunggu aku.
+  DecisionButtonText: Aku perlu bijak dalam mengelola waktu. Aku akan bermain sampai
+    jam 9
   StatMod:
     ModType: 1
     StatToMod: 2
     ModValue: 0.2
+    Source: 0
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 0

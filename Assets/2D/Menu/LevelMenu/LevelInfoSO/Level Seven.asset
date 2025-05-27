@@ -16,7 +16,7 @@ MonoBehaviour:
   levelName: Minggu
   allyUnits: 6500000066000000670000006a00000069000000680000006b0000006c000000
   enemyUnits: c9000000ca000000cc000000cb000000cd000000ce000000
-  defaultStatingResource: 0
+  defaultStatingResource: 800
   defaultIncome: 100
   levelIdUnlock: 1
   unlockIntelPoint: 175

@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Senin_01
   m_EditorClassIdentifier: 
   decisionId: 1
-  DecisionInfoText: "Saat itu pukul 10, dan bel sekolah berbunyi untuk istirahat.
-    Andi baru saja menyelesaikan tugas matematika dan hampir terlambat menyerahkannya.
-    Ia harus mengakui bahwa ia tidak dapat menyelesaikannya tepat waktu jika ia tidak
-    fokus pada pelajaran. Pak Wu tidak akan menerima penyerahan tugas apa pun setelah
-    sesinya.\n\r\nAndi tahu Pak Wu suka memasukkan bagian tersulit dalam ujiannya.
-    Jika Pak Wu mendengar bagian mana yang sulit dari siswanya, Ia akan memasukkannya
-    dalam ujian. Ia tidak tahu apa masalahnya dengan orang itu.\r\n\r"
+  DecisionInfoText: Hari ini adalah hari senin yang baru dan Andi harus mempersiapkan
+    diri untuk hari-hari sekolah berikutnya. Dia banyak bermain game minggu lalu
+    dan dia pikir minggu ini akan menjadi minggu yang tenang. Namun di tengah perjalanan
+    ke sekolah, dia menyadari bahwa akan ada ujian minggu depan. Bukan ujian biasa,
+    melainkan ujian dari Pak Wu.
   DecisionButtons:
   - {fileID: 11400000, guid: db7a85586e1d26942a083e399b2372a3, type: 2}

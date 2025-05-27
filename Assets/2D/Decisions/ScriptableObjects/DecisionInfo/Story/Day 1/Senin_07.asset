@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
-  m_Name: Senin_06
+  m_Name: Senin_07
   m_EditorClassIdentifier: 
-  decisionId: 6
+  decisionId: 7
   DecisionInfoText: 'Sekarang dia sudah di rumah. Andi tetap pada rencananya dan
     mulai belajar untuk ujian berikutnya. Dia mengatur waktunya dengan baik dan menghabiskan
     hari ini dengan mengelola materi ujian mana yang harus dia fokuskan setiap hari

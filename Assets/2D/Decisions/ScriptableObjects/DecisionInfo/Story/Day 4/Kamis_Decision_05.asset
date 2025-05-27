@@ -13,24 +13,14 @@ MonoBehaviour:
   m_Name: Kamis_Decision_05
   m_EditorClassIdentifier: 
   decisionId: 5
-  DecisionInfoText: 'Andi langsung bertanya apakah Joko sakit hari ini.
-
-
-    "Wah,
-    aku jadi tidak ingin sekolah hari ini. Ehem"
-
-    Jawaban itu membuat Andi bingung
-    karena Joko sepertinya tipe yang senang belajar di sekolah.
-
-
-    "Sekolah itu
+  DecisionInfoText: "Andi langsung bertanya apakah Joko sakit hari ini.\n\"Wah, aku
+    jadi tidak ingin sekolah hari ini. Ehem\"\r\nJawaban itu membuat Andi bingung
+    karena Joko sepertinya tipe yang senang belajar di sekolah.\n\r\n\"Sekolah itu
     melelahkan, suatu hari nanti aku ingin hidup di dunia di mana aku tidak perlu
-    belajar apa pun. Kamu tahu tentang hal itu..."
-
-    Andi mengerti bahwa Joko
-    akan mengungkapkan perasaannya.
-
-'
+    belajar apa pun. Kamu tahu tentang hal itu...\"\r\nAndi memahami perasaan tersebut,
+    Apalagi saat memikirkan tentang ujian Pak Wu. \n\u201CAh maaf, aku terlalu cerewet
+    mengenai ini. Hei, mungkin kamu dapat menceritakan apa yang membuat kamu sebel
+    di hari hari ini\u201D Ujar Joko\r\n"
   DecisionButtons:
   - {fileID: 11400000, guid: 685a86bd7d8cef747bc759ef8e8efcee, type: 2}
   - {fileID: 11400000, guid: 10e068a68b08ddf42bcf779d2d330e37, type: 2}

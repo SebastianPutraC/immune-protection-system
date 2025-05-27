@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Jumat_Decision_03
+  m_EditorClassIdentifier: 
+  decisionId: 3
+  DecisionInfoText: '"Hei Andi! Ayo, kelas 11B mengajak kembali untuk bertanding.
+    Sombong sekali mereka untuk berpikir bahwa mereka akan menang kembali", Panggil
+    Bobi.
+
+    Andi merasa semangat kembali, Ia sudah mengetahui kelemahan dari
+    cara main 11B. Kekalahan tim Andi sebelumnya ternyata membuka suatu taktik baru.
+    Ini merupakan waktu yang baik untuk kembali ke lapangan dan berolahraga. Tetapi,
+    di ruangan yang sejuk ini, Andi dapat saja menghabiskan waktu istirahat ini bermain
+    HP.
+
+'
+  DecisionButtons:
+  - {fileID: 11400000, guid: 1b7f50ae00d03ad4499fe33d6fcc2c7e, type: 2}
+  - {fileID: 11400000, guid: 138cc97f8b6559f489b2709989a75514, type: 2}

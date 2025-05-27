@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
   m_Name: Jumat_PlayLate
   m_EditorClassIdentifier: 
-  DecisionButtonText: Ahh kenapa tidak, ayo kita main sampai tengah malam!
+  DecisionButtonText: Ahh kenapa tidak, ayo kita main sampai pagi
   StatMod:
     ModType: 1
     StatToMod: 4
     ModValue: -0.1
+    Source: 0
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 0

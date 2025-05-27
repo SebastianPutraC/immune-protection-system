@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Senin_04
   m_EditorClassIdentifier: 
   decisionId: 4
-  DecisionInfoText: "\"Apa kamu tidak lupa ujian terakhir kita? Bahkan si kutu buku
-    Joko gemetar saat membaca kertas ujian\". Bisik Ruri, mengetahui bahwa Joko masih
-    mencatat apa yang ada di papan tulis.\n\r\n\u201C....\u201D. Sepertinya Bobi
-    masih menggerutu berkat kekalahan pertandingan kelas tadi siang.\r\nAndi tahu
-    bahwa ia perlu mempersiapkan diri. Jadi ia pulang dan merencanakan waktu belajar
-    saat ia akhirnya sampai di rumah.\r\n"
+  DecisionInfoText: 'Akhirnya bel pulang berbunyi, Andi langsung mengemasi tasnya
+    untuk pulang. Namun sebelum berangkat, ia menanyakan tentang apa yang dipikirkan
+    teman-teman sekelasnya mengenai ujian minggu depan.
+
+
+    "Yah, mengingat sikap
+    Pak Wu terhadap kita, dia tidak akan bisa membuat ujian ini berjalan lancar".
+    Ucap Aan
+
+
+    "Kita tidak bisa menilai seekor ikan dari kemampuannya memanjat
+    pohon". Kutip Kiki, yang memiliki rekor nilai matematika terendah di kelas.
+
+'
   DecisionButtons:
   - {fileID: 11400000, guid: db7a85586e1d26942a083e399b2372a3, type: 2}

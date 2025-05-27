@@ -25,6 +25,7 @@ MonoBehaviour:
   enemyStartingResource: 75
   enemyIncome: 0
   DecisionInfos:
+  - {fileID: 11400000, guid: 1719f9c6c433af6429ef1ba4e3f2edda, type: 2}
   - {fileID: 11400000, guid: 760eacc809fdeed429b9854478412030, type: 2}
   - {fileID: 11400000, guid: b2f05c6457088f14ab78a827e9070d72, type: 2}
   - {fileID: 11400000, guid: eb3b0615d1b473e46af056ee11e6ffb2, type: 2}

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
-  m_Name: Sabtu_DontSkip
+  m_Name: Jumat_Don't Match
   m_EditorClassIdentifier: 
-  DecisionButtonText: Sepertinya lebih baik aku tidak mengubah jadwal belajarku
+  DecisionButtonText: Biarkan saja mereka memikirkan itu. Aku tidak ikut.
   StatMod:
     ModType: 1
-    StatToMod: 3
-    ModValue: 0.2
+    StatToMod: 1
+    ModValue: -0.1
+    Source: 0
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 0

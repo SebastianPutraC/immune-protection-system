@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decisionId: 4
   DecisionInfoText: '"Aaahh, kamu pasti bercanda, kamu masih punya flick yang masih
-    siap, kenapa tidak kamu gunakan itu!?" Gerutu Kiki
+    siap, kenapa tidak kamu gunakan itu!?"
 
     
 
-    Situasi di meda
-    permainan suram, timnya dalam posisi yang kurang menguntungkan dan hanya Kiki
-    yang bisa memberikan perlawanan yang layak. Kiki mengembuskan asap rokok yang
-    telah dia hisap selama 15 menit terakhir. Saat mulai permainan, Andi telah memakai
-    masker dan menjaga jarak (Ia tahu ini akan terjadi). Tetapi sekarang, Ia merasa
-    bahwa dia harus mendapatkan satu untuk menenangkan sarafnya.
+    Situasi di meda permainan
+    suram, timnya dalam posisi yang kurang menguntungkan dan hanya Kiki yang bisa
+    memberikan perlawanan yang layak. Kiki mengembuskan asap rokok yang telah dia
+    hisap selama 15 menit terakhir. Saat mulai permainan, Andi telah memakai masker
+    dan menjaga jarak (Ia tahu ini akan terjadi). Ia melirik sebungkus rokok yang
+    diberikan oleh Kiki.
 
 '
   DecisionButtons:

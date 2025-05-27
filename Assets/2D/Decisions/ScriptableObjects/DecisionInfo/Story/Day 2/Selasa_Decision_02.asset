@@ -18,7 +18,7 @@ MonoBehaviour:
     dekat dengan sekolahnya adalah "Los Carne Hermanos". Tempatnya mudah dijangkau
     dan Andi tidak perlu lama menunggu, tetapi makan junk food dapat membahayakan
     kesehatannya. Selain itu, ada rumor bahwa mereka menaruh sesuatu di sana untuk
-    membuat orang kecanduan...
+    membuat orang kecanduan.
   DecisionButtons:
   - {fileID: 11400000, guid: 0d6fe2b0805366f49a4064cf7f113384, type: 2}
   - {fileID: 11400000, guid: d571fb2eea3bd0a4e855fd1e4dea126d, type: 2}

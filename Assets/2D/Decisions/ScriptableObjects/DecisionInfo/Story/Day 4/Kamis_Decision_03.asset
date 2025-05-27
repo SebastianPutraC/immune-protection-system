@@ -19,7 +19,8 @@ MonoBehaviour:
     pertandingan. Ketika dia memeriksa ponselnya, baterainya sudah lemah. Memang,
     dia lupa mengisi dayanya tadi malam. Dia bahkan tidak bisa mendengarkan musik.
     Rasanya hari ini bukan hari yang baik baginya. Namun mungkin dia bisa mencari
-    cara lain untuk menghilangkan kesengsaraan ini, mungkin hobi baru.
+    cara lain untuk menghilangkan kesengsaraan ini, mungkin ada sesuatu yang dapat
+    membantu menurunkan stresnya.
   DecisionButtons:
   - {fileID: 11400000, guid: 9cd74b5fd324896419e65f4cee371b15, type: 2}
   - {fileID: 11400000, guid: 9cd74b5fd324896419e65f4cee371b15, type: 2}

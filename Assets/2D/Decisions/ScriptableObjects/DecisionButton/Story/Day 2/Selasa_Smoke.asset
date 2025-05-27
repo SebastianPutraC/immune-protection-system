@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
   m_Name: Selasa_Smoke
   m_EditorClassIdentifier: 
-  DecisionButtonText: Situasi ini FUBAR, aku perlu menghisap rokok itu
+  DecisionButtonText: "Hmm kenapa tidak, mungkin ini yang membuat Kikir fasih dalam
+    bermain \u201CMobile Agent\u201D"
   StatMod:
     ModType: 1
     StatToMod: 1
     ModValue: -0.1
+    Source: 0
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 0

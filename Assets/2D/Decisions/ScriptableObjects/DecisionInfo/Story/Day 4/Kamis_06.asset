@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: Kamis_06
   m_EditorClassIdentifier: 
   decisionId: 6
-  DecisionInfoText: "\"Senang mengobrol denganmu, Andi, kamu tahu aku mungkin akan
-    berhenti minum-minum,\" gumam Joko. \n\nAndi merasa semakin dekat dengan orang-orang
-    di sekitarnya. Rasanya memang menyenangkan.\n\r\nSaat pulang, ia terus belajar
-    untuk ujian. Ia mengingatkan dirinya untuk tidak memaksakan diri dan beristirahat
-    dengan cukup.\r\n"
+  DecisionInfoText: '"Terima kasih telah mendengarkan kegelisahanku, Andi, kamu tahu
+    aku mungkin akan berhenti minum-minum," gumam Joko. Andi merasa semakin dekat
+    dengan orang-orang di sekitarnya. Rasanya memang membuat ia bahagia.
+
+    
+
+    Saat
+    pulang, ia terus belajar untuk ujian. Ia mengingatkan dirinya untuk tidak memaksakan
+    diri dan beristirahat dengan cukup.
+
+'
   DecisionButtons:
   - {fileID: 11400000, guid: db7a85586e1d26942a083e399b2372a3, type: 2}

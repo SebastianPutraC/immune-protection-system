@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
-  m_Name: Jumat_Decision_04
+  m_Name: Jumat_Decision_05
   m_EditorClassIdentifier: 
-  decisionId: 4
+  decisionId: 5
   DecisionInfoText: Terkadang Andi berharap untuk tidak pernah tahu game yang bernama
     League of Lords. Ia sangat menyukainya, tetapi juga membencinya. Ia hanya bisa
     menoleransi jika ada orang lain yang bermain bersamanya. Ketika mereka sudah

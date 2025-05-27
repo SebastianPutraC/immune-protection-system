@@ -29,6 +29,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ddccfae272dcf1438d3966dae686a0e, type: 2}
   - {fileID: 11400000, guid: c822f74ef3f214a4dbde01a6a3948da0, type: 2}
   - {fileID: 11400000, guid: 17341f69bd30af4419b9e767a6127279, type: 2}
+  - {fileID: 11400000, guid: 2ed2ad0e8a38f8840a8caab74dcbeb83, type: 2}
   QuizInfos:
   - {fileID: 11400000, guid: ab888ccc984414849809f63ae59d1fa4, type: 2}
   - {fileID: 11400000, guid: 830fb4bbf0b8eaa45bb9fedeab574e41, type: 2}

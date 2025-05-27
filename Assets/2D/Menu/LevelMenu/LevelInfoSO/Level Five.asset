@@ -26,6 +26,7 @@ MonoBehaviour:
   enemyIncome: 100
   DecisionInfos:
   - {fileID: 11400000, guid: f59a22da970db3c4381ea742a22a24a8, type: 2}
+  - {fileID: 11400000, guid: 9bf4c8a528318b64394538ec37ba4ca2, type: 2}
   - {fileID: 11400000, guid: 81b9cb0296c89924e8466849073cc256, type: 2}
   - {fileID: 11400000, guid: 137eb8855a5844147ba7c901660b3d87, type: 2}
   - {fileID: 11400000, guid: a8ecaf680a642f84d90535e26b63107c, type: 2}

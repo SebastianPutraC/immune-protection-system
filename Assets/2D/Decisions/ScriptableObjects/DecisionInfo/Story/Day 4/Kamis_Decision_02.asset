@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Kamis_Decision_02
   m_EditorClassIdentifier: 
   decisionId: 2
-  DecisionInfoText: Andi berhasil masuk ke dalam salah satu bus yang penuh sesak.
-    Karena seringnya ia didorong-dorong oleh orang yang datang dan pergi, suasana
-    hatinya menjadi buruk. Ia ingin membuat dirinya lebih nyaman, mungkin ia ingin
-    melepas maskernya.
+  DecisionInfoText: "Andi berhasil masuk ke dalam salah satu bus yang hampir melaju
+    ke tujuannya. Lagi \u2013 lagi ia melihat banyak sekali orang yang tidak menggunakan
+    masker. Apakah lebih baik Andi mengikuti orang \u2013 orang tersesbut?"
   DecisionButtons:
   - {fileID: 11400000, guid: 88e72a6e6f7de4d47a3cf756d1c25c99, type: 2}
   - {fileID: 11400000, guid: 3663df0d01f6dd0469218ec5106bf12e, type: 2}

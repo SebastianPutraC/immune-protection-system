@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
   m_Name: Senin_Don't Play
   m_EditorClassIdentifier: 
-  DecisionButtonText: "Maaf Bobi, aku belum melakukan \u201Cdaily\u201D di Kikir
-    Impact, kamu pasti paham kan?"
+  DecisionButtonText: "Maaf Bobi, aku belum melakukan \u201Cdaily\u201D di gacha
+    ini, kamu pasti paham kan?"
   StatMod:
     ModType: 1
     StatToMod: 1
     ModValue: 0.1
+    Source: 0
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 0

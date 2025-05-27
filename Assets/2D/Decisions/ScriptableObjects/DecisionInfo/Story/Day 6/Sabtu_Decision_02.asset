@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Sabtu_Decision_02
   m_EditorClassIdentifier: 
   decisionId: 2
-  DecisionInfoText: Andi berencana hari ini untuk belajar dua kali, pagi hari saat
-    ia masih bersemangat menjalani hari, dan malam hari sebelum tidur. Ia tampaknya
-    sudah siap untuk belajar pertama. Ia sudah mendapatkan minuman dan daftar lagu
-    untuk meningkatkan kemampuan belajarnya. Meski begitu... Mungkin Sabtu nanti...
-    Ia bisa saja melewatkan sesi pagi ini. Toh, ia bisa belajar semua ini di malam
-    hari.
+  DecisionInfoText: Karena ia hanya berada di rumah, Ia tidak banyak melakukan aktivitas
+    fisik. Saat ia berhenti untuk menghabiskan waktu luangnya, Andi dapat saja tiduran
+    dalam sofa dan menonton TV. Ia melihat udara di luar rumah sejuk, mungkin Ia
+    dapat berolahraga untuk melatih fisiknya.
   DecisionButtons:
   - {fileID: 11400000, guid: d8cd6904957ed834eb8e28375c646e60, type: 2}
   - {fileID: 11400000, guid: 111ae738931ad8147a9e92c06303c870, type: 2}
