@@ -13,7 +13,8 @@ public class EncylopediaUnitGrid : MonoBehaviour
     [SerializeField] private Image unitImage;
     [SerializeField] private Sprite lockedImage;
 
-    [SerializeField] private GameObject selectedIndicator;
+    private readonly Color deselectColor = new Color32(103, 43, 144, 255);
+    private readonly Color selectColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
 
     public Action<EncylopediaUnitGrid> UnitClicked;
 
@@ -44,11 +45,11 @@ public class EncylopediaUnitGrid : MonoBehaviour
 
     public void SelectGrid()
     {
-        selectedIndicator.SetActive(true);
+        unitButton.image.color = selectColor;
     }
     public void DeselectGrid()
     {
-        selectedIndicator.SetActive(false);
+        unitButton.image.color = deselectColor;
     }
 
     private void OnClick()

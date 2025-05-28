@@ -102,13 +102,17 @@ public class EncyclopediaMenuController : MonoBehaviour
             cellsScrollViewObject.gameObject.SetActive(true);
             pathogenScrollViewObject.gameObject.SetActive(false);
             mechanicScrollViewObject.gameObject.SetActive(false);
-
         }
         else if (unitType == UnitType.PATHOGEN)
         {
             cellsScrollViewObject.gameObject.SetActive(false);
             pathogenScrollViewObject.gameObject.SetActive(true);
             mechanicScrollViewObject.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < unitGrids.Count; i++)
+        {
+            unitGrids[i].DeselectGrid();
         }
         ButtonPressed?.Invoke();
     }
@@ -129,6 +133,11 @@ public class EncyclopediaMenuController : MonoBehaviour
         cellsScrollViewObject.gameObject.SetActive(false);
         pathogenScrollViewObject.gameObject.SetActive(false);
         mechanicScrollViewObject.gameObject.SetActive(true);
+
+        for (int i = 0; i < mechanicGrids.Count; i++)
+        {
+            mechanicGrids[i].DeselectGrid();
+        }
     }
     private void ClearViewMechanic()
     {
