@@ -13,12 +13,13 @@ public class UnitCardController : MonoBehaviour
     [SerializeField] private Image unitImage;
     [SerializeField] private TextMeshProUGUI unitNameText;
     [SerializeField] private TextMeshProUGUI unitCostText;
+    [SerializeField] private GameObject lockedImage;
 
     public GameObject tutorialArrow;
 
     public Action<UnitCardController> cardClicked;
 
-    private readonly Color deselectColor = new Color(1, 1, 1, 0.5f);
+    private readonly Color deselectColor = new Color32(103, 43, 144, 255);
     private readonly Color selectColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
 
     private void Awake()
@@ -31,6 +32,7 @@ public class UnitCardController : MonoBehaviour
         unitImage.sprite = unitData.UnitSprite;
         unitNameText.text = unitData.UnitName;
         unitCostText.text = unitData.UnitCost.ToString();
+        UnlockCard();
     }
 
     public void SelectCard()
@@ -44,10 +46,12 @@ public class UnitCardController : MonoBehaviour
 
     public void LockCard()
     {
+        lockedImage.gameObject.SetActive(true);
         cardButton.interactable = false;
     }
     public void UnlockCard()
     {
+        lockedImage.gameObject.SetActive(false);
         cardButton.interactable = true;
     }
 

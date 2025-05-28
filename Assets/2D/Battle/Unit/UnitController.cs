@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnitController : MonoBehaviour
 {
     public float unitHp; // For Now
+    protected float unitMaxHp;
 
     public Action<UnitController> ThisUnitKilled;
     public Action<int, DeployedUnitController> UnitArrivedAtWaypoint;

@@ -64,6 +64,7 @@ public class DeployedUnitController : UnitController
         unitSprite.size = new Vector2(1, 1);
 
         unitHp = AdjustMaxHP(GetModifiersForType(StatType.HP, modifiers), UnitSO.UnitHp);
+        unitMaxHp = unitHp;
         unitAtk = new UnitStat(UnitSO.UnitAtk, StatType.ATK, GetModifiersForType(StatType.ATK, modifiers));
         unitRangedAtk = new UnitStat(UnitSO.UnitRangedAtk, StatType.RANGEDATK, GetModifiersForType(StatType.RANGEDATK, modifiers));
         unitSpeed = new UnitStat(UnitSO.UnitSpeed, StatType.SPEED, GetModifiersForType(StatType.SPEED, modifiers));
@@ -72,7 +73,7 @@ public class DeployedUnitController : UnitController
         meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
         rangedCooldown = rangedCooldownSpeed.ReturnFinalValue();
 
-        UpdateHealthBar(unitHp, UnitSO.UnitHp);
+        UpdateHealthBar(unitHp, unitMaxHp);
         SetNewRoute(initialRoute);
     }
     protected List<StatModifier> GetModifiersForType(StatType statType, List<StatModifier> allModifiers)
@@ -91,6 +92,16 @@ public class DeployedUnitController : UnitController
 
     protected virtual void Update()
     {
+        if (detectedUnitMelee.Values.Count <= 0)
+        {
+            isDetecting = false;
+            targetEnemyUnitMelee = null;
+        }
+        if (detectedUnitRanged.Values.Count <= 0)
+        {
+            isRangedDetecting = false;
+            targetEnemyUnitRanged = null;
+        }
         if (Vector2.Distance(currentTargetWaypoint.position, transform.position) <= 0.1f)
         {
             if (!isArrived)
@@ -325,7 +336,7 @@ public class DeployedUnitController : UnitController
     public override void DealDamage(float damage)
     {
         base.DealDamage(damage);
-        UpdateHealthBar(unitHp, UnitSO.UnitHp);
+        UpdateHealthBar(unitHp, unitMaxHp);
     }
     protected override void Death()
     {

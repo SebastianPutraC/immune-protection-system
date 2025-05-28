@@ -34,7 +34,7 @@ public class EncylopediaUnitGrid : MonoBehaviour
         }
         else
         {
-            unitNameText.text = "You haven't unlocked this unit yet";
+            unitNameText.text = "Anda belum pernah menemui Unit ini";
             unitImage.sprite = lockedImage;
             unitButton.interactable = false;
         }

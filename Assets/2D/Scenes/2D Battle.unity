@@ -480,8 +480,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -561,6 +561,10 @@ PrefabInstance:
     - target: {fileID: 1211157492261297843, guid: 8731935aef6a1cc4dadfe904ba128813, type: 3}
       propertyPath: m_Name
       value: Unit Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346844802863523146, guid: 8731935aef6a1cc4dadfe904ba128813, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2569116972649455891, guid: 8731935aef6a1cc4dadfe904ba128813, type: 3}
       propertyPath: m_Pivot.x
@@ -766,8 +770,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 5014669083926033807, guid: f05ec7f8583bfa3468fb8958e87e24d9, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1085,7 +1089,6 @@ MonoBehaviour:
   losingMusic: {fileID: 8300000, guid: d4959c4039ba4c349b1a9ddc04065826, type: 3}
   buttonAudioSource: {fileID: 1063371170}
   gainAudioSource: {fileID: 1063371172}
-  rpGain: {fileID: 0}
   intelGain: {fileID: 8300000, guid: fd77df4e28b34aa4a8a1d2279430f0d8, type: 3}
   infoPopup: {fileID: 893797858}
   UnitReferences:
@@ -1489,8 +1492,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SEMUA MAJU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1658,7 +1661,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.4
 --- !u!222 &1205373976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1951,7 +1954,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.4
 --- !u!222 &1791481103
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2063,8 +2066,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SEMUA BERHENTI
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2467,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6373717374648542301, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000091552734
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 7859962370749262866, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
       propertyPath: m_Name
@@ -2482,6 +2485,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8404473820088746547, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639850728656814620, guid: 7404a6b848a03b24f84953937d6d7f9d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
