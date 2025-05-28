@@ -5835,14 +5835,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8709465281947556276, guid: d94eb08aa445bc4438b075888d52b511, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.0007324219
-      objectReference: {fileID: 0}
-    - target: {fileID: 9193376515341937832, guid: d94eb08aa445bc4438b075888d52b511, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5875,10 +5867,6 @@ PrefabInstance:
     - target: {fileID: 4144758310957530512, guid: 44148772e2977d047a699bb2649eed3a, type: 3}
       propertyPath: m_Name
       value: AbilitiesMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6411522790398916560, guid: 44148772e2977d047a699bb2649eed3a, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7574017181103668038, guid: 44148772e2977d047a699bb2649eed3a, type: 3}
       propertyPath: m_Pivot.x
