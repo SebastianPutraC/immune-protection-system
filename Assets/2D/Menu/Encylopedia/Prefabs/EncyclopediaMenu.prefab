@@ -5832,12 +5832,8 @@ PrefabInstance:
       value: AboutMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8709465281947556276, guid: d94eb08aa445bc4438b075888d52b511, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8709465281947556276, guid: d94eb08aa445bc4438b075888d52b511, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 289.68912
+      value: 0.00012207031
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

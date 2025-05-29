@@ -24,7 +24,29 @@ MonoBehaviour:
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: 'Mikroorganisme prokariotik dengan tingkat replikasi tinggi. Memiliki
+    daya tahan yang kuat serta dapat beradaptasi dengan baik berdasarkan kondisi
+    lingkungan. Saat menginfeksi tubuh manusia, dapat mengeluarkan racun yang membunuh
+    sel dan menyebabkan penyakit.
+
+    
+
+    Tipe bakteri ini memiliki toksin yang
+    kuat sehingga memiliki kemampuan untuk serangan Area of Effect (AOE)
+
+'
+  UnitFullDesc: "Bakteri merupakan mikroorganisme yang strukturnya paling sederhana,
+    tetapi memiliki fleksibilitas metabolisme yang paling besar. Bakteri ditemukan
+    di hampir setiap habitat di bumi, termasuk di dalam dan di tubuh manusia. Bakteri
+    bersifat prokariotik karena materi genetikanya (DNA) tidak terbungkus dalam nukleus
+    sejati. \n\nBakteri umumnya dicirikan oleh tingkat replikasi yang tinggi. Kesederhanaan
+    sel bakteri memungkinkannya untuk merespons dan beradaptasi dengan cepat terhadap
+    perubahan kondisi lingkungan. Sebagian besar bakteri tidak berbahaya atau bermanfaat,
+    tetapi beberapa bersifat patogen yang menyebabkan penyakit pada manusia dan hewan
+    lainnya. Bahaya yang disebabkan oleh bakteri pada tubuh adalah replikasi yang
+    tinggi serta pengeluaran toksin yang berupa racun yang menyebabkan penyakit pada
+    tubuh.\n\nTipe bakteri ini memiliki toksin yang kuat sehingga memiliki kemampuan
+    untuk serangan Area of Effect (AOE)"
   UnitSprite: {fileID: 21300000, guid: 46b9b9ec5ddfd14458eb44665c1f6864, type: 3}
-  UnitAbility: []
+  UnitAbility:
+  - {fileID: 11400000, guid: 1c236f4f6d7f7134598a64600851fcd6, type: 2}

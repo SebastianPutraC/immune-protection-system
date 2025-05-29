@@ -13,5 +13,10 @@ public enum AbilityId
     TOKSIN,
     APOPTOSIS,
     BUFFFAGOSIT,
-    BUFFANTIBODI
+    BUFFANTIBODI,
+    
+    MELEEPATO,
+    RANGEDPATO,
+    AOEPATO,
+    INFECTPATO
 }

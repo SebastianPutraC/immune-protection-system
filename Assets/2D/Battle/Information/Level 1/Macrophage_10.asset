@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: Dalam permainan, saya menambahkan Intel Points setelah aku kembali ke
-    markas.
+  InfoText: Setelah mendapatkan Antigen dan membawanya ke markas, Anda akan menambahkan
+    Intel Points. Jangan lupa untuk mengaktifkan kemampuan koleksi Saya di panel
+    unit

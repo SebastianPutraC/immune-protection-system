@@ -24,8 +24,24 @@ MonoBehaviour:
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: "Makro organisme multiseluler invertebrata yang menginfeksi tubuh
+    manusia. Cacing Parasit memakan nutrisi dalam tubuh inang untuk hidup dan menyebabkan
+    penyakit. \n\nTipe cacing parasit ini memiliki kekebalan yang lebih dibandingkan
+    mikroorganisme lain seperti bakteri atau virus serta kemampuan serangan jarak
+    dekat yang kuat."
+  UnitFullDesc: "Cacing parasit adalah makhluk multiseluler invertebrata dengan tubuh
+    yang panjang, pipih, atau melingkar. Mahluk ini bukan termasuk mikroorganisme
+    tetapi sudah merupakan makro organisme binatang. Cacing parasit hidup di habitat
+    air dan darat, baik sebagai parasit atau bukan. Mahluk ini dapat menginfeksi
+    berbagai spesies, termasuk manusia. Cacing parasit yang masuk ke dalam tubuh
+    hidup dengan memakan nutrisi dari inang yang terinfeksi, ini menyebabkan inangnya
+    menjadi sakit. \n\nCacing parasit tidak dapat bereproduksi sepenuhnya di dalam
+    tubuh inangnya, dan beberapa fase siklus hidup dari cacing terjadi di luar inangnya.
+    Ada banyak jenis cacing parasit, mulai dari ukuran kurang dari satu milimeter
+    hingga lebih dari satu meter. Untuk hidup dalam tubuh inang, cacing mengeluarkan
+    suatu zat yang mempengaruhi dan menekan sistem imun tubuh.\n\nTipe cacing parasit
+    ini memiliki kekebalan yang lebih dibandingkan mikroorganisme lain seperti bakteri
+    atau virus serta kemampuan serangan jarak dekat yang kuat."
   UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
-  AbilityType: 
-  UnitAbility: []
+  UnitAbility:
+  - {fileID: 11400000, guid: 4f04394a51761aa4a96e24cf1e97c3aa, type: 2}

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class DendriticController : AllyUnitController, IInflammator, IPresenter
 {
-    private bool isHoldingAntigen = false;
     private int resourcePointWhenDamaged = 20;
 
     [SerializeField] private DetectionTrigger antigenDetect;
@@ -20,8 +19,8 @@ public class DendriticController : AllyUnitController, IInflammator, IPresenter
     {
         base.Awake();
         antigenDetect.enemyDetected += GetAntigen;
-        isPresenting = false;
-        antigenDetect.gameObject.SetActive(false);
+        isPresenting = true;
+        antigenDetect.gameObject.SetActive(true);
     }
 
     public void GetAntigen(UnitController antigen)
@@ -49,6 +48,14 @@ public class DendriticController : AllyUnitController, IInflammator, IPresenter
                 }
             }
         }
+    }
+    protected override void Update()
+    {
+        if (noMoreRoute && isReturning && carriedAntigen != null)
+        {
+            ArrivedAtBase();
+        }
+        base.Update();
     }
     public override void ProcessAbility(AbilityId ability)
     {

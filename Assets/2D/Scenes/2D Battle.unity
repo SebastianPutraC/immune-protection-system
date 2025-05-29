@@ -473,8 +473,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jeda
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 048608fcbc454444c8dae1da78579749, type: 2}
+  m_sharedMaterial: {fileID: -8815360285070348113, guid: 048608fcbc454444c8dae1da78579749, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -561,10 +561,6 @@ PrefabInstance:
     - target: {fileID: 1211157492261297843, guid: 8731935aef6a1cc4dadfe904ba128813, type: 3}
       propertyPath: m_Name
       value: Unit Panel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1346844802863523146, guid: 8731935aef6a1cc4dadfe904ba128813, type: 3}
-      propertyPath: m_Color.a
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2569116972649455891, guid: 8731935aef6a1cc4dadfe904ba128813, type: 3}
       propertyPath: m_Pivot.x

@@ -24,7 +24,25 @@ MonoBehaviour:
   UnitRangedAtk: 20
   UnitRangedAtkSpeed: 0.9
   RangedProjectile: {fileID: 5845206643913531204, guid: bce1fa5d374d4ad4e98b5dc20b426799, type: 3}
-  UnitSimpleDesc: 
-  UnitFullDesc: 
+  UnitSimpleDesc: "Mikroorganisme aseluler yang memiliki salah satu DNA atau RNA.
+    Merupakan sebuah parasit obligat di mana hanya dapat berkembang biak dengan memanfaatkan
+    organisme inang untuk mereproduksi virus yang baru. \n\nTipe virus ini memiliki
+    kapabilitas serangan jarak jauh dan menginfeksi sel tubuh untuk memproduksi replika
+    virus."
+  UnitFullDesc: "Virus adalah mikroorganisme aseluler, yang berarti mereka tidak
+    terdiri dari sel. Pada dasarnya, virus terdiri dari protein dan materi genetik,
+    baik DNA atau RNA, tetapi tidak pernah keduanya, yang tidak aktif di luar organisme
+    inang. Virus adalah sekelompok entitas biologis yang terdiri dari asam nukleat
+    yang di enkapsulasi dalam lapisan protein yang dikenal sebagai kapsid dalam berbagai
+    ukuran yang berbeda - beda. \n\nVirus merupakan parasit obligat yang tidak memiliki
+    kemampuan metabolisme dan bergantung pada metabolisme inang untuk menghasilkan
+    bagian-bagian yang membentuk replika virus yang baru. Bahaya yang disebabkan
+    oleh virus adalah infeksi kepada sel digunakan untuk mereproduksi sel baru dan
+    kerusakan membran pada sel tersebut (lisis). Semakin banyak ini terjadi, semakin
+    banyak virus yang ada dan semakin banyak sel tubuh yang mati.\n\nTipe virus ini
+    memiliki kapabilitas serangan jarak jauh dan menginfeksi sel tubuh untuk memproduksi
+    replika virus."
   UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
-  UnitAbility: []
+  UnitAbility:
+  - {fileID: 11400000, guid: c64457fae4794d349adb0e8fe9ef5c2c, type: 2}
+  - {fileID: 11400000, guid: a96863dc496464c45bad8e5e25a8a54a, type: 2}

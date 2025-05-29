@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a088ad8c2bdb8294bb2bc37ff1695b48, type: 3}
+  m_Name: MeleeAttackPato
+  m_EditorClassIdentifier: 
+  AbilityID: 12
+  AbilityEncyclopediaName: Serangan jarak dekat
+  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityPrimaryImage: {fileID: 0}
+  AbilitySecondaryImage: {fileID: 0}
+  AbilityPrimaryName: 
+  AbilitySecondaryName: 
+  IsManual: 0
+  AbilityDescription: Kemampuan serangan jarak dekat yang digunakan oleh patogen.
