@@ -1080,6 +1080,7 @@ MonoBehaviour:
   pausePanelController: {fileID: 2190631808204530211}
   gameOverPanelController: {fileID: 1429431098}
   battleCameraController: {fileID: 307727497}
+  enemyAI: {fileID: 1063371169}
   battleMusicAudioSource: {fileID: 1063371171}
   winningMusic: {fileID: 8300000, guid: 36fd5b3f9c90fd34b8a4e9198e714359, type: 3}
   losingMusic: {fileID: 8300000, guid: d4959c4039ba4c349b1a9ddc04065826, type: 3}
@@ -1136,8 +1137,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdb2152004edc147a30139bc640d6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lanes: []
-  units: []
+  usingAI: 0
+  currentResourcePoints: 0
+  maxResourcePoints: 800
+  resourcePointIncome: 0
+  minimalPoints: 200
+  defaultMinimalPoints: 200
+  startingTimer: 2.5
+  randomTimer: 0
+  maxRandomTimer: 5
+  bossTimer: 0
+  maxBossTimer: 10
+  boomTimer: 0
+  maxBoomTimer: 9
+  defendSpawn: 0
+  isDefending: 0
+  spawners: []
+  isBoom: 1
+  bossUnit: {fileID: 0}
+  boomUnit: {fileID: 0}
+  randomUnits: []
 --- !u!82 &1063371170
 AudioSource:
   m_ObjectHideFlags: 0

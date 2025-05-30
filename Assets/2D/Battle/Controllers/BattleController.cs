@@ -30,6 +30,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] protected PausePanelController pausePanelController;
     [SerializeField] protected GameOverPanelController gameOverPanelController;
     [SerializeField] protected BattleCameraController battleCameraController;
+    [SerializeField] protected EnemyAiManager enemyAI;
 
     [SerializeField] protected AudioSource battleMusicAudioSource;
     [SerializeField] protected AudioClip winningMusic;
@@ -110,9 +111,13 @@ public class BattleController : MonoBehaviour
             levelController.allySpawners[i].spawnClicked += CheckAllyCardSelected;
             levelController.allySpawners[i].AllySpawned += OnAllySpawned;
         }
+        List<EnemySpawnController> enemySpawner = new List<EnemySpawnController>();
         for (int i = 0; i < levelController.enemySpawners.Count; i++)
         {
             levelController.enemySpawners[i].EnemySpawned += OnEnemySpawned;
+            EnemySpawnController newEnemySpawn = levelController.enemySpawners[i].transform.GetChild(0).GetComponent<EnemySpawnController>();
+            newEnemySpawn.InitializeSpawn(i);
+            enemySpawner.Add(newEnemySpawn);
         }
         for (int i = 0; i < levelController.cellSpawner.Count; i++)
         {
@@ -129,6 +134,18 @@ public class BattleController : MonoBehaviour
             levelController.enemyBaseControllers[i].baseAttacked += BaseAttacked;
         }
 
+        UnitData bossUnit = UnitReferences.Find(unit => unit.unitId == levelInfo.bossUnit);
+        UnitData boomUnit = UnitReferences.Find(unit => unit.unitId == levelInfo.boomUnit);
+        List<UnitData> randomUnits = new List<UnitData>();
+
+        for (int i = 0; i < levelInfo.randomUnit.Count; i++)
+        {
+            UnitId enemyId = levelInfo.randomUnit[i];
+            UnitData randomUnit = UnitReferences.Find(unit => unit.unitId == enemyId);
+            randomUnits.Add(randomUnit);
+        }
+        enemyAI.InitializeAI(levelInfo.enemyStartingResource, levelInfo.enemyIncome, bossUnit, boomUnit, randomUnits, enemySpawner, true);
+        enemyAI.EnemySpawn += DeployEnemyUnit;
 
         battleCameraController.InitializeBattleCamera(levelController.upLimit, levelController.leftLimit, 
             levelController.rightLimit, levelController.downLimit, levelController.startingCameraPosition);
@@ -143,13 +160,14 @@ public class BattleController : MonoBehaviour
         else
         {
             IncreaseResourcePoint(basicIncome);
+            enemyAI.IncreaseResourcePoint();
             RpIncomeTimer = 2f;
         }
 
-        if (!isSpawned)
+        /*if (!isSpawned)
         {
             StartCoroutine(RandomSpawn());
-        }
+        }*/
 
         if (selectedUnit != null)
         {
@@ -366,10 +384,16 @@ public class BattleController : MonoBehaviour
         allAllyUnits.Remove((AllyUnitController)allyUnit);
     }
 
-    protected void DeployEnemyUnit(EnemyUnit enemyData, ISpawner spawner)
+    protected void DeployEnemyUnit(EnemyUnit enemyData, int spawnerId)
     {
-        Route initialRoute = levelController.GetRouteByID(spawner.GetInitialRouteId());
-        spawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute);
+        ISpawner chosenSpawner = levelController.enemySpawners[spawnerId];
+        Route initialRoute = levelController.GetRouteByID(chosenSpawner.GetInitialRouteId());
+        chosenSpawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute);
+    }
+    protected void DeployEnemyUnit(EnemyUnit enemyData, ISpawner chosenSpawner)
+    {
+        Route initialRoute = levelController.GetRouteByID(chosenSpawner.GetInitialRouteId());
+        chosenSpawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute);
     }
     protected void OnEnemySpawned(EnemyUnitController enemyUnit)
     {

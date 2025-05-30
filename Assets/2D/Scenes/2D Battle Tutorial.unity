@@ -1202,6 +1202,7 @@ GameObject:
   - component: {fileID: 1063371166}
   - component: {fileID: 1063371168}
   - component: {fileID: 1063371169}
+  - component: {fileID: 1063371173}
   - component: {fileID: 1063371172}
   - component: {fileID: 1063371171}
   - component: {fileID: 1063371170}
@@ -1263,6 +1264,7 @@ MonoBehaviour:
   pausePanelController: {fileID: 2190631808204530211}
   gameOverPanelController: {fileID: 1429431098}
   battleCameraController: {fileID: 307727497}
+  enemyAI: {fileID: 1063371173}
   battleMusicAudioSource: {fileID: 1063371171}
   winningMusic: {fileID: 8300000, guid: 36fd5b3f9c90fd34b8a4e9198e714359, type: 3}
   losingMusic: {fileID: 8300000, guid: d4959c4039ba4c349b1a9ddc04065826, type: 3}
@@ -1654,6 +1656,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1063371173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063371165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdb2152004edc147a30139bc640d6ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usingAI: 0
+  currentResourcePoints: 0
+  maxResourcePoints: 800
+  resourcePointIncome: 0
+  minimalPoints: 200
+  defaultMinimalPoints: 200
+  startingTimer: 2.5
+  randomTimer: 0
+  maxRandomTimer: 5
+  bossTimer: 0
+  maxBossTimer: 10
+  boomTimer: 0
+  maxBoomTimer: 9
+  defendSpawn: 0
+  isDefending: 0
+  spawners: []
+  isBoom: 1
+  bossUnit: {fileID: 0}
+  boomUnit: {fileID: 0}
+  randomUnits: []
 --- !u!1 &1108330044
 GameObject:
   m_ObjectHideFlags: 0

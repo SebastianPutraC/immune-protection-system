@@ -22,8 +22,8 @@ MonoBehaviour:
   unlockIntelPoint: 75
   allyBaseMaxHP: 10
   maxRepairPoints: 7
-  enemyStartingResource: 75
-  enemyIncome: 0
+  enemyStartingResource: 200
+  enemyIncome: 75
   DecisionInfos:
   - {fileID: 11400000, guid: 1719f9c6c433af6429ef1ba4e3f2edda, type: 2}
   - {fileID: 11400000, guid: 760eacc809fdeed429b9854478412030, type: 2}
@@ -65,3 +65,6 @@ MonoBehaviour:
   levelPrefab: {fileID: 3481419003891693231, guid: 5464390fe798bf044b82b4a720eb3896, type: 3}
   levelMapSprite: {fileID: 21300000, guid: d872b818c01293c47b7906682a84fc21, type: 3}
   skipIntroIndex: 050000000f00000016000000
+  bossUnit: 0
+  boomUnit: 201
+  randomUnit: c9000000ca000000

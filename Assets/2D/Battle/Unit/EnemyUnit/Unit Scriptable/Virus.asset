@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Virus
   unitType: 2
   UnitHp: 50
-  UnitCost: 100
+  UnitCost: 150
   UnitSpeed: 3
   UnitAtk: 15
   UnitAtkSpeed: 0.7

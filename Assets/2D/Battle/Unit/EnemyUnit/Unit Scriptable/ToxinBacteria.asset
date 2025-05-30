@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Bacteria
   unitType: 2
   UnitHp: 80
-  UnitCost: 150
+  UnitCost: 250
   UnitSpeed: 3
   UnitAtk: 7.5
   UnitAtkSpeed: 0.2
@@ -29,10 +29,10 @@ MonoBehaviour:
     lingkungan. Saat menginfeksi tubuh manusia, dapat mengeluarkan racun yang membunuh
     sel dan menyebabkan penyakit.
 
-    
 
-    Tipe bakteri ini memiliki toksin yang
-    kuat sehingga memiliki kemampuan untuk serangan Area of Effect (AOE)
+
+    Tipe bakteri ini memiliki toksin yang kuat
+    sehingga memiliki kemampuan untuk serangan Area of Effect (AOE)
 
 '
   UnitFullDesc: "Bakteri merupakan mikroorganisme yang strukturnya paling sederhana,

@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Toxin Worms
   unitType: 2
   UnitHp: 150
-  UnitCost: 300
+  UnitCost: 500
   UnitSpeed: 2
   UnitAtk: 12
   UnitAtkSpeed: 0.2

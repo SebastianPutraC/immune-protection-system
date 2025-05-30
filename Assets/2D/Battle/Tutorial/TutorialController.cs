@@ -105,6 +105,7 @@ public class TutorialController : BattleController
         }
         barrier.UnitHitBarrier += ReturnUnit;
 
+        enemyAI.usingAI = false;
         unitPanelController.ResetUnitCards();
         NextPhase();
     }
@@ -125,6 +126,7 @@ public class TutorialController : BattleController
 
         if (phase == TutorialPhase.FREEPLAY)
         {
+            enemyAI.usingAI = true;
             base.Update();
         }
         else

@@ -29,4 +29,8 @@ public class LevelInfo : ScriptableObject
     public Sprite levelMapSprite;
 
     public List<int> skipIntroIndex;
+
+    public UnitId bossUnit;
+    public UnitId boomUnit;
+    public List<UnitId> randomUnit;
 }
