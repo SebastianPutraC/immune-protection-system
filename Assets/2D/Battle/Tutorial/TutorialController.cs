@@ -865,6 +865,7 @@ public class TutorialController : BattleController
         switch (subPhaseStep)
         {
             case 1:
+                ClearAntigen();
                 ResetArrows();
                 KillAllUnit();
                 unitStatsController.HideBlock();
@@ -1241,6 +1242,15 @@ public class TutorialController : BattleController
     private void MoveUnit(DeployedUnitController unit, Transform transform)
     {
         unit.transform.position = transform.position;
+    }
+
+    private void ClearAntigen()
+    {
+        List<AntigenController> antigens = Object.FindObjectsByType<AntigenController>(FindObjectsSortMode.None).ToList();
+        for (int i = 0; i < antigens.Count; i++)
+        {
+            Destroy(antigens[i].gameObject);
+        }
     }
 
     protected override void OnDestroy()

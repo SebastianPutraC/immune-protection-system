@@ -13,6 +13,10 @@ public class BattleCameraController : MonoBehaviour //Will update this
 
     private readonly float zPosition = -35;
 
+    private float minZoom = 25f;
+    private float maxZoom = 100f;
+    private float sensZoom = 25f;
+
     public void InitializeBattleCamera(float up, float left, float right, float down, Vector2 position)
     {
         upYLimit = up;
@@ -25,6 +29,11 @@ public class BattleCameraController : MonoBehaviour //Will update this
 
     private void Update()
 	{
+        float fov = battleCamera.fieldOfView;
+        fov += Input.GetAxis("Mouse ScrollWheel") * sensZoom * -1;
+        fov = Mathf.Clamp(fov, minZoom, maxZoom);
+        battleCamera.fieldOfView = fov;
+
         CheckCameraLimit();
 
         if (Input.GetMouseButtonDown(0))

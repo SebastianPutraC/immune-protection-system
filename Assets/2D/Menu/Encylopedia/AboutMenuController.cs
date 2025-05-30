@@ -10,7 +10,10 @@ public class AboutMenuController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI unitHpText;
     [SerializeField] private TextMeshProUGUI unitAtkText;
+    [SerializeField] private TextMeshProUGUI unitAtkCooldown;
     [SerializeField] private TextMeshProUGUI unitRangedAtkText;
+    [SerializeField] private TextMeshProUGUI unitRangedCooldown;
+    [SerializeField] private TextMeshProUGUI unitSpeed;
     [SerializeField] private TextMeshProUGUI unitCostText;
     [SerializeField] private TextMeshProUGUI unitTypeText;
 
@@ -28,17 +31,27 @@ public class AboutMenuController : MonoBehaviour
         unitDescriptionText.text = unitData.UnitFullDesc;
 
         unitHpText.text = "HP : " + unitData.UnitHp;
-        unitAtkText.text = "ATK : " + unitData.UnitAtk;
-        unitRangedAtkText.text = "Ranged ATK : " + unitData.UnitRangedAtk;
-        unitCostText.text = "Cost : " + unitData.UnitCost;
+        unitAtkText.text = "Melee Damage : " + unitData.UnitAtk;
+        unitAtkCooldown.text = "Melee Cooldown : " + unitData.UnitAtkSpeed + "s";
+        unitRangedAtkText.text = "Ranged Damage : " + unitData.UnitRangedAtk;
+        unitRangedCooldown.text = "Ranged Cooldown : " + unitData.UnitRangedAtkSpeed + "s";
+        unitSpeed.text = "Kecepatan : " + unitData.UnitSpeed;
+        unitCostText.text = "Harga : " + unitData.UnitCost;
         if (unitData.GetType() == typeof(AllyUnit))
         {
             AllyUnit allyUnit = (AllyUnit)unitData;
-            unitTypeText.text = "Type : " +  allyUnit.ImmuneCellType;
+            if (allyUnit.ImmuneCellType == ImmuneType.INNATE)
+            {
+                unitTypeText.text = "Tipe : Bawaan";
+            }
+            else if (allyUnit.ImmuneCellType == ImmuneType.ADAPTIVE)
+            {
+                unitTypeText.text = "Tipe : Adaptif";
+            }
         }
         else
         {
-            unitTypeText.text = "Type : " + unitData.unitType;
+            unitTypeText.text = "Tipe : " + unitData.unitType;
         }
     }
 

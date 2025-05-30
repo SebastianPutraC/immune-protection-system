@@ -264,8 +264,6 @@ public class BattleController : MonoBehaviour
 
         UpdateBaseUI(currBaseHp, maxBaseHp, UnitSide.ALLY);
         UpdateBaseUI(currRepairPoint, maxRepairPoint, UnitSide.ENEMY);
-        battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
-        battlePanelController.UpdateIntelPointUI(0, unlockIntelPoints);
 
         resourcePoints = levelInfo.defaultStatingResource;
         basicIncome = levelInfo.defaultIncome;
@@ -286,6 +284,9 @@ public class BattleController : MonoBehaviour
             enemiesData.Add(enemyUnit);
         }
         testUnits = enemiesData;
+
+        battlePanelController.UpdateResourcePointUI(resourcePoints, maxResourcePoints);
+        battlePanelController.UpdateIntelPointUI(0, unlockIntelPoints);
     }
 
 

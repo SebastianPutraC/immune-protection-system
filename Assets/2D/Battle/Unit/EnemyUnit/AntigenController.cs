@@ -3,7 +3,7 @@ using UnityEngine;
 public class AntigenController : UnitController
 {
     public int intelAmount;
-    private float destroyTimer = 3f;
+    private float destroyTimer = 5f;
     public bool isOnGround = false;
 
     public void InitializeAntigen(int intelAmount)
