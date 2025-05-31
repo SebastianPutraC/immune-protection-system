@@ -19,17 +19,17 @@ public class Spawner : MonoBehaviour, IPointerClickHandler, ISpawner
         spawnClicked?.Invoke(this);
     }
 
-    public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers, Route initialRoute)
+    public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers, Route initialRoute, bool playSound = true)
     {
         AllyUnitController newAlly = (AllyUnitController)Instantiate(allyUnit.unitPrefab, spawnPoint);
-        newAlly.InitializeUnit(allyUnit, modifiers, initialRoute);
+        newAlly.InitializeUnit(allyUnit, modifiers, initialRoute, playSound);
         AllySpawned?.Invoke(newAlly);
     }
 
-    public void SpawnEnemy(EnemyUnit enemyUnit, List<StatModifier> modifiers, Route initialRoute)
+    public void SpawnEnemy(EnemyUnit enemyUnit, List<StatModifier> modifiers, Route initialRoute, bool playSound = true)
     {
         EnemyUnitController newEnemy = (EnemyUnitController)Instantiate(enemyUnit.unitPrefab, spawnPoint);
-        newEnemy.InitializeUnit(enemyUnit, modifiers, initialRoute);
+        newEnemy.InitializeUnit(enemyUnit, modifiers, initialRoute, playSound);
         EnemySpawned?.Invoke(newEnemy);
     }
 

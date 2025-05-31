@@ -8,14 +8,17 @@ public class EnemyUnitController : DeployedUnitController
     [SerializeField] protected AntigenController antigenPrefab;
     [SerializeField] protected Transform antigenDroppedLocation;
     
-    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
+    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute, bool playSound = true)
     {
         currentWaypointIndex = initialRoute.GetWaypointsLength();
         base.InitializeUnit(unitSO, modifiers, initialRoute);
         this.transform.localEulerAngles = new Vector3(0, 180, 0); // rotate for enemy
 
         unitAudioSource.clip = spawnSound;
-        unitAudioSource.Play();
+        if (playSound)
+        {
+            unitAudioSource.Play();
+        }
     }
     protected override void GetNewWaypoint(bool isStart, bool isReturning = false)
     {

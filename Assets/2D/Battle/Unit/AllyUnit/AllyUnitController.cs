@@ -8,13 +8,17 @@ public class AllyUnitController : DeployedUnitController
 {
     [SerializeField] protected GameObject selectedIndicator;
 
-    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
+    public override void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute, bool playSound = true)
     {
         currentWaypointIndex = 0;
         base.InitializeUnit(unitSO, modifiers, initialRoute);
         unitAudioSource.time = 0.5f;
         unitAudioSource.clip = spawnSound;
-        unitAudioSource.Play();
+
+        if (playSound)
+        {
+            unitAudioSource.Play();
+        }
     }
     protected override void GetNewWaypoint(bool isStart, bool isReturning = false)
     {

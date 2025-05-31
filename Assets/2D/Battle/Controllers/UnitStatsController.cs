@@ -97,8 +97,8 @@ public class UnitStatsController : MonoBehaviour
 
     public void UpdateUnitStats(AllyUnitController allyUnit)
     {
-        unitHpText.text = "HP : " + allyUnit.unitHp;
-        unitAtkText.text = "ATK : " + allyUnit.UnitSO.UnitAtk;
+        unitHpText.text = "HP : " + Mathf.Round(allyUnit.unitHp);
+        unitAtkText.text = "ATK : " + Mathf.Round(allyUnit.unitAtk.ReturnFinalValue());
     }
 
     public void TurnTutorialArrow(AbilityId abilityId)

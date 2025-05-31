@@ -41,13 +41,13 @@ public class BodyCellController : UnitController, ISpawner
         Destroy(this.gameObject);
     }
 
-    public void SpawnEnemy(EnemyUnit enemyUnit, List<StatModifier> modifiers, Route initialRoute)
+    public void SpawnEnemy(EnemyUnit enemyUnit, List<StatModifier> modifiers, Route initialRoute, bool playSound = true)
     {
         EnemyUnitController newEnemy = (EnemyUnitController)Instantiate(enemyUnit.unitPrefab, spawnPoint);
         newEnemy.InitializeUnit(enemyUnit, modifiers, initialRoute);
         EnemySpawned?.Invoke(newEnemy);
     }
-    public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers, Route initialRoute)
+    public void SpawnAlly(AllyUnit allyUnit, List<StatModifier> modifiers, Route initialRoute, bool playSound = true)
     {
         AllyUnitController newAlly = (AllyUnitController)Instantiate(allyUnit.unitPrefab, spawnPoint);
         newAlly.InitializeUnit(allyUnit, modifiers, initialRoute);

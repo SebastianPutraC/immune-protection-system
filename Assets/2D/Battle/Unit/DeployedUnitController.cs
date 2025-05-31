@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DeployedUnitController : UnitController
 {
     public UnitData UnitSO;
-    [SerializeField] protected UnitStat unitAtk;
+    [SerializeField] public UnitStat unitAtk;
     [SerializeField] protected UnitStat unitRangedAtk;
     [SerializeField] protected UnitStat unitSpeed;
     [SerializeField] protected UnitStat meleeCooldownSpeed;
@@ -57,7 +57,7 @@ public class DeployedUnitController : UnitController
         }
     }
 
-    public virtual void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute)
+    public virtual void InitializeUnit(UnitData unitSO, List<StatModifier> modifiers, Route initialRoute, bool playSound = true)
     {
         UnitSO = unitSO;
         unitSprite.sprite = UnitSO.UnitSprite;

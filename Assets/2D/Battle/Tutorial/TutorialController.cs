@@ -1179,7 +1179,7 @@ public class TutorialController : BattleController
     private void DeployAllyTutorialUnit(AllyUnit allyData, ISpawner spawner)
     {
         Route initialRoute = levelController.GetRouteByID(spawner.GetInitialRouteId());
-        spawner.SpawnAlly(allyData, allyGlobalModifiers, initialRoute);
+        spawner.SpawnAlly(allyData, allyGlobalModifiers, initialRoute, false);
     }
     private void OnAllyTutorialSpawned(AllyUnitController allyUnit)
     {
@@ -1209,7 +1209,7 @@ public class TutorialController : BattleController
     private void DeployEnemyTutorialUnit(EnemyUnit enemyData, ISpawner spawner)
     {
         Route initialRoute = levelController.GetRouteByID(spawner.GetInitialRouteId());
-        spawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute);
+        spawner.SpawnEnemy(enemyData, enemyGlobalModifiers, initialRoute, false);
     }
     private void OnEnemyTutorialSpawned(EnemyUnitController enemyUnit)
     {

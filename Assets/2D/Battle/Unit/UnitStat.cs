@@ -6,11 +6,8 @@ public class UnitStat
 {
     public StatType Type;
     public float BaseValue;
-    public float FinalValue { get
-        {
-            return ReturnFinalValue();
-        }
-    }
+    public float FinalValue;
+
     public List<StatModifier> statModifiers = new List<StatModifier>();
 
     public UnitStat (float statValue, StatType type)
@@ -23,6 +20,11 @@ public class UnitStat
         this.Type = type;
         this.BaseValue = statValue;
         this.statModifiers = statModifiers;
+    }
+
+    public void SetFinalValue(float value)
+    {
+        FinalValue = value;
     }
 
     public void AddModifier(StatModifier mod)
@@ -108,9 +110,9 @@ public class UnitStat
                     }
                     break;
             }
-            finalValue += statModifiers[i].ModValue;
         }
 
+        SetFinalValue(finalValue);
         return finalValue;
     }
 }
