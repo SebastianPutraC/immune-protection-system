@@ -104,16 +104,20 @@ public class EnemyAiManager : MonoBehaviour
         }
     }
 
-    public bool SpawnUnit(EnemyUnit unit, int lane)
+
+    public bool PayUnit(int cost)
     {
-        if (unit.UnitCost > currentResourcePoints)
+        if (cost > currentResourcePoints)
         {
             return false;
         }
 
-        currentResourcePoints -= unit.UnitCost;
-        EnemySpawn?.Invoke(unit, lane);
+        currentResourcePoints -= cost;
         return true;
+    }
+    public void SpawnUnit(EnemyUnit unit, int lane)
+    {
+        EnemySpawn?.Invoke(unit, lane);
     }
     public void CheckRandom()
     {
@@ -129,10 +133,17 @@ public class EnemyAiManager : MonoBehaviour
 
         int randomRow = UnityEngine.Random.Range(0, spawners.Count);
         int randomUnit = UnityEngine.Random.Range(0, randomUnits.Count);
+        Debug.Log(randomUnit);
         EnemyUnit spawnEnemy = (EnemyUnit)randomUnits[randomUnit];
-        randomTimer = maxRandomTimer;
-        minimalPoints += 50;
-        SpawnUnit(spawnEnemy, randomRow);
+
+        bool paymentComplete = PayUnit(spawnEnemy.UnitCost);
+        if (paymentComplete)
+        {
+            randomTimer = maxRandomTimer;
+            minimalPoints += 50;
+
+            SpawnUnit(spawnEnemy, randomRow);
+        }
     }
     public void CheckBoom()
     {
@@ -140,25 +151,29 @@ public class EnemyAiManager : MonoBehaviour
         {
             return;
         }
-        if (currentResourcePoints < 500)
+        int availableResource = currentResourcePoints - defaultMinimalPoints;
+        if (availableResource <= 0)
         {
             boomTimer = randomTimer;
             return;
         }
 
         EnemyUnit spawnSwarm = (EnemyUnit)boomUnit;
-        boomTimer = maxBoomTimer;
-        minimalPoints = defaultMinimalPoints;
-        for (int i = 0; i < spawners.Count; i++)
+        bool paymentComplete = PayUnit(spawnSwarm.boomCost);
+        if (paymentComplete)
         {
-            SpawnUnit(spawnSwarm, i);
-        }
+            boomTimer = maxBoomTimer;
+            minimalPoints = defaultMinimalPoints;
+            for (int i = 0; i < spawners.Count; i++)
+            {
+                SpawnUnit(spawnSwarm, i);
+            }
 
-        if (bossUnit != null)
-        {
-            isBoom = false;
+            if (bossUnit != null)
+            {
+                isBoom = false;
+            }
         }
-
     }
     public void CheckBoss()
     {
@@ -175,10 +190,15 @@ public class EnemyAiManager : MonoBehaviour
 
         int randomRow = UnityEngine.Random.Range(0, spawners.Count);
         EnemyUnit spawnBoss = (EnemyUnit)bossUnit;
-        isBoom = true;
-        bossTimer = maxBossTimer;
-        minimalPoints = defaultMinimalPoints;
-        SpawnUnit(spawnBoss, randomRow);
+
+        bool paymentComplete = PayUnit(spawnBoss.bossCost);
+        if (paymentComplete)
+        {
+            isBoom = true;
+            bossTimer = maxBossTimer;
+            minimalPoints = defaultMinimalPoints;
+            SpawnUnit(spawnBoss, randomRow);
+        }
     }
     public void DefensiveSpawn(int lane, UnitId unitId)
     {
@@ -217,14 +237,22 @@ public class EnemyAiManager : MonoBehaviour
         {
             if (currentResourcePoints >= firstUnit.UnitCost)
             {
-                SpawnUnit((EnemyUnit)firstUnit, lane);
+                bool paymentComplete = PayUnit(firstUnit.UnitCost);
+                if (paymentComplete)
+                {
+                    SpawnUnit((EnemyUnit)firstUnit, lane);
+                }
             }
         }
         if (secondUnit != null && !oneSpawn)
         {
             if (currentResourcePoints >= secondUnit.UnitCost)
             {
-                SpawnUnit((EnemyUnit)secondUnit, lane);
+                bool paymentComplete = PayUnit(secondUnit.UnitCost);
+                if (paymentComplete)
+                {
+                    SpawnUnit((EnemyUnit)secondUnit, lane);
+                }
             }
         }
     }

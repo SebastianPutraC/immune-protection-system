@@ -16,7 +16,7 @@ MonoBehaviour:
   unitPrefab: {fileID: 8992754535199334865, guid: 3cc01b2ff5caae348b534c3c7511d215, type: 3}
   UnitName: Worms
   unitType: 2
-  UnitHp: 200
+  UnitHp: 150
   UnitCost: 200
   UnitSpeed: 2
   UnitAtk: 50
@@ -45,3 +45,5 @@ MonoBehaviour:
   UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 4f04394a51761aa4a96e24cf1e97c3aa, type: 2}
+  boomCost: 500
+  bossCost: 500

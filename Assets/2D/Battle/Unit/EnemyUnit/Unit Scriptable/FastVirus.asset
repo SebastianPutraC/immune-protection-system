@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Fast Spread Virus
   unitType: 2
   UnitHp: 30
-  UnitCost: 150
+  UnitCost: 200
   UnitSpeed: 7
   UnitAtk: 10
   UnitAtkSpeed: 0.5
@@ -48,3 +48,5 @@ MonoBehaviour:
   UnitAbility:
   - {fileID: 11400000, guid: c64457fae4794d349adb0e8fe9ef5c2c, type: 2}
   - {fileID: 11400000, guid: a96863dc496464c45bad8e5e25a8a54a, type: 2}
+  boomCost: 400
+  bossCost: 500

@@ -23,7 +23,7 @@ MonoBehaviour:
   allyBaseMaxHP: 10
   maxRepairPoints: 10
   enemyStartingResource: 200
-  enemyIncome: 100
+  enemyIncome: 125
   DecisionInfos:
   - {fileID: 11400000, guid: f59a22da970db3c4381ea742a22a24a8, type: 2}
   - {fileID: 11400000, guid: 9bf4c8a528318b64394538ec37ba4ca2, type: 2}
@@ -47,6 +47,6 @@ MonoBehaviour:
   levelPrefab: {fileID: 3481419003891693231, guid: 735793eff22aae440aa8865499ac32b5, type: 3}
   levelMapSprite: {fileID: 21300000, guid: 40e590727180f764b94823a0fe95ccd3, type: 3}
   skipIntroIndex: 
-  bossUnit: 203
+  bossUnit: 0
   boomUnit: 204
   randomUnit: c9000000ca000000cc000000cd000000

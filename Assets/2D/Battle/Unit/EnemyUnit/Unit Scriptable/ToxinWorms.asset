@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Toxin Worms
   unitType: 2
   UnitHp: 150
-  UnitCost: 500
+  UnitCost: 400
   UnitSpeed: 2
   UnitAtk: 12
   UnitAtkSpeed: 0.2
@@ -44,3 +44,5 @@ MonoBehaviour:
   UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 1c236f4f6d7f7134598a64600851fcd6, type: 2}
+  boomCost: 400
+  bossCost: 500

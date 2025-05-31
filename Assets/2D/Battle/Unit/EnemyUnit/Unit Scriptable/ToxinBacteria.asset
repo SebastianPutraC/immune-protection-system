@@ -50,3 +50,5 @@ MonoBehaviour:
   UnitSprite: {fileID: 21300000, guid: 46b9b9ec5ddfd14458eb44665c1f6864, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 1c236f4f6d7f7134598a64600851fcd6, type: 2}
+  boomCost: 400
+  bossCost: 500
