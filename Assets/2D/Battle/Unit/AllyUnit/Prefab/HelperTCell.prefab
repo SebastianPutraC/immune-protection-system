@@ -5206,22 +5206,27 @@ MonoBehaviour:
   unitAtk:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   unitRangedAtk:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   unitSpeed:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   meleeCooldownSpeed:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   rangedCooldownSpeed:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   isMoveOrder: 1
   unitSprite: {fileID: 4359664904107751159}
@@ -5584,7 +5589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4928756258306373587}
   - component: {fileID: 4364231028300487845}
-  - component: {fileID: 2504899297076263599}
+  - component: {fileID: 7846617972510705690}
   m_Layer: 7
   m_Name: AOEDetector
   m_TagString: Untagged
@@ -5620,11 +5625,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitSide: 2
-  trigger: {fileID: 2504899297076263599}
+  trigger: {fileID: 7846617972510705690}
   isPresenter: 0
   isCheckCell: 0
---- !u!58 &2504899297076263599
-CircleCollider2D:
+--- !u!70 &7846617972510705690
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5653,12 +5658,13 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Size: {x: 2.2, y: 1.3}
+  m_Direction: 1
 --- !u!1 &8198603798534628444
 GameObject:
   m_ObjectHideFlags: 0
@@ -5884,8 +5890,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 0.90000004}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 10, y: 6, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3197120223731453535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
