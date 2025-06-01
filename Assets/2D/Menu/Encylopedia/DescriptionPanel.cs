@@ -39,6 +39,21 @@ public class DescriptionPanel : MonoBehaviour
             unitDescriptionText.text = unitData.UnitSimpleDesc;
             abilityButton.interactable = true;
             aboutButton.interactable = true;
+            unitImage.color = new Color32(255, 255, 255, 255);
+        }
+
+
+        switch (unitData.unitId)
+        {
+            case UnitId.FASTVIRUS:
+                unitImage.color = new Color32(255, 234, 0, 255);
+                break;
+            case UnitId.TOXINBACTERIA:
+                unitImage.color = new Color32(79, 255, 52, 255);
+                break;
+            case UnitId.TOXINWORMS:
+                unitImage.color = new Color32(16, 168, 0, 255);
+                break;
         }
     }
     public void SetupMechanicDescriptionPanel(MechanicSO mechanicInfo)

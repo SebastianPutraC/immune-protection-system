@@ -497,8 +497,16 @@ public class BattleController : MonoBehaviour
                 SaveManagerSingleton.Instance.WonAllLevel();
             }
 
-            gameOverPanelController.gameObject.SetActive(true);
-            gameOverPanelController.GameWon();
+            if (unlockedLevel == LevelId.LEVEL_TUTORIAL)
+            {
+                gameOverPanelController.gameObject.SetActive(true);
+                gameOverPanelController.GameWonLastLevel();
+            }
+            else
+            {
+                gameOverPanelController.gameObject.SetActive(true);
+                gameOverPanelController.GameWon();
+            }
 
             battleMusicAudioSource.clip = winningMusic;
             battleMusicAudioSource.Play();

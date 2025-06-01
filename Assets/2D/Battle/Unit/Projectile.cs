@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     private Vector2 lastTargetPosition;
 
     private bool isInitialized = false;
+    private bool attackOnceBullet = false;
 
     [SerializeField] private UnitSide unitSide; // Set it on unit script
     [SerializeField] private Rigidbody2D projectileRb;
@@ -67,6 +68,11 @@ public class Projectile : MonoBehaviour
 
     protected void Attack(UnitController unitHit)
     {
+        if (attackOnceBullet)
+        {
+            Destroy(gameObject);
+        }
+        attackOnceBullet = true;
         if (unitHit != null)
         {
             unitHit.DealDamage(damage);

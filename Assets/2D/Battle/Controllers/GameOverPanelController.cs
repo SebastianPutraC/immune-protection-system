@@ -28,6 +28,11 @@ public class GameOverPanelController : MonoBehaviour
         endGameText.text = "Anda Menang!";
         nextLevelButton.gameObject.SetActive(true);
     }
+    public void GameWonLastLevel()
+    {
+        endGameText.text = "Anda Menang!";
+        nextLevelButton.gameObject.SetActive(false);
+    }
 
     private void OnQuitPressed()
     {

@@ -45,7 +45,7 @@ public class DeployedUnitController : UnitController
 
     protected virtual void Awake()
     {
-        if(enemyDetect != null)
+        if (enemyDetect != null)
         {
             enemyDetect.enemyDetected += EnemyMeleeDetected;
             enemyDetect.enemyOutRange += EnemyMeleeLost;
@@ -113,7 +113,7 @@ public class DeployedUnitController : UnitController
     }
     protected void FixedUpdate()
     {
-        if (isMoveOrder && !isDetecting && !isRangedDetecting && !noMoreRoute && !isArrived && currentTargetWaypoint != null )
+        if (isMoveOrder && !isDetecting && !isRangedDetecting && !noMoreRoute && !isArrived && currentTargetWaypoint != null)
         {
             Move();
         }
@@ -169,7 +169,7 @@ public class DeployedUnitController : UnitController
 
     public virtual void ProcessAbility(AbilityId ability)
     {
-        switch(ability)
+        switch (ability)
         {
             case AbilityId.MOVE:
                 if (isMoveOrder)
@@ -206,7 +206,7 @@ public class DeployedUnitController : UnitController
     {
         unitRb.linearVelocity = new Vector2(0, 0);
     }
-    
+
 
     #region Detection
     protected void EnemyMeleeDetected(UnitController enemyUnit)
@@ -227,6 +227,8 @@ public class DeployedUnitController : UnitController
                 targetEnemyUnitMelee = enemyUnit;
             }
         }
+
+        RemoveNullValues();
     }
     protected void EnemyRangedDetected(UnitController enemyUnit)
     {
@@ -246,6 +248,8 @@ public class DeployedUnitController : UnitController
                 targetEnemyUnitRanged = enemyUnit;
             }
         }
+
+        RemoveNullValues();
     }
     protected void EnemyMeleeLost(UnitController enemyUnit)
     {
@@ -266,6 +270,7 @@ public class DeployedUnitController : UnitController
             }
         }
 
+        RemoveNullValues();
         if (detectedUnitMelee.Count <= 0)
         {
             isDetecting = false;
@@ -290,6 +295,7 @@ public class DeployedUnitController : UnitController
             }
         }
 
+        RemoveNullValues();
         if (detectedUnitRanged.Count <= 0)
         {
             isRangedDetecting = false;
@@ -349,6 +355,34 @@ public class DeployedUnitController : UnitController
             enemyDetect.gameObject.SetActive(false);
         if (enemyRangedDetect != null)
             enemyRangedDetect.gameObject.SetActive(false);
+    }
+    private void RemoveNullValues()
+    {
+        foreach(KeyValuePair<int, UnitController> enemyMelee in detectedUnitMelee)
+        {
+            if (enemyMelee.Value == null)
+            {
+                detectedUnitMelee.Remove(enemyMelee.Key);
+            }
+        }
+        foreach(KeyValuePair<int, UnitController> enemyRanged in detectedUnitRanged)
+        {
+            if (enemyRanged.Value == null)
+            {
+                detectedUnitRanged.Remove(enemyRanged.Key);
+            }
+        }
+
+        if (detectedUnitMelee.Values.Count <= 0)
+        {
+            isDetecting = false;
+            targetEnemyUnitMelee = null;
+        }
+        if (detectedUnitRanged.Values.Count <= 0)
+        {
+            isRangedDetecting = false;
+            targetEnemyUnitRanged = null;
+        }
     }
 
     protected virtual void OnDestroy()
