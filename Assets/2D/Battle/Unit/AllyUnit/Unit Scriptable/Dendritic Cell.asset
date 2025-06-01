@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Dendritic Cell
   unitType: 1
   UnitHp: 50
-  UnitCost: 200
+  UnitCost: 100
   UnitSpeed: 10
   UnitAtk: 0
   UnitAtkSpeed: 0

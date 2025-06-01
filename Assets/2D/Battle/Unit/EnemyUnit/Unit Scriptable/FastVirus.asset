@@ -21,7 +21,7 @@ MonoBehaviour:
   UnitSpeed: 7
   UnitAtk: 10
   UnitAtkSpeed: 0.5
-  UnitRangedAtk: 15
+  UnitRangedAtk: 10
   UnitRangedAtkSpeed: 0.7
   RangedProjectile: {fileID: 5845206643913531204, guid: bce1fa5d374d4ad4e98b5dc20b426799, type: 3}
   UnitSimpleDesc: "Mikroorganisme aseluler yang memiliki salah satu DNA atau RNA.

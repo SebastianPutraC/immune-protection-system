@@ -19,8 +19,8 @@ MonoBehaviour:
   UnitHp: 150
   UnitCost: 200
   UnitSpeed: 2
-  UnitAtk: 50
-  UnitAtkSpeed: 1
+  UnitAtk: 40
+  UnitAtkSpeed: 1.5
   UnitRangedAtk: 0
   UnitRangedAtkSpeed: 0
   RangedProjectile: {fileID: 0}
@@ -45,5 +45,5 @@ MonoBehaviour:
   UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 4f04394a51761aa4a96e24cf1e97c3aa, type: 2}
-  boomCost: 500
+  boomCost: 600
   bossCost: 500

@@ -18,7 +18,7 @@ MonoBehaviour:
   unitType: 1
   UnitHp: 70
   UnitCost: 400
-  UnitSpeed: 4
+  UnitSpeed: 2
   UnitAtk: 0
   UnitAtkSpeed: 0
   UnitRangedAtk: 0

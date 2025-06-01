@@ -47,9 +47,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b1b184c35a6d104b904195455c1286a, type: 2}
   - {fileID: 11400000, guid: bb468de5c5952ab43869858d9e729dea, type: 2}
   - {fileID: 11400000, guid: 26e44db64d9049341bb9b91efff5eb60, type: 2}
+  - {fileID: 11400000, guid: ab8eb67efcdd6f54184829bfb590d69c, type: 2}
+  - {fileID: 11400000, guid: 24bfd2ea9caf03d4fb5dbd5d1be64100, type: 2}
+  - {fileID: 11400000, guid: c0178e56471b3394bb61dab433a12913, type: 2}
   levelPrefab: {fileID: 3481419003891693231, guid: a3582510cd519154093d64c3daa27fd1, type: 3}
   levelMapSprite: {fileID: 21300000, guid: bdeca044266d0cf40bb06e67881dac41, type: 3}
-  skipIntroIndex: 
+  skipIntroIndex: 09000000
   bossUnit: 0
   boomUnit: 204
   randomUnit: ca000000cc000000c9000000

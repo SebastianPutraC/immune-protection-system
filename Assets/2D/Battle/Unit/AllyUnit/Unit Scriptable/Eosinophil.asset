@@ -16,7 +16,7 @@ MonoBehaviour:
   unitPrefab: {fileID: 845116143720167099, guid: 4786f36ae797edb428162bc68b1ff8db, type: 3}
   UnitName: Eosinophil
   unitType: 1
-  UnitHp: 40
+  UnitHp: 75
   UnitCost: 150
   UnitSpeed: 4
   UnitAtk: 10
