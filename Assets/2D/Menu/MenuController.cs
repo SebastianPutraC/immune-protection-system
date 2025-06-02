@@ -35,6 +35,14 @@ public class MenuController : MonoBehaviour
     {
         OpenMainMenu();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && mainMenu.gameObject.activeSelf == true)
+        {
+            SaveManagerSingleton.Instance.UseBetaProfile();
+            OpenMainMenu();
+        }    
+    }
 
     private void HideAllMenu()
     {

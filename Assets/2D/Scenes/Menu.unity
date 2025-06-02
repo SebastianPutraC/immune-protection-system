@@ -1431,6 +1431,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: SaveFile
   profileId: Profile
+  betaSaveData:
+    profileName: BetaTester
+    enyclopediaUnlock:
+    - UnitId: 101
+      Unlocked: 1
+    - UnitId: 102
+      Unlocked: 1
+    - UnitId: 103
+      Unlocked: 1
+    - UnitId: 104
+      Unlocked: 1
+    - UnitId: 105
+      Unlocked: 1
+    - UnitId: 106
+      Unlocked: 1
+    - UnitId: 107
+      Unlocked: 1
+    - UnitId: 108
+      Unlocked: 1
+    - UnitId: 201
+      Unlocked: 1
+    - UnitId: 202
+      Unlocked: 1
+    - UnitId: 203
+      Unlocked: 1
+    - UnitId: 204
+      Unlocked: 1
+    - UnitId: 205
+      Unlocked: 1
+    - UnitId: 206
+      Unlocked: 1
+    levelUnlock:
+    - LevelId: 1
+      Unlocked: 1
+    - LevelId: 2
+      Unlocked: 1
+    - LevelId: 3
+      Unlocked: 1
+    - LevelId: 4
+      Unlocked: 1
+    - LevelId: 5
+      Unlocked: 1
+    - LevelId: 6
+      Unlocked: 1
+    - LevelId: 7
+      Unlocked: 1
+    - LevelId: 8
+      Unlocked: 1
+    quizScores:
+    - quizId: 3
+      quizScore: 0
+    - quizId: 4
+      quizScore: 0
+    - quizId: 5
+      quizScore: 0
+    - quizId: 6
+      quizScore: 0
+    - quizId: 7
+      quizScore: 0
+    - quizId: 8
+      quizScore: 0
+    sfxVolume: 0.5
+    musicVolume: 0.5
+    isWonAllLevel: 1
 --- !u!4 &2115808544
 Transform:
   m_ObjectHideFlags: 0

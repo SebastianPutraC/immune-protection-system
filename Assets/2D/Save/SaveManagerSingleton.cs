@@ -10,6 +10,7 @@ public class SaveManagerSingleton : MonoBehaviour
 
     [SerializeField] private string profileId = "Profile";
     private SaveData selectedSaveData;
+    [SerializeField] private SaveData betaSaveData;
 
     private Dictionary<string, SaveData> allSaveData = new Dictionary<string, SaveData>();
 
@@ -147,6 +148,12 @@ public class SaveManagerSingleton : MonoBehaviour
         }
 
         saveFileHandler.SaveData(selectedSaveData, profileId);
+    }
+    public void UseBetaProfile()
+    {
+        selectedSaveData = betaSaveData;
+        SaveProfileData();
+        LoadProfileData();
     }
 
     private void OnApplicationQuit()

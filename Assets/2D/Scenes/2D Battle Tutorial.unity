@@ -1305,6 +1305,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a57eff6c9820da54a9d367445b7099b3, type: 2}
   - {fileID: 11400000, guid: 54dee8a3b5980ef40b9daa4b94ca6d6b, type: 2}
   - {fileID: 11400000, guid: bc23e77cfb8a56d4485b2345506a5490, type: 2}
+  - {fileID: 11400000, guid: b83060cae9ff9264c9db33245d49d021, type: 2}
+  - {fileID: 11400000, guid: 054c50729c57994498f31b0687d133a2, type: 2}
   basicMoveInfo:
   - {fileID: 11400000, guid: acb41e241639f294ca832dd75e4905ff, type: 2}
   - {fileID: 11400000, guid: 9d3d329b78b28e74fb5b488b8cec4c86, type: 2}
@@ -1348,6 +1350,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b380ca108d495441a1683a6f25c7545, type: 2}
   - {fileID: 11400000, guid: 6c8fd0d5f8e19e74a8dc76aed3ae5f15, type: 2}
   - {fileID: 11400000, guid: 1f9b66726006d7846a5f344008ecd42e, type: 2}
+  - {fileID: 11400000, guid: 49720da082203f74a8bffba2552ec68e, type: 2}
   firstSpawnArrow: {fileID: 1758557238}
   secondSpawnArrow: {fileID: 1758557239}
   allyBaseArrow: {fileID: 1758557237}

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: f73f598a857b60d41807bbe8c29474e0, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: Setelah mempelajari panduan ini, mari mencoba untuk memenangkan level
-    tutorial ini!
+  InfoText: Walaupun anda dapat memainkan permainan ini hanya dengan menggunakan
+    mouse, anda dapat mempelajari kontrol hotkey keyboard di Encyclopedia dalam kategori
+    Mekanik.

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sel Tubuh
   m_EditorClassIdentifier: 
   mechanicTitle: Sel Tubuh
-  mechanicDescription: Terdapat sel tubuh yang berada dalam medan permainan tetapi
+  mechanicDescription: "Terdapat sel tubuh yang berada dalam medan permainan tetapi
     tidak dapat melawan patogen. Jika patogen meraih sel ini, maka sel dapat menjalankan
-    instruksi patogen untuk memproduksi patogen baru.
+    instruksi patogen untuk memproduksi patogen baru. \n\nSel yang terinfeksi berubah
+    menjadi berwarna hijau"
