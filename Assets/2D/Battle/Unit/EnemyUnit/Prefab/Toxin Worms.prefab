@@ -5309,8 +5309,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 1.4, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
@@ -5361,12 +5361,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7b8e8ecdb8ab6348bc3c101bb19bb9f, type: 3}
   m_Color: {r: 0.06258401, g: 0.6603774, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4, y: 1.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5486,22 +5486,27 @@ MonoBehaviour:
   unitAtk:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   unitRangedAtk:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   unitSpeed:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   meleeCooldownSpeed:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   rangedCooldownSpeed:
     Type: 0
     BaseValue: 0
+    FinalValue: 0
     statModifiers: []
   isMoveOrder: 1
   unitSprite: {fileID: 720281373946100966}

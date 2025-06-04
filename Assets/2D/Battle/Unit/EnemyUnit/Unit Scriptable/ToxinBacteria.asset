@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 205
   unitPrefab: {fileID: 7680385263827990958, guid: 5a34c0fa4d64f5a449fa663c031c3b21, type: 3}
-  UnitName: Bacteria
+  UnitName: Toxin Bacteria
   unitType: 2
   UnitHp: 80
   UnitCost: 250
@@ -47,7 +47,7 @@ MonoBehaviour:
     tinggi serta pengeluaran toksin yang berupa racun yang menyebabkan penyakit pada
     tubuh.\n\nTipe bakteri ini memiliki toksin yang kuat sehingga memiliki kemampuan
     untuk serangan Area of Effect (AOE)"
-  UnitSprite: {fileID: 21300000, guid: 46b9b9ec5ddfd14458eb44665c1f6864, type: 3}
+  UnitSprite: {fileID: 21300000, guid: c40358feec5c36041a16fadea97b22d8, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 1c236f4f6d7f7134598a64600851fcd6, type: 2}
   boomCost: 400

@@ -133,7 +133,6 @@ public class EnemyAiManager : MonoBehaviour
 
         int randomRow = UnityEngine.Random.Range(0, spawners.Count);
         int randomUnit = UnityEngine.Random.Range(0, randomUnits.Count);
-        Debug.Log(randomUnit);
         EnemyUnit spawnEnemy = (EnemyUnit)randomUnits[randomUnit];
 
         bool paymentComplete = PayUnit(spawnEnemy.UnitCost);

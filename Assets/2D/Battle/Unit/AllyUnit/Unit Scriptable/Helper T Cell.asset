@@ -44,7 +44,7 @@ MonoBehaviour:
     sinyal yang mengubah antibodi yang diproduksi berdasarkan patogen yang dihadapi.
     Sinyal yang membantu produksi dan diferensiasi antibodi juga berasal dari sitokin
     yang dikeluarkan Sel TH2. \r\n"
-  UnitSprite: {fileID: 21300000, guid: 0032dbd32b0a3ef48969215892764ca7, type: 3}
+  UnitSprite: {fileID: 21300000, guid: d61d9458256befd4582faeafccfaa146, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 9f5b398528062d749948a9a5e7b8a290, type: 2}
   - {fileID: 11400000, guid: 3a7dd76a34e7b164882001624c67507a, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MacrophageController : AllyUnitController, IInflammator, IPresenter
 {
-    private int resourcePointWhenDamaged = 20;
+    private int resourcePointWhenDamaged = 10;
 
     [SerializeField] private DetectionTrigger antigenDetect;
     [SerializeField] private Transform antigenCarryPosition;

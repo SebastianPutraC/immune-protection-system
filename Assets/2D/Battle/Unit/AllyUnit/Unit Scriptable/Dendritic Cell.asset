@@ -40,7 +40,7 @@ MonoBehaviour:
     Sel Dendritik juga memproduksi protein sitokin yang merekrut sel imun lain. Oleh
     karena fungsi presentasi antigen yang menjadi ciri utama Sel Dendritik, Sel ini
     merupakan salah satu sel imun yang menjadi APC profesional.\r\n"
-  UnitSprite: {fileID: 21300000, guid: 06b4454dc007e454f8428afdfcea8f18, type: 3}
+  UnitSprite: {fileID: 21300000, guid: cce0b8b55e5059141bcf2ab4129d4a2c, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: da17486cfc5ff7f47b727db8b078c117, type: 2}
   - {fileID: 11400000, guid: 9f5b398528062d749948a9a5e7b8a290, type: 2}

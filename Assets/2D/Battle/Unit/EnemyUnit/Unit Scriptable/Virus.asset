@@ -42,7 +42,7 @@ MonoBehaviour:
     banyak virus yang ada dan semakin banyak sel tubuh yang mati.\n\nTipe virus ini
     memiliki kapabilitas serangan jarak jauh dan menginfeksi sel tubuh untuk memproduksi
     replika virus."
-  UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
+  UnitSprite: {fileID: 21300000, guid: 8e6e6f6135ba6754abd10892b95a48f0, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: c64457fae4794d349adb0e8fe9ef5c2c, type: 2}
   - {fileID: 11400000, guid: a96863dc496464c45bad8e5e25a8a54a, type: 2}

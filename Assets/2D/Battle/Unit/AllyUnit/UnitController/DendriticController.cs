@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DendriticController : AllyUnitController, IInflammator, IPresenter
 {
-    private int resourcePointWhenDamaged = 20;
+    private int resourcePointWhenDamaged = 10;
 
     [SerializeField] private DetectionTrigger antigenDetect;
     [SerializeField] private Transform antigenCarryPosition;

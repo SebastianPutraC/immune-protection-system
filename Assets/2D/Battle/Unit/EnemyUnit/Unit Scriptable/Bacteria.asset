@@ -47,7 +47,7 @@ MonoBehaviour:
     tinggi serta pengeluaran toksin yang berupa racun yang menyebabkan penyakit pada
     tubuh.\n\nTipe bakteri ini memiliki toksin yang cukup lemah sehingga hanya dapat
     digunakan untuk serangan jarak dekat"
-  UnitSprite: {fileID: 21300000, guid: 46b9b9ec5ddfd14458eb44665c1f6864, type: 3}
+  UnitSprite: {fileID: 21300000, guid: 2ae32c94772e318449da412f94308327, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 4f04394a51761aa4a96e24cf1e97c3aa, type: 2}
   boomCost: 400

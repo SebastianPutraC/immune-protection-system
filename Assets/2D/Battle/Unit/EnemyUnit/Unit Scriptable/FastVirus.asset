@@ -44,7 +44,7 @@ MonoBehaviour:
     memiliki transmisi penyebaran yang lebih cepat (Kecepatan tinggi) serta memiliki
     kapabilitas serangan jarak jauh. Virus juga dapat menginfeksi sel tubuh untuk
     memproduksi replika virus"
-  UnitSprite: {fileID: 21300000, guid: c48a18d9395b01c42a0cf27531677586, type: 3}
+  UnitSprite: {fileID: 21300000, guid: 0d0b707e4a717f34c9ab1d896e403257, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: c64457fae4794d349adb0e8fe9ef5c2c, type: 2}
   - {fileID: 11400000, guid: a96863dc496464c45bad8e5e25a8a54a, type: 2}

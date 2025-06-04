@@ -44,7 +44,7 @@ MonoBehaviour:
     Traps) di mana sel terjadi pelepasan matriks fibril dari kandungan DNA yang merangkap
     patogen dan melingkupinya dengan protein anti mikrobial. Tetapi fungsi ini sekalian
     membunuh Neutrofil yang menggunakanya. \r\n"
-  UnitSprite: {fileID: 21300000, guid: fcc074a3090b0534f9bcef302bd220fc, type: 3}
+  UnitSprite: {fileID: 21300000, guid: 0766538bd20108f4e946ec5dbe9e446b, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 99c14c5241a4d9d4f9b151b0fc6d1125, type: 2}
   - {fileID: 11400000, guid: baf85f090db5afb4cbbd496c01e865f1, type: 2}

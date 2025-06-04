@@ -41,7 +41,7 @@ MonoBehaviour:
     suatu zat yang mempengaruhi dan menekan sistem imun tubuh.\n\nTipe cacing parasit
     ini memanfaatkan zat beracun dalam bentuk serangan Area of Effect untuk menghindari
     kematian oleh sel imun."
-  UnitSprite: {fileID: 21300000, guid: a3bcab48bbd219648a07172cdee17991, type: 3}
+  UnitSprite: {fileID: 21300000, guid: b7b8e8ecdb8ab6348bc3c101bb19bb9f, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 1c236f4f6d7f7134598a64600851fcd6, type: 2}
   boomCost: 400

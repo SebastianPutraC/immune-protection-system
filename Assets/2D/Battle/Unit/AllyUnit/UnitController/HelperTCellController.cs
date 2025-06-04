@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HelperTCellController : AllyUnitController, IInflammator
 {
-    private int resourcePointWhenDamaged = 30;
+    private int resourcePointWhenDamaged = 20;
 
     [SerializeField] private DetectionTrigger allyDetect;
     [SerializeField] protected Dictionary<int, AllyUnitController> detectedUnitBuff = new Dictionary<int, AllyUnitController>();
