@@ -398,7 +398,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.6039216, g: 0.015686281, b: 0.17749368, a: 0.39215687}
+      maxColor: {r: 1, g: 0, b: 0.27333307, a: 0.39215687}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -926,7 +926,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2.5
+      value: 3.5
       mode: 0
       spread: 0
       speed:
@@ -1155,7 +1155,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 65
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -5362,7 +5362,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b7b8e8ecdb8ab6348bc3c101bb19bb9f, type: 3}
-  m_Color: {r: 0.06258401, g: 0.6603774, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1

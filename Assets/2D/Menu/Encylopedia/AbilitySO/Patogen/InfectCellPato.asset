@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 15
   AbilityEncyclopediaName: Infeksi Sel
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: daa3e28daa0f8f248b424534a6868957, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 

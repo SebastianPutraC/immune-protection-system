@@ -18,10 +18,16 @@ MonoBehaviour:
 
 
     Setiap
-    Jawaban yang benar akan memberi bonus buff ke stat (HP, Damage, Kecepatan, Harga)
-    ke unit anda.
+    Jawaban yang benar akan memberi bonus buff ke stat (HP, Damage, Kecepatan, Pengurangan
+    Cooldown Serangan) ke unit anda.
 
-    Nilai Quiz akan tertera di menu profil anda.'
+    Nilai Quiz akan tertera di menu profil
+    anda.
+
+
+    Jika anda ingin mendapatkan nilai dengan buff tertinggi, anda dapat
+    membaca informasi dalam Encyclopedia atau Informasi Intro dari Unit  baru di
+    level sebelumnya :D. Ayo dapatkan nilai yang sempurna!!!.'
   DecisionButtons:
   - {fileID: 11400000, guid: 9eb902a762a3c8f409bbcd754c4bc9c2, type: 2}
   - {fileID: 11400000, guid: d8be709d7081a24429b85b650c9742f7, type: 2}

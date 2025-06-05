@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 206
   unitPrefab: {fileID: 2090285157580098431, guid: 53a7bcc002c44184780ff4742678615f, type: 3}
-  UnitName: Toxin Worms
+  UnitName: Cacing Toksin
   unitType: 2
   UnitHp: 150
   UnitCost: 400

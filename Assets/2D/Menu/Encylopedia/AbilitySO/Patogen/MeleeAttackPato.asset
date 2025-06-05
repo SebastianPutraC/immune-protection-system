@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 12
   AbilityEncyclopediaName: Serangan jarak dekat
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: e3527674ecf5dd04ea5c3dd415b27e66, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 

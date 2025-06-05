@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 108
   unitPrefab: {fileID: 2210530788569250079, guid: b9619aed92b6b7646958b7706e906c3e, type: 3}
-  UnitName: Helper T Cell
+  UnitName: Sel T Pembantu
   unitType: 1
   UnitHp: 70
   UnitCost: 250

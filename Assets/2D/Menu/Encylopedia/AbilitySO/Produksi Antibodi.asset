@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 7
   AbilityEncyclopediaName: Produksi Antibodi
-  AbilityEncyclopediaImage: {fileID: 0}
-  AbilityPrimaryImage: {fileID: 21300000, guid: 511340280c50c4c409e64eeba67c31e3, type: 3}
-  AbilitySecondaryImage: {fileID: 21300000, guid: 770044e3f7962f84ca41d0fa39e88a81, type: 3}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: f361ca6d9799bd240be06710d89c7cf5, type: 3}
+  AbilityPrimaryImage: {fileID: 0}
+  AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 
   AbilitySecondaryName: 
+  IsManual: 0
   AbilityDescription: Memproduksi antibodi dan mensekresinya untuk melawan patogen.
     Serangan artileri.

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 101
   unitPrefab: {fileID: -7990361922441071847, guid: fd34849a8657eee448e36acd62b24178, type: 3}
-  UnitName: Macrophage
+  UnitName: Makrofag
   unitType: 1
   UnitHp: 100
   UnitCost: 100

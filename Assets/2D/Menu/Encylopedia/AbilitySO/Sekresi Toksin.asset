@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 8
   AbilityEncyclopediaName: Sekresi Toksin
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: 1e52025fe03982346aa4dd4b067aa271, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 
   AbilitySecondaryName: 
+  IsManual: 0
   AbilityDescription: Mengeluarkan toksin untuk meracuni dan membunuh patogen. Menyerang
     seluruh patogen di sekitar sel (Area of Effect)

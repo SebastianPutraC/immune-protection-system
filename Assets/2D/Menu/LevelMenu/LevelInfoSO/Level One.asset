@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1cd1ba107d4dc304e8d21543fef00ad2, type: 2}
   - {fileID: 11400000, guid: dae1a1c49bb4987459c0873adc97d11c, type: 2}
   - {fileID: 11400000, guid: 7c7c40254f4c372429dc201605e7d596, type: 2}
+  - {fileID: 11400000, guid: 7604bb4d9782e7c44a330bb51d8a1de4, type: 2}
   - {fileID: 11400000, guid: 6d8131aaf0d4fe846a7c5404c147e765, type: 2}
   - {fileID: 11400000, guid: 6843c9c938fde264ea4c56652eee2a3a, type: 2}
   - {fileID: 11400000, guid: 86c03a234adf4cd4db05b9f8ad2110a3, type: 2}
@@ -65,7 +66,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef54a3102e2179143939786170aef922, type: 2}
   levelPrefab: {fileID: 3481419003891693231, guid: 5464390fe798bf044b82b4a720eb3896, type: 3}
   levelMapSprite: {fileID: 21300000, guid: d872b818c01293c47b7906682a84fc21, type: 3}
-  skipIntroIndex: 060000001000000017000000
+  skipIntroIndex: 060000001000000018000000
   bossUnit: 0
   boomUnit: 202
   randomUnit: c9000000ca000000

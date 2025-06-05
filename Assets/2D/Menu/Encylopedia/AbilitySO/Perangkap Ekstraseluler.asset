@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 6
   AbilityEncyclopediaName: Perangkap Ekstraseluler
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: 46fc8d97b46c89a40a15d6101467ca5d, type: 3}
   AbilityPrimaryImage: {fileID: 21300000, guid: 0707594e62f3d5645890a07728630b7f, type: 3}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: NET

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541447a9a3c69c645a346870b142eaff, type: 3}
+  m_Name: Gaya Hidup
+  m_EditorClassIdentifier: 
+  mechanicTitle: Gaya Hidup
+  mechanicDescription: "Fitur gaya hidup dapat berinteraksi dengan bagaimana sistem
+    imun bekerja. Gaya hidup yang buruk dapat memberikan dampak ketidakseimbangan
+    homeostasis (Kemampuan sel imun), efektivitas inflamasi, dan penurunan resistensi
+    kepada infeksi. Faktor positif dapat melindungi keseimbangan homeostasis dan
+    berpotensi untuk meningkatkan resistensi terhadap infeksi. \n\nGaya hidup yang
+    berpengaruh kepada sistem imun seperti nutrisi makanan, aktivitas fisik, waktu
+    tidur, penggunaan rokok atau alkohol, serta stress yang dialami. Makan makanan
+    yang baik, berolahraga, serta tidur dengan waktu yang cukup akan meningkatkan
+    kemampuan sistem imun. Sebaliknya menggunakan rokok atau alkohol, peningkatan
+    stress, kurang tidur, kurang berolahraga akan mengurangi kemampuan sistem imun."

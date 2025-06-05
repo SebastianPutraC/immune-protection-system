@@ -46,5 +46,6 @@ MonoBehaviour:
   UnitAbility:
   - {fileID: 11400000, guid: c64457fae4794d349adb0e8fe9ef5c2c, type: 2}
   - {fileID: 11400000, guid: a96863dc496464c45bad8e5e25a8a54a, type: 2}
+  - {fileID: 11400000, guid: 4f04394a51761aa4a96e24cf1e97c3aa, type: 2}
   boomCost: 500
   bossCost: 500

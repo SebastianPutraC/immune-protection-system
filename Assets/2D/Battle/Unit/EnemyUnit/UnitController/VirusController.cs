@@ -21,8 +21,8 @@ public class VirusController : EnemyUnitController
             }
             else
             {
-                PhagocytosisAttack();
                 meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
+                PhagocytosisAttack();
             }
         }
         else if (isRangedDetecting)
@@ -33,8 +33,8 @@ public class VirusController : EnemyUnitController
             }
             else
             {
-                DegranulationAttack();
                 rangedCooldown = rangedCooldownSpeed.ReturnFinalValue();
+                DegranulationAttack();
             }
         }
     }

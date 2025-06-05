@@ -22,8 +22,8 @@ public class ToxinEnemyController : EnemyUnitController
             }
             else
             {
-                ToxinAttack();
                 meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
+                ToxinAttack();
             }
         }
         else

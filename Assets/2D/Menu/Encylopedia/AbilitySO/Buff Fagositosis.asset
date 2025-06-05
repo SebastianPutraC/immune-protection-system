@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 10
   AbilityEncyclopediaName: Perkuat Fagositosis
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: c4aca815f55a32041801c24708efce96, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 

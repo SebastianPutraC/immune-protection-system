@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 14
   AbilityEncyclopediaName: Serangan AOE
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: 1f50e9f686284044cb6e492d34824ba2, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 

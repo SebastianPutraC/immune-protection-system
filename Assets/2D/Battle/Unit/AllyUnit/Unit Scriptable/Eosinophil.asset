@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 103
   unitPrefab: {fileID: 845116143720167099, guid: 4786f36ae797edb428162bc68b1ff8db, type: 3}
-  UnitName: Eosinophil
+  UnitName: Eosinofil
   unitType: 1
-  UnitHp: 75
-  UnitCost: 150
+  UnitHp: 65
+  UnitCost: 250
   UnitSpeed: 4
   UnitAtk: 10
   UnitAtkSpeed: 0.2

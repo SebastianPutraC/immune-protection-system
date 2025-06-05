@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 3
   AbilityEncyclopediaName: Fagositosis
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: 9531007a1219e1b45ab29fdc14167520, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 
   AbilitySecondaryName: 
+  IsManual: 0
   AbilityDescription: Menelan dan membunuh patogen. Serangan jarak dekat (Melee).

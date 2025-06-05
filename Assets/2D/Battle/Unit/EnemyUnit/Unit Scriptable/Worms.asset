@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 203
   unitPrefab: {fileID: 8992754535199334865, guid: 3cc01b2ff5caae348b534c3c7511d215, type: 3}
-  UnitName: Worms
+  UnitName: Cacing Parasit
   unitType: 2
   UnitHp: 140
   UnitCost: 150

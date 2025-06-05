@@ -16,11 +16,10 @@ MonoBehaviour:
   mechanicDescription: 'Tempat unit Sel dan Patogen dapat masuk ke dalam medan permainan.
     Sel dan Patogen memiliki tempat Spawner yang berbeda.
 
-    
 
-    Suatu patogen
-    yang telah menginfeksi sel tubuh dapat mengubah fungsi sel untuk memproduksi
-    patogen yang sama. Sel ini menjadi tempat Spawner yang baru bagi patogen tanpa
-    mengurangi RP yang dimiliki Patogen.
+    Suatu patogen yang
+    telah menginfeksi sel tubuh dapat mengubah fungsi sel untuk memproduksi patogen
+    yang sama. Sel ini menjadi tempat Spawner yang baru bagi patogen tanpa mengurangi
+    RP yang dimiliki Patogen.
 
 '

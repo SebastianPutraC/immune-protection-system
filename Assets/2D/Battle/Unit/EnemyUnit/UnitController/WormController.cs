@@ -13,8 +13,8 @@ public class WormController : EnemyUnitController
             }
             else
             {
-                PhagocytosisAttack();
                 meleeCooldown = meleeCooldownSpeed.ReturnFinalValue();
+                PhagocytosisAttack();
             }
         }
     }

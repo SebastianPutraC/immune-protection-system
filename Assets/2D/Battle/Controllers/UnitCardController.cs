@@ -31,7 +31,7 @@ public class UnitCardController : MonoBehaviour
         unitData = data;
         unitImage.sprite = unitData.UnitSprite;
         unitNameText.text = unitData.UnitName;
-        unitCostText.text = unitData.UnitCost.ToString();
+        unitCostText.text = "RP : " + unitData.UnitCost.ToString();
         UnlockCard();
     }
 

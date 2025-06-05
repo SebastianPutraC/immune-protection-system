@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da254f503ee842a4a85b623f0012c11c, type: 3}
   m_Name: Level4_05_01
   m_EditorClassIdentifier: 
-  DecisionButtonText: Plasmakin
+  DecisionButtonText: Basofil
   StatMod:
     ModType: 0
     StatToMod: 0
     ModValue: 0
+    Source: 0
   IsPickNextInfo: 0
   NextDecisionID: 0
   IsQuiz: 1

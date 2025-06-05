@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoMascot: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: Terakhir, saya salah satu APC Profesional. Sebagai APC, saya dapat mengambil
-    antigen yang menyimpan informasi mengenai patogen. Kemudian saya dapat membawanya
-    ke sel imun adaptif di jaringan limfoid sehingga mereka dapat mengetahui musuh
-    mana yang sedang kita lawan.
+  InfoText: "Terakhir, saya salah satu APC (Antigen Presenting Cell) Profesional.
+    \nSebagai APC, saya dapat mengambil antigen yang menyimpan informasi mengenai
+    patogen. Kemudian saya dapat membawanya ke sel imun adaptif di jaringan limfoid
+    sehingga mereka dapat mengetahui musuh mana yang sedang kita lawan."

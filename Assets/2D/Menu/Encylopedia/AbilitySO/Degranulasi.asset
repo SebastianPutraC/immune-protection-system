@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 4
   AbilityEncyclopediaName: Degranulasi
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: aa0fb6748a811e747aa602f74fdbea8c, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 
   AbilitySecondaryName: 
+  IsManual: 0
   AbilityDescription: Mengeluarkan protein dan enzim anti mikrobial untuk membunuh
     patogen. Serangan jarak jauh (Ranged).

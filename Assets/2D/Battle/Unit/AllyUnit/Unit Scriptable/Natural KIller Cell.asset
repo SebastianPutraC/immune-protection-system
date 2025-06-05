@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 104
   unitPrefab: {fileID: 7492695235832587713, guid: e8fb5cbd8f30d3c4081e6a11e62da6b4, type: 3}
-  UnitName: Natural Killer Cell
+  UnitName: Sel Pembunuh Alami
   unitType: 1
   UnitHp: 75
   UnitCost: 300

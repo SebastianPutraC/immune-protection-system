@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 2
   AbilityEncyclopediaName: Inflamasi
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: 852fa63a0d6722d4cbc27d2559fb11d5, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 
   AbilitySecondaryName: 
+  IsManual: 0
   AbilityDescription: Mengeluarkan protein sitokin dan kemokin untuk memanggil sel
     imun lain ke lokasi infeksi. Menambah Resource Points saat terkena serangan

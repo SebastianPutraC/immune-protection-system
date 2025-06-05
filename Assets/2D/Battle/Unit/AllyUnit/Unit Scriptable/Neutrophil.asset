@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 102
   unitPrefab: {fileID: 8124021205737990311, guid: 318bde3cb5b6ae64b8602d8513b22dfa, type: 3}
-  UnitName: Neutrophil
+  UnitName: Neutrofil
   unitType: 1
   UnitHp: 60
   UnitCost: 200

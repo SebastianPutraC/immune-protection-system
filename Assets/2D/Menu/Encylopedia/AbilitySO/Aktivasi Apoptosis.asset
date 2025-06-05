@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityID: 9
   AbilityEncyclopediaName: Aktivasi Apoptosis
-  AbilityEncyclopediaImage: {fileID: 0}
+  AbilityEncyclopediaImage: {fileID: 21300000, guid: 3d1bd63a71693834b9175788362de704, type: 3}
   AbilityPrimaryImage: {fileID: 0}
   AbilitySecondaryImage: {fileID: 0}
   AbilityPrimaryName: 
   AbilitySecondaryName: 
+  IsManual: 0
   AbilityDescription: 'Mengaktivasikan Apoptosis yaitu kematian sel terprogram kepada
     sel yang telah terinfeksi. '

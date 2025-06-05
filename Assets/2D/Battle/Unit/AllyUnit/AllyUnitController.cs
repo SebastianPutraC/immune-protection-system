@@ -60,7 +60,7 @@ public class AllyUnitController : DeployedUnitController
                     unitAtk.AddModifier(modifier);
                 }
                 break;
-            case StatType.RANGEDATK:
+            case StatType.ATKCOOLDOWN:
                 if (unitRangedAtk.GetStatFromSource(modifier.Source) == null)
                 {
                     unitRangedAtk.AddModifier(modifier);

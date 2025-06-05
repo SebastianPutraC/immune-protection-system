@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 107
   unitPrefab: {fileID: -4250696035177228427, guid: 9759ba70e665dea40ba1e23d074c715a, type: 3}
-  UnitName: Killer T Cell
+  UnitName: Sel T Pembunuh
   unitType: 1
   UnitHp: 150
   UnitCost: 100

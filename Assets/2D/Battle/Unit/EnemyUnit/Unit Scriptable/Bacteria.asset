@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitId: 201
   unitPrefab: {fileID: 6484644874592221341, guid: adadcc0cd6a16a246b52c2711bbe31c0, type: 3}
-  UnitName: Bacteria
+  UnitName: Bakteri
   unitType: 2
   UnitHp: 80
   UnitCost: 100

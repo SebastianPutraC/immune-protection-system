@@ -22,7 +22,7 @@ MonoBehaviour:
   unlockIntelPoint: 150
   allyBaseMaxHP: 10
   maxRepairPoints: 10
-  enemyStartingResource: 200
+  enemyStartingResource: 150
   enemyIncome: 125
   DecisionInfos:
   - {fileID: 11400000, guid: f59a22da970db3c4381ea742a22a24a8, type: 2}

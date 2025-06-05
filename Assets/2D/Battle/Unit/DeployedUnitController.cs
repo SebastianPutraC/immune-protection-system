@@ -250,7 +250,7 @@ public class DeployedUnitController : UnitController
 
             detectedUnitMelee.Remove(enemyUnit.GetInstanceID());
 
-            if (targetEnemyUnitMelee == null && detectedUnitMelee.Count <= 0)
+            if (targetEnemyUnitMelee == null && detectedUnitMelee.Count > 0)
             {
                 List<UnitController> values = detectedUnitMelee.Values.ToList();
                 UnitController closestEnemy = GetClosestEnemy(values);
@@ -274,7 +274,7 @@ public class DeployedUnitController : UnitController
 
             detectedUnitRanged.Remove(enemyUnit.GetInstanceID());
 
-            if (targetEnemyUnitRanged == null && detectedUnitRanged.Count <= 0)
+            if (targetEnemyUnitRanged == null && detectedUnitRanged.Count > 0)
             {
                 List<UnitController> values = detectedUnitRanged.Values.ToList();
                 UnitController closestEnemy = GetClosestEnemy(values);
