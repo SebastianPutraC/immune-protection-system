@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: Macrophage_02
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
   InfoImage: {fileID: 0}
-  InfoText: Saya tentu saja Makrofag. Dulu saya disebut monosit dan bagian dari sel
+  InfoText: Saya tentu saja Makrofag. Dulu saya disebut Monosit dan bagian dari sel
     darah putih. Jumlah monosit di dalamnya tidak banyak, hanya sekitar 2% - 8% dalam
     sel darah putih.

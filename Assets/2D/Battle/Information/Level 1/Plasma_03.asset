@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: Plasma_03
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 9e3c1cf24863e224abdb8ff07aa4200d, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 23a8cb49133f0c54fbccad33a7b2a539, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Pada awalnya Aku merupakan sel B limfosit di jaringan limfoid. Setelah
     dibagikan tugasnya, aku menjadi plasmablast yang merupakan sel Plasma yang belum

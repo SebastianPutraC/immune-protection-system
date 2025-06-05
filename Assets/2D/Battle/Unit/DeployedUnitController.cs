@@ -92,17 +92,8 @@ public class DeployedUnitController : UnitController
 
     protected virtual void Update()
     {
-        if (detectedUnitMelee.Values.Count <= 0)
-        {
-            isDetecting = false;
-            targetEnemyUnitMelee = null;
-        }
-        if (detectedUnitRanged.Values.Count <= 0)
-        {
-            isRangedDetecting = false;
-            targetEnemyUnitRanged = null;
-        }
-        if (Vector2.Distance(currentTargetWaypoint.position, transform.position) <= 0.1f)
+        RemoveNullValues();
+        if (Vector2.Distance(currentTargetWaypoint.position, transform.position) <= 0.15f)
         {
             if (!isArrived)
             {
@@ -228,7 +219,6 @@ public class DeployedUnitController : UnitController
             }
         }
 
-        RemoveNullValues();
     }
     protected void EnemyRangedDetected(UnitController enemyUnit)
     {
@@ -248,8 +238,6 @@ public class DeployedUnitController : UnitController
                 targetEnemyUnitRanged = enemyUnit;
             }
         }
-
-        RemoveNullValues();
     }
     protected void EnemyMeleeLost(UnitController enemyUnit)
     {
@@ -270,7 +258,6 @@ public class DeployedUnitController : UnitController
             }
         }
 
-        RemoveNullValues();
         if (detectedUnitMelee.Count <= 0)
         {
             isDetecting = false;
@@ -295,7 +282,6 @@ public class DeployedUnitController : UnitController
             }
         }
 
-        RemoveNullValues();
         if (detectedUnitRanged.Count <= 0)
         {
             isRangedDetecting = false;
@@ -358,18 +344,24 @@ public class DeployedUnitController : UnitController
     }
     private void RemoveNullValues()
     {
-        foreach(KeyValuePair<int, UnitController> enemyMelee in detectedUnitMelee)
+        if (detectedUnitMelee.Values.Count > 0)
         {
-            if (enemyMelee.Value == null)
+            foreach (KeyValuePair<int, UnitController> enemyMelee in detectedUnitMelee)
             {
-                detectedUnitMelee.Remove(enemyMelee.Key);
+                if (enemyMelee.Value == null)
+                {
+                    detectedUnitMelee.Remove(enemyMelee.Key);
+                }
             }
         }
-        foreach(KeyValuePair<int, UnitController> enemyRanged in detectedUnitRanged)
+        if (detectedUnitRanged.Values.Count > 0)
         {
-            if (enemyRanged.Value == null)
+            foreach (KeyValuePair<int, UnitController> enemyRanged in detectedUnitRanged)
             {
-                detectedUnitRanged.Remove(enemyRanged.Key);
+                if (enemyRanged.Value == null)
+                {
+                    detectedUnitRanged.Remove(enemyRanged.Key);
+                }
             }
         }
 

@@ -38,6 +38,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c40bbc54a82943f44a43dc24007d79f2, type: 2}
   IntroInfos:
   - {fileID: 11400000, guid: 031924a6d6ca9c7429076901aecb6dea, type: 2}
+  - {fileID: 11400000, guid: e55e4e94ba044da4d9277a15d71a5ac5, type: 2}
+  - {fileID: 11400000, guid: 4ac4eaf477af61444b7ba0e241fcba55, type: 2}
+  - {fileID: 11400000, guid: b3c0822dc4921c2489c28c0d743023bc, type: 2}
+  - {fileID: 11400000, guid: 5a6e0f20481f4e94ca454632d28de153, type: 2}
+  - {fileID: 11400000, guid: 9577330235b4a604595b77acd0f48bd3, type: 2}
+  - {fileID: 11400000, guid: f380043449c4b67418cc6dc023f51a93, type: 2}
+  - {fileID: 11400000, guid: 2b39045e109255a478c85baa23e4cf07, type: 2}
   levelPrefab: {fileID: 3481419003891693231, guid: f3e82491764d583488b5a6a5427bbdfb, type: 3}
   levelMapSprite: {fileID: 21300000, guid: e4f283b88dc9e1645829867c2f1e68c9, type: 3}
   skipIntroIndex: 

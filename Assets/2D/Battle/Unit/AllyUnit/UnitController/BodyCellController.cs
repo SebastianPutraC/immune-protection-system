@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodyCellController : UnitController, ISpawner
 {
     public bool isInfected = false;
-    private float spawnCooldown = 10f;
+    private float spawnCooldown = 12f;
     private EnemyUnit pathogenToSpawn;
 
     [SerializeField] private Transform spawnPoint;
@@ -24,7 +24,7 @@ public class BodyCellController : UnitController, ISpawner
             if (spawnCooldown <= 0)
             {
                 CellSpawning?.Invoke(pathogenToSpawn, this);
-                spawnCooldown = 10f;
+                spawnCooldown = 12f;
             }
             spawnCooldown -= Time.deltaTime;
         }

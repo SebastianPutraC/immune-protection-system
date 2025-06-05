@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: Plasma_06
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 9e3c1cf24863e224abdb8ff07aa4200d, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 23a8cb49133f0c54fbccad33a7b2a539, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Aku perlu dilindungi, pastikan terdapat sel imun lain di depanku untuk
     menjaga dari serangan patogen.

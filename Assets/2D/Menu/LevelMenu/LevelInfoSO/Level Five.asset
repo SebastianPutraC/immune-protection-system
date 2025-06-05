@@ -48,5 +48,5 @@ MonoBehaviour:
   levelMapSprite: {fileID: 21300000, guid: 40e590727180f764b94823a0fe95ccd3, type: 3}
   skipIntroIndex: 
   bossUnit: 0
-  boomUnit: 204
-  randomUnit: c9000000ca000000cc000000cd000000
+  boomUnit: 203
+  randomUnit: c9000000ca000000cc000000cd000000cb000000

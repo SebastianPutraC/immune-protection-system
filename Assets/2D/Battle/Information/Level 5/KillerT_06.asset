@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: KillerT_06
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 3394d3b5802c78245b9cb68fc8dfa28b, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 12019fd0e63dcbc499b04c5f1ba0efa2, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Oh ya, sebagai sel T Limfosit, aku juga merupakan sel imun adaptif. Jadi
     Anda perlu memenuhi syarat Intel Points sebelum dapat mengerahkan Aku.

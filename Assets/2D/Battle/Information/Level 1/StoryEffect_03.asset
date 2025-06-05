@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: StoryEffect_03
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Jika Anda memilih pilihan yang lebih sehat seperti berolahraga dan makan
-    makanan yang baik, Anda dapat memperoleh peningkatan tambahan pada Statistik
+    makanan yang sehat, Anda dapat memperoleh peningkatan tambahan pada statistik
     Unit Anda. Tentu saja, ini berlaku sebaliknya jika Anda memilih pilihan gaya
     hidup yang tidak sehat.

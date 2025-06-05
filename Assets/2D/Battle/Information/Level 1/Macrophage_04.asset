@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: Macrophage_04
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Anda telah melihat kemampuan saya, saya dapat melakukan kemampuan yang
     disebut fagositosis, mengeluarkan protein untuk peradangan, dan menyajikan sel

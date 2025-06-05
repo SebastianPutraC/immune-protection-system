@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: StoryEffect_02
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 15b6590e605c7b5439a8666449a8ae3e, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Sebelum Anda memasuki level ini dan setiap level, Anda mengikuti cerita
     Andi. Keputusan yang baru saja Anda buat dapat memengaruhi cara kerja sistem

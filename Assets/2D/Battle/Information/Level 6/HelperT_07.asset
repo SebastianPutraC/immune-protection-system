@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: HelperT_07
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 0032dbd32b0a3ef48969215892764ca7, type: 3}
+  InfoMascot: {fileID: 21300000, guid: d61d9458256befd4582faeafccfaa146, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Dalam permainan, tugas kedua tipe ini digabung menjadi satu sel, maka
     saya dapat membantu kemampuan fagositosis serta sekresi antibodi.

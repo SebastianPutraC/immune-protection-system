@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: Neutrophil_07
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: fcc074a3090b0534f9bcef302bd220fc, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 0766538bd20108f4e946ec5dbe9e446b, type: 3}
   InfoImage: {fileID: 0}
   InfoText: 'Anda tentunya sudah melihat kemampuan manual saya dalam tutorial yaitu
     NET (Neutrophil Extracellular Trap) atau Perangkap Ekstraseluler Neutrofil. Kemampuan

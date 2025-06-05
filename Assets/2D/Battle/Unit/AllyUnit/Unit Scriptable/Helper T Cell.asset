@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Helper T Cell
   unitType: 1
   UnitHp: 70
-  UnitCost: 400
+  UnitCost: 250
   UnitSpeed: 2
   UnitAtk: 0
   UnitAtkSpeed: 0

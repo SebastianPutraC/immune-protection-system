@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Worms
   unitType: 2
   UnitHp: 140
-  UnitCost: 200
+  UnitCost: 150
   UnitSpeed: 2
   UnitAtk: 40
   UnitAtkSpeed: 1.5
