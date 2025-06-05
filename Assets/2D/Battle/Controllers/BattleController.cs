@@ -468,13 +468,13 @@ public class BattleController : MonoBehaviour
     }
 
 
-    protected void PauseGame()
+    protected virtual void PauseGame()
     {
         battleMusicAudioSource.Pause();
         pausePanelController.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
-    protected void ResumeGame()
+    protected virtual void ResumeGame()
     {
         battleMusicAudioSource.UnPause();
         pausePanelController.gameObject.SetActive(false);

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: BasicMove_03
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: 0f85adf9445940641be54592b6bc26be, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 0766538bd20108f4e946ec5dbe9e446b, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Nah, begitu mudah kan? Mari kita kembali ke mekanik unit.

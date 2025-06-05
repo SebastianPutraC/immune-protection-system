@@ -17,7 +17,7 @@ MonoBehaviour:
   UnitName: Sel Plasma
   unitType: 1
   UnitHp: 80
-  UnitCost: 500
+  UnitCost: 450
   UnitSpeed: 2
   UnitAtk: 0
   UnitAtkSpeed: 0

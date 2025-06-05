@@ -907,7 +907,7 @@ public class TutorialController : BattleController
     private void CheckPlasmaPhase()
     {
         isPhaseDone = false;
-        if (isUnitSpawn && isTimerDone && allAllyUnits.Count > 0 && subPhaseStep == 3)
+        if (isUnitSpawn && isTimerDone && allAllyUnits.Count > 0 && subPhaseStep == 4)
         {
             isPhaseDone = true;
             return;
@@ -926,6 +926,13 @@ public class TutorialController : BattleController
                 if (isUnitSpawn && allAllyUnits.Count > 0)
                 {
                     subPhaseStep = 3;
+                    isProcessRunning = false;
+                }
+                break;
+            case 3:
+                if (isUnitKilled)
+                {
+                    subPhaseStep = 4;
                     isProcessRunning = false;
                 }
                 break;
@@ -960,6 +967,19 @@ public class TutorialController : BattleController
                 secondSpawnArrow.gameObject.SetActive(true);
                 break;
             case 3:
+                ResetArrows();
+                EnemyUnit bacteria = (EnemyUnit)UnitReferences.Where(x => x.unitId == UnitId.BACTERIA).FirstOrDefault();
+                DeployEnemyTutorialUnit(bacteria, levelController.tutorialEnemySpawners[1]);
+
+                EnemyUnit bacteria2 = (EnemyUnit)UnitReferences.Where(x => x.unitId == UnitId.BACTERIA).FirstOrDefault();
+                DeployEnemyTutorialUnit(bacteria2, levelController.tutorialEnemySpawners[0]);
+
+                tutorialBacteriaOne.DealDamage(50);
+                tutorialBacteriaTwo.DealDamage(50);
+
+                tutorialText.text = "Sel Plasma dapat mengeluarkan antibodi dari jarak jauh";
+                break;
+            case 4:
                 ResetArrows();
                 waitTimer = 1.5f;
                 isCheckTime = true;
@@ -1118,7 +1138,7 @@ public class TutorialController : BattleController
     private void OnUnitKilled(UnitController unitKilled)
     {
         unitKilled.ThisUnitKilled -= OnUnitKilled;
-        if (phase == TutorialPhase.BASICATTACK || phase == TutorialPhase.NETABILITY || phase == TutorialPhase.DEPLOYMAKRO || phase == TutorialPhase.OBJECTIVEDEF)
+        if (phase == TutorialPhase.BASICATTACK || phase == TutorialPhase.NETABILITY || phase == TutorialPhase.DEPLOYMAKRO || phase == TutorialPhase.OBJECTIVEDEF || phase == TutorialPhase.UNLOCKADAPTIVE)
         {
             if (allEnemyUnits.Count <= 0)
             {
@@ -1251,6 +1271,16 @@ public class TutorialController : BattleController
         {
             Destroy(antigens[i].gameObject);
         }
+    }
+    protected override void PauseGame()
+    {
+        base.PauseGame();
+        tutorialText.gameObject.SetActive(false);
+    }
+    protected override void ResumeGame()
+    {
+        base.ResumeGame();
+        tutorialText.gameObject.SetActive(true);
     }
 
     protected override void OnDestroy()

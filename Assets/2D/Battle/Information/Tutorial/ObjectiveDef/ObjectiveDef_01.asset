@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e48f979425f334cb12cf9432c85271, type: 3}
   m_Name: ObjectiveDef_01
   m_EditorClassIdentifier: 
-  InfoMascot: {fileID: 21300000, guid: f73f598a857b60d41807bbe8c29474e0, type: 3}
+  InfoMascot: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Dalam tiap level, anda perlu menjaga saluran darah ini dari serangan
     pathogen
