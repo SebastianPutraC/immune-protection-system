@@ -442,6 +442,7 @@ public class TutorialController : BattleController
                 break;
             case 3:
                 ResetArrows();
+                HideUI();
                 waitTimer = 1.5f;
                 isCheckTime = true;
                 tutorialText.text = "Mohon Menunggu";
@@ -797,7 +798,7 @@ public class TutorialController : BattleController
                 break;
             case 3:
                 ResetArrows();
-
+                HideUI();
                 deployableUnit = allAllyUnits[0];
                 MacrophageController macrophageController = (MacrophageController)deployableUnit;
 
@@ -814,10 +815,11 @@ public class TutorialController : BattleController
                 EnemyUnit bacteria = (EnemyUnit)UnitReferences.Where(x => x.unitId == UnitId.BACTERIA).FirstOrDefault();
                 DeployEnemyTutorialUnit(bacteria, levelController.tutorialEnemySpawners[spawnIndex]);
 
-                tutorialText.text = "Makrofag akan menyerang patogen dalam jarak dekat";
+                tutorialText.text = "Makrofag akan menyerang patogen dari jarak dekat";
                 break;
             case 4:
                 waitTimer = 1.5f;
+                HideUI();
                 isCheckTime = true;
                 tutorialText.text = "Mohon Menunggu";
                 break;
@@ -968,6 +970,7 @@ public class TutorialController : BattleController
                 break;
             case 3:
                 ResetArrows();
+                HideUI();
                 EnemyUnit bacteria = (EnemyUnit)UnitReferences.Where(x => x.unitId == UnitId.BACTERIA).FirstOrDefault();
                 DeployEnemyTutorialUnit(bacteria, levelController.tutorialEnemySpawners[1]);
 
@@ -977,10 +980,11 @@ public class TutorialController : BattleController
                 tutorialBacteriaOne.DealDamage(50);
                 tutorialBacteriaTwo.DealDamage(50);
 
-                tutorialText.text = "Sel Plasma dapat mengeluarkan antibodi dari jarak jauh";
+                tutorialText.text = "Sel Plasma dapat mengeluarkan antibodi untuk menyerang musuh dari jarak jauh";
                 break;
             case 4:
                 ResetArrows();
+                HideUI();
                 waitTimer = 1.5f;
                 isCheckTime = true;
                 tutorialText.text = "Mohon Menunggu";

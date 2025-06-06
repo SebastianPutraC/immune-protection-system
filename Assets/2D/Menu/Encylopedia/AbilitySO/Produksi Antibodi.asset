@@ -20,5 +20,5 @@ MonoBehaviour:
   AbilityPrimaryName: 
   AbilitySecondaryName: 
   IsManual: 0
-  AbilityDescription: Memproduksi antibodi dan mensekresinya untuk melawan patogen.
-    Serangan artileri.
+  AbilityDescription: Memproduksi antibodi berupa Immunoglobulin (IgG, IgA, IgM,
+    IgD, dan IgE), dan mensekresinya untuk melawan patogen. Serangan artileri.

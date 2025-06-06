@@ -15,6 +15,7 @@ public class InformationPopup : MonoBehaviour
     [SerializeField] private Button nextInfoButton;
     [SerializeField] private Button skipInfoButton;
     [SerializeField] private Button skipSomeButton;
+    [SerializeField] private Button previousInfoButton;
 
     private List<int> skipIndexList = new List<int>();
 
@@ -27,6 +28,7 @@ public class InformationPopup : MonoBehaviour
         nextInfoButton.onClick.AddListener(NextInfo);
         skipInfoButton.onClick.AddListener(ExitPopup);
         skipSomeButton.onClick.AddListener(SkipSomeInfo);
+        previousInfoButton.onClick.AddListener(PreviousInfo);
     }
 
     public void InitializePopup(List<InformationSO> informations, List<int> skipIndex = null)
@@ -52,6 +54,15 @@ public class InformationPopup : MonoBehaviour
             ShowInfo(currentInformation[currentInfoIndex]);
         }
     }
+    private void PreviousInfo()
+    {
+        currentInfoIndex--;
+        if (currentInfoIndex < 0)
+        {
+            currentInfoIndex = 0;
+        }
+        ShowInfo(currentInformation[currentInfoIndex]);
+    }
     private void ShowInfo(InformationSO info)
     {
         infoDescription.text = info.InfoText;
@@ -72,6 +83,15 @@ public class InformationPopup : MonoBehaviour
         else
         {
             infoMascot.gameObject.SetActive(true);
+        }
+
+        if (currentInfoIndex <= 0)
+        {
+            previousInfoButton.interactable = false;
+        }
+        else
+        {
+            previousInfoButton.interactable = true;
         }
     }
     private void SkipSomeInfo()
@@ -98,5 +118,6 @@ public class InformationPopup : MonoBehaviour
         nextInfoButton.onClick.RemoveListener(NextInfo);
         skipInfoButton.onClick.RemoveListener(ExitPopup);
         skipSomeButton.onClick.RemoveListener(SkipSomeInfo);
+        previousInfoButton.onClick.RemoveListener(PreviousInfo);
     }
 }
