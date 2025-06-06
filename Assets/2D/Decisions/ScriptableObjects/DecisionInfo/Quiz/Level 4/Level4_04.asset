@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decisionId: 4
   DecisionInfoText: 'Apakah pernyataan ini benar? Eosinofil dapat menggunakan kemampuan
-    yang sama seperti Neutrofil yaitu dengan melepaskan komponen DNA dalam sel untuk
+    yang sama seperti Neutrofil yaitu dengan melepaskan kandungan DNA dalam sel untuk
     menjebak dan membunuh patogen. '
   DecisionButtons:
   - {fileID: 11400000, guid: 8d069cff18ba87640814cbd60fda1ee2, type: 2}
