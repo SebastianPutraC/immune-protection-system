@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40392157, g: 0.16862746, b: 0.5647059, a: 1}
+  m_Color: {r: 0.40392157, g: 0.16862746, b: 0.5647059, a: 0.98039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -383,7 +383,6 @@ MonoBehaviour:
   unitNameText: {fileID: 8896812720059647604}
   unitImage: {fileID: 3705721445793662257}
   lockedImage: {fileID: 21300000, guid: 9c6641194b1b6a64ab0a7475f10f3f80, type: 3}
-  selectedIndicator: {fileID: 0}
 --- !u!114 &177775974105866858
 MonoBehaviour:
   m_ObjectHideFlags: 0

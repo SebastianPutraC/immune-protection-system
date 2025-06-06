@@ -14,7 +14,7 @@ public class EncylopediaUnitGrid : MonoBehaviour
     [SerializeField] private Sprite lockedImage;
 
     private readonly Color deselectColor = new Color32(103, 43, 144, 255);
-    private readonly Color selectColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+    private readonly Color selectColor = new Color(0.5f, 0.5f, 0.5f, 1f);
 
     public Action<EncylopediaUnitGrid> UnitClicked;
 
