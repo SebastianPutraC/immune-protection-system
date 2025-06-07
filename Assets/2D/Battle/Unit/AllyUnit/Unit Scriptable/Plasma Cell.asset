@@ -22,7 +22,7 @@ MonoBehaviour:
   UnitAtk: 0
   UnitAtkSpeed: 0
   UnitRangedAtk: 50
-  UnitRangedAtkSpeed: 2
+  UnitRangedAtkSpeed: 1.5
   RangedProjectile: {fileID: 5661811759104570259, guid: 1e37c474fa4c4ec43b1a749b9222b0e4, type: 3}
   UnitSimpleDesc: Sel Plasma merupakan tipe dari sel B yang berasal dari jaringan
     limfoid dan salah satu sel imun adaptif. Sel Plasma membunuh patogen dengan kemampuannya
