@@ -25,7 +25,7 @@ public class PausePanelController : MonoBehaviour
     private void OnEnable()
     {
         pauseSound.Play();
-        OpenPauseMenu();
+        OpenPauseMenu(false);
     }
 
     private void HideAllMenu()
@@ -34,10 +34,15 @@ public class PausePanelController : MonoBehaviour
         optionMenu.gameObject.SetActive(false);
         encyclopediaMenu.gameObject.SetActive(false);
     }
-    private void OpenPauseMenu()
+    private void OpenPauseMenu(bool playButtonSound)
     {
         HideAllMenu();
         pauseMenu.gameObject.SetActive(true);
+
+        if (playButtonSound)
+        {
+            AudioManagerSingleton.Instance.PlayButtonSFX();
+        }
     }
     private void OpenOptionMenu()
     {
@@ -47,12 +52,16 @@ public class PausePanelController : MonoBehaviour
         float musicVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().musicVolume;
         float sfxVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().sfxVolume;
         optionMenu.InitializeSetting(musicVolume, sfxVolume);
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OpenEncyclopediaMenu()
     {
         HideAllMenu();
         encyclopediaMenu.gameObject.SetActive(true);
         encyclopediaMenu.InitializeEncyclopedia(SaveManagerSingleton.Instance.GetSelectedSaveData().enyclopediaUnlock);
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
 
     private void OnResumePressed()

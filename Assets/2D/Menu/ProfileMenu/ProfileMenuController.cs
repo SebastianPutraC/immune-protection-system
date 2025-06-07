@@ -29,7 +29,7 @@ public class ProfileMenuController : MonoBehaviour
     [SerializeField] private GameObject quizPanel;
     [SerializeField] private GameObject changeNamePanel;
 
-    public Action ReturnButtonPressed;
+    public Action<bool> ReturnButtonPressed;
     public Action ProfileSelected;
     public Action ButtonPressed;
 
@@ -92,6 +92,8 @@ public class ProfileMenuController : MonoBehaviour
         SaveManagerSingleton.Instance.ResetProfileData("Profile");
         InitializeProfile(SaveManagerSingleton.Instance.GetSelectedSaveData());
         ButtonPressed?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
 
     private void OpenQuizPanel()
@@ -100,6 +102,8 @@ public class ProfileMenuController : MonoBehaviour
         statisticPanel.gameObject.SetActive(false);
         changeNamePanel.gameObject.SetActive(false);
         ButtonPressed?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OpenStatisticPanel()
     {
@@ -108,6 +112,8 @@ public class ProfileMenuController : MonoBehaviour
         changeNamePanel.gameObject.SetActive(false);
         newNameInput.text = "";
         ButtonPressed?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OpenChangeNamePanel()
     {
@@ -115,10 +121,12 @@ public class ProfileMenuController : MonoBehaviour
         statisticPanel.gameObject.SetActive(false);
         changeNamePanel.gameObject.SetActive(true);
         ButtonPressed?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OnReturnButtonPressed()
     {
-        ReturnButtonPressed?.Invoke();
+        ReturnButtonPressed?.Invoke(true);
     }
     private void OnDestroy()
     {

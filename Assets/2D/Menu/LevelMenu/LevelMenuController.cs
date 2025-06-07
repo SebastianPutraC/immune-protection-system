@@ -17,7 +17,7 @@ public class LevelMenuController : MonoBehaviour
     [SerializeField] private Button epilogueButton;
     [SerializeField] private Button backToLevelButton;
 
-    public Action ReturnButtonPressed;
+    public Action<bool> ReturnButtonPressed;
     public Action<LevelId> LevelSelected;
     public Action ButtonPressed;
 
@@ -75,7 +75,7 @@ public class LevelMenuController : MonoBehaviour
 
     private void OnReturnButtonPressed()
     {
-        ReturnButtonPressed?.Invoke();
+        ReturnButtonPressed?.Invoke(true);
     }
     private void OnDisable()
     {

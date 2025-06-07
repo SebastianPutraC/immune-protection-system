@@ -11,8 +11,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] private OptionMenuController optionMenu;
     [SerializeField] private EncyclopediaMenuController encyclopediaMenu;
 
-    [SerializeField] private AudioSource buttonSfx;
-
     private void Awake()
     {
         profileMenu.ReturnButtonPressed += OpenMainMenu;
@@ -24,23 +22,18 @@ public class MenuController : MonoBehaviour
         encyclopediaMenu.OnReturnButtonPressed += OpenMainMenu;
         levelMenu.ReturnButtonPressed += OpenMainMenu;
         levelMenu.LevelSelected += StartLevel;
-
-        profileMenu.ButtonPressed += PlayButtonSFX;
-        optionMenu.ButtonPressed += PlayButtonSFX;
-        encyclopediaMenu.ButtonPressed += PlayButtonSFX;
-        levelMenu.ButtonPressed += PlayButtonSFX;
     }
 
     private void Start()
     {
-        OpenMainMenu();
+        OpenMainMenu(false);
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P) && mainMenu.gameObject.activeSelf == true)
         {
             SaveManagerSingleton.Instance.UseBetaProfile();
-            OpenMainMenu();
+            OpenMainMenu(true);
         }    
     }
 
@@ -72,7 +65,8 @@ public class MenuController : MonoBehaviour
         HideAllMenu();
         profileMenu.gameObject.SetActive(true);
         profileMenu.InitializeProfile(SaveManagerSingleton.Instance.GetSelectedSaveData());
-        PlayButtonSFX();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OpenLevelMenu()
     {
@@ -80,13 +74,19 @@ public class MenuController : MonoBehaviour
         levelMenu.gameObject.SetActive(true);
         levelMenu.InitializeLevelMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().levelUnlock, 
             LevelDataSingleton.Instance.GetAllLevelReferences(), SaveManagerSingleton.Instance.GetSelectedSaveData().isWonAllLevel);
-        PlayButtonSFX();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
-    private void OpenMainMenu() 
+    private void OpenMainMenu(bool playButtonSound) 
     {
         HideAllMenu();
         mainMenu.gameObject.SetActive(true);
         mainMenu.InitializeMenu(SaveManagerSingleton.Instance.GetSelectedSaveData().profileName);
+
+        if (playButtonSound)
+        {
+            AudioManagerSingleton.Instance.PlayButtonSFX();
+        }
     }
     private void OpenOptionMenu()
     {
@@ -96,21 +96,18 @@ public class MenuController : MonoBehaviour
         float musicVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().musicVolume;
         float sfxVolume = SaveManagerSingleton.Instance.GetSelectedSaveData().sfxVolume;
         optionMenu.InitializeSetting(musicVolume, sfxVolume);
-        PlayButtonSFX();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OpenEncyclopediaMenu()
     {
         HideAllMenu();
         encyclopediaMenu.gameObject.SetActive(true);
         encyclopediaMenu.InitializeEncyclopedia(SaveManagerSingleton.Instance.GetSelectedSaveData().enyclopediaUnlock);
-        PlayButtonSFX();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     #endregion
-
-    private void PlayButtonSFX()
-    {
-        buttonSfx.Play();
-    }
 
     private void OnDestroy()
     {
@@ -123,10 +120,5 @@ public class MenuController : MonoBehaviour
         encyclopediaMenu.OnReturnButtonPressed -= OpenMainMenu;
         levelMenu.ReturnButtonPressed -= OpenMainMenu;
         levelMenu.LevelSelected -= StartLevel;
-
-        profileMenu.ButtonPressed -= PlayButtonSFX;
-        optionMenu.ButtonPressed -= PlayButtonSFX;
-        encyclopediaMenu.ButtonPressed -= PlayButtonSFX;
-        levelMenu.ButtonPressed -= PlayButtonSFX;
     }
 }

@@ -12,10 +12,12 @@ public class StoryDecisionController : MonoBehaviour
     [SerializeField] private DecisionMenuController decisionMenuController;
     [SerializeField] private BonusPanelController BoostPanelController;
     [SerializeField] private BonusPanelController NerfPanelController;
+    [SerializeField] private PausePanelController pausePanelController;
 
     [SerializeField] private GameObject readyPanel;
     [SerializeField] private GameObject scorePanel;
     [SerializeField] private Button startLevel;
+    [SerializeField] private Button pauseButton;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI previousScoreText;
@@ -45,6 +47,10 @@ public class StoryDecisionController : MonoBehaviour
         saveScoreButton.onClick.AddListener(OnSaveScoreSelected);
         dontSaveButton.onClick.AddListener(OnDontSaveSelected);
         decisionMenuController.ContinueAnswer += OnContinueAnswer;
+
+        pauseButton.onClick.AddListener(PauseGame);
+        pausePanelController.ResumePressed += ResumeGame;
+        pausePanelController.QuitPressed += ReturnToMenu;
     }
 
     private void Start()
@@ -91,6 +97,8 @@ public class StoryDecisionController : MonoBehaviour
 
     private void OnDecisionChosen(DecisionButtonSO buttonInfo, int setId = -1)
     {
+        AudioManagerSingleton.Instance.PlayButtonSFX();
+
         if (setId == -1)
         {
             currentIndex++;
@@ -251,6 +259,21 @@ public class StoryDecisionController : MonoBehaviour
         previousScoreText.text = "Nilai Anda Sebelumnya : " + previousScore;
     }
 
+
+    protected virtual void PauseGame()
+    {
+        pausePanelController.gameObject.SetActive(true);
+    }
+    protected virtual void ResumeGame()
+    {
+        pausePanelController.gameObject.SetActive(false);
+    }
+    protected void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
     private void OnSaveScoreSelected()
     {
         if (isPlayQuiz)
@@ -259,11 +282,15 @@ public class StoryDecisionController : MonoBehaviour
         }
         scorePanel.gameObject.SetActive(false);
         OpenReadyPanel();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OnDontSaveSelected()
     {
         scorePanel.gameObject.SetActive(false);
         OpenReadyPanel();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OnStartSelected()
     {
@@ -278,6 +305,10 @@ public class StoryDecisionController : MonoBehaviour
         saveScoreButton.onClick.RemoveListener(OnSaveScoreSelected);
         dontSaveButton.onClick.RemoveListener(OnDontSaveSelected);
         decisionMenuController.ContinueAnswer -= OnContinueAnswer;
+
+        pauseButton.onClick.RemoveListener(PauseGame);
+        pausePanelController.ResumePressed -= ResumeGame;
+        pausePanelController.QuitPressed -= ReturnToMenu;
     }
 }
 

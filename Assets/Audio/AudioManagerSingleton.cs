@@ -7,6 +7,7 @@ public class AudioManagerSingleton : MonoBehaviour
     public static AudioManagerSingleton Instance;
 
     [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioSource buttonSfx;
 
     public const string MUSIC_PARAM = "musicVolume";
     public const string SFX_PARAM = "sfxVolume";
@@ -45,5 +46,10 @@ public class AudioManagerSingleton : MonoBehaviour
         {
             audioMixer.SetFloat(SFX_PARAM, -80);
         }
+    }
+
+    public void PlayButtonSFX()
+    {
+        buttonSfx.Play();
     }
 }

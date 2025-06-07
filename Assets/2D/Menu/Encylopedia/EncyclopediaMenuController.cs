@@ -36,7 +36,7 @@ public class EncyclopediaMenuController : MonoBehaviour
     private List<EncyclopediaMechanicGrid> mechanicGrids = new List<EncyclopediaMechanicGrid>();
     private EncyclopediaMechanicGrid selectedMechanicGrid;
 
-    public Action OnReturnButtonPressed;
+    public Action<bool> OnReturnButtonPressed;
     public Action ButtonPressed;
 
     private void Awake()
@@ -115,6 +115,8 @@ public class EncyclopediaMenuController : MonoBehaviour
             unitGrids[i].DeselectGrid();
         }
         ButtonPressed?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void ClearViewUnits()
     {
@@ -138,6 +140,8 @@ public class EncyclopediaMenuController : MonoBehaviour
         {
             mechanicGrids[i].DeselectGrid();
         }
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void ClearViewMechanic()
     {
@@ -159,6 +163,8 @@ public class EncyclopediaMenuController : MonoBehaviour
         selectedUnitGrid = unitGrid;
         descriptionPanel.SetupUnitDescriptionPanel(selectedUnitGrid.unitSo);
         selectedUnitGrid.SelectGrid();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OnMechanicClicked(EncyclopediaMechanicGrid mechanicGrid)
     {
@@ -170,6 +176,8 @@ public class EncyclopediaMenuController : MonoBehaviour
         selectedMechanicGrid = mechanicGrid;
         descriptionPanel.SetupMechanicDescriptionPanel(selectedMechanicGrid.mechanicSo);
         selectedMechanicGrid.SelectGrid();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     
 
@@ -194,6 +202,8 @@ public class EncyclopediaMenuController : MonoBehaviour
         encyclopediaPanel.gameObject.SetActive(false);
 
         ButtonPressed?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OpenAboutMenu()
     {
@@ -207,11 +217,13 @@ public class EncyclopediaMenuController : MonoBehaviour
         encyclopediaPanel.gameObject.SetActive(false);
 
         ButtonPressed?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
 
     private void ReturnButtonPressed()
     {
-        OnReturnButtonPressed?.Invoke();
+        OnReturnButtonPressed?.Invoke(true);
     }
     private void OnDisable()
     {

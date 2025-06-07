@@ -11,7 +11,7 @@ public class OptionMenuController : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
-    public Action OnReturnButtonPressed;
+    public Action<bool> OnReturnButtonPressed;
     public const string MUSIC_PARAM = "musicVolume";
     public const string SFX_PARAM = "sfxVolume";
     public Action ButtonPressed;
@@ -60,7 +60,7 @@ public class OptionMenuController : MonoBehaviour
     private void ReturnButtonPressed()
     {
         ConfirmChanges();
-        OnReturnButtonPressed?.Invoke();
+        OnReturnButtonPressed?.Invoke(true);
     }
     private void OnDestroy()
     {

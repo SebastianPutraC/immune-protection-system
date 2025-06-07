@@ -64,6 +64,8 @@ public class AbilityMenuController : MonoBehaviour
     private void OnEncyclopediaButtonPressed()
     {
         ReturnToEncyclopedia?.Invoke();
+
+        AudioManagerSingleton.Instance.PlayButtonSFX();
     }
     private void OnDestroy()
     {
