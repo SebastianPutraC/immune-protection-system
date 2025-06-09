@@ -15,5 +15,5 @@ MonoBehaviour:
   InfoMascot: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
   InfoImage: {fileID: 0}
   InfoText: Saya hanya dapat menyerang musuh dengan jarak dekat (Melee Attack), tetapi
-    Aku tidak dapat menyerang musuh di "Lane" yang berbeda.  Mari kita coba secara
+    Aku tidak dapat menyerang musuh di "Lane" yang berbeda. Mari kita coba secara
     langsung

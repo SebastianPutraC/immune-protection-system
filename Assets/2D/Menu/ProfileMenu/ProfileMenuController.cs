@@ -52,7 +52,7 @@ public class ProfileMenuController : MonoBehaviour
         encyclopediaText.text = "Enyclopedia Terbuka : " + unlockedEncyclopedia + " / 14";
 
         int unlockedLevel = saveData.levelUnlock.Where(x => x.Unlocked == true).ToList().Count;
-        levelText.text = "Level Selesai : " + unlockedLevel + " / 8";
+        levelText.text = "Level Terbuka : " + unlockedLevel + " / 8";
 
         List<int> scores = saveData.quizScores.Select(x => x.quizScore).ToList();
         double average = CalculateAverage(scores);
