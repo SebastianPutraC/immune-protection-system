@@ -35,8 +35,8 @@ MonoBehaviour:
     antibodi untuk melawan patogen. \n\r\nSetelah dewasa, Sel Plasma melanjutkan
     tugas Plasmablast dan dapat melakukan produksi dan sekresi ribuan antibodi per
     detik. Antibodi ini berupa lima tipe imunoglobulin yaitu IgG, IgA, IgM, IgD,
-    dan IgE. IgG. Imunoglobulin ini digunakan untuk melawan dan membunuh patogen
-    yang menginfeksi tubuh manusia. \n\r\n"
+    dan IgE. Imunoglobulin ini digunakan untuk melawan dan membunuh patogen yang
+    menginfeksi tubuh manusia. \n\r\n"
   UnitSprite: {fileID: 21300000, guid: 23a8cb49133f0c54fbccad33a7b2a539, type: 3}
   UnitAbility:
   - {fileID: 11400000, guid: 8091ec9dded2a0f4f9b5ce9e621d59b3, type: 2}
