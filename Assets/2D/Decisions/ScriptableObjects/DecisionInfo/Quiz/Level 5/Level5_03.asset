@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Level5_03
+  m_EditorClassIdentifier: 
+  decisionId: 3
+  DecisionInfoText: 'Pada proses pembunuhan sel yang terinfeksi, Sel Pembunuh Alami
+    memasukkan protein bernama? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: 80f41cf934ced9044816e24602f962d8, type: 2}
+  - {fileID: 11400000, guid: 0c022eaa223566f4d90a4092e493681b, type: 2}
+  - {fileID: 11400000, guid: af24b8d93087c04478944266a99a1755, type: 2}
+  - {fileID: 11400000, guid: 1f3367a7d8f2def4c87daa60c00926d2, type: 2}

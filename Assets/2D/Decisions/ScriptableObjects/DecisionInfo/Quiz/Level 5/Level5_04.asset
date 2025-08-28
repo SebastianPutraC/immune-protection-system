@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Level5_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: 'Apakah Pernyataan ini benar? Sama seperti makrofag, Sel Pembunuh
+    Alami dapat melakukan sekresi sitokin yang digunakan untuk membangun inflamasi
+    dan membawa sel imun lain ke situs infeksi. '
+  DecisionButtons:
+  - {fileID: 11400000, guid: 1d41cf3cbeb4d56498ba1bd44f889da4, type: 2}
+  - {fileID: 11400000, guid: 590fa799eccbcd9449bd19ba36efb056, type: 2}

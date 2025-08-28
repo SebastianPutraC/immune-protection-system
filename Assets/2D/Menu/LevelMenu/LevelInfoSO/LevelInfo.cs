@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "LevelInfo", menuName = "Scriptable Objects/LevelInfo")]
+public class LevelInfo : ScriptableObject
+{
+    public LevelId levelId;
+    public string levelName;
+    public List<UnitId> allyUnits;
+    public List<UnitId> enemyUnits;
+    public int defaultStatingResource;
+    public int defaultIncome;
+    public LevelId levelIdUnlock;
+    public int unlockIntelPoint;
+
+    public int allyBaseMaxHP;
+    public int maxRepairPoints;
+
+    public int enemyStartingResource;
+    public int enemyIncome;
+
+    public List<DecisionInfoSO> DecisionInfos;
+    public List<DecisionInfoSO> QuizInfos;
+
+    public List<InformationSO> IntroInfos;
+
+    public LevelController levelPrefab;
+
+    public Sprite levelMapSprite;
+
+    public List<int> skipIntroIndex;
+
+    public UnitId bossUnit;
+    public UnitId boomUnit;
+    public List<UnitId> randomUnit;
+}

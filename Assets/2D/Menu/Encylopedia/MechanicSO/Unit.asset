@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541447a9a3c69c645a346870b142eaff, type: 3}
+  m_Name: Unit
+  m_EditorClassIdentifier: 
+  mechanicTitle: Unit
+  mechanicDescription: "Unit merupakan suatu entitas dalam game yang dapat dikerahkan
+    dan dikontrol, serta bekerja berdasarkan fungsinya. \n\r\nDalam game ini, unit
+    berupa sel dan patogen. Sel merupakan unit yang dapat dikendalikan oleh pemain
+    berdasarkan mekanik yang ada. Dalam game pemain dapat mengerahkan unit dalam
+    suatu lane dan unit tersebut akan mengikuti arah lane ke markas musuh.\n\r\nUnit
+    memiliki kemampuan yang dapat digunakan secara otomatis dan manual. Untuk kemampuan
+    manual, maka pemain perlu memilih unit tersebut terlebih dahulu dan memilih tombol
+    kemampuan tersebut untuk menjalankan efeknya.\r\n"

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a139550b3f31e114981a4e86e527364d, type: 3}
+  m_Name: Level Two
+  m_EditorClassIdentifier: 
+  levelId: 3
+  levelName: Selasa
+  allyUnits: 6500000066000000670000006a000000
+  enemyUnits: ca000000c9000000
+  defaultStatingResource: 0
+  defaultIncome: 100
+  levelIdUnlock: 4
+  unlockIntelPoint: 75
+  allyBaseMaxHP: 10
+  maxRepairPoints: 7
+  enemyStartingResource: 200
+  enemyIncome: 75
+  DecisionInfos:
+  - {fileID: 11400000, guid: d55476fb9a92bf948a86deb9ca9ff410, type: 2}
+  - {fileID: 11400000, guid: dd4953425c30fd14191721153931cd23, type: 2}
+  - {fileID: 11400000, guid: ae14e9b70d5ebee489e1c73607e6ce85, type: 2}
+  - {fileID: 11400000, guid: b8643f2a9b7f955418eaa65efdc8510c, type: 2}
+  - {fileID: 11400000, guid: d75b7a59ded4cbc4e87935f354858bc2, type: 2}
+  QuizInfos:
+  - {fileID: 11400000, guid: 1596388f5639d2e4bb386c7a5d6f1942, type: 2}
+  - {fileID: 11400000, guid: ebf3acc63b83cf6419f0544ded2c21a4, type: 2}
+  - {fileID: 11400000, guid: 9216d60b79d20af4dbffe69feb9af9fd, type: 2}
+  - {fileID: 11400000, guid: 036ad2a22567e6c4495ff8a4d26fe9a9, type: 2}
+  - {fileID: 11400000, guid: bfadc216beef47445a29155a9e9736dd, type: 2}
+  IntroInfos:
+  - {fileID: 11400000, guid: 5b00dede6243e5e4c88ec10bd41adba8, type: 2}
+  - {fileID: 11400000, guid: a6d58857620f03b41b4f4b7979a0b1f1, type: 2}
+  - {fileID: 11400000, guid: 8cc31df826d6e824191302994674010d, type: 2}
+  - {fileID: 11400000, guid: c39f2cb96b5ada348a751a62624da51e, type: 2}
+  - {fileID: 11400000, guid: 0f744f267ec14244aad1597fc4457da6, type: 2}
+  - {fileID: 11400000, guid: 5687b5c9e08a8b347aedbf5b8ba3d912, type: 2}
+  levelPrefab: {fileID: 3481419003891693231, guid: 929008a7097ae034b88530873fa98485, type: 3}
+  levelMapSprite: {fileID: 21300000, guid: b9e314a14490bf248824f94cd3b08470, type: 3}
+  skipIntroIndex: 
+  bossUnit: 0
+  boomUnit: 202
+  randomUnit: c9000000ca000000

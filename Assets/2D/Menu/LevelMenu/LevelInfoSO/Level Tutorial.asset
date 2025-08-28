@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a139550b3f31e114981a4e86e527364d, type: 3}
+  m_Name: Level Tutorial
+  m_EditorClassIdentifier: 
+  levelId: 1
+  levelName: Tutorial
+  allyUnits: 65000000660000006a000000
+  enemyUnits: c9000000
+  defaultStatingResource: 800
+  defaultIncome: 100
+  levelIdUnlock: 2
+  unlockIntelPoint: 25
+  allyBaseMaxHP: 10
+  maxRepairPoints: 3
+  enemyStartingResource: 200
+  enemyIncome: 75
+  DecisionInfos: []
+  QuizInfos: []
+  IntroInfos: []
+  levelPrefab: {fileID: 3481419003891693231, guid: 487126fe38e38ae4499eeae55bafcb7d, type: 3}
+  levelMapSprite: {fileID: 21300000, guid: 875aff4f56adc0343b119c38910a2c26, type: 3}
+  skipIntroIndex: 
+  bossUnit: 0
+  boomUnit: 0
+  randomUnit: c9000000

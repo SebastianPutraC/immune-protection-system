@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Level5_05
+  m_EditorClassIdentifier: 
+  decisionId: 5
+  DecisionInfoText: Sel Pembunuh Alami termasuk dalam sel imun tipe?
+  DecisionButtons:
+  - {fileID: 11400000, guid: d358ac30144301746b08dd4145f1f073, type: 2}
+  - {fileID: 11400000, guid: 936c93408219d0046928f91100c801ce, type: 2}
+  - {fileID: 11400000, guid: 482dc02139dcc8a4d92bf752a0d9fcd8, type: 2}
+  - {fileID: 11400000, guid: 5bf6eda6aa9eba44fbe682752985f1fb, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Senin_01
+  m_EditorClassIdentifier: 
+  decisionId: 1
+  DecisionInfoText: Hari ini adalah hari senin yang baru dan Andi harus mempersiapkan
+    diri untuk hari-hari sekolah berikutnya. Dia banyak bermain game minggu lalu
+    dan dia pikir minggu ini akan menjadi minggu yang tenang. Namun di tengah perjalanan
+    ke sekolah, dia menyadari bahwa akan ada ujian minggu depan. Bukan ujian biasa,
+    melainkan ujian dari Pak Wu.
+  DecisionButtons:
+  - {fileID: 11400000, guid: db7a85586e1d26942a083e399b2372a3, type: 2}

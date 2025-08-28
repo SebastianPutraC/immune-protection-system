@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce796e6962da51042b65050b4a4fd6fc, type: 3}
+  m_Name: Bacteria
+  m_EditorClassIdentifier: 
+  unitId: 201
+  unitPrefab: {fileID: 6484644874592221341, guid: adadcc0cd6a16a246b52c2711bbe31c0, type: 3}
+  UnitName: Bakteri
+  unitType: 2
+  UnitHp: 80
+  UnitCost: 100
+  UnitSpeed: 4
+  UnitAtk: 25
+  UnitAtkSpeed: 0.8
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  RangedProjectile: {fileID: 0}
+  UnitSimpleDesc: 'Mikroorganisme prokariotik dengan tingkat replikasi tinggi. Memiliki
+    daya tahan yang kuat serta dapat beradaptasi dengan baik berdasarkan kondisi
+    lingkungan. Saat menginfeksi tubuh manusia, dapat mengeluarkan racun yang membunuh
+    sel dan menyebabkan penyakit.
+
+
+    Tipe bakteri ini memiliki toksin yang cukup
+    lemah sehingga hanya dapat digunakan untuk serangan jarak dekat
+
+'
+  UnitFullDesc: "Bakteri merupakan mikroorganisme yang strukturnya paling sederhana,
+    tetapi memiliki fleksibilitas metabolisme yang paling besar. Bakteri ditemukan
+    di hampir setiap habitat di bumi, termasuk di dalam dan di tubuh manusia. Bakteri
+    bersifat prokariotik karena materi genetikanya (DNA) tidak terbungkus dalam nukleus
+    sejati. \n\nBakteri umumnya dicirikan oleh tingkat replikasi yang tinggi. Kesederhanaan
+    sel bakteri memungkinkannya untuk merespons dan beradaptasi dengan cepat terhadap
+    perubahan kondisi lingkungan. Sebagian besar bakteri tidak berbahaya atau bermanfaat,
+    tetapi beberapa bersifat patogen yang menyebabkan penyakit pada manusia dan hewan
+    lainnya. Bahaya yang disebabkan oleh bakteri pada tubuh adalah replikasi yang
+    tinggi serta pengeluaran toksin yang berupa racun yang menyebabkan penyakit pada
+    tubuh.\n\nTipe bakteri ini memiliki toksin yang cukup lemah sehingga hanya dapat
+    digunakan untuk serangan jarak dekat"
+  UnitSprite: {fileID: 21300000, guid: 2ae32c94772e318449da412f94308327, type: 3}
+  UnitAbility:
+  - {fileID: 11400000, guid: 4f04394a51761aa4a96e24cf1e97c3aa, type: 2}
+  boomCost: 400
+  bossCost: 500

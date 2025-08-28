@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Rabu_Decision_05
+  m_EditorClassIdentifier: 
+  decisionId: 5
+  DecisionInfoText: Andi beristirahat sejenak saat berada di rumah. Menonton beberapa
+    acara TV dan bermain beberapa permainan. Selesai permainan, ia mengingatkan dirinya
+    sendiri bahwa ia perlu belajar untuk ujian matematika. Ia memeriksa apa yang
+    harus dipelajarinya, dan ia menyadari bahwa itu adalah subjek yang sama dengan
+    apa yang dipelajarinya dalam pelajaran hari ini. Tampaknya akan lebih baik untuk
+    mempraktikkan apa yang telah dipelajarinya. Lagi pula, Andi tidak mau menambah
+    beban untuk hari esok.
+  DecisionButtons:
+  - {fileID: 11400000, guid: 67673b9121161ac42865ff08343c3dd1, type: 2}
+  - {fileID: 11400000, guid: 134b0a877ef5ca04299acf9aa0b1b993, type: 2}

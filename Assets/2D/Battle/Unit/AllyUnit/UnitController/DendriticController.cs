@@ -1,0 +1,104 @@
+using System;
+using UnityEngine;
+
+public class DendriticController : AllyUnitController, IInflammator, IPresenter
+{
+    private int resourcePointWhenDamaged = 10;
+
+    [SerializeField] private DetectionTrigger antigenDetect;
+    [SerializeField] private Transform antigenCarryPosition;
+    private AntigenController carriedAntigen;
+
+    [SerializeField] private ParticleSystem inflammationEffect;
+
+    public Action<int> InflammatoryActivated { get; set; }
+    public Action<int> AntigenPresented { get; set; }
+    public bool isPresenting { get; set; }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        antigenDetect.enemyDetected += GetAntigen;
+        isPresenting = true;
+        antigenDetect.gameObject.SetActive(true);
+    }
+
+    public void GetAntigen(UnitController antigen)
+    {
+        if (isPresenting)
+        {
+            if (carriedAntigen == null)
+            {
+                if (antigen is not AntigenController)
+                {
+                    return;
+                }
+                else
+                {
+                    AntigenController carriedAntigen = (AntigenController)antigen;
+                    carriedAntigen.ObjectCarried();
+                    carriedAntigen.transform.parent = antigenCarryPosition;
+                    carriedAntigen.transform.position = antigenCarryPosition.position;
+
+                    if (carriedAntigen != null)
+                    {
+                        this.carriedAntigen = carriedAntigen;
+                    }
+                    ReturnToBase();
+                }
+            }
+        }
+    }
+    protected override void Update()
+    {
+        if (noMoreRoute && isReturning && carriedAntigen != null)
+        {
+            ArrivedAtBase();
+        }
+        base.Update();
+    }
+    public override void ProcessAbility(AbilityId ability)
+    {
+        base.ProcessAbility(ability);
+        switch (ability)
+        {
+            case AbilityId.APC:
+                if (isPresenting)
+                {
+                    isPresenting = false;
+                    antigenDetect.gameObject.SetActive(false);
+                }
+                else
+                {
+                    isPresenting = true;
+                    antigenDetect.gameObject.SetActive(true);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    public void ReturnToBase()
+    {
+        isReturning = true;
+        GetNewWaypoint(false, isReturning);
+    }
+    public void ArrivedAtBase()
+    {
+        AntigenPresented?.Invoke(carriedAntigen.intelAmount);
+        Destroy(this.gameObject);
+    }
+
+    public override void DealDamage(float damage)
+    {
+        base.DealDamage(damage);
+        InflammatoryActivated?.Invoke(resourcePointWhenDamaged);
+        inflammationEffect.Play();
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        antigenDetect.enemyDetected -= GetAntigen;
+    }
+}

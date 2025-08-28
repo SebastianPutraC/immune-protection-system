@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Level2_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: 'Neutrofil memiliki kemampuan untuk melepaskan fibril matriks
+    dari DNA dan protein anti-mikrobial untuk menjebak dan membunuh patogen. Apa
+    jenis kemampuan neutrofil tersebut? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: a4dd7fb5a7965fd41a2169112d0bcb19, type: 2}
+  - {fileID: 11400000, guid: cc666bbcc7a77cd438b01b9691379d59, type: 2}
+  - {fileID: 11400000, guid: 04723904b0b31a04bb050d2b2ecc6c95, type: 2}
+  - {fileID: 11400000, guid: 8c8330269218f294885d43c173077d61, type: 2}

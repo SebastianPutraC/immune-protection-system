@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce796e6962da51042b65050b4a4fd6fc, type: 3}
+  m_Name: ToxinWorms
+  m_EditorClassIdentifier: 
+  unitId: 206
+  unitPrefab: {fileID: 2090285157580098431, guid: 53a7bcc002c44184780ff4742678615f, type: 3}
+  UnitName: Cacing Toksin
+  unitType: 2
+  UnitHp: 150
+  UnitCost: 400
+  UnitSpeed: 2
+  UnitAtk: 12
+  UnitAtkSpeed: 0.2
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  RangedProjectile: {fileID: 0}
+  UnitSimpleDesc: "Makro organisme multiseluler invertebrata yang menginfeksi tubuh
+    manusia. Cacing Parasit memakan nutrisi dalam tubuh inang untuk hidup dan menyebabkan
+    penyakit. \n\nTipe cacing parasit ini memanfaatkan zat beracun dalam bentuk serangan
+    Area of Effect untuk menghindari kematian oleh sel imun."
+  UnitFullDesc: "Cacing parasit adalah makhluk multiseluler invertebrata dengan tubuh
+    yang panjang, pipih, atau melingkar. Mahluk ini bukan termasuk mikroorganisme
+    tetapi sudah merupakan makro organisme binatang. Cacing parasit hidup di habitat
+    air dan darat, baik sebagai parasit atau bukan. Mahluk ini dapat menginfeksi
+    berbagai spesies, termasuk manusia. Cacing parasit yang masuk ke dalam tubuh
+    hidup dengan memakan nutrisi dari inang yang terinfeksi, ini menyebabkan inangnya
+    menjadi sakit. \n\nCacing parasit tidak dapat bereproduksi sepenuhnya di dalam
+    tubuh inangnya, dan beberapa fase siklus hidup dari cacing terjadi di luar inangnya.
+    Ada banyak jenis cacing parasit, mulai dari ukuran kurang dari satu milimeter
+    hingga lebih dari satu meter. Untuk hidup dalam tubuh inang, cacing mengeluarkan
+    suatu zat yang mempengaruhi dan menekan sistem imun tubuh.\n\nTipe cacing parasit
+    ini memanfaatkan zat beracun dalam bentuk serangan Area of Effect untuk menghindari
+    kematian oleh sel imun."
+  UnitSprite: {fileID: 21300000, guid: b7b8e8ecdb8ab6348bc3c101bb19bb9f, type: 3}
+  UnitAbility:
+  - {fileID: 11400000, guid: 1c236f4f6d7f7134598a64600851fcd6, type: 2}
+  boomCost: 400
+  bossCost: 500

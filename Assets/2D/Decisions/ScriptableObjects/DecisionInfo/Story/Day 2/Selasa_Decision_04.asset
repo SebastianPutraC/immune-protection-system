@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Selasa_Decision_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: '"Aaahh, kamu pasti bercanda, kamu masih punya flick yang masih
+    siap, kenapa tidak kamu gunakan itu!?"
+
+    
+
+    Situasi di meda permainan
+    suram, timnya dalam posisi yang kurang menguntungkan dan hanya Kiki yang bisa
+    memberikan perlawanan yang layak. Kiki mengembuskan asap rokok yang telah dia
+    hisap selama 15 menit terakhir. Saat mulai permainan, Andi telah memakai masker
+    dan menjaga jarak (Ia tahu ini akan terjadi). Ia melirik sebungkus rokok yang
+    diberikan oleh Kiki.
+
+'
+  DecisionButtons:
+  - {fileID: 11400000, guid: 6f792620f330b2841a906f93bd7f8ce3, type: 2}
+  - {fileID: 11400000, guid: 3540678e4996ede409ea13e062bcb84a, type: 2}

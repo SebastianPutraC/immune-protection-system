@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Level6_04
+  m_EditorClassIdentifier: 
+  decisionId: 4
+  DecisionInfoText: 'Setelah mendapatkan informasi mengenai patogen yang menyerang
+    tubuh, Sel Plasma akan membentuk suatu zat untuk melawannya. Apa yang diproduksi
+    oleh Sel Plasma tersebut? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: 00bd2efd0a48b94439ea663bfe7124a1, type: 2}
+  - {fileID: 11400000, guid: a9995038022f1314bb4591798c9ce508, type: 2}
+  - {fileID: 11400000, guid: 5ba5a28dc1d6b514098d15fda824179c, type: 2}
+  - {fileID: 11400000, guid: 06a1993f113712b43a8ae92a530dc86c, type: 2}

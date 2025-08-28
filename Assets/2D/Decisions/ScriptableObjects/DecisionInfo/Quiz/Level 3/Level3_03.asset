@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Level3_03
+  m_EditorClassIdentifier: 
+  decisionId: 3
+  DecisionInfoText: 'Eosinophil dapat mengeluarkan enzim yang beracun kepada patogen.
+    Apa jenis enzim tersebut? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: befe1e78162e4e44da7236528ee3c86f, type: 2}
+  - {fileID: 11400000, guid: 47ca8f178511b194894ce25d0100442b, type: 2}
+  - {fileID: 11400000, guid: 0dfb392e19a70b248be02216adc37f3d, type: 2}
+  - {fileID: 11400000, guid: f5b802b4615c583468eaed67a4d46c28, type: 2}

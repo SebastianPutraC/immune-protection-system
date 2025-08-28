@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3e95ddea1bf9e438460d43bcea271e, type: 3}
+  m_Name: Macrophage
+  m_EditorClassIdentifier: 
+  unitId: 101
+  unitPrefab: {fileID: -7990361922441071847, guid: fd34849a8657eee448e36acd62b24178, type: 3}
+  UnitName: Makrofag
+  unitType: 1
+  UnitHp: 100
+  UnitCost: 100
+  UnitSpeed: 5
+  UnitAtk: 35
+  UnitAtkSpeed: 0.8
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  RangedProjectile: {fileID: 0}
+  UnitSimpleDesc: Makrofag merupakan sel imun bawaan yang sebelumnya berupa sel monosit
+    yang menjadi dewasa setelah mencapai jaringan. Makrofag membunuh patogen dengan
+    fagostosis serta memanggil sel imun lain ke situs infeksi melalui induksi inflamasi.
+    Makrofag juga merupakan APC (Antigen Presenting Cell) yang profesional sehingga
+    dapat membawa informasi antigen ke sel imun adaptif di jaringan limfoid.
+  UnitFullDesc: "Makrofag merupakan sel imun bawaan yang sebelumnya berupa sel monosit
+    dewasa yang sudah mencapai jaringan tisu. Dalam sel darah putih, monosit berjumlah
+    sekitar 3% - 8% dari sel. Sel ini berasal dari sumsum tulang dan berada di hampir
+    seluruh jaringan dan beredar dalam darah. \n\r\nMakrofag memiliki berbagai fungsi
+    sebagai sel sistem imun. Pertahanan pertama yang dilakukan pertama oleh makrofag
+    berupa fungsi fagosistosis. Fungsi ini berupa menelan dan melingkupi patogen
+    dalam suatu vesikel bernama fagosom. Setelah di dalam fagosom, organel lisosom
+    dengan enzimnya antimikrobial menghancurkan patogen. Ini membunuh mikroorganisme
+    yang telah ditelan.\n \r\nFungsi lain adalah berperan sebagai APC (Antigen-Presenting
+    Cells). Fungsi ini berupa memberikan antigen dari patogen kepada sel imun adaptif
+    untuk mengenali dan merespons kepada patogen tersebut. Ini juga mengaktifkan
+    sel limfosit T dan mengaktifkannya. \n\r\nMakrofag juga dapat melakukan  induksi
+    inflamasi dengan melakukan sekresi protein berupa sitokin dan kemokin. Kedua
+    protein tersebut bertugas untuk merekrut sel imun lain ke daerah yang terinfeksi.
+    Selain itu, terjadi peningkatan aliran darah untuk membawa sel imun lain. \n\r\nOleh
+    karena fungsi presentasi antigen yang menjadi ciri utama makrofag, Makrofag merupakan
+    salah satu sel imun yang menjadi APC profesional. \r\n"
+  UnitSprite: {fileID: 21300000, guid: 489ba453f8f9df544925cecdfeedeab4, type: 3}
+  UnitAbility:
+  - {fileID: 11400000, guid: da17486cfc5ff7f47b727db8b078c117, type: 2}
+  - {fileID: 11400000, guid: baf85f090db5afb4cbbd496c01e865f1, type: 2}
+  - {fileID: 11400000, guid: 9f5b398528062d749948a9a5e7b8a290, type: 2}
+  ImmuneCellType: 1

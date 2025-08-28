@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Senin_Decision_06
+  m_EditorClassIdentifier: 
+  decisionId: 6
+  DecisionInfoText: "Saat menunggu bapak menjemputnya, dia mencium sesuatu yang mengganggunya.\n\r\n\"Yo,
+    Andi, kamu masih di sini?\"\r\nTentu saja, itu Kiki.\n\"Hari yang melelahkan,
+    ya? Ayo merokok bareng.\"\r\nKiki menawarinya rokok. \n\r\n\"Tidak pernah bosan
+    dengan ini, ini benar-benar menenangkan pikiranku. Kamu tahu minggu depan akan
+    ada ujian, kan? Wah, aku berharap sesuatu terjadi pada Tuan Wu...\".\r\n"
+  DecisionButtons:
+  - {fileID: 11400000, guid: 287c702931c310147ad63fc899067507, type: 2}
+  - {fileID: 11400000, guid: 9ab7e8a466875894e92054ef4dc87429, type: 2}

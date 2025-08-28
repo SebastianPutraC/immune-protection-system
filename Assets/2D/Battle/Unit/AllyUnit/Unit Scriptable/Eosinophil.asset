@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3e95ddea1bf9e438460d43bcea271e, type: 3}
+  m_Name: Eosinophil
+  m_EditorClassIdentifier: 
+  unitId: 103
+  unitPrefab: {fileID: 845116143720167099, guid: 4786f36ae797edb428162bc68b1ff8db, type: 3}
+  UnitName: Eosinofil
+  unitType: 1
+  UnitHp: 75
+  UnitCost: 225
+  UnitSpeed: 4
+  UnitAtk: 10
+  UnitAtkSpeed: 0.2
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  RangedProjectile: {fileID: 0}
+  UnitSimpleDesc: Tidak sebanyak Neutrofil dalam sel darah putih, Eosinofil membantu
+    pertahanan sel imun tubuh dengan mengeluarkan toksin dari enzim dan protein yang
+    merusak membran patogen di sekitarnya serta membunuhnya. Eosinofil juga memiliki
+    kemampuan EET (Eosinofil Extracellular Trap) yang menggunakan kandungan DNA Eosinofil
+    untuk membentuk jaring yang menjebak patogen, mencegah penyebaran, menetralkan,
+    dan membunuh mereka.
+  UnitFullDesc: "Eosinofil berasal dari tempat yang sama dengan neutrofil tetapi
+    memiliki jumlah yang lebih sedikit yaitu sekitar 2% - 4% dalam sel darah putih.
+    \n\n\rSel ini memiliki enzim yang dikeluarkan dari graunla dalam bentuk EPO (Eosinophil
+    Peroxidase) yang beracun bagi kepada patogen. Ini tidak membutuhkan interaksi
+    intraseluler sehingga Eosinofil tidak perlu menyentuh patogen yang ingin dibunuh.\n\r\nSelain
+    penggunaan toksin, Eosinofil juga memiliki fungsi yang sama seperti neutrofil
+    berupa EET (Eosinofil Extracellular Traps). Ini menggunakan kandungan DNA dari
+    sel yang dilapisi dengan peptida antimikroba dan dilepaskan. Kandungan ini membentuk
+    jaring yang menjebak patogen, mencegah penyebaran, menetralkan, dan membunuh
+    mereka.\r\n"
+  UnitSprite: {fileID: 21300000, guid: bb9765a89c9bda54ea832085636eb376, type: 3}
+  UnitAbility:
+  - {fileID: 11400000, guid: 71bfae75e31cd5a4983510aa3fe93d43, type: 2}
+  - {fileID: 11400000, guid: 203140017ee78b049875ef079ee5e13e, type: 2}
+  ImmuneCellType: 1

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a139550b3f31e114981a4e86e527364d, type: 3}
+  m_Name: Level Three
+  m_EditorClassIdentifier: 
+  levelId: 4
+  levelName: Rabu
+  allyUnits: 6500000066000000670000006a00000069000000
+  enemyUnits: c9000000ca000000cc000000
+  defaultStatingResource: 0
+  defaultIncome: 100
+  levelIdUnlock: 5
+  unlockIntelPoint: 100
+  allyBaseMaxHP: 10
+  maxRepairPoints: 10
+  enemyStartingResource: 200
+  enemyIncome: 100
+  DecisionInfos:
+  - {fileID: 11400000, guid: 3b07e6adbf9f53d428ae3c85aaa3cea7, type: 2}
+  - {fileID: 11400000, guid: fa888856e31b94d4e87dd38e3e40660b, type: 2}
+  - {fileID: 11400000, guid: 1edb20fdc1b28944aa342e6e15689e5e, type: 2}
+  - {fileID: 11400000, guid: c20efaafe8b7cb94680b4543dba4c091, type: 2}
+  - {fileID: 11400000, guid: 1a08fe41b1071524a88f46be748c7eb0, type: 2}
+  QuizInfos:
+  - {fileID: 11400000, guid: ce86cd8b901acdc40a7f2bba0eb9b867, type: 2}
+  - {fileID: 11400000, guid: 629bf1a70cd45ed4c85effda5822e8fb, type: 2}
+  - {fileID: 11400000, guid: c2eedfe4052790b44a56fa29a67f4845, type: 2}
+  - {fileID: 11400000, guid: dcfae29a4a5659144a97c695cdce8190, type: 2}
+  - {fileID: 11400000, guid: 068a98122577e11458273a4ecaf64e93, type: 2}
+  IntroInfos:
+  - {fileID: 11400000, guid: 5470008eb481d8d41843e2034499e0de, type: 2}
+  - {fileID: 11400000, guid: 8b68bbc4f8a74af4381a0b956b077fce, type: 2}
+  - {fileID: 11400000, guid: 3c6e7ad9d00ce104ba43219946f5b7a2, type: 2}
+  - {fileID: 11400000, guid: 215f6a438f195eb489bafbebad51c602, type: 2}
+  - {fileID: 11400000, guid: 8b59397f5baeeb4409bd19a2a1b7644f, type: 2}
+  - {fileID: 11400000, guid: 8f35125251464894389d8a78c3761d59, type: 2}
+  - {fileID: 11400000, guid: dfe10b0330e54f54eb67cc8face93de8, type: 2}
+  levelPrefab: {fileID: 3481419003891693231, guid: 302364f69ae7a8442be1675b08db7e2b, type: 3}
+  levelMapSprite: {fileID: 21300000, guid: 5c7b01f102be6d044a872516983f6798, type: 3}
+  skipIntroIndex: 
+  bossUnit: 0
+  boomUnit: 202
+  randomUnit: c9000000ca000000cc000000

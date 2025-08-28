@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a139550b3f31e114981a4e86e527364d, type: 3}
+  m_Name: Level Five
+  m_EditorClassIdentifier: 
+  levelId: 6
+  levelName: Jumat
+  allyUnits: 6500000066000000670000006a00000069000000680000006b000000
+  enemyUnits: c9000000ca000000cc000000cb000000cd000000
+  defaultStatingResource: 0
+  defaultIncome: 100
+  levelIdUnlock: 7
+  unlockIntelPoint: 150
+  allyBaseMaxHP: 10
+  maxRepairPoints: 10
+  enemyStartingResource: 150
+  enemyIncome: 125
+  DecisionInfos:
+  - {fileID: 11400000, guid: f59a22da970db3c4381ea742a22a24a8, type: 2}
+  - {fileID: 11400000, guid: 9bf4c8a528318b64394538ec37ba4ca2, type: 2}
+  - {fileID: 11400000, guid: 81b9cb0296c89924e8466849073cc256, type: 2}
+  - {fileID: 11400000, guid: 137eb8855a5844147ba7c901660b3d87, type: 2}
+  - {fileID: 11400000, guid: a8ecaf680a642f84d90535e26b63107c, type: 2}
+  QuizInfos:
+  - {fileID: 11400000, guid: 41b08c248db590c41a5bd25cc5c23626, type: 2}
+  - {fileID: 11400000, guid: ea81e328d1fef9e49abd6f7ac792a775, type: 2}
+  - {fileID: 11400000, guid: 9cd96f9366604c84496aad220af18323, type: 2}
+  - {fileID: 11400000, guid: 7e04b5abc409c4249a8d37c8cf02717c, type: 2}
+  - {fileID: 11400000, guid: 4340ecd5c60728d48b8fe50eb6764b08, type: 2}
+  IntroInfos:
+  - {fileID: 11400000, guid: 848ab5cf9566a8c4b875ce317dd36676, type: 2}
+  - {fileID: 11400000, guid: a86401a5791c86d408e46da9070db762, type: 2}
+  - {fileID: 11400000, guid: 458292d747f15e14090738cf34a2cf37, type: 2}
+  - {fileID: 11400000, guid: 631b03fcf31d84f4fb516a4fb10fc31f, type: 2}
+  - {fileID: 11400000, guid: 9ebfe43bae46a86489ff5fa67a9b797a, type: 2}
+  - {fileID: 11400000, guid: 6f4b4bfc73ca26e418a1405c5dc2fd46, type: 2}
+  - {fileID: 11400000, guid: 5e02e8b888883204b876388addc3e87e, type: 2}
+  levelPrefab: {fileID: 3481419003891693231, guid: 735793eff22aae440aa8865499ac32b5, type: 3}
+  levelMapSprite: {fileID: 21300000, guid: 40e590727180f764b94823a0fe95ccd3, type: 3}
+  skipIntroIndex: 
+  bossUnit: 0
+  boomUnit: 203
+  randomUnit: c9000000ca000000cc000000cd000000cb000000

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce796e6962da51042b65050b4a4fd6fc, type: 3}
+  m_Name: ToxinBacteria
+  m_EditorClassIdentifier: 
+  unitId: 205
+  unitPrefab: {fileID: 7680385263827990958, guid: 5a34c0fa4d64f5a449fa663c031c3b21, type: 3}
+  UnitName: Bakteri Toksin
+  unitType: 2
+  UnitHp: 80
+  UnitCost: 200
+  UnitSpeed: 3
+  UnitAtk: 7.5
+  UnitAtkSpeed: 0.2
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  RangedProjectile: {fileID: 0}
+  UnitSimpleDesc: 'Mikroorganisme prokariotik dengan tingkat replikasi tinggi. Memiliki
+    daya tahan yang kuat serta dapat beradaptasi dengan baik berdasarkan kondisi
+    lingkungan. Saat menginfeksi tubuh manusia, dapat mengeluarkan racun yang membunuh
+    sel dan menyebabkan penyakit.
+
+
+    Tipe bakteri ini memiliki toksin yang kuat
+    sehingga memiliki kemampuan untuk serangan Area of Effect (AOE)
+
+'
+  UnitFullDesc: "Bakteri merupakan mikroorganisme yang strukturnya paling sederhana,
+    tetapi memiliki fleksibilitas metabolisme yang paling besar. Bakteri ditemukan
+    di hampir setiap habitat di bumi, termasuk di dalam dan di tubuh manusia. Bakteri
+    bersifat prokariotik karena materi genetikanya (DNA) tidak terbungkus dalam nukleus
+    sejati. \n\nBakteri umumnya dicirikan oleh tingkat replikasi yang tinggi. Kesederhanaan
+    sel bakteri memungkinkannya untuk merespons dan beradaptasi dengan cepat terhadap
+    perubahan kondisi lingkungan. Sebagian besar bakteri tidak berbahaya atau bermanfaat,
+    tetapi beberapa bersifat patogen yang menyebabkan penyakit pada manusia dan hewan
+    lainnya. Bahaya yang disebabkan oleh bakteri pada tubuh adalah replikasi yang
+    tinggi serta pengeluaran toksin yang berupa racun yang menyebabkan penyakit pada
+    tubuh.\n\nTipe bakteri ini memiliki toksin yang kuat sehingga memiliki kemampuan
+    untuk serangan Area of Effect (AOE)"
+  UnitSprite: {fileID: 21300000, guid: c40358feec5c36041a16fadea97b22d8, type: 3}
+  UnitAbility:
+  - {fileID: 11400000, guid: 1c236f4f6d7f7134598a64600851fcd6, type: 2}
+  boomCost: 400
+  bossCost: 500

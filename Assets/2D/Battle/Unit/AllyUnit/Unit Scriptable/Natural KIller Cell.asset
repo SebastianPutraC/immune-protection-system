@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3e95ddea1bf9e438460d43bcea271e, type: 3}
+  m_Name: Natural KIller Cell
+  m_EditorClassIdentifier: 
+  unitId: 104
+  unitPrefab: {fileID: 7492695235832587713, guid: e8fb5cbd8f30d3c4081e6a11e62da6b4, type: 3}
+  UnitName: Sel Pembunuh Alami
+  unitType: 1
+  UnitHp: 75
+  UnitCost: 300
+  UnitSpeed: 7
+  UnitAtk: 0
+  UnitAtkSpeed: 0
+  UnitRangedAtk: 0
+  UnitRangedAtkSpeed: 0
+  RangedProjectile: {fileID: 0}
+  UnitSimpleDesc: Sel Pembunuh Alami merupakan sel limfosit yang berkeluarga dengan
+    sel T limfosit dan sel B. Perbedaannya, sel ini tidak membutuhkan aktivasi dari
+    sel lain tetapi berperan sebagai salah satu sel imun bawaan. Sel ini berperan
+    dalam menjaga tubuh dengan kemampuannya untuk membunuh sel tumor, kanker, atau
+    sel yang sudah terinfeksi oleh patogen. Ini memanfaatkan protein yang dimasukkan
+    ke sel untuk mengaktivasikan Apoptosis atau kematian sel terprogram.
+  UnitFullDesc: "Sel Pembunuh Alami merupakan sel limfosit yang berkeluarga dengan
+    sel T limfosit dan sel B. Perbedaannya, sel ini tidak membutuhkan aktivasi dari
+    sel lain tetapi berperan sebagai salah satu sel imun bawaan. \n\r\nSel ini berperan
+    dalam menjaga tubuh dengan kemampuannya untuk membunuh sel tumor, kanker, atau
+    sel yang sudah terinfeksi oleh patogen. Deteksi oleh sel ini berupa merasakan
+    ekspresi molekul MHC yang berada dalam sel tubuh. \n\r\nJika sel sudah terinfeksi
+    oleh patogen, maka ekspresi dari molekul MHC menurun. Inilah yang menentukan
+    apakah Sel Pembunuh Alami akan terpicu untuk membunuh sel tersebut. Untuk membunuh
+    sel target, sel ini memanfaatkan granula yang dimilikinya berupa protein granzim
+    dan perforin yang menyebabkan Apoptosis atau kematian sel terprogram.\r\n"
+  UnitSprite: {fileID: 21300000, guid: e1c6ef6fdc6ee7a468a7bdb74fb2eea4, type: 3}
+  UnitAbility:
+  - {fileID: 11400000, guid: af1579f264e992e4899ed33fbc0f3f6c, type: 2}
+  ImmuneCellType: 1

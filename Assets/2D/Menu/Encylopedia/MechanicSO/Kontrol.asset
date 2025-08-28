@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541447a9a3c69c645a346870b142eaff, type: 3}
+  m_Name: Kontrol
+  m_EditorClassIdentifier: 
+  mechanicTitle: Kontrol Permainan
+  mechanicDescription: "Tombol Kiri Mouse: Navigasi Menu, Memilih Unit, Memilih Kemampuan
+    Manual, Mengerahkan Unit\n\r\nTombol Kiri Mouse (Drag) : Menavigasi medan permainan\n\r\nTombol
+    Kanan Mouse : membatalkan kartu Unit yang terpilih\n\r\nEscape (Esc) : Jeda permainan
+    saat di level\n\r\n1 \u2013 5 : Memilih tempat \u201CSpawn\u201D berdasarkan
+    nomor spawner di medan permainan\n\r\nQ : Menghentikan Unit yang terpilih (Saat
+    Unit sedang bergerak)\n\r\nE : Menggerakkan Unit yang terpilih (Saat unit berhenti)\n\r\nZ
+    : Menghentikan seluruh Unit Pemain\n\r\nC : Menggerakkan seluruh Unit Pemain\r"

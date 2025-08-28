@@ -1,0 +1,21 @@
+public enum UnitId
+{
+    NONE = 0,
+    MACROPHAGE = 101,
+    NEUTROPHIL = 102,
+    EOSINOPHIL = 103,
+    NATURALKILLER = 104,
+    DENDRITIC = 105,
+
+    PLASMACELL = 106,
+    TKILLER = 107,
+    THELPER = 108,
+
+
+    BACTERIA = 201,
+    VIRUS = 202,
+    WORMS = 203,
+    FASTVIRUS = 204,
+    TOXINBACTERIA = 205,
+    TOXINWORMS = 206,
+}

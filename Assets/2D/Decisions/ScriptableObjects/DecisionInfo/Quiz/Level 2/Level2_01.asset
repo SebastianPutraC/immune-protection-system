@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f557e2402d98494f958a302c56e18e9, type: 3}
+  m_Name: Level2_01
+  m_EditorClassIdentifier: 
+  decisionId: 1
+  DecisionInfoText: 'Sel darah putih apa yang akan berubah menjadi makrofag sebelum
+    sel tersebut menjadi dewasa dan mencapai jaringan? '
+  DecisionButtons:
+  - {fileID: 11400000, guid: 4c7f066dc8c12df448c4cb2b6ee99d62, type: 2}
+  - {fileID: 11400000, guid: 04c227735a707b44d817b1f77bb0fbad, type: 2}
+  - {fileID: 11400000, guid: 81ee336141b884c47812a652d3ebf585, type: 2}
+  - {fileID: 11400000, guid: f16880d8fed0c1941b0ea30ec04f03ca, type: 2}
